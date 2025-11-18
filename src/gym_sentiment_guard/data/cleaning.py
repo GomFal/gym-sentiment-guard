@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Iterable
 
@@ -10,6 +11,27 @@ import pandas as pd
 from ..utils import get_logger, json_log
 
 log = get_logger(__name__)
+
+EMOJI_PATTERN = re.compile(
+    '['
+    '\U0001F300-\U0001F5FF'  # symbols & pictographs
+    '\U0001F600-\U0001F64F'  # emoticons
+    '\U0001F680-\U0001F6FF'  # transport & map
+    '\U0001F700-\U0001F77F'  # alchemical symbols
+    '\U0001F780-\U0001F7FF'  # geometric shapes extended
+    '\U0001F800-\U0001F8FF'  # supplemental arrows-c
+    '\U0001F900-\U0001F9FF'  # supplemental symbols & pictographs
+    '\U0001FA00-\U0001FAFF'  # symbols and pictographs extended-a
+    '\U00002702-\U000027B0'  # dingbats
+    '\U000024C2-\U0001F251'  # enclosed characters
+    '\U0001F1E6-\U0001F1FF'  # flags
+    '\U0001F018-\U0001F270'
+    '\U0001F600-\U0001F636'
+    '\U0001F681-\U0001F6C5'
+    '\U0001F30D-\U0001F567'
+    ']+',
+    flags=re.UNICODE,
+)
 
 
 def normalize_comments(
@@ -97,11 +119,14 @@ def enforce_expectations(
         raise ValueError(f"Missing required columns: {missing}")
 
     series = df[text_column].fillna("").astype(str)
-    mask = series.str.len() >= int(min_text_length)
+    cleaned_series = series.str.replace(EMOJI_PATTERN, '', regex=True)
+    removed_emojis = int(((series != cleaned_series) & series.str.strip().astype(bool)).sum())
+    mask = cleaned_series.str.len() >= int(min_text_length)
     if drop_null_comments:
-        mask &= series.str.strip() != ""
+        mask &= cleaned_series.str.strip() != ""
 
     filtered = df.loc[mask].copy()
+    filtered[text_column] = cleaned_series[mask]
     filtered.to_csv(output_path, index=False)
 
     log.info(
@@ -113,6 +138,7 @@ def enforce_expectations(
             rows_in=len(df),
             rows_out=len(filtered),
             min_text_length=min_text_length,
+            emoji_stripped=removed_emojis,
         ),
     )
     return output_path

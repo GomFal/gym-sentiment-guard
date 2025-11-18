@@ -24,6 +24,8 @@ gym-sentiment-guard/
 ├─ pyproject.toml
 ├─ README.md
 ├─ AGENTS.md
+├─ docs/
+│  └─ CLEANING_NOTES.md       # canonical record of cleaning/preprocess decisions
 ├─ Makefile
 ├─ configs/
 │  ├─ training.yaml            # model, vectorizer, split, metrics
