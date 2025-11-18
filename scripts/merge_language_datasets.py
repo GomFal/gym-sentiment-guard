@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
+#Change to merge only certain folders. E.g: LANGUAGE_DIRS = {"it"}
 LANGUAGE_DIRS = {"es", "pt", "it", "en"}
 
 

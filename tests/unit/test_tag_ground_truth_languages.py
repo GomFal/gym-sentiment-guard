@@ -13,13 +13,15 @@ def test_annotate_language_columns(tmp_path):
     es_dir.mkdir()
     en_dir.mkdir()
 
-    spanish_csv = es_dir / "reviews_es.csv"
-    english_csv = en_dir / "reviews_en.csv"
+    spanish_csv = es_dir / "reviews_es_non_processed.csv"
+    english_csv = en_dir / "reviews_en_non_processed.csv"
     pd.DataFrame({"comment": ["hola"]}).to_csv(spanish_csv, index=False)
     pd.DataFrame({"comment": ["hello"]}).to_csv(english_csv, index=False)
 
     updated = annotate_language_columns(root)
 
-    assert spanish_csv in updated and english_csv in updated
-    assert pd.read_csv(spanish_csv)["language"].tolist() == ["es"]
-    assert pd.read_csv(english_csv)["language"].tolist() == ["en"]
+    es_output = spanish_csv.with_name("reviews_es.csv")
+    en_output = english_csv.with_name("reviews_en.csv")
+    assert es_output in updated and en_output in updated
+    assert pd.read_csv(es_output)["language"].tolist() == ["es"]
+    assert pd.read_csv(en_output)["language"].tolist() == ["en"]
