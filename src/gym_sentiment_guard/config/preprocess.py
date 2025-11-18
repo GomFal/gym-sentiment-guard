@@ -22,6 +22,7 @@ class LanguageConfig:
     model_path: Path
     text_column: str = 'comment'
     batch_size: int = 512
+    enabled: bool = True
 
 
 @dataclass(frozen=True)
@@ -91,6 +92,7 @@ def load_preprocess_config(config_path: str | Path) -> PreprocessConfig:
         model_path=_resolve_path(base_dir, language_model_path),
         text_column=language_section.get('text_column', 'comment'),
         batch_size=int(language_section.get('batch_size', 512)),
+        enabled=bool(language_section.get('enabled', True)),
     )
 
     cleaning = CleaningConfig(

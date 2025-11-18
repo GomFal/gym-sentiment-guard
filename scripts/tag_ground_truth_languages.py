@@ -13,6 +13,7 @@ LANGUAGE_DIRS = {"es", "pt", "it", "en"}
 def annotate_language_columns(root_dir: str | Path) -> list[Path]:
     """
     Walk subdirectories under ``root_dir`` and inject a ``language`` column.
+    Only files ending in the suffix *_non_processed.csv will be annotated.
 
     Args:
         root_dir: Base directory containing language-specific subfolders.
@@ -32,9 +33,10 @@ def annotate_language_columns(root_dir: str | Path) -> list[Path]:
         language_code = language_dir.name.lower()
         if language_code not in LANGUAGE_DIRS:
             continue
-        for csv_path in language_dir.glob("*.csv"):
+        for csv_path in language_dir.glob("*_non_processed.csv"):
             df = pd.read_csv(csv_path)
             df["language"] = language_code
+            csv_path = csv_path.with_name(csv_path.name.replace("_non_processed", ""))
             df.to_csv(csv_path, index=False)
             updated_files.append(csv_path)
     return updated_files

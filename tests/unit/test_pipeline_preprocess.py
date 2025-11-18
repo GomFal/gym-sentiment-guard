@@ -92,3 +92,50 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     assert rejected['comment'].iloc[0] == 'this is english'
     assert 'es_confidence' in rejected.columns
     assert rejected['es_confidence'].iloc[0] == pytest.approx(0.15)
+
+
+def test_preprocess_reviews_skips_language_filter_when_disabled(tmp_path, monkeypatch):
+    raw_dir = tmp_path / 'data' / 'raw'
+    interim_dir = tmp_path / 'data' / 'interim'
+    processed_dir = tmp_path / 'data' / 'processed'
+    for path in (raw_dir, interim_dir, processed_dir):
+        path.mkdir(parents=True, exist_ok=True)
+
+    raw_csv = raw_dir / 'reviews.csv'
+    pd.DataFrame(
+        {'comment': ['Hola Mundo', 'Hello world'], 'rating': [5, 4]},
+    ).to_csv(raw_csv, index=False)
+
+    model_path = tmp_path / 'artifacts' / 'lid.176.bin'
+    model_path.parent.mkdir(parents=True, exist_ok=True)
+    model_path.write_text('stub')
+
+    cfg = PreprocessConfig(
+        paths=PathConfig(
+            raw_dir=raw_dir,
+            interim_dir=interim_dir,
+            processed_dir=processed_dir,
+        ),
+        language=LanguageConfig(
+            model_path=model_path,
+            text_column='comment',
+            batch_size=2,
+            enabled=False,
+        ),
+        cleaning=CleaningConfig(text_column='comment'),
+        dedup=DedupConfig(subset=('comment',)),
+        expectations=ExpectationsConfig(
+            required_columns=('comment', 'rating'),
+            min_text_length=3,
+            drop_null_comments=True,
+        ),
+    )
+
+    monkeypatch.setattr(language, '_load_fasttext_model', lambda _: DummyFastTextModel())
+
+    result = preprocess_reviews(raw_csv, cfg)
+
+    assert result.exists()
+    df = pd.read_csv(result)
+    assert len(df) == 2
+    assert 'non_spanish' not in [p.name for p in interim_dir.glob('*.csv')]

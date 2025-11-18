@@ -8,6 +8,7 @@ language:
   model_path: ../artifacts/external/lid.176.bin
   text_column: comment
   batch_size: 512
+  enabled: false    
 
 cleaning:
   text_column: comment

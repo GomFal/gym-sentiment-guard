@@ -73,15 +73,17 @@ def preprocess_reviews(
         subset=config.dedup.subset,
     )
 
-    filter_spanish_comments(
-        input_csv=dedup_path,
-        output_dir=interim_dir,
-        output_path=spanish_path,
-        rejected_output_path=non_spanish_path,
-        model_path=config.language.model_path,
-        text_column=config.language.text_column,
-        batch_size=config.language.batch_size,
-    )
+    language_enabled = config.language.enabled
+    if language_enabled:
+        filter_spanish_comments(
+            input_csv=dedup_path,
+            output_dir=interim_dir,
+            output_path=spanish_path,
+            rejected_output_path=non_spanish_path,
+            model_path=config.language.model_path,
+            text_column=config.language.text_column,
+            batch_size=config.language.batch_size,
+        )
 
     final_output = (
         Path(output_path).resolve()
@@ -89,7 +91,8 @@ def preprocess_reviews(
         else paths.processed_dir / f'{stem}.clean{suffix}'
     )
     final_output.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(spanish_path, final_output)
+    source_final = spanish_path if language_enabled else dedup_path
+    shutil.copy2(source_final, final_output)
 
     row_count = _count_rows(final_output)
     duration = time.perf_counter() - start
