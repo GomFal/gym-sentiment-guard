@@ -42,7 +42,7 @@ Current CLI command: `python -m gym_sentiment_guard.cli.main main preprocess --i
 
 | Step | Function | Output file | Description / Why |
 | --- | --- | --- | --- |
-| 1 | `enforce_expectations` | `data/interim/<stem>.validated.csv` | Ensures mandatory columns exist, drops rows with null/too-short text. Keeps garbage/empty reviews away from later steps and gives a deterministic baseline row count. |
+| 1 | `enforce_expectations` | `data/interim/<stem>.validated.csv` | Ensures mandatory columns exist, strips emojis (so emoji-only rows become empty), drops rows with null/too-short text. Keeps garbage/empty reviews away from later steps and gives a deterministic baseline row count. Logs `emoji_stripped` for observability. |
 | 2 | `normalize_comments` | `data/interim/<stem>.normalized.csv` | Lowercases, strips, and collapses whitespace so downstream vectorizers see consistent tokens and dedup operates on canonicalized text. |
 | 3 | `deduplicate_reviews` | `data/interim/<stem>.dedup.csv` | Removes duplicate rows (default subset: `comment`, `rating`, optional author ID). Prevents repeated reviews from biasing labels or metrics. |
 | 4 | `filter_spanish_comments` | `data/interim/<stem>.spanish.csv` & `data/interim/<stem>.non_spanish.csv` | Runs fastText LID after cleaning, keeps only `es` rows, and logs the rest with `es_confidence`. Outputs: Spanish subset for modeling and audit file for rejected reviews. |
