@@ -1,0 +1,164 @@
+{
+  "dataset": "data\\lid_eval\\eval_dataset\\merged_sampled_ground_truth.csv",
+  "model": "artifacts\\external\\lid.176.bin",
+  "accuracy": 0.979,
+  "report": {
+    "en": {
+      "precision": 0.9802371541501976,
+      "recall": 0.992,
+      "f1-score": 0.9860834990059643,
+      "support": 250.0
+    },
+    "eo": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "es": {
+      "precision": 0.9919678714859438,
+      "recall": 0.988,
+      "f1-score": 0.9899799599198397,
+      "support": 250.0
+    },
+    "fi": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "fr": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "gl": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "it": {
+      "precision": 0.9959183673469387,
+      "recall": 0.976,
+      "f1-score": 0.9858585858585859,
+      "support": 250.0
+    },
+    "nl": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "pt": {
+      "precision": 0.995850622406639,
+      "recall": 0.96,
+      "f1-score": 0.9775967413441955,
+      "support": 250.0
+    },
+    "ru": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "accuracy": 0.979,
+    "macro avg": {
+      "precision": 0.3963974015389719,
+      "recall": 0.3916,
+      "f1-score": 0.3939518786128585,
+      "support": 1000.0
+    },
+    "weighted avg": {
+      "precision": 0.9909935038474298,
+      "recall": 0.979,
+      "f1-score": 0.9848796965321464,
+      "support": 1000.0
+    }
+  },
+  "report_text": "              precision    recall  f1-score   support\n\n          en       0.98      0.99      0.99       250\n          eo       0.00      0.00      0.00         0\n          es       0.99      0.99      0.99       250\n          fi       0.00      0.00      0.00         0\n          fr       0.00      0.00      0.00         0\n          gl       0.00      0.00      0.00         0\n          it       1.00      0.98      0.99       250\n          nl       0.00      0.00      0.00         0\n          pt       1.00      0.96      0.98       250\n          ru       0.00      0.00      0.00         0\n\n    accuracy                           0.98      1000\n   macro avg       0.40      0.39      0.39      1000\nweighted avg       0.99      0.98      0.98      1000\n",
+  "num_samples": 1000,
+  "confidence_summary": {
+    "thresholds": {
+      "0.95": {
+        "count": 782,
+        "percentage": 78.2,
+        "metrics": {
+          "accuracy": 0.9974424552429667,
+          "precision": 1.0,
+          "recall": 0.9974424552429667,
+          "f1": 0.9987178459240472,
+          "count": 782
+        }
+      },
+      "0.90": {
+        "count": 882,
+        "percentage": 88.2,
+        "metrics": {
+          "accuracy": 0.9977324263038548,
+          "precision": 1.0,
+          "recall": 0.9977324263038548,
+          "f1": 0.998863653852705,
+          "count": 882
+        }
+      },
+      "0.85": {
+        "count": 917,
+        "percentage": 91.7,
+        "metrics": {
+          "accuracy": 0.9978189749182116,
+          "precision": 1.0,
+          "recall": 0.9978189749182116,
+          "f1": 0.9989071268105965,
+          "count": 917
+        }
+      },
+      "0.80": {
+        "count": 934,
+        "percentage": 93.4,
+        "metrics": {
+          "accuracy": 0.9957173447537473,
+          "precision": 0.9978673067624507,
+          "recall": 0.9957173447537473,
+          "f1": 0.9967852379151816,
+          "count": 934
+        }
+      },
+      "0.75": {
+        "count": 945,
+        "percentage": 94.5,
+        "metrics": {
+          "accuracy": 0.9957671957671957,
+          "precision": 0.997892097490491,
+          "recall": 0.9957671957671957,
+          "f1": 0.9968227397518613,
+          "count": 945
+        }
+      },
+      "0.50": {
+        "count": 972,
+        "percentage": 97.2,
+        "metrics": {
+          "accuracy": 0.9938271604938271,
+          "precision": 0.9969218106995885,
+          "recall": 0.9938271604938271,
+          "f1": 0.9953625641675485,
+          "count": 972
+        }
+      },
+      "0.25": {
+        "count": 988,
+        "percentage": 98.8,
+        "metrics": {
+          "accuracy": 0.9898785425101214,
+          "precision": 0.9939262386893583,
+          "recall": 0.9898785425101214,
+          "f1": 0.9918796897905886,
+          "count": 988
+        }
+      }
+    }
+  },
+  "confusion_matrix_image": "data\\lid_eval\\eval_dataset\\confusion_matrix.png"
+}
