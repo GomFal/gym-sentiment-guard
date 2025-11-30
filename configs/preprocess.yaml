@@ -8,7 +8,11 @@ language:
   model_path: ../artifacts/external/lid.176.bin
   text_column: comment
   batch_size: 512
-  enabled: false    
+  enabled: true    
+  confidence_threshold: 0.95       # whatever cutoff you want
+  fallback_enabled: true           # turn the LLM fallback on
+  fallback_endpoint: http://localhost:8000/detect_language     # full URL your LLM accepts POSTs at
+  fallback_api_key_env: GEMINI_API_KEY
 
 cleaning:
   text_column: comment

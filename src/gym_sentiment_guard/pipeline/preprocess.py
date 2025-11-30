@@ -10,6 +10,7 @@ import pandas as pd
 
 from ..config import PreprocessConfig
 from ..data import (
+    configure_language_fallback,
     deduplicate_reviews,
     enforce_expectations,
     filter_spanish_comments,
@@ -71,6 +72,13 @@ def preprocess_reviews(
         input_csv=normalized_path,
         output_path=dedup_path,
         subset=config.dedup.subset,
+    )
+
+    configure_language_fallback(
+        enabled=config.language.fallback_enabled,
+        threshold=config.language.confidence_threshold,
+        endpoint=config.language.fallback_endpoint,
+        api_key_env=config.language.fallback_api_key_env,
     )
 
     language_enabled = config.language.enabled

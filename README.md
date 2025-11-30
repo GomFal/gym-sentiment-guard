@@ -46,6 +46,32 @@ The following scripts in `scripts/` help build LID ground truth for the Google M
 - `python scripts/eval_fasttext_lid.py --data data/lid_eval/eval_dataset/merged_sampled_ground_truth.csv --model artifacts/external/models/lid.176.bin`
   - Loads the merged dataset, runs fastText predictions, prints overall accuracy plus per-language precision/recall/F1, writes `eval_results.json`, saves a confusion-matrix image (`confusion_matrix.png` by default), and reports coverage + accuracy/precision/recall/F1 for each confidence threshold (≥0.95/0.90/0.85/0.80/0.75) to design fallback policies.
 
+### LLM Fallback Service (Gemini)
+
+To use Gemini as the fallback language detector:
+
+1. Export your API key (e.g., PowerShell):  
+   ```powershell
+   $env:GEMINI_API_KEY = "your-key"
+   ```
+
+2. Start the FastAPI service:  
+   ```bash
+   uvicorn scripts.llm_service:app --reload --port 8000
+   ```
+
+3. In `configs/preprocess.yaml`, enable fallback:  
+   ```yaml
+   language:
+     ...
+     confidence_threshold: 0.75
+     fallback_enabled: true
+     fallback_endpoint: http://localhost:8000/detect_language
+     fallback_api_key_env: GEMINI_API_KEY
+   ```
+
+When fastText confidence drops below the threshold, the pipeline will POST the review to the running FastAPI service, which in turn calls Gemini and returns the ISO 639-1 language code.
+
 ## Design Decisions (LLM Chain-of-Thought)
 
 ### Language Identification Confidence Threshold

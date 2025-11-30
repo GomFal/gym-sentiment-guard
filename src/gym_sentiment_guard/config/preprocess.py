@@ -23,6 +23,10 @@ class LanguageConfig:
     text_column: str = 'comment'
     batch_size: int = 512
     enabled: bool = True
+    confidence_threshold: float = 0.75
+    fallback_enabled: bool = False
+    fallback_endpoint: Path | str | None = None
+    fallback_api_key_env: str | None = None
 
 
 @dataclass(frozen=True)
@@ -93,6 +97,10 @@ def load_preprocess_config(config_path: str | Path) -> PreprocessConfig:
         text_column=language_section.get('text_column', 'comment'),
         batch_size=int(language_section.get('batch_size', 512)),
         enabled=bool(language_section.get('enabled', True)),
+        confidence_threshold=float(language_section.get('confidence_threshold', 0.75)),
+        fallback_enabled=bool(language_section.get('fallback_enabled', False)),
+        fallback_endpoint=language_section.get('fallback_endpoint'),
+        fallback_api_key_env=language_section.get('fallback_api_key_env'),
     )
 
     cleaning = CleaningConfig(
