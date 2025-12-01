@@ -212,7 +212,7 @@ def _call_llm_language_detector(text: str) -> str | None:
         if api_key:
             headers['Authorization'] = f'Bearer {api_key}'
 
-    payload = {'input': text}
+    payload = {'text': text}
     try:
         response = requests.post(_FALLBACK_ENDPOINT, headers=headers, json=payload, timeout=30)
     except requests.RequestException as exc:
