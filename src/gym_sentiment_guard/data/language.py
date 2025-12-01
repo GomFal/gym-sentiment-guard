@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import os
 from collections.abc import Sequence
 from functools import lru_cache
-import os
 from pathlib import Path
 
 import fasttext
@@ -225,17 +225,16 @@ def _call_llm_language_detector(text: str) -> str | None:
         )
         return None
 
-    log.debug(
-        json_log(
-            'language_filter.llm_response',
-            component='data.language',
-            status=response.status_code,
-            response=response.text[:500],
-        ),
+    summary_entry = json_log(
+        'language_filter.llm_response',
+        component='data.language',
+        status=response.status_code,
+        response=response.text[:300],
     )
-
     if response.status_code >= 400:
+        log.warning(summary_entry)
         return None
+    log.debug(summary_entry)
 
     try:
         data = response.json()

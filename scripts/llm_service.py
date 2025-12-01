@@ -4,12 +4,15 @@ from __future__ import annotations
 
 import logging
 import os
-from typing import Any
 
 import requests
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(name)s %(levelname)s: %(message)s",
+)
 log = logging.getLogger("llm_service")
 
 app = FastAPI(title="LLM Language Detection Service", version="0.1.0")
@@ -21,7 +24,7 @@ class DetectRequest(BaseModel):
 
 class DetectResponse(BaseModel):
     language: str
-    raw_response: Any | None = None
+    #raw_response: Any | None = None
 
 
 def _call_gemini(text: str) -> str:
@@ -32,7 +35,7 @@ def _call_gemini(text: str) -> str:
 
     model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     endpoint = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
+        f"https://generativelanguage.googleapis.com/v1beta/models"
         f"{model}:generateContent?key={api_key}"
     )
 
@@ -48,18 +51,24 @@ def _call_gemini(text: str) -> str:
     }
 
     response = requests.post(endpoint, json=payload, timeout=30)
-    log.info("Gemini status %s response %s", response.status_code, response.text[:300])
+    log_fn = log.info if response.status_code < 400 else log.error
+    log_fn("Gemini status %s response", response.status_code)
     if response.status_code >= 400:
         raise HTTPException(
             status_code=response.status_code,
-            detail=f"Gemini error: {response.text}",
+            detail=f"Gemini error: {response.status_code}",
         )
 
-    data = response.json()
+    try:
+        data = response.json()
+    except ValueError as exc:
+        log.error("Gemini JSON decode failed: %s", exc)
+        raise HTTPException(status_code=502, detail="Invalid Gemini JSON.") from exc
     try:
         text_response = data["candidates"][0]["content"]["parts"][0]["text"]
-    except (KeyError, IndexError):
-        raise HTTPException(status_code=502, detail="Unexpected Gemini response.")
+    except (KeyError, IndexError) as exc:
+        log.error("Unexpected Gemini response structure: %s", data)
+        raise HTTPException(status_code=502, detail="Unexpected Gemini response.") from exc
 
     return text_response.strip().lower()
 
