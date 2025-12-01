@@ -72,6 +72,11 @@ To use Gemini as the fallback language detector:
 
 When fastText confidence drops below the threshold, the pipeline will POST the review to the running FastAPI service, which in turn calls Gemini and returns the ISO 639-1 language code.
 
+**Logging & Monitoring**
+
+- The FastAPI service logs every Gemini call (`Gemini status ... response ...`). Errors (4xx/5xx) are logged at ERROR level so you can spot upstream issues.
+- The preprocess pipeline logs fallback usage. `language_filter.llm_response` entries appear at DEBUG level for successful calls; `language_filter.llm_response_error` warnings show when the Gemini call fails, making it easy to diagnose problems directly in the CLI output.
+
 ## Design Decisions (LLM Chain-of-Thought)
 
 ### Language Identification Confidence Threshold
