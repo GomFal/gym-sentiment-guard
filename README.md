@@ -94,6 +94,17 @@ When fastText confidence drops below the threshold, the pipeline will POST the r
 - The preprocess pipeline logs fallback usage. `language_filter.llm_response` entries appear at DEBUG level for successful calls; `language_filter.llm_response_error` warnings show when the Gemini call fails, making it easy to diagnose problems directly in the CLI output.
 - The fallback is triggered both when fastText’s top prediction is low-confidence *and* when Spanish ranks within the top-3 with high probability but isn’t the top label. This lets Gemini double-check mixed-language reviews.
 
+### Optional: Mistral helper
+
+`scripts/llm_service.py` now includes `_call_mistral`, a drop-in helper that hits `https://api.mistral.ai/v1/chat/completions` using the OpenAI-compatible schema. To use it:
+
+1. Export credentials:  
+   ```powershell
+   $env:MISTRAL_API_KEY = "your-mistral-token"
+   $env:MISTRAL_MODEL = "mistral-small-latest"  # optional override
+   ```
+2. Point the FastAPI route to `_call_mistral` (or add a second endpoint) if you prefer Mistral over Gemini. The helper reuses the same prompt/temperature settings and structured logging, so swapping providers only requires changing the callable.
+
 ## Design Decisions (LLM Chain-of-Thought)
 
 ### Language Identification Confidence Threshold

@@ -25,8 +25,8 @@ _FALLBACK_THRESHOLD = 0.75
 _FALLBACK_ENDPOINT: str | None = None
 _FALLBACK_API_KEY_ENV: str | None = None
 
-# Rate Limiting Config for LLM API. Change based on your price plan.
-MAX_RPM = 900  
+# Rate Limiting Config for LLM API. Change based on the plan. Currently using Mistral small - 60 requests per limit
+MAX_RPM = 60  
 SAFE_INTERVAL = 60.0 / MAX_RPM 
 
 log = logging.getLogger("client_governor")
