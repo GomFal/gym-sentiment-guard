@@ -6,16 +6,16 @@ import shutil
 import time
 from pathlib import Path
 
-import pandas as pd
-
 from ..config import PreprocessConfig
 from ..data import (
     configure_language_fallback,
     deduplicate_reviews,
     enforce_expectations,
     filter_spanish_comments,
+    merge_processed_csvs,
     normalize_comments,
 )
+from ..io import count_csv_rows, list_pending_raw_files
 from ..utils import get_logger, json_log
 
 log = get_logger(__name__)
@@ -102,7 +102,7 @@ def preprocess_reviews(
     source_final = spanish_path if language_enabled else dedup_path
     shutil.copy2(source_final, final_output)
 
-    row_count = _count_rows(final_output)
+    row_count = count_csv_rows(final_output)
     duration = time.perf_counter() - start
     log.info(
         json_log(
@@ -117,6 +117,97 @@ def preprocess_reviews(
     return final_output
 
 
-def _count_rows(csv_path: Path) -> int:
-    df = pd.read_csv(csv_path)
-    return len(df)
+def preprocess_pending_reviews(
+    config: PreprocessConfig,
+    pattern: str = '*.csv',
+) -> list[Path]:
+    """Process every raw CSV missing a processed counterpart."""
+    raw_dir = config.paths.raw_dir
+    processed_dir = config.paths.processed_dir
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    processed_dir.mkdir(parents=True, exist_ok=True)
+
+    pending = list_pending_raw_files(raw_dir, processed_dir, pattern)
+    if not pending:
+        log.info(
+            json_log(
+                'preprocess_batch.up_to_date',
+                component='pipeline.preprocess',
+                raw_dir=str(raw_dir),
+                processed_dir=str(processed_dir),
+                pattern=pattern,
+            ),
+        )
+        return []
+
+    log.info(
+        json_log(
+            'preprocess_batch.start',
+            component='pipeline.preprocess',
+            count=len(pending),
+            raw_dir=str(raw_dir),
+            processed_dir=str(processed_dir),
+            pattern=pattern,
+        ),
+    )
+
+    outputs: list[Path] = []
+    failures: list[tuple[Path, Exception]] = []
+    for raw_csv in pending:
+        try:
+            result = preprocess_reviews(raw_csv, config=config)
+            outputs.append(result)
+        except Exception as exc:  # pragma: no cover - propagate summary below
+            failures.append((raw_csv, exc))
+            log.error(
+                json_log(
+                    'preprocess_batch.failure',
+                    component='pipeline.preprocess',
+                    file=str(raw_csv),
+                    error=str(exc),
+                ),
+            )
+
+    if failures:
+        failed_files = ', '.join(str(item[0]) for item in failures)
+        raise RuntimeError(
+            f'Batch preprocessing failed for: {failed_files}',
+        ) from failures[0][1]
+
+    log.info(
+        json_log(
+            'preprocess_batch.completed',
+            component='pipeline.preprocess',
+            processed=len(outputs),
+            raw_dir=str(raw_dir),
+        ),
+    )
+    return outputs
+
+
+def run_full_pipeline(
+    config: PreprocessConfig,
+    raw_pattern: str = '*.csv',
+    merge_pattern: str = '*.clean.csv',
+    merge_output: Path | None = None,
+) -> Path:
+    """Run batch preprocessing followed by dataset merge."""
+    preprocess_pending_reviews(config=config, pattern=raw_pattern)
+    output_path = (
+        merge_output
+        if merge_output is not None
+        else config.paths.processed_dir / 'train_dataset.csv'
+    )
+    merged = merge_processed_csvs(
+        processed_dir=config.paths.processed_dir,
+        output_path=output_path,
+        pattern=merge_pattern,
+    )
+    log.info(
+        json_log(
+            'full_pipeline.completed',
+            component='pipeline.preprocess',
+            merge_output=str(merged),
+        ),
+    )
+    return merged

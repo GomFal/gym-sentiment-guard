@@ -13,7 +13,7 @@ pip install -e .
 
 Place the fastText `lid.176.bin` model under `artifacts/models/lid.176.bin` (or update the config), then run:
 
-For single csv processing:
+### Single CSV
 
 ```bash
 python -m gym_sentiment_guard.cli.main main preprocess \
@@ -28,22 +28,42 @@ This command (with `language.enabled: true` in `configs/preprocess.yaml`):
 
 Override the final output path with `--output path/to/custom.csv` if needed.
 
-For the full data/raw/ folder processing:
+### Batch preprocessing (all pending CSVs)
 
 ```bash
-python scripts/process_pending_csvs.py \
-  --raw-dir data/raw \
-  --processed-dir data/processed \
+python -m gym_sentiment_guard.cli.main main preprocess-batch \
   --config configs/preprocess.yaml \
-  --python .venv/Scripts/python.exe
+  --pattern "*.csv"
 ```
 
-This script scans all `data/raw/` for CSVs that do not yet have a `.clean.csv` in `data/processed/` and runs the preprocess CLI for each one automatically. The same config present in `configs/preprocess.yaml` will be applied to every one of the processed scripts in `data/raw/`.
+The CLI scans `paths.raw_dir` for CSVs that do not yet have a `.clean.csv` in `paths.processed_dir`, runs the single-file pipeline for each one, and logs successes/failures. Use `--raw-dir` / `--processed-dir` if you need to override the paths from the config. (The legacy `scripts/process_pending_csvs.py` now simply wraps this command.)
+
+### Merge processed datasets
+
+```bash
+python -m gym_sentiment_guard.cli.main main merge-processed \
+  --config configs/preprocess.yaml \
+  --pattern "*.clean.csv" \
+  --output data/processed/train_dataset.csv
+```
+
+The command gathers every matching file inside `paths.processed_dir`, enforces consistent columns, and writes a merged dataset. (The helper `scripts/merge_processed_datasets.py` delegates to this command for compatibility.)
+
+### Full pipeline (batch preprocess + merge)
+
+```bash
+python -m gym_sentiment_guard.cli.main main run-full-pipeline \
+  --config configs/preprocess.yaml
+```
+
+This orchestrates `preprocess-batch` followed by `merge-processed`, producing the merged dataset in one shot. Override `--raw-pattern`, `--merge-pattern`, or `--merge-output` as needed.
 
 
 ### Skipping language filtering
 
 Set `language.enabled: false` in `configs/preprocess.yaml` when you want to reuse the cleaning steps (expectations → normalize → dedup) without dropping non-Spanish rows—for example when preparing the multi-language evaluation datasets. In that mode, the pipeline copies the deduplicated file directly to `data/processed/<name>.clean.csv` and skips generating `.non_spanish.csv`.
+
+> Schema guard: if any processed CSV has columns that differ from the others, the merge helper logs `merge.schema_mismatch` and raises a `ValueError` so we do not silently mix incompatible datasets.
 
 ## Language Evaluation Utilities
 

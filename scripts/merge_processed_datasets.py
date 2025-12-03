@@ -1,4 +1,4 @@
-"""Thin wrapper that invokes the Typer CLI batch preprocess command."""
+"""Thin wrapper that delegates dataset merging to the Typer CLI."""
 
 from __future__ import annotations
 
@@ -10,12 +10,7 @@ from pathlib import Path
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Process raw CSVs via the official CLI batch command.",
-    )
-    parser.add_argument(
-        "--raw-dir",
-        type=Path,
-        help="Optional override for raw directory (defaults to config value).",
+        description="Merge processed CSVs via the official CLI command.",
     )
     parser.add_argument(
         "--processed-dir",
@@ -23,9 +18,14 @@ def main() -> None:
         help="Optional override for processed directory (defaults to config value).",
     )
     parser.add_argument(
+        "--output",
+        type=Path,
+        help="Output path for the merged dataset.",
+    )
+    parser.add_argument(
         "--pattern",
-        default="*.csv",
-        help="Glob pattern for raw CSVs (default: *.csv).",
+        default="*.clean.csv",
+        help="Glob pattern for processed CSVs (default: *.clean.csv).",
     )
     parser.add_argument(
         "--config",
@@ -45,19 +45,19 @@ def main() -> None:
         "-m",
         "gym_sentiment_guard.cli.main",
         "main",
-        "preprocess-batch",
+        "merge-processed",
         "--config",
         str(args.config),
         "--pattern",
         args.pattern,
     ]
-    if args.raw_dir:
-        cmd += ["--raw-dir", str(args.raw_dir)]
     if args.processed_dir:
         cmd += ["--processed-dir", str(args.processed_dir)]
+    if args.output:
+        cmd += ["--output", str(args.output)]
 
-    raise_on_error = subprocess.run(cmd, check=False)  # noqa: S603
-    sys.exit(raise_on_error.returncode)
+    result = subprocess.run(cmd, check=False)  # noqa: S603
+    sys.exit(result.returncode)
 
 
 if __name__ == "__main__":
