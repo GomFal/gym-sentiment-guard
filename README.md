@@ -13,6 +13,8 @@ pip install -e .
 
 Place the fastText `lid.176.bin` model under `artifacts/models/lid.176.bin` (or update the config), then run:
 
+For single csv processing:
+
 ```bash
 python -m gym_sentiment_guard.cli.main main preprocess \
   --input data/raw/Fitness_Park_Madrid_La_Vaguada.csv \
@@ -25,6 +27,19 @@ This command (with `language.enabled: true` in `configs/preprocess.yaml`):
 - Writes interim artifacts to `data/interim/` (including `<name>.non_spanish.csv` with an `es_confidence` column for rejected rows) and the final cleaned file to `data/processed/<name>.clean.csv`.
 
 Override the final output path with `--output path/to/custom.csv` if needed.
+
+For the full data/raw/ folder processing:
+
+```bash
+python scripts/process_pending_csvs.py \
+  --raw-dir data/raw \
+  --processed-dir data/processed \
+  --config configs/preprocess.yaml \
+  --python .venv/Scripts/python.exe
+```
+
+This script scans all `data/raw/` for CSVs that do not yet have a `.clean.csv` in `data/processed/` and runs the preprocess CLI for each one automatically. The same config present in `configs/preprocess.yaml` will be applied to every one of the processed scripts in `data/raw/`.
+
 
 ### Skipping language filtering
 
@@ -45,6 +60,7 @@ The following scripts in `scripts/` help build LID ground truth for the Google M
   - Combines all `.sampled.csv` files into a single `merged_sampled_ground_truth.csv` ready for LID evaluation.
 - `python scripts/eval_fasttext_lid.py --data data/lid_eval/eval_dataset/merged_sampled_ground_truth.csv --model artifacts/external/models/lid.176.bin`
   - Loads the merged dataset, runs fastText predictions, prints overall accuracy plus per-language precision/recall/F1, writes `eval_results.json`, saves a confusion-matrix image (`confusion_matrix.png` by default), and reports coverage + accuracy/precision/recall/F1 for each confidence threshold (≥0.95/0.90/0.85/0.80/0.75) to design fallback policies.
+
 
 ### LLM Fallback Service (Gemini)
 
@@ -76,6 +92,7 @@ When fastText confidence drops below the threshold, the pipeline will POST the r
 
 - The FastAPI service logs every Gemini call (`Gemini status ... response ...`). Errors (4xx/5xx) are logged at ERROR level so you can spot upstream issues.
 - The preprocess pipeline logs fallback usage. `language_filter.llm_response` entries appear at DEBUG level for successful calls; `language_filter.llm_response_error` warnings show when the Gemini call fails, making it easy to diagnose problems directly in the CLI output.
+- The fallback is triggered both when fastText’s top prediction is low-confidence *and* when Spanish ranks within the top-3 with high probability but isn’t the top label. This lets Gemini double-check mixed-language reviews.
 
 ## Design Decisions (LLM Chain-of-Thought)
 

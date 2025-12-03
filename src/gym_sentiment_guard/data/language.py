@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import os
+import time
+import logging
 from collections.abc import Sequence
 from functools import lru_cache
 from pathlib import Path
@@ -10,18 +12,24 @@ from pathlib import Path
 import fasttext
 import pandas as pd
 import requests
+from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
 
 from ..utils import get_logger, json_log
 
 log = get_logger(__name__)
 
 _SPANISH_LABEL = 'es'
-_PREDICT_TOP_K = 3
+_PREDICT_TOP_K = 5
 _FALLBACK_ENABLED = False
 _FALLBACK_THRESHOLD = 0.75
 _FALLBACK_ENDPOINT: str | None = None
 _FALLBACK_API_KEY_ENV: str | None = None
 
+# Rate Limiting Config for LLM API. Change based on your price plan.
+MAX_RPM = 900  
+SAFE_INTERVAL = 60.0 / MAX_RPM 
+
+log = logging.getLogger("client_governor")
 
 def configure_language_fallback(
     *,
@@ -159,12 +167,24 @@ def filter_spanish_comments(
         batch_size=batch_size,
     )
     fallback_requests = 0
+    
     if _FALLBACK_ENABLED and _FALLBACK_ENDPOINT:
         for idx, conf in enumerate(confidences):
-            if conf >= _FALLBACK_THRESHOLD:
-                continue
             text = comments[idx]
             if not text.strip():
+                continue
+
+            # Trigger when fastText is unsure about its top-1 prediction.
+            needs_fallback = conf < _FALLBACK_THRESHOLD
+            
+            # Additional trigger: Spanish scored highly among top-k but was
+            # not selected as the top label.
+            spanish_high_prob = (
+                languages[idx] != _SPANISH_LABEL
+                and spanish_probs[idx] >= _FALLBACK_THRESHOLD
+            )
+            needs_fallback = needs_fallback or spanish_high_prob
+            if not needs_fallback:
                 continue
             llm_language = _call_llm_language_detector(text)
             if llm_language:
@@ -201,6 +221,82 @@ def filter_spanish_comments(
     return output_path
 
 
+class RateLimitException(Exception):
+    """Custom exception to trigger Tenacity retries on 429s."""
+    pass
+
+class APIGovernor:
+    """
+    Enforces a smooth flow of requests (Leaky Bucket).
+    Ensures we never exceed the 'speed limit' defined by SAFE_INTERVAL.
+    """
+    def __init__(self, interval: float):
+        self.interval = interval
+        self.last_call = 0.0
+
+    def wait_for_slot(self):
+        """Block locally until enough time has passed."""
+        now = time.time()
+        elapsed = now - self.last_call
+        wait_time = self.interval - elapsed
+        if wait_time > 0:
+            time.sleep(wait_time)
+        self.last_call = time.time()
+
+# Initialize the global governor
+governor = APIGovernor(interval=SAFE_INTERVAL)
+
+# --- Rate Limiting Function ---
+# 1. Retry ONLY on 429s or 5xx Server Errors (not on 400 Bad Request)
+# 2. Wait: Exponential backoff, but CAP it at 60 seconds (max=60)
+# 3. Stop: Give up after 10 attempts (not 100)
+@retry(
+    retry=retry_if_exception_type((RateLimitException, requests.exceptions.ConnectionError)),
+    wait=wait_exponential(multiplier=1, min=2, max=60),
+    stop=stop_after_attempt(10),
+    before_sleep=lambda rs: log.warning(f"429 Hit. Retrying in {rs.next_action.sleep}s...")
+)
+def _call_llm_language_detector(text: str) -> str | None:
+    endpoint = os.getenv("_FALLBACK_ENDPOINT", "http://localhost:8000/detect_language")
+    
+    # 1. GOVERNOR: Pause locally before sending. 
+    # This smooths your traffic into a steady stream, preventing bursts.
+    governor.wait_for_slot()
+
+    try:
+        # Use a session if possible (see optimization below)
+        response = requests.post(endpoint, json={'text': text}, timeout=30)
+        
+        # 2. Handle 429 explicitly
+        if response.status_code == 429:
+            # Raise exception to trigger @retry logic
+            raise RateLimitException("Gemini Rate Limit Hit")
+            
+        if response.status_code >= 400:
+            log.error(f"API Error: {response.status_code} - {response.text}")
+            return None
+
+        try:
+            data = response.json()
+        except ValueError:
+            return None
+
+        if isinstance(data, dict):
+            language = (
+                data.get('language')
+                or data.get('language_code')
+                or data.get('languageTag')
+                or data.get('result')
+            )
+            if isinstance(language, str):
+                return language.strip().lower()
+
+    except requests.RequestException as e:
+        log.warning(f"Network Request failed: {e}")
+        raise e  # Tenacity will catch this
+    
+
+'''
 def _call_llm_language_detector(text: str) -> str | None:
     """Call the configured LLM endpoint to classify a review's language."""
     if not _FALLBACK_ENDPOINT:
@@ -213,17 +309,51 @@ def _call_llm_language_detector(text: str) -> str | None:
             headers['Authorization'] = f'Bearer {api_key}'
 
     payload = {'text': text}
-    try:
-        response = requests.post(_FALLBACK_ENDPOINT, headers=headers, json=payload, timeout=30)
-    except requests.RequestException as exc:
+    retry_delays = 100
+    response = None
+
+    for attempt in range(retry_delays+ 1):
+        try:
+            response = requests.post(
+                _FALLBACK_ENDPOINT,
+                headers=headers,
+                json=payload,
+                timeout=30,
+            )
+        except requests.RequestException as exc:
+            log.warning(
+                json_log(
+                    'language_filter.llm_error',
+                    component='data.language',
+                    error=str(exc),
+                ),
+            )
+            return None
+
+        if response.status_code != 429:
+            break
+
+        if attempt == retry_delays:
+            log.warning(
+                json_log(
+                    'language_filter.llm_retry_exhausted',
+                    component='data.language',
+                    status=response.status_code,
+                ),
+            )
+            return None
+
+        delay = 2**attempt
         log.warning(
             json_log(
-                'language_filter.llm_error',
+                'language_filter.llm_retry',
                 component='data.language',
-                error=str(exc),
+                status=response.status_code,
+                wait_seconds=delay,
+                attempt=attempt + 1,
             ),
         )
-        return None
+        time.sleep(delay)
 
     summary_entry = json_log(
         'language_filter.llm_response',
@@ -251,3 +381,6 @@ def _call_llm_language_detector(text: str) -> str | None:
         if isinstance(language, str):
             return language.strip().lower()
     return None
+
+'''
+

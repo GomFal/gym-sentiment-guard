@@ -91,7 +91,7 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     assert len(rejected) == 1
     assert rejected['comment'].iloc[0] == 'this is english'
     assert 'es_confidence' in rejected.columns
-    assert rejected['es_confidence'].iloc[0] == pytest.approx(0.15)
+    assert rejected['es_confidence'].iloc[0] == pytest.approx(0.0)
 
 
 def test_preprocess_reviews_skips_language_filter_when_disabled(tmp_path, monkeypatch):

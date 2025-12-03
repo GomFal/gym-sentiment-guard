@@ -26,6 +26,7 @@ class DetectResponse(BaseModel):
     language: str
     #raw_response: Any | None = None
 
+session = requests.Session()
 
 def _call_gemini(text: str) -> str:
     """Invoke Gemini API to detect language."""
@@ -35,14 +36,32 @@ def _call_gemini(text: str) -> str:
 
     model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     endpoint = (
-        f"https://generativelanguage.googleapis.com/v1beta/models"
+        f"https://generativelanguage.googleapis.com/v1beta/models/"
         f"{model}:generateContent?key={api_key}"
     )
 
     prompt = (
-        "You are a language detector. Return ONLY the ISO 639-1 language code for the text.\n"
-        f"Text: ```{text}```\n"
-        "Language code:"
+            "You are a language detector specialized in user-written gym reviews.\n"
+            "Most texts come from gyms in Spain, so Spanish (es) is the most common language, "
+            "but any language is possible.\n"
+            "\n"
+            "Task:\n"
+            "- Detect the primary natural language of the review text.\n"
+            "- Return ONLY a two-letter ISO 639-1 language code (e.g., es, en, pt, fr).\n"
+            "- Do NOT return explanations, probabilities, or any extra text.\n"
+            "- If the text is very short or ambiguous between Spanish and other Romance languages, "
+            "and there is no strong evidence for another language, choose 'es'.\n"
+            "\n"
+            "Examples:\n"
+            "Text: ```de 10```\n"
+            "Language: es\n"
+            "\n"
+            "Text: ```top gym, muito bom```\n"
+            "Language: pt\n"
+            "\n"
+            "Now classify this text:\n"
+            f"Text: ```{text}```\n"
+            "Language:"
     )
 
     payload = {
@@ -50,7 +69,7 @@ def _call_gemini(text: str) -> str:
         "generationConfig": {"temperature": 0.0},
     }
 
-    response = requests.post(endpoint, json=payload, timeout=30)
+    response = session.post(endpoint, json=payload, timeout=30)
     log_fn = log.info if response.status_code < 400 else log.error
     log_fn("Gemini status %s response", response.status_code)
     if response.status_code >= 400:
@@ -71,6 +90,7 @@ def _call_gemini(text: str) -> str:
         raise HTTPException(status_code=502, detail="Unexpected Gemini response.") from exc
 
     return text_response.strip().lower()
+
 
 
 @app.post("/detect_language", response_model=DetectResponse)

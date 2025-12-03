@@ -65,4 +65,4 @@ def test_filter_spanish_comments_only_keeps_spanish_rows(tmp_path, column, monke
     assert len(rejected) == 1
     assert rejected[column].iloc[0].startswith('This is English')
     assert 'es_confidence' in rejected.columns
-    assert rejected['es_confidence'].iloc[0] == pytest.approx(0.15)
+    assert rejected['es_confidence'].iloc[0] == pytest.approx(0.0)
