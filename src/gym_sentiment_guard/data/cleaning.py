@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 import pandas as pd
 
@@ -95,6 +95,51 @@ def deduplicate_reviews(
             rows_in=original_rows,
             rows_out=len(deduped),
             subset=list(subset) if subset else None,
+        ),
+    )
+    return output_path
+
+
+def drop_neutral_ratings(
+    input_csv: str | Path,
+    output_path: str | Path,
+    rating_column: str = "rating",
+    neutral_value: int | float = 3,
+    neutral_output_path: str | Path | None = None,
+) -> Path:
+    """Remove rows whose rating equals the neutral value."""
+    input_path = Path(input_csv)
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    df = pd.read_csv(input_path)
+    if rating_column not in df.columns:
+        raise ValueError(f"Column '{rating_column}' not found for neutral drop")
+
+    original_rows = len(df)
+    neutral_mask = df[rating_column] == neutral_value
+    filtered = df.loc[~neutral_mask]
+    filtered.to_csv(output_path, index=False)
+
+    if neutral_output_path is not None:
+        neutral_path = Path(neutral_output_path)
+        neutral_path.parent.mkdir(parents=True, exist_ok=True)
+        df.loc[neutral_mask].to_csv(neutral_path, index=False)
+    else:
+        neutral_path = None
+
+    log.info(
+        json_log(
+            "neutral_drop.completed",
+            component="data.cleaning",
+            input=str(input_path),
+            output=str(output_path),
+            rows_in=original_rows,
+            rows_out=len(filtered),
+            rating_column=rating_column,
+            neutral_value=neutral_value,
+            neutral_output=str(neutral_path) if neutral_path else None,
+            neutral_rows=int(neutral_mask.sum()),
         ),
     )
     return output_path

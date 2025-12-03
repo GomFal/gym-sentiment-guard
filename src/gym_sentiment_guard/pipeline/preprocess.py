@@ -10,6 +10,7 @@ from ..config import PreprocessConfig
 from ..data import (
     configure_language_fallback,
     deduplicate_reviews,
+    drop_neutral_ratings,
     enforce_expectations,
     filter_spanish_comments,
     merge_processed_csvs,
@@ -50,6 +51,8 @@ def preprocess_reviews(
     validated_path = interim_dir / f'{stem}.validated{suffix}'
     normalized_path = interim_dir / f'{stem}.normalized{suffix}'
     dedup_path = interim_dir / f'{stem}.dedup{suffix}'
+    neutral_path = interim_dir / f'{stem}.non_neutral{suffix}'
+    neutral_dump_path = interim_dir / f'{stem}.neutral{suffix}'
     spanish_path = interim_dir / f'{stem}.spanish{suffix}'
     non_spanish_path = interim_dir / f'{stem}.non_spanish{suffix}'
 
@@ -81,10 +84,17 @@ def preprocess_reviews(
         api_key_env=config.language.fallback_api_key_env,
     )
 
+    drop_neutral_ratings(
+        input_csv=dedup_path,
+        output_path=neutral_path,
+        rating_column='rating',
+        neutral_output_path=neutral_dump_path,
+    )
+
     language_enabled = config.language.enabled
     if language_enabled:
         filter_spanish_comments(
-            input_csv=dedup_path,
+            input_csv=neutral_path,
             output_dir=interim_dir,
             output_path=spanish_path,
             rejected_output_path=non_spanish_path,
@@ -99,7 +109,7 @@ def preprocess_reviews(
         else paths.processed_dir / f'{stem}.clean{suffix}'
     )
     final_output.parent.mkdir(parents=True, exist_ok=True)
-    source_final = spanish_path if language_enabled else dedup_path
+    source_final = spanish_path if language_enabled else neutral_path
     shutil.copy2(source_final, final_output)
 
     row_count = count_csv_rows(final_output)
@@ -196,7 +206,7 @@ def run_full_pipeline(
     output_path = (
         merge_output
         if merge_output is not None
-        else config.paths.processed_dir / 'train_dataset.csv'
+        else config.paths.processed_dir /'merged'/'merged_dataset.csv'
     )
     merged = merge_processed_csvs(
         processed_dir=config.paths.processed_dir,

@@ -44,8 +44,13 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     raw_csv = raw_dir / 'reviews.csv'
     pd.DataFrame(
         {
-            'comment': ['Hola Mundo', 'This is English', 'hola   otra vez   '],
-            'rating': [5, 4, 5],
+            'comment': [
+                'Hola Mundo',
+                'This is English',
+                'hola   otra vez   ',
+                'Neutral thoughts',
+            ],
+            'rating': [5, 4, 5, 3],
         },
     ).to_csv(raw_csv, index=False)
 
@@ -83,6 +88,7 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     df = pd.read_csv(result)
     assert len(df) == 2
     assert all(df['comment'].str.contains('hola'))
+    assert (df['rating'] == 3).sum() == 0
     assert (processed_dir / 'reviews.clean.csv').exists()
 
     non_spanish_path = interim_dir / 'reviews.non_spanish.csv'
@@ -92,6 +98,11 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     assert rejected['comment'].iloc[0] == 'this is english'
     assert 'es_confidence' in rejected.columns
     assert rejected['es_confidence'].iloc[0] == pytest.approx(0.15)
+
+    neutral_dump = interim_dir / 'reviews.neutral.csv'
+    assert neutral_dump.exists()
+    neutral_df = pd.read_csv(neutral_dump)
+    assert neutral_df['rating'].tolist() == [3]
 
 
 def test_preprocess_reviews_skips_language_filter_when_disabled(tmp_path, monkeypatch):
