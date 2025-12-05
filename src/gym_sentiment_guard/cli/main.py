@@ -198,7 +198,7 @@ def merge_processed(
     target_output = (
         _resolve_path(output)
         if output is not None
-        else target_processed / 'train_dataset.csv'
+        else target_processed /'merged'/ 'merged_dataset_last.csv'
     )
     merged = merge_processed_csvs(
         processed_dir=target_processed,
@@ -257,7 +257,7 @@ def run_full_pipeline(
     target_output = (
         _resolve_path(merge_output)
         if merge_output is not None
-        else cfg.paths.processed_dir / 'train_dataset.csv'
+        else cfg.paths.processed_dir /'merged'/'merged_dataset_last.csv'
     )
     merged = pipeline_run_full_pipeline(
         config=cfg,

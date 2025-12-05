@@ -25,6 +25,7 @@ This command (with `language.enabled: true` in `configs/preprocess.yaml`):
 - Filters reviews to Spanish only via fastText.
 - Normalizes text, deduplicates rows, and enforces lightweight expectations.
 - Drops neutral (3-star) reviews while writing a `<name>.neutral.csv` audit file under `data/interim/` for later analysis.
+- Adds a `sentiment` column (positive/negative) derived from ratings so training scripts share a consistent label.
 - Writes interim artifacts to `data/interim/` (including `<name>.non_spanish.csv` with an `es_confidence` column for rejected rows) and the final cleaned file to `data/processed/<name>.clean.csv`.
 
 Override the final output path with `--output path/to/custom.csv` if needed.

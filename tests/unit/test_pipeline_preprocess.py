@@ -89,6 +89,7 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     assert len(df) == 2
     assert all(df['comment'].str.contains('hola'))
     assert (df['rating'] == 3).sum() == 0
+    assert set(df['sentiment']) == {'positive'}
     assert (processed_dir / 'reviews.clean.csv').exists()
 
     non_spanish_path = interim_dir / 'reviews.non_spanish.csv'

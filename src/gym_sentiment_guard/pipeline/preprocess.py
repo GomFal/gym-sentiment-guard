@@ -16,6 +16,7 @@ from ..data import (
     merge_processed_csvs,
     normalize_comments,
 )
+from ..features import add_rating_sentiment
 from ..io import count_csv_rows, list_pending_raw_files
 from ..utils import get_logger, json_log
 
@@ -53,6 +54,7 @@ def preprocess_reviews(
     dedup_path = interim_dir / f'{stem}.dedup{suffix}'
     neutral_path = interim_dir / f'{stem}.non_neutral{suffix}'
     neutral_dump_path = interim_dir / f'{stem}.neutral{suffix}'
+    features_path = interim_dir / f'{stem}.features{suffix}'
     spanish_path = interim_dir / f'{stem}.spanish{suffix}'
     non_spanish_path = interim_dir / f'{stem}.non_spanish{suffix}'
 
@@ -91,10 +93,17 @@ def preprocess_reviews(
         neutral_output_path=neutral_dump_path,
     )
 
+    add_rating_sentiment(
+        input_csv=neutral_path,
+        output_csv=features_path,
+        rating_column='rating',
+        sentiment_column='sentiment',
+    )
+
     language_enabled = config.language.enabled
     if language_enabled:
         filter_spanish_comments(
-            input_csv=neutral_path,
+            input_csv=features_path,
             output_dir=interim_dir,
             output_path=spanish_path,
             rejected_output_path=non_spanish_path,
@@ -109,7 +118,7 @@ def preprocess_reviews(
         else paths.processed_dir / f'{stem}.clean{suffix}'
     )
     final_output.parent.mkdir(parents=True, exist_ok=True)
-    source_final = spanish_path if language_enabled else neutral_path
+    source_final = spanish_path if language_enabled else features_path
     shutil.copy2(source_final, final_output)
 
     row_count = count_csv_rows(final_output)
