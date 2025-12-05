@@ -72,6 +72,7 @@ def merge_processed_csvs(
         total_rows += len(df)
 
     merged = pd.concat(frames, ignore_index=True)
+    merged["id"] = range(1, len(merged) + 1)
     merged.to_csv(output, index=False)
 
     log.info(

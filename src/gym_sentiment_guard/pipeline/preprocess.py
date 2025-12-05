@@ -10,6 +10,7 @@ from ..config import PreprocessConfig
 from ..data import (
     configure_language_fallback,
     deduplicate_reviews,
+    drop_columns,
     drop_neutral_ratings,
     enforce_expectations,
     filter_spanish_comments,
@@ -52,6 +53,7 @@ def preprocess_reviews(
     validated_path = interim_dir / f'{stem}.validated{suffix}'
     normalized_path = interim_dir / f'{stem}.normalized{suffix}'
     dedup_path = interim_dir / f'{stem}.dedup{suffix}'
+    pii_dropped_path = interim_dir / f'{stem}.pii_removed{suffix}'
     neutral_path = interim_dir / f'{stem}.non_neutral{suffix}'
     neutral_dump_path = interim_dir / f'{stem}.neutral{suffix}'
     features_path = interim_dir / f'{stem}.features{suffix}'
@@ -79,6 +81,18 @@ def preprocess_reviews(
         subset=config.dedup.subset,
     )
 
+    deduplicate_reviews(
+        input_csv=normalized_path,
+        output_path=dedup_path,
+        subset=config.dedup.subset,
+    )
+
+    drop_columns(
+        input_csv=dedup_path,
+        output_path=pii_dropped_path,
+        columns=['name'],
+    )
+
     configure_language_fallback(
         enabled=config.language.fallback_enabled,
         threshold=config.language.confidence_threshold,
@@ -87,7 +101,7 @@ def preprocess_reviews(
     )
 
     drop_neutral_ratings(
-        input_csv=dedup_path,
+        input_csv=pii_dropped_path,
         output_path=neutral_path,
         rating_column='rating',
         neutral_output_path=neutral_dump_path,

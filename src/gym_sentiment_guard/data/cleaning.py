@@ -100,6 +100,43 @@ def deduplicate_reviews(
     return output_path
 
 
+def drop_columns(
+    input_csv: str | Path,
+    output_path: str | Path,
+    columns: Iterable[str],
+) -> Path:
+    """Drop specified columns from a CSV."""
+    input_path = Path(input_csv)
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    df = pd.read_csv(input_path)
+    missing = [col for col in columns if col not in df.columns]
+    if missing:
+        log.warning(
+            json_log(
+                "drop_columns.missing",
+                component="data.cleaning",
+                input=str(input_path),
+                missing=missing,
+            )
+        )
+    filtered = df.drop(columns=[col for col in columns if col in df.columns])
+    filtered.to_csv(output_path, index=False)
+
+    log.info(
+        json_log(
+            "drop_columns.completed",
+            component="data.cleaning",
+            input=str(input_path),
+            output=str(output_path),
+            columns_dropped=[col for col in columns if col in df.columns],
+            rows=len(filtered),
+        )
+    )
+    return output_path
+
+
 def drop_neutral_ratings(
     input_csv: str | Path,
     output_path: str | Path,

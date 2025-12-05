@@ -3,6 +3,7 @@ from __future__ import annotations
 import pandas as pd
 
 from gym_sentiment_guard.data.cleaning import (
+    drop_columns,
     drop_neutral_ratings,
     enforce_expectations,
 )
@@ -57,3 +58,26 @@ def test_drop_neutral_ratings_removes_rating_three_and_saves_neutral(tmp_path):
     assert list(filtered['rating']) == [5, 1]
     neutral = pd.read_csv(neutral_csv)
     assert neutral['comment'].tolist() == ['neutral']
+
+
+def test_drop_columns_removes_name(tmp_path):
+    input_csv = tmp_path / 'raw.csv'
+    df = pd.DataFrame(
+        {
+            'name': ['a', 'b'],
+            'comment': ['foo', 'bar'],
+            'rating': [5, 1],
+        }
+    )
+    df.to_csv(input_csv, index=False)
+
+    output_csv = tmp_path / 'no_name.csv'
+    drop_columns(
+        input_csv=input_csv,
+        output_path=output_csv,
+        columns=['name'],
+    )
+
+    filtered = pd.read_csv(output_csv)
+    assert 'name' not in filtered.columns
+    assert filtered['comment'].tolist() == ['foo', 'bar']

@@ -44,6 +44,7 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     raw_csv = raw_dir / 'reviews.csv'
     pd.DataFrame(
         {
+            'name': ['Ana', 'Bob', 'Cara', 'Dave'],
             'comment': [
                 'Hola Mundo',
                 'This is English',
@@ -90,6 +91,7 @@ def test_preprocess_reviews_creates_clean_file(tmp_path, monkeypatch):
     assert all(df['comment'].str.contains('hola'))
     assert (df['rating'] == 3).sum() == 0
     assert set(df['sentiment']) == {'positive'}
+    assert 'name' not in df.columns
     assert (processed_dir / 'reviews.clean.csv').exists()
 
     non_spanish_path = interim_dir / 'reviews.non_spanish.csv'
@@ -115,7 +117,11 @@ def test_preprocess_reviews_skips_language_filter_when_disabled(tmp_path, monkey
 
     raw_csv = raw_dir / 'reviews.csv'
     pd.DataFrame(
-        {'comment': ['Hola Mundo', 'Hello world'], 'rating': [5, 4]},
+        {
+            'name': ['Ana', 'Bob'],
+            'comment': ['Hola Mundo', 'Hello world'],
+            'rating': [5, 4],
+        },
     ).to_csv(raw_csv, index=False)
 
     model_path = tmp_path / 'artifacts' / 'lid.176.bin'
@@ -151,3 +157,4 @@ def test_preprocess_reviews_skips_language_filter_when_disabled(tmp_path, monkey
     df = pd.read_csv(result)
     assert len(df) == 2
     assert 'non_spanish' not in [p.name for p in interim_dir.glob('*.csv')]
+    assert 'name' not in df.columns
