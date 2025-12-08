@@ -9,7 +9,12 @@ from typing import Annotated
 import typer
 
 from ..config import PreprocessConfig, load_preprocess_config
-from ..data import merge_processed_csvs
+from ..data import (
+    load_structural_punctuation,
+    merge_processed_csvs,
+    normalize_comments,
+    split_dataset,
+)
 from ..pipeline import (
     preprocess_pending_reviews,
     preprocess_reviews,
@@ -198,7 +203,7 @@ def merge_processed(
     target_output = (
         _resolve_path(output)
         if output is not None
-        else target_processed /'merged'/ 'merged_dataset_last.csv'
+        else target_processed / 'merged' / 'merged_dataset.csv'
     )
     merged = merge_processed_csvs(
         processed_dir=target_processed,
@@ -213,6 +218,56 @@ def merge_processed(
         ),
     )
     typer.echo(f'Merged dataset written to: {merged}')
+
+
+@pipeline_app.command('split-data')
+def split_data(
+    input_csv: Annotated[
+        Path,
+        typer.Option(
+            '--input',
+            '-i',
+            exists=True,
+            readable=True,
+            help='Path to merged dataset CSV.',
+        ),
+    ] = Path('data/processed/merged/merged_dataset.csv'),
+    output_dir: Annotated[
+        Path,
+        typer.Option('--output-dir', help='Directory to store splits.'),
+    ] = Path('data/processed/splits'),
+    column: Annotated[
+        str,
+        typer.Option('--column', help='Column to stratify on.'),
+    ] = 'sentiment',
+    train_ratio: Annotated[
+        float,
+        typer.Option('--train-ratio', help='Train split ratio (default 0.7).'),
+    ] = 0.7,
+    val_ratio: Annotated[
+        float,
+        typer.Option('--val-ratio', help='Validation split ratio (default 0.15).'),
+    ] = 0.15,
+    test_ratio: Annotated[
+        float,
+        typer.Option('--test-ratio', help='Test split ratio (default 0.15).'),
+    ] = 0.15,
+    random_state: Annotated[
+        int,
+        typer.Option('--random-state', help='Random seed for splitting.'),
+    ] = 42,
+) -> None:
+    """Split a dataset into train/val/test CSVs."""
+    split_dataset(
+        input_csv=input_csv,
+        output_dir=output_dir,
+        stratify_column=column,
+        train_ratio=train_ratio,
+        val_ratio=val_ratio,
+        test_ratio=test_ratio,
+        random_state=random_state,
+    )
+    typer.echo(f'Splits written to: {output_dir}')
 
 
 @pipeline_app.command('run-full-pipeline')
@@ -242,6 +297,10 @@ def run_full_pipeline(
         Path | None,
         typer.Option('--merge-output', help='Merged dataset path override.'),
     ] = None,
+    split_output: Annotated[
+        Path | None,
+        typer.Option('--split-output', help='Directory to store dataset splits.'),
+    ] = None,
     raw_dir: Annotated[
         Path | None,
         typer.Option('--raw-dir', help='Optional override for raw directory.'),
@@ -257,14 +316,67 @@ def run_full_pipeline(
     target_output = (
         _resolve_path(merge_output)
         if merge_output is not None
-        else cfg.paths.processed_dir /'merged'/'merged_dataset_last.csv'
+        else cfg.paths.processed_dir / 'merged' / 'merged_dataset.csv'
+    )
+    split_dir = (
+        _resolve_path(split_output)
+        if split_output is not None
+        else cfg.paths.processed_dir / 'splits'
     )
     merged = pipeline_run_full_pipeline(
         config=cfg,
         raw_pattern=raw_pattern,
         merge_pattern=merge_pattern,
         merge_output=target_output,
+        split_output_dir=split_dir,
     )
     typer.echo(f'Full pipeline completed. Merged dataset: {merged}')
+
+
+@pipeline_app.command('normalize-dataset')
+def normalize_dataset(
+    input_csv: Annotated[
+        Path,
+        typer.Option(
+            '--input',
+            '-i',
+            exists=True,
+            readable=True,
+            help='CSV file to normalize.',
+        ),
+    ],
+    output_csv: Annotated[
+        Path | None,
+        typer.Option(
+            '--output',
+            '-o',
+            help='Output path (default: <input>.normalized.csv).',
+        ),
+    ] = None,
+    column: Annotated[
+        str,
+        typer.Option('--column', help='Text column to normalize (default: comment).'),
+    ] = 'comment',
+    punctuation_file: Annotated[
+        Path | None,
+        typer.Option('--punctuation-file', help='Optional structural punctuation file.'),
+    ] = None,
+) -> None:
+    """Normalize a dataset without running the entire pipeline."""
+    target_output = (
+        _resolve_path(output_csv)
+        if output_csv is not None
+        else Path(input_csv).with_suffix('.normalized.csv')
+    )
+    normalize_comments(
+        input_csv=input_csv,
+        output_path=target_output,
+        text_column=column,
+        structural_punctuation=load_structural_punctuation(punctuation_file),
+    )
+    typer.echo(f'Normalized dataset written to: {target_output}')
+
+
 if __name__ == '__main__':
     app()
+    

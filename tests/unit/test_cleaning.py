@@ -6,6 +6,8 @@ from gym_sentiment_guard.data.cleaning import (
     drop_columns,
     drop_neutral_ratings,
     enforce_expectations,
+    load_structural_punctuation,
+    normalize_comments,
 )
 
 
@@ -81,3 +83,23 @@ def test_drop_columns_removes_name(tmp_path):
     filtered = pd.read_csv(output_csv)
     assert 'name' not in filtered.columns
     assert filtered['comment'].tolist() == ['foo', 'bar']
+
+
+def test_normalize_comments_uses_external_pattern(tmp_path):
+    input_csv = tmp_path / 'raw.csv'
+    df = pd.DataFrame({'comment': ['Hello.World!', 'Foo-Bar']})
+    df.to_csv(input_csv, index=False)
+
+    pattern_file = tmp_path / 'punct.txt'
+    pattern_file.write_text(r"[.-]", encoding="utf-8")
+
+    output_csv = tmp_path / 'normalized.csv'
+    normalize_comments(
+        input_csv=input_csv,
+        output_path=output_csv,
+        text_column='comment',
+        structural_punctuation=load_structural_punctuation(pattern_file),
+    )
+
+    normalized = pd.read_csv(output_csv)
+    assert normalized['comment'].tolist() == ['hello world!', 'foo bar']

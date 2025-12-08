@@ -7,6 +7,8 @@ paths:
 language:
   model_path: ../artifacts/external/lid.176.bin
   text_column: comment
+  language_column: rating
+  sentiment_column: sentiment
   batch_size: 512
   enabled: true    
   confidence_threshold: 0.75       # whatever cutoff you want
@@ -16,6 +18,7 @@ language:
 
 cleaning:
   text_column: comment
+  structural_punctuation_path: ../configs/structural_punctuation.txt
 
 dedup:
   subset:

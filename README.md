@@ -24,8 +24,9 @@ python -m gym_sentiment_guard.cli.main main preprocess \
 This command (with `language.enabled: true` in `configs/preprocess.yaml`):
 - Filters reviews to Spanish only via fastText.
 - Normalizes text, deduplicates rows, and enforces lightweight expectations.
+- Drops the `name` column and neutral (3-star) reviews while writing a `<name>.neutral.csv` audit file under `data/interim/` for later analysis.
+- Adds a `sentiment` column (positive/negative) derived from ratings (`language.sentiment_column` in the config) so training scripts share a consistent label.
 - Drops neutral (3-star) reviews while writing a `<name>.neutral.csv` audit file under `data/interim/` for later analysis.
-- Adds a `sentiment` column (positive/negative) derived from ratings so training scripts share a consistent label.
 - Writes interim artifacts to `data/interim/` (including `<name>.non_spanish.csv` with an `es_confidence` column for rejected rows) and the final cleaned file to `data/processed/<name>.clean.csv`.
 
 Override the final output path with `--output path/to/custom.csv` if needed.
@@ -66,6 +67,33 @@ This orchestrates `preprocess-batch` followed by `merge-processed`, producing th
 Set `language.enabled: false` in `configs/preprocess.yaml` when you want to reuse the cleaning steps (expectations → normalize → dedup) without dropping non-Spanish rows—for example when preparing the multi-language evaluation datasets. In that mode, the pipeline copies the deduplicated file directly to `data/processed/<name>.clean.csv` and skips generating `.non_spanish.csv`.
 
 > Schema guard: if any processed CSV has columns that differ from the others, the merge helper logs `merge.schema_mismatch` and raises a `ValueError` so we do not silently mix incompatible datasets.
+
+### Train/Val/Test splits
+
+Splitting the merged dataset uses the `split-data` command (also run automatically by `run-full-pipeline`):
+
+```bash
+python -m gym_sentiment_guard.cli.main main split-data \
+  --input data/processed/merged/merged_dataset.csv \
+  --output-dir data/processed/splits \
+  --column sentiment
+```
+
+The helper stratifies by the chosen column (default `language.sentiment_column`) and writes `train.csv`, `val.csv`, and `test.csv` (70/15/15).
+
+### Normalize an arbitrary dataset
+
+To apply the latest text normalization rules (emoji stripping, punctuation cleanup) to an existing CSV such as `merged_dataset.csv` without re-running the full pipeline:
+
+```bash
+python -m gym_sentiment_guard.cli.main main normalize-dataset \
+  --input data/processed/merged/merged_dataset.csv \
+  --output data/processed/merged/merged_dataset.normalized.csv \
+  --column comment \
+  --punctuation-file configs/structural_punctuation.txt
+```
+
+This reuses the core `normalize_comments` helper so normalization stays consistent with the preprocessing pipeline.
 
 ## Language Evaluation Utilities
 
@@ -156,3 +184,15 @@ FastText LID (`lid.176.bin`) was evaluated on 1000 labeled gym reviews (250 per 
   - If `prob < 0.75`: fallback to Gemini 2.5 Flash for language verification.
 
 This threshold balances high accuracy with minimal fallback usage.
+
+
+### Data Splitting
+
+**Decision**
+The dataset is divided into 70/15/15 for train, val and test:
+  - I consider that a dataset of ~10k reviews is enough to reduce variation in the eval and test set. Using stratified sampling will reduce possible variation because both of the classes are proportionally represented, and the minority class has 1500+ revies, making it sufficient for a first linear model. 
+  If low performance is observed some changes which would be considered would be: 
+  - augmenting the training set 
+  - changing the data split 
+  - adding K fold cross validation to the training process.
+  - Use temporal splitting: train model with older data and test it with recent data (E.g: train on 2020-2022, test on 2024-2025). The provblem with this is that, even though gym situations can change (New monitors, new machines, management changes), the way of expressing satisfaction or discomfort with services should not in a such small period of time (Slang change, vocabulary change, new generations entering the gym). 

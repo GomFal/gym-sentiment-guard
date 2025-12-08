@@ -21,6 +21,8 @@ class PathConfig:
 class LanguageConfig:
     model_path: Path
     text_column: str = 'comment'
+    language_column: str = 'rating'
+    sentiment_column: str = 'sentiment'
     batch_size: int = 512
     enabled: bool = True
     confidence_threshold: float = 0.75
@@ -32,6 +34,7 @@ class LanguageConfig:
 @dataclass(frozen=True)
 class CleaningConfig:
     text_column: str = 'comment'
+    structural_punctuation_path: Path | None = None
 
 
 @dataclass(frozen=True)
@@ -95,6 +98,8 @@ def load_preprocess_config(config_path: str | Path) -> PreprocessConfig:
     language = LanguageConfig(
         model_path=_resolve_path(base_dir, language_model_path),
         text_column=language_section.get('text_column', 'comment'),
+        language_column=language_section.get('language_column', 'rating'),
+        sentiment_column=language_section.get('sentiment_column', 'sentiment'),
         batch_size=int(language_section.get('batch_size', 512)),
         enabled=bool(language_section.get('enabled', True)),
         confidence_threshold=float(language_section.get('confidence_threshold', 0.75)),
@@ -105,6 +110,10 @@ def load_preprocess_config(config_path: str | Path) -> PreprocessConfig:
 
     cleaning = CleaningConfig(
         text_column=cleaning_section.get('text_column', language.text_column),
+        structural_punctuation_path=_resolve_optional_path(
+            base_dir,
+            cleaning_section.get('structural_punctuation_path'),
+        ),
     )
 
     dedup_subset = dedup_section.get('subset')

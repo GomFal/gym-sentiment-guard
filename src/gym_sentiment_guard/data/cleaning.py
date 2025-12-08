@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -33,11 +34,13 @@ EMOJI_PATTERN = re.compile(
     flags=re.UNICODE,
 )
 
+DEFAULT_STRUCTURAL_PUNCTUATION = r"[.,;:\(\)\[\]\{\}<>\-–—_/\\|\'\"«»“”‘’`~^@#$%&*=+©®]"
 
 def normalize_comments(
     input_csv: str | Path,
     output_path: str | Path,
     text_column: str = "comment",
+    structural_punctuation: str | None = None,
 ) -> Path:
     """Normalize comment text (lowercase, strip, collapse whitespace)."""
     input_path = Path(input_csv)
@@ -49,8 +52,10 @@ def normalize_comments(
         raise ValueError(f"Column '{text_column}' not found for normalization")
 
     series = df[text_column].fillna("").astype(str)
+    pattern = structural_punctuation or DEFAULT_STRUCTURAL_PUNCTUATION
     normalized = (
         series.str.lower()
+        .str.replace(pattern, " ", regex=True)
         .str.replace(r"\s+", " ", regex=True)
         .str.strip()
     )
@@ -224,3 +229,14 @@ def enforce_expectations(
         ),
     )
     return output_path
+
+
+@lru_cache(maxsize=8)
+def load_structural_punctuation(path: str | Path | None) -> str | None:
+    """Return the punctuation pattern defined in the provided file."""
+    if path is None:
+        return None
+    pattern_path = Path(path)
+    if not pattern_path.exists():
+        raise FileNotFoundError(f"Structural punctuation file not found: {pattern_path}")
+    return pattern_path.read_text(encoding="utf-8").strip()

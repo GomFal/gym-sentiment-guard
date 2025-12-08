@@ -14,8 +14,10 @@ from ..data import (
     drop_neutral_ratings,
     enforce_expectations,
     filter_spanish_comments,
+    load_structural_punctuation,
     merge_processed_csvs,
     normalize_comments,
+    split_dataset,
 )
 from ..features import add_rating_sentiment
 from ..io import count_csv_rows, list_pending_raw_files
@@ -69,16 +71,14 @@ def preprocess_reviews(
         drop_null_comments=config.expectations.drop_null_comments,
     )
 
+    punctuation_pattern = load_structural_punctuation(
+        config.cleaning.structural_punctuation_path
+    )
     normalize_comments(
         input_csv=validated_path,
         output_path=normalized_path,
         text_column=config.cleaning.text_column,
-    )
-
-    deduplicate_reviews(
-        input_csv=normalized_path,
-        output_path=dedup_path,
-        subset=config.dedup.subset,
+        structural_punctuation=punctuation_pattern,
     )
 
     deduplicate_reviews(
@@ -103,15 +103,29 @@ def preprocess_reviews(
     drop_neutral_ratings(
         input_csv=pii_dropped_path,
         output_path=neutral_path,
-        rating_column='rating',
+        rating_column=config.language.language_column,
+        neutral_output_path=neutral_dump_path,
+    )
+
+    configure_language_fallback(
+        enabled=config.language.fallback_enabled,
+        threshold=config.language.confidence_threshold,
+        endpoint=config.language.fallback_endpoint,
+        api_key_env=config.language.fallback_api_key_env,
+    )
+
+    drop_neutral_ratings(
+        input_csv=pii_dropped_path,
+        output_path=neutral_path,
+        rating_column=config.language.language_column,
         neutral_output_path=neutral_dump_path,
     )
 
     add_rating_sentiment(
         input_csv=neutral_path,
         output_csv=features_path,
-        rating_column='rating',
-        sentiment_column='sentiment',
+        rating_column=config.language.language_column,
+        sentiment_column=config.language.sentiment_column,
     )
 
     language_enabled = config.language.enabled
@@ -223,6 +237,7 @@ def run_full_pipeline(
     raw_pattern: str = '*.csv',
     merge_pattern: str = '*.clean.csv',
     merge_output: Path | None = None,
+    split_output_dir: Path | None = None,
 ) -> Path:
     """Run batch preprocessing followed by dataset merge."""
     preprocess_pending_reviews(config=config, pattern=raw_pattern)
@@ -235,6 +250,16 @@ def run_full_pipeline(
         processed_dir=config.paths.processed_dir,
         output_path=output_path,
         pattern=merge_pattern,
+    )
+    splits_dir = (
+        split_output_dir
+        if split_output_dir is not None
+        else config.paths.processed_dir / 'splits'
+    )
+    split_dataset(
+        input_csv=merged,
+        output_dir=splits_dir,
+        stratify_column=config.language.sentiment_column,
     )
     log.info(
         json_log(
