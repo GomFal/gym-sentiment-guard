@@ -50,7 +50,7 @@ python -m gym_sentiment_guard.cli.main main merge-processed \
   --output data/processed/train_dataset.csv
 ```
 
-The command gathers every matching file inside `paths.processed_dir`, enforces consistent columns, and writes a merged dataset. (The helper `scripts/merge_processed_datasets.py` delegates to this command for compatibility.)
+The command gathers every matching file inside `paths.processed_dir`, enforces a canonical schema (dropping legacy columns such as `name`, adding missing ones like `sentiment`, and reordering), and writes a merged dataset. (The helper `scripts/merge_processed_datasets.py` delegates to this command for compatibility.)
 
 ### Full pipeline (batch preprocess + merge)
 

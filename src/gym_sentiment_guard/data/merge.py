@@ -12,10 +12,16 @@ from gym_sentiment_guard.utils.logging import get_logger, json_log
 log = get_logger(__name__)
 
 
+DEFAULT_COLUMNS = ("id", "comment", "rating", "review_date", "sentiment")
+DROP_COLUMNS = ("name",)
+
+
 def merge_processed_csvs(
     processed_dir: str | Path,
     output_path: str | Path,
     pattern: str = "*.clean.csv",
+    required_columns: tuple[str, ...] = DEFAULT_COLUMNS,
+    drop_columns: tuple[str, ...] = DROP_COLUMNS,
 ) -> Path:
     """
     Merge processed CSVs into a single dataset.
@@ -48,26 +54,14 @@ def merge_processed_csvs(
 
     frames: list[pd.DataFrame] = []
     total_rows = 0
-    reference_columns: tuple[str, ...] | None = None
     for file in csv_files:
         df = pd.read_csv(file)
-        columns = tuple(df.columns)
-        if reference_columns is None:
-            reference_columns = columns
-        elif columns != reference_columns:
-            log.error(
-                json_log(
-                    "merge.schema_mismatch",
-                    component="data.merge",
-                    file=str(file),
-                    expected=list(reference_columns),
-                    actual=list(columns),
-                )
-            )
-            raise ValueError(
-                f"Schema mismatch in {file}. Expected columns {reference_columns}, "
-                f"got {columns}."
-            )
+        if drop_columns:
+            df = df.drop(columns=[c for c in drop_columns if c in df.columns])
+        missing = [col for col in required_columns if col not in df.columns]
+        for col in missing:
+            df[col] = None
+        df = df[list(required_columns)]
         frames.append(df)
         total_rows += len(df)
 
