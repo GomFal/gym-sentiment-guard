@@ -155,7 +155,7 @@ When fastText confidence drops below the threshold, the pipeline will POST the r
    ```
 2. Point the FastAPI route to `_call_mistral` (or add a second endpoint) if you prefer Mistral over Gemini. The helper reuses the same prompt/temperature settings and structured logging, so swapping providers only requires changing the callable.
 
-## Design Decisions (LLM Chain-of-Thought)
+## Design Decisions
 
 ### Language Identification Confidence Threshold
 
