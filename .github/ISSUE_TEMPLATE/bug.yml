@@ -1,0 +1,81 @@
+name: "Bug report"
+description: "Report a reproducible defect in gym-sentiment-guard"
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "Pre-flight checklist"
+      description: "Please confirm the following before submitting."
+      options:
+        - label: "I searched existing issues and discussions."
+          required: true
+        - label: "I can reproduce the bug on the latest `main`."
+          required: true
+        - label: "I can share a minimal reproduction."
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Affected area"
+      options:
+        - cli
+        - data
+        - pipeline
+        - features
+        - io
+        - config
+        - tests
+        - docs
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: "What happened?"
+      description: "Describe the bug in clear terms."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What did you expect to happen?"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: "Steps to reproduce"
+      description: "Numbered list helps maintainers reproduce quickly."
+      placeholder: |
+        1. Run ...
+        2. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs / stack trace"
+      description: "Paste relevant logs. Use code blocks if possible."
+      render: shell
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "OS, Python version, etc."
+      placeholder: "e.g., macOS 14.1, Python 3.11.6"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Package version / commit hash"
+      placeholder: "e.g., v0.3.1 or 1a2b3c4"
+  - type: textarea
+    id: extra
+    attributes:
+      label: "Additional context"

@@ -1,0 +1,59 @@
+name: "Feature request"
+description: "Propose an enhancement for gym-sentiment-guard"
+title: "[Feature]: "
+labels:
+  - enhancement
+  - needs-triage
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      description: "Which part of the project would this feature affect?"
+      options:
+        - cli
+        - data
+        - pipeline
+        - modeling
+        - metrics
+        - docs
+        - ci
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem statement"
+      description: "What pain point or limitation does this feature address?"
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Proposed solution"
+      description: "Describe the high-level change you suggest."
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives considered"
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: "Acceptance criteria"
+      description: "List success criteria (checkbox list preferred)."
+      placeholder: |
+        - [ ] CLI supports ...
+        - [ ] Tests cover ...
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: "Risks / breaking changes"
+  - type: textarea
+    id: extra
+    attributes:
+      label: "Additional context / references"

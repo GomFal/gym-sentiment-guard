@@ -1,0 +1,8 @@
+# Default owner
+* @repo-owner
+
+/src/gym_sentiment_guard/pipeline/ @repo-owner
+/src/gym_sentiment_guard/data/ @repo-owner
+/configs/ @repo-owner
+/.github/ @repo-owner
+/tests/ @repo-owner

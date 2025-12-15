@@ -1,0 +1,63 @@
+name: "Experiment proposal"
+description: "Suggest an ML experiment for gym-sentiment-guard"
+title: "[Experiment]: "
+labels:
+  - experiment
+  - needs-triage
+body:
+  - type: dropdown
+    id: objective
+    attributes:
+      label: "Objective"
+      options:
+        - improve PR-AUC
+        - improve calibration
+        - reduce latency
+        - improve robustness
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+      description: "What change are you testing and why should it help?"
+    validations:
+      required: true
+  - type: input
+    id: dataset
+    attributes:
+      label: "Dataset / split"
+      placeholder: "e.g., data/processed/splits/train|val|test"
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: "Baseline metrics"
+      description: "Paste current numbers (PR-AUC, Macro-F1, etc.)."
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: "Experimental plan"
+      description: "List exact knobs to change (max three variants)."
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: "Success criteria"
+      description: "What metric moves, and by how much?"
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: "Repro commands"
+      description: "CLI commands or scripts to run."
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Notes / constraints"
