@@ -1,0 +1,35 @@
+{
+  "model_name": "sentiment_logreg",
+  "model_version": "2025-12-15_001",
+  "created_at_utc": "2025-12-15T19:49:12.976129+00:00",
+  "git_commit": {
+    "commit": "52195237a4cbe8e1cc1bfc3f7946f826696c6857",
+    "dirty": true,
+    "branch": "main"
+  },
+  "python_version": "3.12.4",
+  "sklearn_version": "1.7.2",
+  "numpy_version": "2.3.4",
+  "artifact": {
+    "format": "joblib",
+    "path": "artifacts\\models\\sentiment_logreg\\2025-12-15_001\\model.joblib"
+  },
+  "label_mapping": {
+    "negative": 0,
+    "positive": 1
+  },
+  "threshold_used": 0.44,
+  "score_semantics": "predict_proba for class=positive (index per label_mapping)",
+  "training_data": {
+    "paths": [
+      "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv",
+      "data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv",
+      "data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv"
+    ],
+    "sha256": {
+      "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv": "914a2c6529720ae732e413378da85a88bf0ca8c6ee3acbe0671e23a122befc41",
+      "data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv": "2a2e5f4413ffa6b1f2be134f325a58df3733e4098e11b9e06fe1d92645ff61d8",
+      "data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv": "39213f398b93251dde47ea9b0130c027ac054fd909e3092e8039bc29f6850b84"
+    }
+  }
+}
