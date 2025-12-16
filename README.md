@@ -95,6 +95,18 @@ python -m gym_sentiment_guard.cli.main main normalize-dataset \
 
 This reuses the core `normalize_comments` helper so normalization stays consistent with the preprocessing pipeline.
 
+### Train the sentiment model
+
+Use the config-driven trainer to reproduce the notebook’s logistic-regression model:
+
+```bash
+python -m gym_sentiment_guard.cli.main main train-model \
+  --config configs/logreg_v1.yaml
+```
+
+This reads the specified splits, fits TF-IDF + calibrated logistic regression, and writes artifacts under `artifacts/models/...`.
+The configured `decision.threshold` is applied to the probability of the class named in `decision.target_class`. If you set `target_class: negative`, scores ≥ threshold mark the review as negative; if you set `target_class: positive`, the same rule applies to the positive probability. This keeps the training CLI aligned with whatever label you want the threshold to guard.
+
 ## Language Evaluation Utilities
 
 The following scripts in `scripts/` help build LID ground truth for the Google Maps evaluation dataset:
