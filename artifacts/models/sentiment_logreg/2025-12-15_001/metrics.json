@@ -1,6 +1,0 @@
-{
-  "macro_f1": 0.92,
-  "f1_negative": 0.89,
-  "pr_auc": 0.94,
-  "recall_negative": 0.91
-}

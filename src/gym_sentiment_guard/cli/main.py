@@ -22,6 +22,7 @@ from ..pipeline import (
 from ..pipeline import (
     run_full_pipeline as pipeline_run_full_pipeline,
 )
+from ..training import train_from_config
 from ..utils import get_logger, json_log
 
 app = typer.Typer(help='Gym Sentiment Guard CLI', no_args_is_help=True)
@@ -376,6 +377,22 @@ def normalize_dataset(
     )
     typer.echo(f'Normalized dataset written to: {target_output}')
 
+@pipeline_app.command('train-model')
+def train_model(
+    config: Annotated[
+        Path,
+        typer.Option(
+            '--config',
+            '-c',
+            exists=True,
+            readable=True,
+            help='Path to model config YAML.',
+        ),
+    ] = Path('configs/logreg_v1.yaml'),
+) -> None:
+    """Train a sentiment model from a config file."""
+    result = train_from_config(config)
+    typer.echo(f"Model trained. Artifacts in {result['artifact_dir']}")
 
 if __name__ == '__main__':
     app()
