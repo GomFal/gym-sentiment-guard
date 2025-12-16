@@ -1,0 +1,33 @@
+# Serving Configuration
+# Config-driven settings for the sentiment analysis API
+
+model:
+  # Path to the model directory containing logreg.joblib and metadata.json
+  path: ../artifacts/models/sentiment_logreg/model.2025-12-16_002
+
+server:
+  host: 0.0.0.0
+  port: 8001
+
+preprocessing:
+  # Apply same preprocessing as training (lowercase, punctuation removal)
+  enabled: true
+  structural_punctuation_path: structural_punctuation.txt
+
+validation:
+  # Maximum text size in bytes (50KB)
+  max_text_bytes: 51200
+  # Minimum text length in characters
+  min_text_length: 1
+
+batch:
+  # Maximum number of texts per batch request
+  max_items: 100
+  # Maximum size per text in batch (5KB)
+  max_text_bytes_per_item: 5120
+
+logging:
+  # Logging mode: "minimal" or "requests"
+  # - minimal: log only errors and startup
+  # - requests: log each request with latency, input length, prediction
+  mode: minimal
