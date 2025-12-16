@@ -154,7 +154,7 @@ When fastText confidence drops below the threshold, the pipeline will POST the r
 
 - The FastAPI service logs every Gemini call (`Gemini status ... response ...`). Errors (4xx/5xx) are logged at ERROR level so you can spot upstream issues.
 - The preprocess pipeline logs fallback usage. `language_filter.llm_response` entries appear at DEBUG level for successful calls; `language_filter.llm_response_error` warnings show when the Gemini call fails, making it easy to diagnose problems directly in the CLI output.
-- The fallback is triggered both when fastText’s top prediction is low-confidence *and* when Spanish ranks within the top-3 with high probability but isn’t the top label. This lets Gemini double-check mixed-language reviews.
+- The fallback is triggered both when fastText’s top prediction is low-confidence *and* when Spanish ranks within the top-k (k=5) with high probability but isn’t the top label. This lets Gemini double-check mixed-language reviews.
 
 ### Optional: Mistral helper
 
@@ -208,3 +208,87 @@ The dataset is divided into 70/15/15 for train, val and test:
   - changing the data split 
   - adding K fold cross validation to the training process.
   - Use temporal splitting: train model with older data and test it with recent data (E.g: train on 2020-2022, test on 2024-2025). The provblem with this is that, even though gym situations can change (New monitors, new machines, management changes), the way of expressing satisfaction or discomfort with services should not in a such small period of time (Slang change, vocabulary change, new generations entering the gym). 
+
+---
+
+## Serving API
+
+Serve the trained sentiment model via a REST API for real-time predictions.
+
+### Start the Server
+
+```bash
+uvicorn gym_sentiment_guard.serving.app:app --reload --port 8001
+```
+
+Or with a custom config:
+
+```bash
+GSG_SERVING_CONFIG=configs/serving.yaml uvicorn gym_sentiment_guard.serving.app:app --port 8001
+```
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Liveness check |
+| GET | `/ready` | Readiness check (model loaded) |
+| GET | `/model/info` | Model metadata (version, threshold) |
+| POST | `/predict` | Single prediction |
+| POST | `/predict/batch` | Batch predictions (max 100 texts) |
+
+### Example Requests
+
+**Single prediction:**
+
+```bash
+curl -X POST http://localhost:8001/predict \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Excelente gimnasio, muy limpio y buen ambiente"}'
+```
+
+Response:
+```json
+{
+  "sentiment": "positive",
+  "confidence": 0.87,
+  "probability_positive": 0.87,
+  "probability_negative": 0.13,
+  "model_version": "2025-12-16_002"
+}
+```
+
+**Batch prediction:**
+
+```bash
+curl -X POST http://localhost:8001/predict/batch \
+  -H "Content-Type: application/json" \
+  -d '{"texts": ["Muy buen gym", "Pésimo servicio"]}'
+```
+
+### Configuration
+
+Configure via `configs/serving.yaml`:
+
+```yaml
+model:
+  path: artifacts/models/sentiment_logreg/model.2025-12-16_002
+
+preprocessing:
+  enabled: true
+
+validation:
+  max_text_bytes: 51200  # 50KB max
+
+batch:
+  max_items: 100
+  max_text_bytes_per_item: 5120  # 5KB
+
+logging:
+  mode: minimal  # or "requests" for per-request logging
+```
+
+### Swagger Documentation
+
+Visit `http://localhost:8001/docs` for interactive API documentation.
+
