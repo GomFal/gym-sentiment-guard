@@ -6,32 +6,14 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class PredictRequest(BaseModel):
-    """Request schema for single prediction."""
-
-    text: str = Field(
-        ...,
-        min_length=1,
-        description='Review text to classify.',
-        examples=['Excelente gimnasio, muy limpio y buen ambiente.'],
-    )
-
-    @field_validator('text')
-    @classmethod
-    def text_not_empty(cls, v: str) -> str:
-        stripped = v.strip()
-        if not stripped:
-            raise ValueError('Text cannot be empty or whitespace only')
-        return v
-
-
-class BatchPredictRequest(BaseModel):
-    """Request schema for batch prediction."""
+    """Request schema for prediction (1 to N texts)."""
 
     texts: list[str] = Field(
         ...,
         min_length=1,
         max_length=100,
-        description='List of review texts to classify.',
+        description='List of review texts to classify (1 to 100 texts).',
+        examples=[['Excelente gimnasio, muy limpio.', 'Pésimo servicio, no volvería.']],
     )
 
     @field_validator('texts')
@@ -44,7 +26,7 @@ class BatchPredictRequest(BaseModel):
 
 
 class PredictResponse(BaseModel):
-    """Response schema for single prediction with full probabilities."""
+    """Response schema for a single prediction with full probabilities."""
 
     sentiment: str = Field(
         ...,
@@ -71,15 +53,6 @@ class PredictResponse(BaseModel):
     model_version: str = Field(
         ...,
         description='Version of the model used for prediction.',
-    )
-
-
-class BatchPredictResponse(BaseModel):
-    """Response schema for batch prediction."""
-
-    predictions: list[PredictResponse] = Field(
-        ...,
-        description='List of predictions for each input text.',
     )
 
 

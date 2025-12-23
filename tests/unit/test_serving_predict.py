@@ -10,8 +10,7 @@ from sklearn.pipeline import Pipeline
 from gym_sentiment_guard.serving.loader import ModelArtifact
 from gym_sentiment_guard.serving.predict import (
     PredictionResult,
-    predict_batch,
-    predict_single,
+    predict,
     preprocess_text,
 )
 
@@ -40,6 +39,7 @@ def model_artifact() -> ModelArtifact:
         threshold=0.5,
         target_class='negative',
         label_mapping={'negative': 0, 'positive': 1},
+        model_name='test',
     )
 
 
@@ -72,64 +72,64 @@ class TestPreprocessText:
         assert 'great' in result
 
 
-class TestPredictSingle:
-    """Tests for predict_single function."""
+class TestPredict:
+    """Tests for unified predict function."""
+
+    def test_single_text_returns_list(self, model_artifact: ModelArtifact) -> None:
+        results = predict(['muy buen gimnasio'], model_artifact)
+
+        assert isinstance(results, list)
+        assert len(results) == 1
+        assert isinstance(results[0], PredictionResult)
 
     def test_returns_prediction_result(self, model_artifact: ModelArtifact) -> None:
-        result = predict_single('muy buen gimnasio', model_artifact)
+        results = predict(['muy buen gimnasio'], model_artifact)
+        result = results[0]
 
-        assert isinstance(result, PredictionResult)
         assert result.sentiment in ('positive', 'negative')
         assert 0.0 <= result.confidence <= 1.0
         assert 0.0 <= result.probability_positive <= 1.0
         assert 0.0 <= result.probability_negative <= 1.0
 
     def test_probabilities_sum_to_one(self, model_artifact: ModelArtifact) -> None:
-        result = predict_single('test text', model_artifact)
+        results = predict(['test text'], model_artifact)
+        result = results[0]
 
         total = result.probability_positive + result.probability_negative
         assert abs(total - 1.0) < 0.001
 
     def test_positive_text(self, model_artifact: ModelArtifact) -> None:
-        result = predict_single('excelente fantastico increible', model_artifact)
+        results = predict(['excelente fantastico increible'], model_artifact)
         # Model should predict positive for positive text
-        assert result.probability_positive > 0.5
+        assert results[0].probability_positive > 0.5
 
     def test_negative_text(self, model_artifact: ModelArtifact) -> None:
-        result = predict_single('terrible horrible malo', model_artifact)
+        results = predict(['terrible horrible malo'], model_artifact)
         # Model should predict negative for negative text
-        assert result.probability_negative > 0.5
+        assert results[0].probability_negative > 0.5
 
     def test_without_preprocessing(self, model_artifact: ModelArtifact) -> None:
-        result = predict_single(
-            'TEST TEXT',
+        results = predict(
+            ['TEST TEXT'],
             model_artifact,
             apply_preprocessing=False,
         )
-        assert isinstance(result, PredictionResult)
+        assert isinstance(results[0], PredictionResult)
 
-
-class TestPredictBatch:
-    """Tests for predict_batch function."""
-
-    def test_returns_list(self, model_artifact: ModelArtifact) -> None:
+    def test_multiple_texts(self, model_artifact: ModelArtifact) -> None:
         texts = ['good', 'bad', 'great']
-        results = predict_batch(texts, model_artifact)
+        results = predict(texts, model_artifact)
 
         assert isinstance(results, list)
         assert len(results) == 3
 
     def test_each_result_is_prediction_result(self, model_artifact: ModelArtifact) -> None:
         texts = ['text one', 'text two']
-        results = predict_batch(texts, model_artifact)
+        results = predict(texts, model_artifact)
 
         for result in results:
             assert isinstance(result, PredictionResult)
 
     def test_empty_list(self, model_artifact: ModelArtifact) -> None:
-        results = predict_batch([], model_artifact)
+        results = predict([], model_artifact)
         assert results == []
-
-    def test_single_item_batch(self, model_artifact: ModelArtifact) -> None:
-        results = predict_batch(['single text'], model_artifact)
-        assert len(results) == 1

@@ -2,10 +2,13 @@
 
 from .app import app
 from .loader import ModelArtifact, ModelLoadError, load_model
-from .predict import PredictionResult, predict_batch, predict_single, preprocess_text
+from .predict import (
+    PredictionResult,
+    predict,
+    preprocess_text,
+    preprocess_texts_vectorized,
+)
 from .schemas import (
-    BatchPredictRequest,
-    BatchPredictResponse,
     ErrorResponse,
     HealthResponse,
     ModelInfoResponse,
@@ -20,11 +23,9 @@ __all__ = [
     'ModelLoadError',
     'load_model',
     'PredictionResult',
-    'predict_batch',
-    'predict_single',
+    'predict',
     'preprocess_text',
-    'BatchPredictRequest',
-    'BatchPredictResponse',
+    'preprocess_texts_vectorized',
     'ErrorResponse',
     'HealthResponse',
     'ModelInfoResponse',

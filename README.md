@@ -234,8 +234,7 @@ GSG_SERVING_CONFIG=configs/serving.yaml uvicorn gym_sentiment_guard.serving.app:
 | GET | `/health` | Liveness check |
 | GET | `/ready` | Readiness check (model loaded) |
 | GET | `/model/info` | Model metadata (version, threshold) |
-| POST | `/predict` | Single prediction |
-| POST | `/predict/batch` | Batch predictions (max 100 texts) |
+| POST | `/predict` | Predict sentiment for 1-100 texts |
 
 ### Example Requests
 
@@ -244,24 +243,26 @@ GSG_SERVING_CONFIG=configs/serving.yaml uvicorn gym_sentiment_guard.serving.app:
 ```bash
 curl -X POST http://localhost:8001/predict \
   -H "Content-Type: application/json" \
-  -d '{"text": "Excelente gimnasio, muy limpio y buen ambiente"}'
+  -d '{"texts": ["Excelente gimnasio, muy limpio y buen ambiente"]}'
 ```
 
 Response:
 ```json
-{
-  "sentiment": "positive",
-  "confidence": 0.87,
-  "probability_positive": 0.87,
-  "probability_negative": 0.13,
-  "model_version": "2025-12-16_002"
-}
+[
+  {
+    "sentiment": "positive",
+    "confidence": 0.87,
+    "probability_positive": 0.87,
+    "probability_negative": 0.13,
+    "model_version": "2025-12-16_002"
+  }
+]
 ```
 
-**Batch prediction:**
+**Multiple predictions:**
 
 ```bash
-curl -X POST http://localhost:8001/predict/batch \
+curl -X POST http://localhost:8001/predict \
   -H "Content-Type: application/json" \
   -d '{"texts": ["Muy buen gym", "Pésimo servicio"]}'
 ```
