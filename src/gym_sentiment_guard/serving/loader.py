@@ -15,7 +15,7 @@ from ..utils import get_logger, json_log
 log = get_logger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True)
 class ModelArtifact:
     """Container for loaded model and its metadata."""
 
@@ -25,10 +25,7 @@ class ModelArtifact:
     threshold: float
     target_class: str
     label_mapping: dict[str, int]
-
-    @property
-    def model_name(self) -> str:
-        return self.metadata.get('model_name', 'unknown')
+    model_name: str
 
 
 class ModelLoadError(RuntimeError):
@@ -95,4 +92,5 @@ def load_model(model_dir: str | Path) -> ModelArtifact:
         threshold=threshold,
         target_class=target_class,
         label_mapping=label_mapping,
+        model_name=metadata.get('model_name', 'unknown'),
     )

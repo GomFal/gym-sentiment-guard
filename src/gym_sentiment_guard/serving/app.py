@@ -12,10 +12,8 @@ from ..config import ServingConfig, load_serving_config
 from ..data.cleaning import load_structural_punctuation
 from ..utils import get_logger, json_log
 from .loader import ModelArtifact, ModelLoadError, load_model
-from .predict import predict_batch, predict_single
+from .predict import predict
 from .schemas import (
-    BatchPredictRequest,
-    BatchPredictResponse,
     ErrorResponse,
     HealthResponse,
     ModelInfoResponse,
@@ -89,7 +87,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title='Gym Sentiment Guard API',
     description='Sentiment analysis API for gym reviews.',
-    version='0.1.0',
+    version='0.2.0',
     lifespan=lifespan,
 )
 
@@ -100,14 +98,14 @@ def _validate_text_size(text: str, max_bytes: int, context: str = 'text') -> Non
     if text_bytes > max_bytes:
         raise HTTPException(
             status_code=400,
-            detail=f'{context} exceeds maximum size of {max_bytes} bytes ({text_bytes} bytes provided)',
+            detail=f'{context} exceeds maximum size of {max_bytes} bytes '
+            f'({text_bytes} bytes provided)',
         )
 
 
 def _log_request(
     endpoint: str,
-    input_length: int,
-    prediction: str | None,
+    input_count: int,
     latency_ms: float,
 ) -> None:
     """Log request if request logging is enabled."""
@@ -117,8 +115,7 @@ def _log_request(
                 'serving.request',
                 component='serving.app',
                 endpoint=endpoint,
-                input_length=input_length,
-                prediction=prediction,
+                input_count=input_count,
                 latency_ms=round(latency_ms, 2),
             )
         )
@@ -155,48 +152,16 @@ def model_info() -> ModelInfoResponse:
 
 @app.post(
     '/predict',
-    response_model=PredictResponse,
+    response_model=list[PredictResponse],
     responses={400: {'model': ErrorResponse}, 503: {'model': ErrorResponse}},
     tags=['Prediction'],
 )
-def predict(request: PredictRequest) -> PredictResponse:
-    """Predict sentiment for a single review."""
-    if _artifact is None or _config is None:
-        raise HTTPException(status_code=503, detail='Model not loaded')
+def predict_endpoint(request: PredictRequest) -> list[PredictResponse]:
+    """
+    Predict sentiment for one or more reviews.
 
-    start_time = time.perf_counter()
-
-    # Validate text size
-    _validate_text_size(request.text, _config.validation.max_text_bytes)
-
-    # Make prediction
-    result = predict_single(
-        text=request.text,
-        artifact=_artifact,
-        apply_preprocessing=_config.preprocessing.enabled,
-        structural_punctuation=_structural_punctuation,
-    )
-
-    latency_ms = (time.perf_counter() - start_time) * 1000
-    _log_request('/predict', len(request.text), result.sentiment, latency_ms)
-
-    return PredictResponse(
-        sentiment=result.sentiment,
-        confidence=result.confidence,
-        probability_positive=result.probability_positive,
-        probability_negative=result.probability_negative,
-        model_version=_artifact.version,
-    )
-
-
-@app.post(
-    '/predict/batch',
-    response_model=BatchPredictResponse,
-    responses={400: {'model': ErrorResponse}, 503: {'model': ErrorResponse}},
-    tags=['Prediction'],
-)
-def predict_batch_endpoint(request: BatchPredictRequest) -> BatchPredictResponse:
-    """Predict sentiment for multiple reviews."""
+    Accepts 1 to 100 texts and returns a list of predictions.
+    """
     if _artifact is None or _config is None:
         raise HTTPException(status_code=503, detail='Model not loaded')
 
@@ -218,7 +183,7 @@ def predict_batch_endpoint(request: BatchPredictRequest) -> BatchPredictResponse
         )
 
     # Make predictions
-    results = predict_batch(
+    results = predict(
         texts=request.texts,
         artifact=_artifact,
         apply_preprocessing=_config.preprocessing.enabled,
@@ -237,6 +202,6 @@ def predict_batch_endpoint(request: BatchPredictRequest) -> BatchPredictResponse
     ]
 
     latency_ms = (time.perf_counter() - start_time) * 1000
-    _log_request('/predict/batch', len(request.texts), None, latency_ms)
+    _log_request('/predict', len(request.texts), latency_ms)
 
-    return BatchPredictResponse(predictions=predictions)
+    return predictions
