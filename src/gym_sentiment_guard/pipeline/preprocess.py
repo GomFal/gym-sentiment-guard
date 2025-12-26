@@ -8,17 +8,16 @@ from pathlib import Path
 
 from ..config import PreprocessConfig
 from ..data import (
-    configure_language_fallback,
     deduplicate_reviews,
     drop_columns,
     drop_neutral_ratings,
     enforce_expectations,
-    filter_spanish_comments,
     load_structural_punctuation,
     merge_processed_csvs,
     normalize_comments,
     split_dataset,
 )
+from ..data.language import configure_language_fallback, filter_spanish_comments
 from ..features import add_rating_sentiment
 from ..io import count_csv_rows, list_pending_raw_files
 from ..utils import get_logger, json_log

@@ -235,6 +235,7 @@ GSG_SERVING_CONFIG=configs/serving.yaml uvicorn gym_sentiment_guard.serving.app:
 | GET | `/ready` | Readiness check (model loaded) |
 | GET | `/model/info` | Model metadata (version, threshold) |
 | POST | `/predict` | Predict sentiment for 1-100 texts |
+| POST | `/predict/explain` | Predict with feature importance explanations |
 
 ### Example Requests
 
@@ -267,6 +268,34 @@ curl -X POST http://localhost:8001/predict \
   -d '{"texts": ["Muy buen gym", "Pésimo servicio"]}'
 ```
 
+**Prediction with explanation:**
+
+```bash
+curl -X POST http://localhost:8001/predict/explain \
+  -H "Content-Type: application/json" \
+  -d '{"texts": ["Excelente gimnasio, muy limpio"]}'
+```
+
+Response:
+```json
+[
+  {
+    "sentiment": "positive",
+    "confidence": 0.91,
+    "probability_positive": 0.91,
+    "probability_negative": 0.09,
+    "model_version": "2025-12-16_002",
+    "explanation": [
+      {"feature": "excelente", "importance": 2.45},
+      {"feature": "limpio", "importance": 1.82},
+      {"feature": "gimnasio", "importance": 0.34}
+    ]
+  }
+]
+```
+
+The `explanation` field contains the top contributing features sorted by absolute importance. Positive values push towards "positive" sentiment, negative values push towards "negative" sentiment.
+
 ### Configuration
 
 Configure via `configs/serving.yaml`:
@@ -292,4 +321,71 @@ logging:
 ### Swagger Documentation
 
 Visit `http://localhost:8001/docs` for interactive API documentation.
+
+---
+
+## Docker Deployment
+
+### Build the Image
+
+```bash
+docker build -t gym-sentiment-guard:local .
+```
+
+### Run with Docker Compose (Recommended)
+
+```bash
+# Start the container
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the container
+docker-compose down
+```
+
+### Run with Docker Directly
+
+```bash
+docker run -d \
+  --name gsg-api \
+  -p 8001:8080 \
+  -e GSG_SERVING_CONFIG=/app/configs/serving.yaml \
+  gym-sentiment-guard:local
+```
+
+### Test the Container
+
+```bash
+# Health check
+curl http://localhost:8001/health
+
+# Prediction
+curl -X POST http://localhost:8001/predict \
+  -H "Content-Type: application/json" \
+  -d '{"texts": ["Excelente gimnasio"]}'
+
+# Explain prediction
+curl -X POST http://localhost:8001/predict/explain \
+  -H "Content-Type: application/json" \
+  -d '{"texts": ["Excelente gimnasio"]}'
+```
+
+### Verify Security
+
+```bash
+# Confirm non-root user
+docker exec gsg-api whoami
+# Expected output: appuser
+```
+
+### Image Details
+
+| Property | Value |
+|----------|-------|
+| Base Image | `python:3.12-slim-bookworm` |
+| Port | 8080 (mapped to 8001 locally) |
+| User | `appuser` (non-root) |
+| Health Check | `/health` endpoint |
 

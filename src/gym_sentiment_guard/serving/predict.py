@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-import re
+import heapq
 from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
 
 from ..data.cleaning import DEFAULT_STRUCTURAL_PUNCTUATION, EMOJI_PATTERN
-from .loader import ModelArtifact
+from .loader import ModelArtifact, ModelExplainError
 
 
 @dataclass(frozen=True)
@@ -22,40 +22,14 @@ class PredictionResult:
     probability_negative: float
 
 
+@dataclass(frozen=True)
+class ExplanationResult(PredictionResult):
+    """Prediction result with feature importance explanation."""
+
+    explanation: tuple[tuple[str, float], ...]  # (feature, importance) pairs
+
+
 def preprocess_text(
-    text: str,
-    structural_punctuation: str | None = None,
-) -> str:
-    """
-    Apply the same preprocessing as training (single text).
-
-    Steps:
-    1. Strip emojis
-    2. Lowercase
-    3. Replace structural punctuation with spaces
-    4. Collapse whitespace
-    5. Strip leading/trailing whitespace
-    """
-    # Strip emojis
-    cleaned = EMOJI_PATTERN.sub('', text)
-
-    # Lowercase
-    cleaned = cleaned.lower()
-
-    # Replace structural punctuation with spaces
-    pattern = structural_punctuation or DEFAULT_STRUCTURAL_PUNCTUATION
-    cleaned = re.sub(pattern, ' ', cleaned)
-
-    # Collapse whitespace
-    cleaned = re.sub(r'\s+', ' ', cleaned)
-
-    # Strip
-    cleaned = cleaned.strip()
-
-    return cleaned
-
-
-def preprocess_texts_vectorized(
     texts: list[str],
     structural_punctuation: str | None = None,
 ) -> list[str]:
@@ -114,7 +88,7 @@ def predict(
         return []
 
     if apply_preprocessing:
-        processed_texts = preprocess_texts_vectorized(texts, structural_punctuation)
+        processed_texts = preprocess_text(texts, structural_punctuation)
     else:
         processed_texts = texts
 
@@ -163,3 +137,136 @@ def predict(
 
     return results
 
+
+def _get_classifier_coefficients(classifier) -> np.ndarray:
+    """
+    Extract coefficients from a classifier, handling CalibratedClassifierCV.
+
+    Args:
+        classifier: A sklearn classifier (LogisticRegression, CalibratedClassifierCV, etc.)
+
+    Returns:
+        1D numpy array of shape (n_features,)
+
+    Raises:
+        ModelExplainError: If coefficients cannot be extracted.
+    """
+    # Case 1: CalibratedClassifierCV (e.g., from cross-validation calibration)
+    if hasattr(classifier, 'calibrated_classifiers_'):
+        calibrated = classifier.calibrated_classifiers_
+        if not calibrated:
+            raise ModelExplainError('CalibratedClassifierCV has no calibrated classifiers')
+
+        # Check that underlying estimators have coef_
+        if not hasattr(calibrated[0].estimator, 'coef_'):
+            raise ModelExplainError(
+                f'Base estimator {type(calibrated[0].estimator).__name__} has no coefficients'
+            )
+
+        # Average coefficients across all folds
+        coefs_sum = sum(cc.estimator.coef_ for cc in calibrated)
+        coefs_avg = (coefs_sum / len(calibrated)).ravel()
+        return coefs_avg
+
+    # Case 2: Direct linear model (e.g., LogisticRegression)
+    if hasattr(classifier, 'coef_'):
+        return classifier.coef_[0]
+
+    raise ModelExplainError(
+        f'Classifier {type(classifier).__name__} does not support coefficient extraction'
+    )
+
+
+def explain_predictions(
+    texts: list[str],
+    artifact: ModelArtifact,
+    apply_preprocessing: bool = True,
+    structural_punctuation: str | None = None,
+    top_k: int = 10,
+) -> list[ExplanationResult]:
+    """
+    Make predictions with feature importance explanations.
+
+    Args:
+        texts: List of input review texts (1 to N texts).
+        artifact: Loaded model artifact.
+        apply_preprocessing: Whether to apply preprocessing.
+        structural_punctuation: Optional custom punctuation pattern.
+        top_k: Number of top features to return per prediction.
+
+    Returns:
+        List of ExplanationResult objects with predictions and explanations.
+
+    Raises:
+        ModelExplainError: If the model does not support explanation.
+    """
+    if not texts:
+        return []
+
+    # Validate model compatibility
+    pipeline = artifact.model
+    if len(pipeline.steps) < 2:
+        raise ModelExplainError(
+            'Pipeline must have at least 2 steps (vectorizer + classifier)'
+        )
+
+    vectorizer = pipeline.steps[0][1]
+    classifier = pipeline.steps[-1][1]
+
+    if not hasattr(vectorizer, 'get_feature_names_out'):
+        raise ModelExplainError(
+            f'Vectorizer {type(vectorizer).__name__} does not support feature names'
+        )
+
+    # Get feature names and coefficients
+    feature_names = vectorizer.get_feature_names_out()
+    coefficients = _get_classifier_coefficients(classifier)
+
+    # Preprocess texts
+    if apply_preprocessing:
+        processed_texts = preprocess_text(texts, structural_punctuation)
+    else:
+        processed_texts = texts
+
+    # Batch transform all texts at once
+    sparse_matrix = vectorizer.transform(processed_texts)
+
+    # Get predictions using existing function (reuse logic)
+    predictions = predict(
+        texts=texts,
+        artifact=artifact,
+        apply_preprocessing=apply_preprocessing,
+        structural_punctuation=structural_punctuation,
+    )
+
+    # Build explanations for each text
+    results: list[ExplanationResult] = []
+    for i, pred in enumerate(predictions):
+        row = sparse_matrix.getrow(i)
+        indices = row.indices
+        values = row.data
+
+        # Calculate contributions: tfidf_value * coefficient
+        contributions = [
+            (feature_names[j], float(values[k] * coefficients[j]))
+            for k, j in enumerate(indices)
+        ]
+
+        # Get top-k by absolute importance (O(n log k) instead of O(n log n))
+        top_features = heapq.nlargest(
+            min(top_k, len(contributions)),
+            contributions,
+            key=lambda x: abs(x[1]),
+        )
+
+        results.append(
+            ExplanationResult(
+                sentiment=pred.sentiment,
+                confidence=pred.confidence,
+                probability_positive=pred.probability_positive,
+                probability_negative=pred.probability_negative,
+                explanation=tuple(top_features),
+            )
+        )
+
+    return results

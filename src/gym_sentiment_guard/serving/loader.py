@@ -32,6 +32,10 @@ class ModelLoadError(RuntimeError):
     """Raised when model loading fails."""
 
 
+class ModelExplainError(RuntimeError):
+    """Raised when model does not support explanation (e.g., non-linear, no coef_)."""
+
+
 def load_model(model_dir: str | Path) -> ModelArtifact:
     """
     Load a trained model and its metadata from a directory.

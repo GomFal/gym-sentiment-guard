@@ -1,15 +1,18 @@
 """Serving module for gym_sentiment_guard."""
 
 from .app import app
-from .loader import ModelArtifact, ModelLoadError, load_model
+from .loader import ModelArtifact, ModelExplainError, ModelLoadError, load_model
 from .predict import (
+    ExplanationResult,
     PredictionResult,
+    explain_predictions,
     predict,
     preprocess_text,
-    preprocess_texts_vectorized,
 )
 from .schemas import (
     ErrorResponse,
+    ExplainResponse,
+    FeatureImportance,
     HealthResponse,
     ModelInfoResponse,
     PredictRequest,
@@ -20,13 +23,17 @@ from .schemas import (
 __all__ = [
     'app',
     'ModelArtifact',
+    'ModelExplainError',
     'ModelLoadError',
     'load_model',
+    'ExplanationResult',
     'PredictionResult',
+    'explain_predictions',
     'predict',
     'preprocess_text',
-    'preprocess_texts_vectorized',
     'ErrorResponse',
+    'ExplainResponse',
+    'FeatureImportance',
     'HealthResponse',
     'ModelInfoResponse',
     'PredictRequest',

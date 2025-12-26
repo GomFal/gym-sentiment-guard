@@ -11,10 +11,12 @@ from fastapi import FastAPI, HTTPException
 from ..config import ServingConfig, load_serving_config
 from ..data.cleaning import load_structural_punctuation
 from ..utils import get_logger, json_log
-from .loader import ModelArtifact, ModelLoadError, load_model
-from .predict import predict
+from .loader import ModelArtifact, ModelExplainError, ModelLoadError, load_model
+from .predict import explain_predictions, predict
 from .schemas import (
     ErrorResponse,
+    ExplainResponse,
+    FeatureImportance,
     HealthResponse,
     ModelInfoResponse,
     PredictRequest,
@@ -205,3 +207,70 @@ def predict_endpoint(request: PredictRequest) -> list[PredictResponse]:
     _log_request('/predict', len(request.texts), latency_ms)
 
     return predictions
+
+
+@app.post(
+    '/predict/explain',
+    response_model=list[ExplainResponse],
+    responses={400: {'model': ErrorResponse}, 503: {'model': ErrorResponse}},
+    tags=['Prediction', 'Explainability'],
+)
+def explain_endpoint(request: PredictRequest) -> list[ExplainResponse]:
+    """
+    Predict sentiment with feature importance explanations.
+
+    Accepts 1 to 100 texts and returns predictions with the top contributing
+    features for each prediction.
+    """
+    if _artifact is None or _config is None:
+        raise HTTPException(status_code=503, detail='Model not loaded')
+
+    start_time = time.perf_counter()
+
+    # Validate batch size
+    if len(request.texts) > _config.batch.max_items:
+        raise HTTPException(
+            status_code=400,
+            detail=f'Batch size {len(request.texts)} exceeds maximum of {_config.batch.max_items}',
+        )
+
+    # Validate individual text sizes
+    for i, text in enumerate(request.texts):
+        _validate_text_size(
+            text,
+            _config.batch.max_text_bytes_per_item,
+            context=f'Text at index {i}',
+        )
+
+    try:
+        results = explain_predictions(
+            texts=request.texts,
+            artifact=_artifact,
+            apply_preprocessing=_config.preprocessing.enabled,
+            structural_punctuation=_structural_punctuation,
+        )
+    except ModelExplainError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=f'Model does not support explanation: {exc}',
+        ) from exc
+
+    responses = [
+        ExplainResponse(
+            sentiment=result.sentiment,
+            confidence=result.confidence,
+            probability_positive=result.probability_positive,
+            probability_negative=result.probability_negative,
+            model_version=_artifact.version,
+            explanation=[
+                FeatureImportance(feature=feat, importance=imp)
+                for feat, imp in result.explanation
+            ],
+        )
+        for result in results
+    ]
+
+    latency_ms = (time.perf_counter() - start_time) * 1000
+    _log_request('/predict/explain', len(request.texts), latency_ms)
+
+    return responses
