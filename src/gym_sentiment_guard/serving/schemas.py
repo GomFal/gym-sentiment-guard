@@ -56,6 +56,22 @@ class PredictResponse(BaseModel):
     )
 
 
+class FeatureImportance(BaseModel):
+    """Schema for a single feature's contribution to the prediction."""
+
+    feature: str = Field(..., description='The word/token.')
+    importance: float = Field(..., description='Signed contribution score.')
+
+
+class ExplainResponse(PredictResponse):
+    """Prediction response with feature importance explanation."""
+
+    explanation: list[FeatureImportance] = Field(
+        default_factory=list,
+        description='Top contributing features, sorted by absolute importance.',
+    )
+
+
 class HealthResponse(BaseModel):
     """Response schema for health check endpoint."""
 
