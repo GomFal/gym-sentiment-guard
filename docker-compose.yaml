@@ -1,0 +1,26 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gym-sentiment-guard:local
+    container_name: gsg-api
+    ports:
+      - "8080:8080"
+    environment:
+      - GSG_SERVING_CONFIG=/app/configs/serving.yaml
+      - PORT=8080
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+    # Resource limits (optional, for local testing)
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M

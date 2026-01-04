@@ -1,0 +1,443 @@
+{
+  "total_runs": 48,
+  "valid_runs": 48,
+  "constraint_not_met_runs": 0,
+  "invalid_runs": 0,
+  "winner_run_id": "run.2026-01-04_041",
+  "winner_f1_neg": 0.8959183673469387,
+  "winner_threshold": 0.38521874266948164,
+  "ranked_runs": [
+    {
+      "run_id": "run.2026-01-04_041",
+      "validity_status": "valid",
+      "f1_neg": 0.8959183673469387,
+      "recall_neg": 0.9164926931106472,
+      "macro_f1": 0.9318301514154048,
+      "threshold": 0.38521874266948164,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_047",
+      "validity_status": "valid",
+      "f1_neg": 0.8959183673469387,
+      "recall_neg": 0.9164926931106472,
+      "macro_f1": 0.9318301514154048,
+      "threshold": 0.38521874266948164,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_042",
+      "validity_status": "valid",
+      "f1_neg": 0.8954314720812183,
+      "recall_neg": 0.9206680584551148,
+      "macro_f1": 0.9314027807032637,
+      "threshold": 0.3436853481577741,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_048",
+      "validity_status": "valid",
+      "f1_neg": 0.8954314720812183,
+      "recall_neg": 0.9206680584551148,
+      "macro_f1": 0.9314027807032637,
+      "threshold": 0.3436853481577741,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_030",
+      "validity_status": "valid",
+      "f1_neg": 0.8925619834710744,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9298978789441068,
+      "threshold": 0.5672395197395198,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_036",
+      "validity_status": "valid",
+      "f1_neg": 0.8925619834710744,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9298978789441068,
+      "threshold": 0.5672395197395198,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_029",
+      "validity_status": "valid",
+      "f1_neg": 0.8913934426229508,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9289563549185507,
+      "threshold": 0.4609455352968677,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_035",
+      "validity_status": "valid",
+      "f1_neg": 0.8913934426229508,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9289563549185507,
+      "threshold": 0.4609455352968677,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_006",
+      "validity_status": "valid",
+      "f1_neg": 0.8888888888888888,
+      "recall_neg": 0.9102296450939458,
+      "macro_f1": 0.9272030651340997,
+      "threshold": 0.37892125662994697,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_012",
+      "validity_status": "valid",
+      "f1_neg": 0.8888888888888888,
+      "recall_neg": 0.9102296450939458,
+      "macro_f1": 0.9272030651340997,
+      "threshold": 0.37892125662994697,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_018",
+      "validity_status": "valid",
+      "f1_neg": 0.8886659979939819,
+      "recall_neg": 0.9248434237995825,
+      "macro_f1": 0.9266859401734615,
+      "threshold": 0.2997262223108055,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_024",
+      "validity_status": "valid",
+      "f1_neg": 0.8886659979939819,
+      "recall_neg": 0.9248434237995825,
+      "macro_f1": 0.9266859401734615,
+      "threshold": 0.2997262223108055,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_039",
+      "validity_status": "valid",
+      "f1_neg": 0.8879837067209776,
+      "recall_neg": 0.9102296450939458,
+      "macro_f1": 0.9265867900693496,
+      "threshold": 0.40407647907647914,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_045",
+      "validity_status": "valid",
+      "f1_neg": 0.8879837067209776,
+      "recall_neg": 0.9102296450939458,
+      "macro_f1": 0.9265867900693496,
+      "threshold": 0.40407647907647914,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_017",
+      "validity_status": "valid",
+      "f1_neg": 0.8875379939209727,
+      "recall_neg": 0.9144050104384134,
+      "macro_f1": 0.9261778717623881,
+      "threshold": 0.3561754035438246,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_023",
+      "validity_status": "valid",
+      "f1_neg": 0.8875379939209727,
+      "recall_neg": 0.9144050104384134,
+      "macro_f1": 0.9261778717623881,
+      "threshold": 0.3561754035438246,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_005",
+      "validity_status": "valid",
+      "f1_neg": 0.8868686868686869,
+      "recall_neg": 0.9164926931106472,
+      "macro_f1": 0.9256678459724146,
+      "threshold": 0.3334665582552449,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_011",
+      "validity_status": "valid",
+      "f1_neg": 0.8868686868686869,
+      "recall_neg": 0.9164926931106472,
+      "macro_f1": 0.9256678459724146,
+      "threshold": 0.3334665582552449,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_040",
+      "validity_status": "valid",
+      "f1_neg": 0.8859470468431772,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9252520044342468,
+      "threshold": 0.3855324271089172,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_046",
+      "validity_status": "valid",
+      "f1_neg": 0.8859470468431772,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9252520044342468,
+      "threshold": 0.3855324271089172,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_016",
+      "validity_status": "valid",
+      "f1_neg": 0.8828282828282829,
+      "recall_neg": 0.9123173277661796,
+      "macro_f1": 0.9230131261857151,
+      "threshold": 0.35765920826161784,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_022",
+      "validity_status": "valid",
+      "f1_neg": 0.8828282828282829,
+      "recall_neg": 0.9123173277661796,
+      "macro_f1": 0.9230131261857151,
+      "threshold": 0.35765920826161784,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_028",
+      "validity_status": "valid",
+      "f1_neg": 0.8825331971399387,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9230876545295015,
+      "threshold": 0.479973649538867,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_034",
+      "validity_status": "valid",
+      "f1_neg": 0.8825331971399387,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9230876545295015,
+      "threshold": 0.479973649538867,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_004",
+      "validity_status": "valid",
+      "f1_neg": 0.8823529411764706,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.922798777305599,
+      "threshold": 0.38301382525520455,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_010",
+      "validity_status": "valid",
+      "f1_neg": 0.8823529411764706,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.922798777305599,
+      "threshold": 0.38301382525520455,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_015",
+      "validity_status": "valid",
+      "f1_neg": 0.8800813008130082,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.92135793983019,
+      "threshold": 0.38086153380271026,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_021",
+      "validity_status": "valid",
+      "f1_neg": 0.8800813008130082,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.92135793983019,
+      "threshold": 0.38086153380271026,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_027",
+      "validity_status": "valid",
+      "f1_neg": 0.8792756539235412,
+      "recall_neg": 0.9123173277661796,
+      "macro_f1": 0.9205781065043372,
+      "threshold": 0.4177471250994639,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_033",
+      "validity_status": "valid",
+      "f1_neg": 0.8792756539235412,
+      "recall_neg": 0.9123173277661796,
+      "macro_f1": 0.9205781065043372,
+      "threshold": 0.4177471250994639,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_003",
+      "validity_status": "valid",
+      "f1_neg": 0.8789420142421159,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9206359327304281,
+      "threshold": 0.40783180778032035,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_009",
+      "validity_status": "valid",
+      "f1_neg": 0.8789420142421159,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9206359327304281,
+      "threshold": 0.40783180778032035,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_038",
+      "validity_status": "valid",
+      "f1_neg": 0.872617853560682,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9161181477660325,
+      "threshold": 0.40377457386007964,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_044",
+      "validity_status": "valid",
+      "f1_neg": 0.872617853560682,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9161181477660325,
+      "threshold": 0.40377457386007964,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_002",
+      "validity_status": "valid",
+      "f1_neg": 0.8694779116465864,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.9140777987984998,
+      "threshold": 0.43231136914015,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_008",
+      "validity_status": "valid",
+      "f1_neg": 0.8694779116465864,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.9140777987984998,
+      "threshold": 0.43231136914015,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_013",
+      "validity_status": "valid",
+      "f1_neg": 0.8683417085427135,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9133573811223259,
+      "threshold": 0.42198301698301705,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_019",
+      "validity_status": "valid",
+      "f1_neg": 0.8683417085427135,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9133573811223259,
+      "threshold": 0.42198301698301705,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_037",
+      "validity_status": "valid",
+      "f1_neg": 0.8682634730538922,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9131126282466913,
+      "threshold": 0.40194189112595186,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_043",
+      "validity_status": "valid",
+      "f1_neg": 0.8682634730538922,
+      "recall_neg": 0.9081419624217119,
+      "macro_f1": 0.9131126282466913,
+      "threshold": 0.40194189112595186,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_026",
+      "validity_status": "valid",
+      "f1_neg": 0.868,
+      "recall_neg": 0.906054279749478,
+      "macro_f1": 0.9129942711648631,
+      "threshold": 0.4528686678029378,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_032",
+      "validity_status": "valid",
+      "f1_neg": 0.868,
+      "recall_neg": 0.906054279749478,
+      "macro_f1": 0.9129942711648631,
+      "threshold": 0.4528686678029378,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_014",
+      "validity_status": "valid",
+      "f1_neg": 0.8674698795180723,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9127559187800152,
+      "threshold": 0.41064102564102567,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_020",
+      "validity_status": "valid",
+      "f1_neg": 0.8674698795180723,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9127559187800152,
+      "threshold": 0.41064102564102567,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_001",
+      "validity_status": "valid",
+      "f1_neg": 0.866,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.911676002546149,
+      "threshold": 0.40290052053209957,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_007",
+      "validity_status": "valid",
+      "f1_neg": 0.866,
+      "recall_neg": 0.9039665970772442,
+      "macro_f1": 0.911676002546149,
+      "threshold": 0.40290052053209957,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_025",
+      "validity_status": "valid",
+      "f1_neg": 0.8622754491017964,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9091632022579046,
+      "threshold": 0.41525971585249605,
+      "constraint_status": "met"
+    },
+    {
+      "run_id": "run.2026-01-04_031",
+      "validity_status": "valid",
+      "f1_neg": 0.8622754491017964,
+      "recall_neg": 0.9018789144050104,
+      "macro_f1": 0.9091632022579046,
+      "threshold": 0.41525971585249605,
+      "constraint_status": "met"
+    }
+  ]
+}

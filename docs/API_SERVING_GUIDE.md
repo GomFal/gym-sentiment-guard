@@ -211,7 +211,7 @@ from gym_sentiment_guard.serving import predict_single, load_model  # Cleaner!
 
 Your trained model is saved as:
 ```
-artifacts/models/sentiment_logreg/model.2025-12-16_002/
+artifacts/models/sentiment_logreg/model.2025.12.16_002/
 ├── logreg.joblib      # Serialized sklearn pipeline
 └── metadata.json      # Version, threshold, label mapping
 ```
@@ -230,7 +230,7 @@ class ModelArtifact:
 
     model: Pipeline              # The sklearn model
     metadata: dict[str, Any]     # Raw JSON metadata
-    version: str                 # "2025-12-16_002"
+    version: str                 # "2025.12.16_002"
     threshold: float             # 0.44
     target_class: str            # "negative"
     label_mapping: dict[str, int]  # {"negative": 0, "positive": 1}
@@ -752,7 +752,7 @@ Every production ML service needs:
 ```yaml
 # configs/serving.yaml
 model:
-  path: artifacts/models/sentiment_logreg/model.2025-12-16_002
+  path: artifacts/models/sentiment_logreg/model.2025.12.16_002
 
 preprocessing:
   enabled: true

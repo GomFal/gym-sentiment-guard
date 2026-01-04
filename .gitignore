@@ -209,8 +209,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Docker
-docker/*
-docker/**
-docker-compose.yaml
-.dockerignore
+# Docker (keep requirements.txt tracked)
+!docker/requirements.txt
+
+# Agents MD Rules
+.agent/

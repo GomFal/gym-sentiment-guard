@@ -1,0 +1,111 @@
+# ===========================================
+# Python
+# ===========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.installed.cfg
+*.manifest
+*.spec
+
+# ===========================================
+# Virtual environments
+# ===========================================
+.venv/
+venv/
+env/
+ENV/
+
+# ===========================================
+# IDE and editors
+# ===========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ===========================================
+# Git
+# ===========================================
+.git/
+.gitignore
+.gitattributes
+
+# ===========================================
+# Testing
+# ===========================================
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# ===========================================
+# Documentation (not needed at runtime)
+# ===========================================
+docs/
+*.md
+!README.md
+
+# ===========================================
+# Development files
+# ===========================================
+*.ipynb
+.ipynb_checkpoints/
+.env
+.env.*
+*.log
+Makefile
+
+# ===========================================
+# Data directories (too large for container)
+# ===========================================
+data/
+
+# ===========================================
+# External models (only copy sentiment model)
+# ===========================================
+artifacts/external/
+
+# ===========================================
+# Docker files (no need to copy into context)
+# ===========================================
+Dockerfile
+docker-compose*.yaml
+.dockerignore
+
+# ===========================================
+# OS-specific
+# ===========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===========================================
+# CI/CD
+# ===========================================
+.github/
+.gitlab-ci.yml
+
+# ===========================================
+# Misc
+# ===========================================
+*.bak
+*.tmp
+*.temp
+scripts/
