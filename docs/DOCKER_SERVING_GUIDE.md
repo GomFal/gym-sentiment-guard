@@ -485,7 +485,7 @@ curl localhost:8001/health  →  Reaches container's port 8080
 ```yaml
 model:
   # Absolute path inside container
-  path: /app/artifacts/models/sentiment_logreg/model.2025-12-16_002
+  path: /app/artifacts/models/sentiment_logreg/model.2025.12.16_002
 
 preprocessing:
   structural_punctuation_path: /app/configs/structural_punctuation.txt
@@ -502,7 +502,7 @@ preprocessing:
 **Bake Model Into Image** (Our Approach):
 
 ```dockerfile
-COPY artifacts/models/sentiment_logreg/model.2025-12-16_002 ./artifacts/models/
+COPY artifacts/models/sentiment_logreg/model.2025.12.16_002 ./artifacts/models/
 ```
 
 - ✅ Immutable deployments
@@ -590,7 +590,7 @@ Without graceful shutdown, requests get dropped mid-processing.
 > A: We use the same preprocessing function in both training pipeline and serving module. The sklearn Pipeline object bundles the TF-IDF vectorizer with the model, ensuring identical feature transformation.
 
 **Q: How do you version ML models in production?**
-> A: The model directory includes a version string (e.g., `model.2025-12-16_002`). This version is baked into the Docker image tag. We can trace any prediction back to the exact model version via the `model_version` field in responses.
+> A: The model directory includes a version string (e.g., `model.2025.12.16_002`). This version is baked into the Docker image tag. We can trace any prediction back to the exact model version via the `model_version` field in responses.
 
 **Q: What's the difference between liveness and readiness probes?**
 > A: Liveness checks if the process is running; failure triggers restart. Readiness checks if the service can handle traffic; failure removes it from load balancer but keeps it running (useful during model loading).

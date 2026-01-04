@@ -107,6 +107,53 @@ python -m gym_sentiment_guard.cli.main main train-model \
 This reads the specified splits, fits TF-IDF + calibrated logistic regression, and writes artifacts under `artifacts/models/...`.
 The configured `decision.threshold` is applied to the probability of the class named in `decision.target_class`. If you set `target_class: negative`, scores ≥ threshold mark the review as negative; if you set `target_class: positive`, the same rule applies to the positive probability. This keeps the training CLI aligned with whatever label you want the threshold to guard.
 
+## Experiments & Hyperparameter Search
+
+Run systematic hyperparameter ablation studies to find optimal model configurations. The experiments module implements the protocol defined in `docs/EXPERIMENT_PROTOCOL.md`.
+
+### Single Experiment
+
+Run a single experiment with specified hyperparameters:
+
+```bash
+python -m gym_sentiment_guard.cli.main main run-experiment \
+  --config configs/experiment.yaml \
+  --ngram-min 1 --ngram-max 2 \
+  --min-df 2 --max-df 1.0 \
+  --C 1.0 --penalty l2
+```
+
+Output includes: Run ID, F1_neg, Recall_neg, threshold, and constraint status.
+
+### Full Ablation Suite
+
+Run grid search over all parameter combinations from config:
+
+```bash
+python -m gym_sentiment_guard.cli.main main run-ablation \
+  --config configs/experiment.yaml
+```
+
+Grid parameters are defined in `configs/experiment.yaml` under `ablation.tfidf` and `ablation.logreg`. Results are saved to `artifacts/experiments/`.
+
+### Configuration
+
+Edit `configs/experiment.yaml` to define:
+- **Data splits**: frozen train/val/test paths
+- **Selection criteria**: primary metric (F1_neg), recall constraint (≥0.90)
+- **Ablation grids**: TF-IDF parameters (ngram_range, min_df, max_df) and LogReg parameters (C, penalty, class_weight)
+
+### Artifacts
+
+Each experiment produces:
+- `run.json`: Full configuration, git commit, metrics, validity status
+- `val_predictions.csv`: Predictions on validation set
+
+Ablation suites produce:
+- `suite_summary.json`: Ranked results with winner selection
+
+For detailed documentation, see [`docs/EXPERIMENTS_GUIDE.md`](docs/EXPERIMENTS_GUIDE.md).
+
 ## Language Evaluation Utilities
 
 The following scripts in `scripts/` help build LID ground truth for the Google Maps evaluation dataset:
@@ -255,7 +302,7 @@ Response:
     "confidence": 0.87,
     "probability_positive": 0.87,
     "probability_negative": 0.13,
-    "model_version": "2025-12-16_002"
+    "model_version": "2025.12.16_002"
   }
 ]
 ```
@@ -284,7 +331,7 @@ Response:
     "confidence": 0.91,
     "probability_positive": 0.91,
     "probability_negative": 0.09,
-    "model_version": "2025-12-16_002",
+    "model_version": "2025.12.16_002",
     "explanation": [
       {"feature": "excelente", "importance": 2.45},
       {"feature": "limpio", "importance": 1.82},
@@ -302,7 +349,7 @@ Configure via `configs/serving.yaml`:
 
 ```yaml
 model:
-  path: artifacts/models/sentiment_logreg/model.2025-12-16_002
+  path: artifacts/models/sentiment_logreg/model.2025.12.16_002
 
 preprocessing:
   enabled: true

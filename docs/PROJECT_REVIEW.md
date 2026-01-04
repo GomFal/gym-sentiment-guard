@@ -100,7 +100,7 @@
 ### `artifacts/`
 | Directory | Contents |
 |-----------|----------|
-| `models/sentiment_logreg/` | 2 versioned model runs (`model.2025-12-16_00{1,2}`) |
+| `models/sentiment_logreg/` | 2 versioned model runs (`model.2025.12.16_00{1,2}`) |
 | `external/` | fastText LID model (`lid.176.bin`) - binary, skipped |
 | `datasets/` | Not found in workspace listing |
 
@@ -178,7 +178,7 @@ uvicorn gym_sentiment_guard.serving.app:app --port 8001
 
 | Path | Contents |
 |------|----------|
-| `artifacts/models/sentiment_logreg/model.2025-12-16_002/` | `logreg.joblib`, `metadata.json`, `metrics_test.json` |
+| `artifacts/models/sentiment_logreg/model.2025.12.16_002/` | `logreg.joblib`, `metadata.json`, `metrics_test.json` |
 
 ### Known Gaps / Risks
 
