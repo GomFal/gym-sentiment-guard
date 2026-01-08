@@ -76,6 +76,7 @@ def generate_grid_configs(
                 min_df=tfidf_params.get('min_df', 2),
                 max_df=tfidf_params.get('max_df', 1.0),
                 sublinear_tf=tfidf_params.get('sublinear_tf', True),
+                stop_words=tfidf_params.get('stop_words'),  # None or 'curated_safe'
                 # LogReg params
                 penalty=logreg_params.get('penalty', 'l2'),
                 C=logreg_params.get('C', 1.0),
@@ -92,8 +93,10 @@ def rank_results(results: list[RunResult]) -> list[RunResult]:
 
     Primary: F1_neg (maximize) subject to Recall_neg >= 0.90
     Tie-breakers (in order):
-    1. Macro F1
-    2. PR AUC (Negative)
+    1. Macro F1 (higher is better)
+    2. PR AUC (Negative) (higher is better)
+    3. Brier Score (lower is better)
+    4. ECE (lower is better)
 
     Valid runs with constraint met > constraint not met > invalid
 
@@ -106,14 +109,14 @@ def rank_results(results: list[RunResult]) -> list[RunResult]:
 
     def sort_key(r: RunResult) -> tuple:
         """
-        Sort key: (validity_order, constraint_order, f1_neg, macro_f1, pr_auc_neg)
-        Higher is better, so we negate for descending sort.
+        Sort key: (validity, constraint, f1_neg, macro_f1, pr_auc, -brier, -ece)
+        Higher is better, so we negate brier/ece.
         """
         if r.validity_status == 'invalid':
-            return (0, 0, 0, 0, 0)
+            return (0, 0, 0, 0, 0, 0, 0)
 
         if r.val_metrics is None:
-            return (0, 0, 0, 0, 0)
+            return (0, 0, 0, 0, 0, 0, 0)
 
         # Validity order: valid > constraint_not_met > invalid
         validity_order = 2 if r.validity_status == 'valid' else 1
@@ -121,12 +124,15 @@ def rank_results(results: list[RunResult]) -> list[RunResult]:
         # Constraint order: met > not_met
         constraint_order = 1 if r.val_metrics.constraint_status == 'met' else 0
 
+        # Negate brier and ece so lower = better in descending sort
         return (
             validity_order,
             constraint_order,
             r.val_metrics.f1_neg,
             r.val_metrics.macro_f1,
             r.val_metrics.pr_auc_neg,
+            -r.val_metrics.brier_score,  # Lower is better
+            -r.val_metrics.ece,  # Lower is better
         )
 
     return sorted(results, key=sort_key, reverse=True)

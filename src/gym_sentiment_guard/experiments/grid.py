@@ -7,6 +7,8 @@ Only parameters listed here may vary during experiments.
 
 from __future__ import annotations
 
+from pathlib import Path
+
 # =============================================================================
 # TF-IDF Parameters (§5.1)
 # =============================================================================
@@ -60,75 +62,30 @@ FIXED_PARAMS: dict = {
 }
 
 # =============================================================================
-# Curated Stopword List (§6.2 - Frozen)
+# Curated Stopword List (§6.2 - Loaded from config)
 # =============================================================================
+
+_CONFIG_DIR = Path(__file__).resolve().parents[3] / 'configs'
+
+
+def _load_stopwords(filename: str) -> list[str]:
+    """Load stopwords from a text file (one word per line, # comments)."""
+    filepath = _CONFIG_DIR / filename
+    if not filepath.exists():
+        return []
+    words = []
+    with filepath.open(encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith('#'):
+                words.append(line)
+    return words
+
 
 # These are non-sentiment-bearing function words safe to remove for TF-IDF.
 # Per §6.2: curated, sentiment-safe Spanish stopwords.
-
-STOPWORDS_SAFE: list[str] = [
-    'de',
-    'el',
-    'que',
-    'la',
-    'en',
-    'es',
-    'con',
-    'las',
-    'un',
-    'los',
-    'me',
-    'por',
-    'para',
-    'lo',
-    'una',
-    'se',
-    'del',
-    'al',
-    'son',
-    'hay',
-    'este',
-    'te',
-    'como',
-    'he',
-    'mi',
-    'ha',
-    'tiene',
-    'su',
-    'todos',
-    'cuando',
-    'hace',
-    'esta',
-    'han',
-    'desde',
-    'parte',
-    'día',
-    'cada',
-    'ir',
-    'así',
-    'años',
-    'llevo',
-    'nos',
-    'le',
-    'vez',
-    'todo',
-    'muchas',
-]
+STOPWORDS_SAFE: list[str] = _load_stopwords('stopwords_spanish_safe.txt')
 
 # Tokens that must NOT be removed (§6.3 - diagnostic guardrail)
 # These directly affect polarity or polarity modulation.
-STOPWORDS_NEVER_REMOVE: list[str] = [
-    'no',
-    'ni',
-    'nada',
-    'sin',
-    'pero',
-    'muy',
-    'más',
-    'poco',
-    'solo',
-    'bastante',
-    'súper',
-    'siempre',
-    'además',
-]
+STOPWORDS_NEVER_REMOVE: list[str] = _load_stopwords('stopwords_never_remove_spanish.txt')

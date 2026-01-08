@@ -48,6 +48,9 @@ If two configurations tie on the primary objective:
 
 - `p_neg = 1 − p_pos`
 
+3) **Brier Score** (lower is better) — measures probability calibration quality
+4) **ECE (Expected Calibration Error)** (lower is better) — binned calibration error
+
 > Note: PR AUC for the Positive class may be logged for diagnostics, but **must not** be used for selection.
 
 ### 1.3 TEST policy (one-time final only)

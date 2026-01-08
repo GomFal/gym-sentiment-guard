@@ -1,0 +1,53 @@
+# Spanish Stopwords - Safe to Remove
+# These are non-sentiment-bearing function words for TF-IDF vectorization.
+# Per EXPERIMENT_PROTOCOL.md §6.2 - Curated, sentiment-safe list.
+#
+# DO NOT add sentiment-critical words like: no, ni, muy, más, pero, poco
+# See stopwords_never_remove_spanish.txt for protected tokens.
+
+de
+el
+que
+la
+en
+es
+con
+las
+un
+los
+me
+por
+para
+lo
+una
+se
+del
+al
+son
+hay
+este
+te
+como
+he
+mi
+ha
+tiene
+su
+todos
+cuando
+hace
+esta
+han
+desde
+parte
+día
+cada
+ir
+así
+años
+llevo
+nos
+le
+vez
+todo
+muchas

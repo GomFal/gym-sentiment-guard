@@ -66,7 +66,7 @@ class ExperimentConfig:
     min_df: int = 2
     max_df: float = 1.0
     sublinear_tf: bool = True
-    stop_words: list[str] | None = None  # Will use STOPWORDS_SAFE if None
+    stop_words: list[str] | str | None = None  # None, 'curated_safe', or custom list
 
     # LogReg parameters (ablatable per §5.2)
     penalty: str = 'l2'
@@ -96,7 +96,13 @@ def _build_pipeline(config: ExperimentConfig) -> Pipeline:
     - CalibratedClassifierCV with isotonic, 5-fold (frozen)
     """
     # TF-IDF vectorizer (§4.1)
-    stop_words = config.stop_words if config.stop_words is not None else STOPWORDS_SAFE
+    # Resolve stop_words: None = no stopwords, 'curated_safe' = use STOPWORDS_SAFE
+    if config.stop_words == 'curated_safe':
+        stop_words = STOPWORDS_SAFE
+    elif config.stop_words is None:
+        stop_words = None  # No stopwords removal
+    else:
+        stop_words = config.stop_words  # Custom list provided
     vectorizer = TfidfVectorizer(
         lowercase=True,
         ngram_range=config.ngram_range,
@@ -146,16 +152,18 @@ def _extract_diagnostics(pipeline: Pipeline) -> dict[str, Any]:
     tfidf = pipeline.named_steps['tfidf']
     n_features = len(tfidf.vocabulary_)
 
-    # Coefficient sparsity (% non-zero) from calibrated estimators
+    # Coefficient sparsity (% zero coefficients) from calibrated estimators
     # CalibratedClassifierCV has multiple base estimators
+    # L2 regularization: ~0% sparsity (all coefficients active)
+    # L1 regularization: high sparsity (many zero coefficients)
     calibrated = pipeline.named_steps['classifier']
     sparsity_values = []
     for estimator in calibrated.calibrated_classifiers_:
         base = estimator.estimator
         if hasattr(base, 'coef_'):
             coef = base.coef_.ravel()
-            non_zero_pct = np.mean(coef != 0) * 100
-            sparsity_values.append(non_zero_pct)
+            zero_pct = np.mean(coef == 0) * 100  # True sparsity
+            sparsity_values.append(zero_pct)
 
     avg_sparsity = float(np.mean(sparsity_values)) if sparsity_values else 0.0
 

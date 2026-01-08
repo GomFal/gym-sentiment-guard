@@ -16,6 +16,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Literal
 
+import numpy as np
+
 from .metrics import ValMetrics
 
 
@@ -208,6 +210,8 @@ def save_predictions(
     """
     import pandas as pd
 
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     df = pd.DataFrame(
         {
             'id': ids if ids is not None else list(range(len(y_true))),
@@ -219,4 +223,95 @@ def save_predictions(
 
     output_path = output_dir / filename
     df.to_csv(output_path, index=False)
+    return output_path
+
+
+def save_calibration_plot(
+    y_true: list[int] | np.ndarray,
+    p_neg: list[float] | np.ndarray,
+    output_dir: Path,
+    run_id: str,
+    n_bins: int = 10,
+) -> Path:
+    """
+    Generate and save calibration plot (reliability diagram + histogram).
+
+    Args:
+        y_true: True labels (0=negative, 1=positive)
+        p_neg: Predicted probability of negative class
+        output_dir: Directory to save plot
+        run_id: Run identifier for title
+        n_bins: Number of bins for calibration curve
+
+    Returns:
+        Path to saved plot
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from sklearn.calibration import calibration_curve
+    from sklearn.metrics import brier_score_loss
+
+    y_true = np.asarray(y_true)
+    p_neg = np.asarray(p_neg)
+
+    # Convert to binary for negative class
+    y_neg_binary = (y_true == 0).astype(int)
+
+    # Compute calibration curve with quantile strategy for statistical significance
+    prob_true, prob_pred = calibration_curve(
+        y_neg_binary, p_neg, n_bins=n_bins, strategy='quantile'
+    )
+
+    # Compute Brier score
+    brier = brier_score_loss(y_neg_binary, p_neg)
+
+    # Baseline (always predicting class prior)
+    class_prior = y_neg_binary.mean()
+    baseline_brier = class_prior * (1 - class_prior)
+    skill_score = 1 - (brier / baseline_brier) if baseline_brier > 0 else 0.0
+
+    # Create figure with two subplots
+    fig, (ax_cal, ax_hist) = plt.subplots(1, 2, figsize=(12, 5))
+
+    # Calibration curve
+    ax_cal.plot(prob_pred, prob_true, marker='o', label='Model', linewidth=2)
+    ax_cal.plot([0, 1], [0, 1], 'k--', label='Perfectly calibrated', linewidth=1)
+    ax_cal.set_xlabel('Predicted probability (negative class)')
+    ax_cal.set_ylabel('Observed frequency')
+    ax_cal.set_title(f'Calibration Curve - {run_id}')
+    ax_cal.legend(loc='lower right')
+    ax_cal.set_xlim([0, 1])
+    ax_cal.set_ylim([0, 1])
+    ax_cal.grid(True, alpha=0.3)
+
+    # Probability histogram
+    ax_hist.hist(p_neg, bins=20, color='#1f77b4', edgecolor='white', alpha=0.8)
+    ax_hist.set_xlabel('Predicted probability (negative class)')
+    ax_hist.set_ylabel('Count')
+    ax_hist.set_title('Probability Distribution')
+    ax_hist.grid(True, alpha=0.3)
+
+    # Add metrics as text
+    metrics_text = (
+        f'Brier Score: {brier:.4f}\nSkill Score: {skill_score:.2f}\nBaseline: {baseline_brier:.4f}'
+    )
+    ax_hist.text(
+        0.95,
+        0.95,
+        metrics_text,
+        transform=ax_hist.transAxes,
+        verticalalignment='top',
+        horizontalalignment='right',
+        fontsize=10,
+        bbox=dict(boxstyle='round', facecolor='white', alpha=0.8),
+    )
+
+    plt.tight_layout()
+
+    # Save plot
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f'calibration_plot_{run_id}.png'
+    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    plt.close(fig)
+
     return output_path

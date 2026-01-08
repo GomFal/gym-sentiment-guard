@@ -1,0 +1,28 @@
+# Spanish Stopwords - NEVER REMOVE
+# These tokens directly affect polarity or polarity modulation.
+# Per EXPERIMENT_PROTOCOL.md §6.3 - Mandatory whitelist.
+#
+# Removing any of these would invalidate experiment results.
+
+# Negation
+no
+ni
+nada
+sin
+
+# Contrast
+pero
+
+# Intensifiers
+muy
+más
+súper
+
+# Quantity modifiers
+poco
+bastante
+
+# Polarity modulators
+solo
+siempre
+además

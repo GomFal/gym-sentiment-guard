@@ -34,14 +34,20 @@ ablation:
     ngram_range:
       - [1, 1]
       - [1, 2]
+      - [1, 3]
     min_df:
       - 2
       - 5
+      - 10
     max_df:
+      - 0.90
       - 0.95
       - 1.0
     sublinear_tf:
       - true
+    stop_words:
+      - null          # No stopwords removal
+      - curated_safe  # Curated Spanish stopwords list
 
   # LogReg parameters (§5.2)
   logreg:
@@ -51,9 +57,9 @@ ablation:
       - 0.3
       - 1.0
       - 3.0
+      - 5.0
     class_weight:
       - null
-      - balanced
 
 # Output settings
 output:

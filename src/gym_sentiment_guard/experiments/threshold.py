@@ -99,25 +99,40 @@ def select_threshold(
     fn_pos = fp_neg  # FN for positive = FP for negative
 
     # VECTORIZED: Compute metrics from confusion matrix components
-    # Use np.where to handle division by zero (zero_division=0)
+    # Use np.divide with where parameter to avoid divide-by-zero warnings
+
+    # Pre-allocate output arrays for safe division (k = number of thresholds)
+    zeros_k = np.zeros(k, dtype=float)
 
     # Recall_neg = TP_neg / (TP_neg + FN_neg) = TP_neg / n_neg
-    recall_neg = np.where(n_neg > 0, tp_neg / n_neg, 0.0)
+    recall_neg = (
+        np.divide(tp_neg, n_neg, out=zeros_k.copy(), where=n_neg > 0)
+        if n_neg > 0
+        else zeros_k.copy()
+    )
 
     # Precision_neg = TP_neg / (TP_neg + FP_neg)
     denom_prec_neg = tp_neg + fp_neg
-    precision_neg = np.where(denom_prec_neg > 0, tp_neg / denom_prec_neg, 0.0)
+    precision_neg = np.divide(tp_neg, denom_prec_neg, out=zeros_k.copy(), where=denom_prec_neg > 0)
 
     # F1_neg = 2 * precision * recall / (precision + recall)
     denom_f1_neg = precision_neg + recall_neg
-    f1_neg = np.where(denom_f1_neg > 0, 2 * precision_neg * recall_neg / denom_f1_neg, 0.0)
+    f1_neg = np.divide(
+        2 * precision_neg * recall_neg, denom_f1_neg, out=zeros_k.copy(), where=denom_f1_neg > 0
+    )
 
     # Positive class metrics for macro F1
-    recall_pos = np.where(n_pos > 0, tp_pos / n_pos, 0.0)
+    recall_pos = (
+        np.divide(tp_pos, n_pos, out=zeros_k.copy(), where=n_pos > 0)
+        if n_pos > 0
+        else zeros_k.copy()
+    )
     denom_prec_pos = tp_pos + fp_pos
-    precision_pos = np.where(denom_prec_pos > 0, tp_pos / denom_prec_pos, 0.0)
+    precision_pos = np.divide(tp_pos, denom_prec_pos, out=zeros_k.copy(), where=denom_prec_pos > 0)
     denom_f1_pos = precision_pos + recall_pos
-    f1_pos = np.where(denom_f1_pos > 0, 2 * precision_pos * recall_pos / denom_f1_pos, 0.0)
+    f1_pos = np.divide(
+        2 * precision_pos * recall_pos, denom_f1_pos, out=zeros_k.copy(), where=denom_f1_pos > 0
+    )
 
     # Macro F1 = (F1_neg + F1_pos) / 2
     macro_f1 = (f1_neg + f1_pos) / 2
