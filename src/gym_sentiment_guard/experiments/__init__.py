@@ -14,9 +14,16 @@ Modules:
 """
 
 from .ablation import evaluate_winner_on_test, generate_grid_configs, run_ablation_suite
-from .artifacts import RunConfig, RunResult
+from .artifacts import RunConfig, RunResult, save_calibration_plot
 from .grid import CALIBRATION_CONFIG, LOGREG_GRID, STOPWORDS_SAFE, TFIDF_GRID
-from .metrics import ValMetrics, compute_test_metrics, compute_val_metrics
+from .metrics import (
+    ValMetrics,
+    compute_brier_score,
+    compute_ece,
+    compute_skill_score,
+    compute_test_metrics,
+    compute_val_metrics,
+)
 from .runner import ExperimentConfig, run_single_experiment
 from .threshold import ThresholdResult, apply_threshold, select_threshold
 
@@ -33,10 +40,14 @@ __all__ = [
     # Metrics
     'compute_val_metrics',
     'compute_test_metrics',
+    'compute_brier_score',
+    'compute_ece',
+    'compute_skill_score',
     'ValMetrics',
     # Artifacts
     'RunConfig',
     'RunResult',
+    'save_calibration_plot',
     # Runner
     'ExperimentConfig',
     'run_single_experiment',

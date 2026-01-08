@@ -377,6 +377,7 @@ def normalize_dataset(
     )
     typer.echo(f'Normalized dataset written to: {target_output}')
 
+
 @pipeline_app.command('train-model')
 def train_model(
     config: Annotated[
@@ -392,7 +393,7 @@ def train_model(
 ) -> None:
     """Train a sentiment model from a config file."""
     result = train_from_config(config)
-    typer.echo(f"Model trained. Artifacts in {result['artifact_dir']}")
+    typer.echo(f'Model trained. Artifacts in {result["artifact_dir"]}')
 
 
 @pipeline_app.command('run-experiment')
@@ -487,14 +488,14 @@ def run_experiment(
     result = run_single_experiment(exp_config)
 
     if result.val_metrics:
-        typer.echo(f"Run ID: {result.config.run_id}")
-        typer.echo(f"F1_neg: {result.val_metrics.f1_neg:.4f}")
-        typer.echo(f"Recall_neg: {result.val_metrics.recall_neg:.4f}")
-        typer.echo(f"Threshold: {result.val_metrics.threshold:.4f}")
-        typer.echo(f"Constraint: {result.val_metrics.constraint_status}")
-        typer.echo(f"Validity: {result.validity_status}")
+        typer.echo(f'Run ID: {result.config.run_id}')
+        typer.echo(f'F1_neg: {result.val_metrics.f1_neg:.4f}')
+        typer.echo(f'Recall_neg: {result.val_metrics.recall_neg:.4f}')
+        typer.echo(f'Threshold: {result.val_metrics.threshold:.4f}')
+        typer.echo(f'Constraint: {result.val_metrics.constraint_status}')
+        typer.echo(f'Validity: {result.validity_status}')
     else:
-        typer.echo(f"Run failed: {result.invalidity_reason}")
+        typer.echo(f'Run failed: {result.invalidity_reason}')
 
     log.info(
         json_log(
@@ -548,6 +549,7 @@ def run_ablation(
         'min_df': tfidf_cfg.get('min_df', [2]),
         'max_df': tfidf_cfg.get('max_df', [1.0]),
         'sublinear_tf': tfidf_cfg.get('sublinear_tf', [True]),
+        'stop_words': tfidf_cfg.get('stop_words', [None]),  # None or 'curated_safe'
     }
     logreg_grid = {
         'penalty': logreg_cfg.get('penalty', ['l2']),
@@ -585,17 +587,17 @@ def run_ablation(
     winner = suite.get('winner')
     summary = suite.get('summary', {})
 
-    typer.echo(f"Ablation complete!")
-    typer.echo(f"Total runs: {summary.get('total_runs', 0)}")
-    typer.echo(f"Valid runs: {summary.get('valid_runs', 0)}")
+    typer.echo(f'Ablation complete!')
+    typer.echo(f'Total runs: {summary.get("total_runs", 0)}')
+    typer.echo(f'Valid runs: {summary.get("valid_runs", 0)}')
 
     if winner and winner.val_metrics:
-        typer.echo(f"\nWinner: {winner.config.run_id}")
-        typer.echo(f"  F1_neg: {winner.val_metrics.f1_neg:.4f}")
-        typer.echo(f"  Recall_neg: {winner.val_metrics.recall_neg:.4f}")
-        typer.echo(f"  Threshold: {winner.val_metrics.threshold:.4f}")
+        typer.echo(f'\nWinner: {winner.config.run_id}')
+        typer.echo(f'  F1_neg: {winner.val_metrics.f1_neg:.4f}')
+        typer.echo(f'  Recall_neg: {winner.val_metrics.recall_neg:.4f}')
+        typer.echo(f'  Threshold: {winner.val_metrics.threshold:.4f}')
 
-    typer.echo(f"\nSuite artifacts: {suite.get('suite_dir', '')}")
+    typer.echo(f'\nSuite artifacts: {suite.get("suite_dir", "")}')
 
     log.info(
         json_log(
@@ -609,4 +611,3 @@ def run_ablation(
 
 if __name__ == '__main__':
     app()
-

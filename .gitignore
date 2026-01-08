@@ -213,4 +213,4 @@ __marimo__/
 !docker/requirements.txt
 
 # Agents MD Rules
-.agent/
+#.agent/
