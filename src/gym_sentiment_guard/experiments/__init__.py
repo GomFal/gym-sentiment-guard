@@ -15,7 +15,7 @@ Modules:
 
 from .ablation import evaluate_winner_on_test, generate_grid_configs, run_ablation_suite
 from .artifacts import RunConfig, RunResult, save_calibration_plot
-from .grid import CALIBRATION_CONFIG, LOGREG_GRID, STOPWORDS_SAFE, TFIDF_GRID
+from .grid import CALIBRATION_CONFIG, LOGREG_GRID, STOPWORDS_SAFE, STOPWORD_PRESETS, TFIDF_GRID, resolve_stop_words
 from .metrics import (
     ValMetrics,
     compute_brier_score,
@@ -33,6 +33,8 @@ __all__ = [
     'LOGREG_GRID',
     'CALIBRATION_CONFIG',
     'STOPWORDS_SAFE',
+    'STOPWORD_PRESETS',
+    'resolve_stop_words',
     # Threshold selection
     'select_threshold',
     'apply_threshold',

@@ -1,0 +1,133 @@
+{
+  "id": 10089,
+  "text": "en gimasnio en si es una auténtica pasada muy espacioso máquinas brutales que te cuentan las repeticiones está muy bien equipado y el personal es bastante amable la única queja que tengo es relacionada con en el spa fui con mi pareja y pensábamos que el precio de la entrada al gimasnio venía incluido con la entrada al spa cosa que no era así fallo nuestro por no mirarlo bien pero la encargada del spa una vez que estábamos ya dentro nos pregunta que si teníamos cita y nosotros le dijimos que no q",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -3.1634,
+  "raw_score": -1.1841,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.0983,
+      "coef": 5.3806,
+      "contrib": 0.5291
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.1519,
+      "coef": 1.9133,
+      "contrib": 0.2906
+    },
+    {
+      "term": "unigrams__amable",
+      "tfidf": 0.0744,
+      "coef": 3.3341,
+      "contrib": 0.248
+    },
+    {
+      "term": "unigrams__espacioso",
+      "tfidf": 0.1205,
+      "coef": 1.8954,
+      "contrib": 0.2285
+    },
+    {
+      "term": "unigrams__pasada",
+      "tfidf": 0.1279,
+      "coef": 1.3477,
+      "contrib": 0.1724
+    },
+    {
+      "term": "multigrams__única queja",
+      "tfidf": 0.2226,
+      "coef": 0.5842,
+      "contrib": 0.13
+    },
+    {
+      "term": "multigrams__está bien",
+      "tfidf": 0.1277,
+      "coef": 0.8845,
+      "contrib": 0.113
+    },
+    {
+      "term": "multigrams__bastante amable",
+      "tfidf": 0.2274,
+      "coef": 0.4531,
+      "contrib": 0.103
+    },
+    {
+      "term": "unigrams__única",
+      "tfidf": 0.1142,
+      "coef": 0.8238,
+      "contrib": 0.0941
+    },
+    {
+      "term": "multigrams__personal bastante",
+      "tfidf": 0.2065,
+      "coef": 0.4458,
+      "contrib": 0.0921
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1243,
+      "coef": -9.0936,
+      "contrib": -1.1301
+    },
+    {
+      "term": "unigrams__pagar",
+      "tfidf": 0.1757,
+      "coef": -2.2572,
+      "contrib": -0.3965
+    },
+    {
+      "term": "multigrams__mucho desear",
+      "tfidf": 0.1653,
+      "coef": -1.4562,
+      "contrib": -0.2407
+    },
+    {
+      "term": "unigrams__dice",
+      "tfidf": 0.1164,
+      "coef": -2.0483,
+      "contrib": -0.2384
+    },
+    {
+      "term": "multigrams__bien pero",
+      "tfidf": 0.1493,
+      "coef": -1.5415,
+      "contrib": -0.2301
+    },
+    {
+      "term": "unigrams__desear",
+      "tfidf": 0.1185,
+      "coef": -1.9264,
+      "contrib": -0.2282
+    },
+    {
+      "term": "unigrams__deja",
+      "tfidf": 0.1156,
+      "coef": -1.8178,
+      "contrib": -0.2102
+    },
+    {
+      "term": "unigrams__entrada",
+      "tfidf": 0.2511,
+      "coef": -0.8211,
+      "contrib": -0.2062
+    },
+    {
+      "term": "multigrams__deja mucho",
+      "tfidf": 0.1697,
+      "coef": -1.2137,
+      "contrib": -0.206
+    },
+    {
+      "term": "multigrams__deja mucho desear",
+      "tfidf": 0.1716,
+      "coef": -1.1912,
+      "contrib": -0.2044
+    }
+  ]
+}

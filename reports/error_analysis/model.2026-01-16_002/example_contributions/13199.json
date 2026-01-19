@@ -1,0 +1,91 @@
+{
+  "id": 13199,
+  "text": "cristina estela gallego llevo ya unos cuantos años y los que quedan el personal mola mucho y además es súper profesional por favor no cambiéis!!!!",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -1.2306,
+  "raw_score": 0.758,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__súper",
+      "tfidf": 0.3048,
+      "coef": 2.2229,
+      "contrib": 0.6775
+    },
+    {
+      "term": "unigrams__profesional",
+      "tfidf": 0.3479,
+      "coef": 1.3334,
+      "contrib": 0.4639
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.2294,
+      "coef": 1.3647,
+      "contrib": 0.313
+    },
+    {
+      "term": "multigrams__unos cuantos",
+      "tfidf": 0.4849,
+      "coef": 0.2732,
+      "contrib": 0.1325
+    },
+    {
+      "term": "multigrams__súper profesional",
+      "tfidf": 0.5022,
+      "coef": 0.0719,
+      "contrib": 0.0361
+    },
+    {
+      "term": "unigrams__mucho",
+      "tfidf": 0.2744,
+      "coef": 0.1096,
+      "contrib": 0.0301
+    },
+    {
+      "term": "multigrams__además súper",
+      "tfidf": 0.5437,
+      "coef": 0.0013,
+      "contrib": 0.0007
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1761,
+      "coef": -9.0662,
+      "contrib": -1.597
+    },
+    {
+      "term": "unigrams__favor",
+      "tfidf": 0.4074,
+      "coef": -1.4161,
+      "contrib": -0.5769
+    },
+    {
+      "term": "unigrams__quedan",
+      "tfidf": 0.4984,
+      "coef": -0.5783,
+      "contrib": -0.2882
+    },
+    {
+      "term": "multigrams__favor no",
+      "tfidf": 0.4659,
+      "coef": -0.5268,
+      "contrib": -0.2454
+    },
+    {
+      "term": "unigrams__unos",
+      "tfidf": 0.3446,
+      "coef": -0.3487,
+      "contrib": -0.1202
+    },
+    {
+      "term": "unigrams__además",
+      "tfidf": 0.3065,
+      "coef": -0.185,
+      "contrib": -0.0567
+    }
+  ]
+}

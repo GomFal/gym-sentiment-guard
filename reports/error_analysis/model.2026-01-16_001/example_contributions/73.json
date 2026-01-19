@@ -1,0 +1,127 @@
+{
+  "id": 73,
+  "text": "me gusta entrenar acá pero aunque no sea culpa de los monitores muchas personas se quedan en las máquinas viendo el móvil y no nos dejan aprovechar el tiempo para poder entrenar la gente debería de ser más consciente de estos casos para no incomodar a los demás",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -3.8583,
+  "raw_score": -1.879,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__gusta",
+      "tfidf": 0.1872,
+      "coef": 3.0835,
+      "contrib": 0.5774
+    },
+    {
+      "term": "multigrams__debería ser más",
+      "tfidf": 0.3301,
+      "coef": 0.4077,
+      "contrib": 0.1346
+    },
+    {
+      "term": "unigrams__aunque",
+      "tfidf": 0.1819,
+      "coef": 0.7041,
+      "contrib": 0.128
+    },
+    {
+      "term": "multigrams__tiempo poder",
+      "tfidf": 0.3196,
+      "coef": 0.3717,
+      "contrib": 0.1188
+    },
+    {
+      "term": "unigrams__monitores",
+      "tfidf": 0.1403,
+      "coef": 0.796,
+      "contrib": 0.1116
+    },
+    {
+      "term": "multigrams__aunque no",
+      "tfidf": 0.256,
+      "coef": 0.2658,
+      "contrib": 0.0681
+    },
+    {
+      "term": "unigrams__aprovechar",
+      "tfidf": 0.306,
+      "coef": 0.1919,
+      "contrib": 0.0587
+    },
+    {
+      "term": "multigrams__pero aunque",
+      "tfidf": 0.3301,
+      "coef": 0.1416,
+      "contrib": 0.0467
+    },
+    {
+      "term": "unigrams__máquinas",
+      "tfidf": 0.1193,
+      "coef": 0.1439,
+      "contrib": 0.0172
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1958,
+      "coef": -9.0936,
+      "contrib": -1.7802
+    },
+    {
+      "term": "unigrams__dejan",
+      "tfidf": 0.2203,
+      "coef": -2.0334,
+      "contrib": -0.448
+    },
+    {
+      "term": "unigrams__sea",
+      "tfidf": 0.1927,
+      "coef": -1.6649,
+      "contrib": -0.3208
+    },
+    {
+      "term": "unigrams__viendo",
+      "tfidf": 0.2753,
+      "coef": -1.0152,
+      "contrib": -0.2795
+    },
+    {
+      "term": "multigrams__no dejan",
+      "tfidf": 0.2324,
+      "coef": -1.0072,
+      "contrib": -0.2341
+    },
+    {
+      "term": "unigrams__estos",
+      "tfidf": 0.2207,
+      "coef": -0.959,
+      "contrib": -0.2117
+    },
+    {
+      "term": "unigrams__entrenar",
+      "tfidf": 0.2254,
+      "coef": -0.9191,
+      "contrib": -0.2071
+    },
+    {
+      "term": "unigrams__ser",
+      "tfidf": 0.1748,
+      "coef": -1.1405,
+      "contrib": -0.1993
+    },
+    {
+      "term": "unigrams__debería",
+      "tfidf": 0.2289,
+      "coef": -0.8647,
+      "contrib": -0.1979
+    },
+    {
+      "term": "unigrams__casos",
+      "tfidf": 0.2912,
+      "coef": -0.5183,
+      "contrib": -0.1509
+    }
+  ]
+}

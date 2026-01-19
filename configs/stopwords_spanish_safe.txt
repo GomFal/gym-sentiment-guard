@@ -51,3 +51,66 @@ le
 vez
 todo
 muchas
+
+# =============================================================================
+# Curated list of "Neutral" words based on Coefficient Analysis
+# Added: 2026-01-15
+# =============================================================================
+
+# --- STAFF NAMES (High Bias) ---
+quimi
+jenny
+felipe
+lucia
+irene
+staff
+jorge
+alejandro
+alex
+kike
+
+# --- GYM OBJECTS (Latent Complaints) ---
+clases
+aire
+música
+mancuernas
+pulsera
+tarjeta
+aforo
+cuota
+obras
+recepcionista
+
+# --- NEUTRAL NOUNS (Domain Stopwords) ---
+gym
+gimnasio
+dreamfit
+madrid
+socios
+clientes
+personas
+gente
+director
+respuesta
+empresa
+dinero
+
+# --- FUNCTION WORDS & INTENSIFIERS (No Sentiment) ---
+también
+mis
+les
+esto
+cual
+estas
+luego
+ya
+mismo
+lado
+porque
+si
+algunas
+estoy
+
+# --- NUMBERS (Context Dependent) ---
+20
+30

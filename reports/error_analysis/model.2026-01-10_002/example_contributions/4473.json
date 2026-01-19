@@ -1,0 +1,55 @@
+{
+  "id": 4473,
+  "text": "hola quiero mi dinero de vuelta y ceder mi reserva a otro gracias …",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -0.4404,
+  "raw_score": 1.2552,
+  "top_positive_contributors": [
+    {
+      "term": "gracias",
+      "tfidf": 0.2613,
+      "coef": 5.0488,
+      "contrib": 1.3192
+    },
+    {
+      "term": "quiero",
+      "tfidf": 0.3564,
+      "coef": 0.4279,
+      "contrib": 0.1525
+    },
+    {
+      "term": "hola",
+      "tfidf": 0.4117,
+      "coef": 0.2406,
+      "contrib": 0.0991
+    },
+    {
+      "term": "vuelta",
+      "tfidf": 0.4746,
+      "coef": 0.0165,
+      "contrib": 0.0078
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "dinero",
+      "tfidf": 0.3424,
+      "coef": -3.1464,
+      "contrib": -1.0774
+    },
+    {
+      "term": "otro",
+      "tfidf": 0.2957,
+      "coef": -2.189,
+      "contrib": -0.6472
+    },
+    {
+      "term": "reserva",
+      "tfidf": 0.4531,
+      "coef": -0.6497,
+      "contrib": -0.2944
+    }
+  ]
+}

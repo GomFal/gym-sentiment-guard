@@ -1,0 +1,61 @@
+{
+  "id": 4473,
+  "text": "hola quiero mi dinero de vuelta y ceder mi reserva a otro gracias …",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": 0.5874,
+  "raw_score": 2.5761,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__gracias",
+      "tfidf": 0.2781,
+      "coef": 4.4088,
+      "contrib": 1.226
+    },
+    {
+      "term": "unigrams__quiero",
+      "tfidf": 0.3793,
+      "coef": 0.4509,
+      "contrib": 0.1711
+    },
+    {
+      "term": "multigrams__otro gracias",
+      "tfidf": 0.7071,
+      "coef": 0.1911,
+      "contrib": 0.1351
+    },
+    {
+      "term": "unigrams__hola",
+      "tfidf": 0.4382,
+      "coef": 0.2647,
+      "contrib": 0.116
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__otro",
+      "tfidf": 0.3147,
+      "coef": -2.1856,
+      "contrib": -0.6878
+    },
+    {
+      "term": "unigrams__reserva",
+      "tfidf": 0.4822,
+      "coef": -0.5989,
+      "contrib": -0.2888
+    },
+    {
+      "term": "multigrams__hola quiero",
+      "tfidf": 0.7071,
+      "coef": -0.0644,
+      "contrib": -0.0455
+    },
+    {
+      "term": "unigrams__vuelta",
+      "tfidf": 0.5051,
+      "coef": -0.0767,
+      "contrib": -0.0387
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 11372,
+  "text": "buenas instalaciones y nuevas pero mucha gente para la cantidad de máquinas que hay 3 press de banca sin inclinar o 3 jalón al pecho entre otras cosas para todo el mundo me parece demasiado poco son máquinas muy solicitadas para que haya tan pocas para la cantidad de gente que va",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.8253,
+  "raw_score": -1.1296,
+  "top_positive_contributors": [
+    {
+      "term": "buenas",
+      "tfidf": 0.1152,
+      "coef": 2.8283,
+      "contrib": 0.3259
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0581,
+      "coef": 4.0381,
+      "contrib": 0.2348
+    },
+    {
+      "term": "va",
+      "tfidf": 0.1548,
+      "coef": 1.0808,
+      "contrib": 0.1673
+    },
+    {
+      "term": "cantidad máquinas",
+      "tfidf": 0.2245,
+      "coef": 0.7444,
+      "contrib": 0.1672
+    },
+    {
+      "term": "nuevas",
+      "tfidf": 0.1592,
+      "coef": 0.9521,
+      "contrib": 0.1516
+    },
+    {
+      "term": "mucha",
+      "tfidf": 0.1388,
+      "coef": 1.0426,
+      "contrib": 0.1447
+    },
+    {
+      "term": "instalaciones",
+      "tfidf": 0.0916,
+      "coef": 1.516,
+      "contrib": 0.1388
+    },
+    {
+      "term": "pecho",
+      "tfidf": 0.2245,
+      "coef": 0.4471,
+      "contrib": 0.1004
+    },
+    {
+      "term": "buenas instalaciones",
+      "tfidf": 0.1396,
+      "coef": 0.2921,
+      "contrib": 0.0408
+    },
+    {
+      "term": "haya",
+      "tfidf": 0.1806,
+      "coef": 0.1369,
+      "contrib": 0.0247
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "cantidad",
+      "tfidf": 0.2741,
+      "coef": -2.1383,
+      "contrib": -0.586
+    },
+    {
+      "term": "pocas",
+      "tfidf": 0.1836,
+      "coef": -2.3926,
+      "contrib": -0.4393
+    },
+    {
+      "term": "demasiado",
+      "tfidf": 0.1727,
+      "coef": -2.3726,
+      "contrib": -0.4097
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.1812,
+      "coef": -2.0184,
+      "contrib": -0.3658
+    },
+    {
+      "term": "banca",
+      "tfidf": 0.2218,
+      "coef": -1.3832,
+      "contrib": -0.3068
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.1058,
+      "coef": -2.8987,
+      "contrib": -0.3066
+    },
+    {
+      "term": "cantidad gente",
+      "tfidf": 0.1949,
+      "coef": -1.5291,
+      "contrib": -0.2981
+    },
+    {
+      "term": "parece",
+      "tfidf": 0.1407,
+      "coef": -1.7442,
+      "contrib": -0.2454
+    },
+    {
+      "term": "mucha gente",
+      "tfidf": 0.1664,
+      "coef": -1.3264,
+      "contrib": -0.2206
+    },
+    {
+      "term": "entre",
+      "tfidf": 0.1586,
+      "coef": -1.1828,
+      "contrib": -0.1876
+    }
+  ]
+}

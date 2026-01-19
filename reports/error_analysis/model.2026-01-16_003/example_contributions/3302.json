@@ -1,0 +1,79 @@
+{
+  "id": 3302,
+  "text": "lo malo gente que va haciendo directos con el móvil",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -0.4506,
+  "raw_score": 1.3257,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__va",
+      "tfidf": 0.4249,
+      "coef": 0.6764,
+      "contrib": 0.2874
+    },
+    {
+      "term": "multigrams__lo malo",
+      "tfidf": 0.4171,
+      "coef": 0.3531,
+      "contrib": 0.1473
+    },
+    {
+      "term": "multigrams__con el móvil",
+      "tfidf": 0.4605,
+      "coef": 0.2621,
+      "contrib": 0.1207
+    },
+    {
+      "term": "unigrams__móvil",
+      "tfidf": 0.5486,
+      "coef": 0.0813,
+      "contrib": 0.0446
+    },
+    {
+      "term": "multigrams__el móvil",
+      "tfidf": 0.3889,
+      "coef": 0.0613,
+      "contrib": 0.0238
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__malo",
+      "tfidf": 0.5433,
+      "coef": -0.6078,
+      "contrib": -0.3302
+    },
+    {
+      "term": "unigrams__haciendo",
+      "tfidf": 0.4726,
+      "coef": -0.51,
+      "contrib": -0.241
+    },
+    {
+      "term": "multigrams__con el",
+      "tfidf": 0.2409,
+      "coef": -0.7467,
+      "contrib": -0.1799
+    },
+    {
+      "term": "multigrams__gente que",
+      "tfidf": 0.2886,
+      "coef": -0.6225,
+      "contrib": -0.1797
+    },
+    {
+      "term": "multigrams__gente que va",
+      "tfidf": 0.4199,
+      "coef": -0.1985,
+      "contrib": -0.0834
+    },
+    {
+      "term": "multigrams__que va",
+      "tfidf": 0.3809,
+      "coef": -0.1583,
+      "contrib": -0.0603
+    }
+  ]
+}

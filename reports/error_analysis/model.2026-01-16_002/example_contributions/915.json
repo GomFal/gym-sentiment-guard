@@ -1,0 +1,18 @@
+{
+  "id": 915,
+  "text": "muy bueno",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": 1.9246,
+  "raw_score": 3.9133,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 1.0,
+      "coef": 1.9246,
+      "contrib": 1.9246
+    }
+  ],
+  "top_negative_contributors": []
+}

@@ -1,0 +1,61 @@
+{
+  "id": 1467,
+  "text": "decepcionante la atenciòn que recibi al preguntar por información la persona que me atendió fue desagradablel",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -1.0505,
+  "raw_score": 0.9289,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__atendió",
+      "tfidf": 0.3568,
+      "coef": 1.6286,
+      "contrib": 0.5811
+    },
+    {
+      "term": "unigrams__fue",
+      "tfidf": 0.3317,
+      "coef": 0.1044,
+      "contrib": 0.0346
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__decepcionante",
+      "tfidf": 0.5321,
+      "coef": -0.9302,
+      "contrib": -0.495
+    },
+    {
+      "term": "multigrams__atendió fue",
+      "tfidf": 0.7019,
+      "coef": -0.4732,
+      "contrib": -0.3321
+    },
+    {
+      "term": "unigrams__información",
+      "tfidf": 0.4016,
+      "coef": -0.6837,
+      "contrib": -0.2746
+    },
+    {
+      "term": "unigrams__persona",
+      "tfidf": 0.3388,
+      "coef": -0.783,
+      "contrib": -0.2653
+    },
+    {
+      "term": "multigrams__persona atendió",
+      "tfidf": 0.7123,
+      "coef": -0.2382,
+      "contrib": -0.1697
+    },
+    {
+      "term": "unigrams__preguntar",
+      "tfidf": 0.4511,
+      "coef": -0.2874,
+      "contrib": -0.1296
+    }
+  ]
+}

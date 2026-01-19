@@ -1,0 +1,79 @@
+{
+  "id": 7494,
+  "text": "está bien demasiada gente en meses pico si no fuese por carlos sería una jungla",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -1.4881,
+  "raw_score": 0.4912,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.179,
+      "coef": 5.3806,
+      "contrib": 0.9634
+    },
+    {
+      "term": "multigrams__está bien",
+      "tfidf": 0.4801,
+      "coef": 0.8845,
+      "contrib": 0.4246
+    },
+    {
+      "term": "unigrams__fuese",
+      "tfidf": 0.4762,
+      "coef": 0.2941,
+      "contrib": 0.1401
+    },
+    {
+      "term": "unigrams__carlos",
+      "tfidf": 0.3855,
+      "coef": 0.3346,
+      "contrib": 0.129
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1468,
+      "coef": -9.0936,
+      "contrib": -1.3353
+    },
+    {
+      "term": "unigrams__demasiada",
+      "tfidf": 0.3644,
+      "coef": -1.9034,
+      "contrib": -0.6937
+    },
+    {
+      "term": "unigrams__meses",
+      "tfidf": 0.2643,
+      "coef": -1.6095,
+      "contrib": -0.4254
+    },
+    {
+      "term": "unigrams__sería",
+      "tfidf": 0.3628,
+      "coef": -0.7004,
+      "contrib": -0.2541
+    },
+    {
+      "term": "unigrams__pico",
+      "tfidf": 0.4446,
+      "coef": -0.5515,
+      "contrib": -0.2452
+    },
+    {
+      "term": "unigrams__está",
+      "tfidf": 0.1976,
+      "coef": -0.7135,
+      "contrib": -0.141
+    },
+    {
+      "term": "multigrams__no fuese",
+      "tfidf": 0.8772,
+      "coef": -0.0576,
+      "contrib": -0.0505
+    }
+  ]
+}

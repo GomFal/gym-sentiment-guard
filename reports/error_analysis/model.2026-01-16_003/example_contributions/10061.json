@@ -1,0 +1,133 @@
+{
+  "id": 10061,
+  "text": "soy socio del gimnasio desde hace varios meses disfruto de poder aparcar durante 2h en la estación de forma gratuita unas instalaciones enormes y tranquilidad durante las 07 00h hasta las 09 00 que es el horario en el que entreno ahora por las tardes mejor ni asomar por ahí demasiada gente",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.2446,
+  "raw_score": -0.4682,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.1286,
+      "coef": 4.5562,
+      "contrib": 0.5859
+    },
+    {
+      "term": "unigrams__entreno",
+      "tfidf": 0.2278,
+      "coef": 0.8337,
+      "contrib": 0.1899
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1102,
+      "coef": 1.6612,
+      "contrib": 0.1831
+    },
+    {
+      "term": "unigrams__tranquilidad",
+      "tfidf": 0.2934,
+      "coef": 0.5761,
+      "contrib": 0.169
+    },
+    {
+      "term": "unigrams__forma",
+      "tfidf": 0.1882,
+      "coef": 0.6715,
+      "contrib": 0.1264
+    },
+    {
+      "term": "unigrams__soy",
+      "tfidf": 0.1994,
+      "coef": 0.5542,
+      "contrib": 0.1105
+    },
+    {
+      "term": "multigrams__unas instalaciones",
+      "tfidf": 0.1375,
+      "coef": 0.5686,
+      "contrib": 0.0782
+    },
+    {
+      "term": "unigrams__horario",
+      "tfidf": 0.1752,
+      "coef": 0.391,
+      "contrib": 0.0685
+    },
+    {
+      "term": "unigrams__enormes",
+      "tfidf": 0.2934,
+      "coef": 0.1672,
+      "contrib": 0.0491
+    },
+    {
+      "term": "multigrams__que entreno",
+      "tfidf": 0.1757,
+      "coef": 0.2262,
+      "contrib": 0.0397
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.1537,
+      "coef": -5.2374,
+      "contrib": -0.8052
+    },
+    {
+      "term": "unigrams__demasiada",
+      "tfidf": 0.2245,
+      "coef": -1.7798,
+      "contrib": -0.3996
+    },
+    {
+      "term": "unigrams__hasta",
+      "tfidf": 0.1652,
+      "coef": -2.2644,
+      "contrib": -0.374
+    },
+    {
+      "term": "unigrams__tardes",
+      "tfidf": 0.2178,
+      "coef": -1.5305,
+      "contrib": -0.3334
+    },
+    {
+      "term": "unigrams__meses",
+      "tfidf": 0.1628,
+      "coef": -1.4679,
+      "contrib": -0.239
+    },
+    {
+      "term": "unigrams__ahora",
+      "tfidf": 0.1697,
+      "coef": -1.0553,
+      "contrib": -0.1791
+    },
+    {
+      "term": "unigrams__aparcar",
+      "tfidf": 0.2611,
+      "coef": -0.6668,
+      "contrib": -0.1741
+    },
+    {
+      "term": "multigrams__en la",
+      "tfidf": 0.0837,
+      "coef": -1.573,
+      "contrib": -0.1316
+    },
+    {
+      "term": "unigrams__socio",
+      "tfidf": 0.221,
+      "coef": -0.5801,
+      "contrib": -0.1282
+    },
+    {
+      "term": "unigrams__varios",
+      "tfidf": 0.2031,
+      "coef": -0.5444,
+      "contrib": -0.1106
+    }
+  ]
+}

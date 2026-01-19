@@ -1,0 +1,61 @@
+{
+  "id": 7451,
+  "text": "con el cambio de clases de les mills y la salida de silvia el gimnasio perdió muchísimo las nuevas clases son muy regu ojalá vuelvan pronto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": 0.7286,
+  "raw_score": 2.7172,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__silvia",
+      "tfidf": 0.3464,
+      "coef": 1.2564,
+      "contrib": 0.4353
+    },
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.2751,
+      "coef": 0.9902,
+      "contrib": 0.2724
+    },
+    {
+      "term": "unigrams__cambio",
+      "tfidf": 0.3097,
+      "coef": 0.4738,
+      "contrib": 0.1467
+    },
+    {
+      "term": "unigrams__pronto",
+      "tfidf": 0.3553,
+      "coef": 0.2633,
+      "contrib": 0.0935
+    },
+    {
+      "term": "unigrams__ojalá",
+      "tfidf": 0.3789,
+      "coef": 0.1397,
+      "contrib": 0.0529
+    },
+    {
+      "term": "unigrams__vuelvan",
+      "tfidf": 0.4212,
+      "coef": 0.0608,
+      "contrib": 0.0256
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__salida",
+      "tfidf": 0.399,
+      "coef": -0.4832,
+      "contrib": -0.1928
+    },
+    {
+      "term": "unigrams__muchísimo",
+      "tfidf": 0.3194,
+      "coef": -0.329,
+      "contrib": -0.1051
+    }
+  ]
+}

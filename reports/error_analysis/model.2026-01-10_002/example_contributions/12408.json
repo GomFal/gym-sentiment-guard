@@ -1,0 +1,133 @@
+{
+  "id": 12408,
+  "text": "acabo de darme de baja por qué el cuerpo y mi horario cada vez me responde peor pero estando apuntando desde que abrieron puedo decir que es de los mejores y más completos gimnasios que encontraréis de los df que he visitado todos están muy bien pero la cercanía y el tamaño de las instalaciones de éste son ideales las maquinas de calidad y con buen mantenimiento no he visto averías de semanas ni asientos y apoyos rajados por todos lados sauna y baño turco disfrutables amabilidad de los monitores",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.0225,
+  "raw_score": -0.3268,
+  "top_positive_contributors": [
+    {
+      "term": "gracias",
+      "tfidf": 0.0615,
+      "coef": 5.0488,
+      "contrib": 0.3107
+    },
+    {
+      "term": "buen",
+      "tfidf": 0.0475,
+      "coef": 6.2938,
+      "contrib": 0.2989
+    },
+    {
+      "term": "bien",
+      "tfidf": 0.0453,
+      "coef": 4.9938,
+      "contrib": 0.2263
+    },
+    {
+      "term": "mejores",
+      "tfidf": 0.073,
+      "coef": 2.5116,
+      "contrib": 0.1832
+    },
+    {
+      "term": "puede ser",
+      "tfidf": 0.1029,
+      "coef": 1.7285,
+      "contrib": 0.1779
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.0568,
+      "coef": 2.9809,
+      "contrib": 0.1693
+    },
+    {
+      "term": "amabilidad",
+      "tfidf": 0.0908,
+      "coef": 1.8132,
+      "contrib": 0.1647
+    },
+    {
+      "term": "tamaño",
+      "tfidf": 0.1118,
+      "coef": 1.0879,
+      "contrib": 0.1216
+    },
+    {
+      "term": "mucha",
+      "tfidf": 0.1162,
+      "coef": 1.0426,
+      "contrib": 0.1212
+    },
+    {
+      "term": "usado",
+      "tfidf": 0.1193,
+      "coef": 0.9869,
+      "contrib": 0.1177
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1095,
+      "coef": -9.965,
+      "contrib": -1.091
+    },
+    {
+      "term": "peor",
+      "tfidf": 0.1229,
+      "coef": -6.6475,
+      "contrib": -0.8169
+    },
+    {
+      "term": "ni",
+      "tfidf": 0.0632,
+      "coef": -5.4206,
+      "contrib": -0.3424
+    },
+    {
+      "term": "baja",
+      "tfidf": 0.0674,
+      "coef": -4.2095,
+      "contrib": -0.2838
+    },
+    {
+      "term": "ser",
+      "tfidf": 0.1662,
+      "coef": -1.1253,
+      "contrib": -0.187
+    },
+    {
+      "term": "mucha gente",
+      "tfidf": 0.1393,
+      "coef": -1.3264,
+      "contrib": -0.1847
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.0896,
+      "coef": -2.0184,
+      "contrib": -0.1809
+    },
+    {
+      "term": "entre",
+      "tfidf": 0.1328,
+      "coef": -1.1828,
+      "contrib": -0.1571
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.0523,
+      "coef": -2.8987,
+      "contrib": -0.1516
+    },
+    {
+      "term": "bien pero",
+      "tfidf": 0.0886,
+      "coef": -1.5727,
+      "contrib": -0.1394
+    }
+  ]
+}

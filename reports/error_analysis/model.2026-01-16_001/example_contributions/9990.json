@@ -1,0 +1,37 @@
+{
+  "id": 9990,
+  "text": "instalaciones ambiente sistema",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": 0.7726,
+  "raw_score": 2.7519,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__ambiente",
+      "tfidf": 0.4755,
+      "coef": 2.586,
+      "contrib": 1.2297
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.3543,
+      "coef": 1.8113,
+      "contrib": 0.6418
+    },
+    {
+      "term": "multigrams__instalaciones ambiente",
+      "tfidf": 1.0,
+      "coef": 0.1845,
+      "contrib": 0.1845
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__sistema",
+      "tfidf": 0.8052,
+      "coef": -1.594,
+      "contrib": -1.2834
+    }
+  ]
+}

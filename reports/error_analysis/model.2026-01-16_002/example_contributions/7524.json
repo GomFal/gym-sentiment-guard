@@ -1,0 +1,133 @@
+{
+  "id": 7524,
+  "text": "el personal es muy simpático y atento y las instalaciones muy modernas y limpias no obstante es una pena lo mucho que llega a llenarse especialmente la zona de musculación hay poquísimas pesas y máquinas disponibles teniendo que esperar bastante para hacer uso de una determinada máquina muchas veces rompiendo tu rutina de ese día creo que debería controlarse el aforo de alguna forma…",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -0.8457,
+  "raw_score": 1.143,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__atento",
+      "tfidf": 0.1658,
+      "coef": 2.3684,
+      "contrib": 0.3926
+    },
+    {
+      "term": "unigrams__limpias",
+      "tfidf": 0.2024,
+      "coef": 1.2411,
+      "contrib": 0.2512
+    },
+    {
+      "term": "unigrams__simpático",
+      "tfidf": 0.2302,
+      "coef": 0.873,
+      "contrib": 0.201
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1048,
+      "coef": 1.8156,
+      "contrib": 0.1902
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.112,
+      "coef": 1.3647,
+      "contrib": 0.1529
+    },
+    {
+      "term": "unigrams__modernas",
+      "tfidf": 0.2212,
+      "coef": 0.6763,
+      "contrib": 0.1496
+    },
+    {
+      "term": "multigrams__creo debería",
+      "tfidf": 0.2624,
+      "coef": 0.4599,
+      "contrib": 0.1207
+    },
+    {
+      "term": "unigrams__disponibles",
+      "tfidf": 0.2302,
+      "coef": 0.4667,
+      "contrib": 0.1074
+    },
+    {
+      "term": "unigrams__forma",
+      "tfidf": 0.179,
+      "coef": 0.571,
+      "contrib": 0.1022
+    },
+    {
+      "term": "unigrams__zona",
+      "tfidf": 0.1511,
+      "coef": 0.6479,
+      "contrib": 0.0979
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.086,
+      "coef": -9.0662,
+      "contrib": -0.7798
+    },
+    {
+      "term": "unigrams__pena",
+      "tfidf": 0.1727,
+      "coef": -1.8535,
+      "contrib": -0.32
+    },
+    {
+      "term": "unigrams__uso",
+      "tfidf": 0.2051,
+      "coef": -1.3079,
+      "contrib": -0.2682
+    },
+    {
+      "term": "unigrams__ese",
+      "tfidf": 0.1928,
+      "coef": -1.2076,
+      "contrib": -0.2329
+    },
+    {
+      "term": "unigrams__llega",
+      "tfidf": 0.2335,
+      "coef": -0.8741,
+      "contrib": -0.2041
+    },
+    {
+      "term": "unigrams__teniendo",
+      "tfidf": 0.2212,
+      "coef": -0.8926,
+      "contrib": -0.1974
+    },
+    {
+      "term": "unigrams__debería",
+      "tfidf": 0.2111,
+      "coef": -0.8703,
+      "contrib": -0.1837
+    },
+    {
+      "term": "unigrams__pesas",
+      "tfidf": 0.192,
+      "coef": -0.8777,
+      "contrib": -0.1685
+    },
+    {
+      "term": "multigrams__debería controlarse",
+      "tfidf": 0.284,
+      "coef": -0.4852,
+      "contrib": -0.1378
+    },
+    {
+      "term": "unigrams__hacer",
+      "tfidf": 0.142,
+      "coef": -0.7889,
+      "contrib": -0.112
+    }
+  ]
+}

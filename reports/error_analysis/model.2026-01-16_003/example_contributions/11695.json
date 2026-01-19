@@ -1,0 +1,60 @@
+{
+  "id": 11695,
+  "text": "muy bien me gusta",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": 7.2999,
+  "raw_score": 9.0762,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__gusta",
+      "tfidf": 0.8118,
+      "coef": 3.0463,
+      "contrib": 2.4728
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.4931,
+      "coef": 4.533,
+      "contrib": 2.2352
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.3129,
+      "coef": 4.5607,
+      "contrib": 1.427
+    },
+    {
+      "term": "multigrams__me gusta",
+      "tfidf": 0.345,
+      "coef": 1.5376,
+      "contrib": 0.5305
+    },
+    {
+      "term": "multigrams__muy bien",
+      "tfidf": 0.2512,
+      "coef": 1.9103,
+      "contrib": 0.4798
+    },
+    {
+      "term": "multigrams__bien me",
+      "tfidf": 0.4744,
+      "coef": 0.1683,
+      "contrib": 0.0799
+    },
+    {
+      "term": "multigrams__muy bien me",
+      "tfidf": 0.505,
+      "coef": 0.1208,
+      "contrib": 0.061
+    },
+    {
+      "term": "multigrams__bien me gusta",
+      "tfidf": 0.5812,
+      "coef": 0.0233,
+      "contrib": 0.0136
+    }
+  ],
+  "top_negative_contributors": []
+}

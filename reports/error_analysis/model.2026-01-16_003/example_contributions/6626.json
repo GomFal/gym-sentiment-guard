@@ -1,0 +1,133 @@
+{
+  "id": 6626,
+  "text": "2022 hace poco hicieron reforma y le sentó espectacular el gimnasio no tiene ventanas en prácticamente el 90 lo que lo hace un poco triste pero con la reforma supieron aprovecharlo con paredes negras y luces led a nivel de instalaciones y clases es muy completo sin embargo lo que ya va pidiendo reforma es el vestuario en invierno se pasa frío en las duchas que están casi abiertas porque la puerta es enana algunas duchas la puerta no se mantiene cerrada y se te abre encima mientras te estás ducha",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -4.9041,
+  "raw_score": -3.1278,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.0434,
+      "coef": 4.533,
+      "contrib": 0.197
+    },
+    {
+      "term": "unigrams__completo",
+      "tfidf": 0.0671,
+      "coef": 2.9039,
+      "contrib": 0.1947
+    },
+    {
+      "term": "unigrams__espectacular",
+      "tfidf": 0.0845,
+      "coef": 2.1992,
+      "contrib": 0.1858
+    },
+    {
+      "term": "unigrams__estrellas",
+      "tfidf": 0.0802,
+      "coef": 1.7513,
+      "contrib": 0.1405
+    },
+    {
+      "term": "unigrams__covid",
+      "tfidf": 0.14,
+      "coef": 0.9255,
+      "contrib": 0.1296
+    },
+    {
+      "term": "multigrams__está mal",
+      "tfidf": 0.0744,
+      "coef": 1.7035,
+      "contrib": 0.1268
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.0276,
+      "coef": 4.5607,
+      "contrib": 0.1257
+    },
+    {
+      "term": "unigrams__mejorar",
+      "tfidf": 0.0789,
+      "coef": 1.2243,
+      "contrib": 0.0966
+    },
+    {
+      "term": "multigrams__un poco",
+      "tfidf": 0.0499,
+      "coef": 1.8294,
+      "contrib": 0.0913
+    },
+    {
+      "term": "unigrams__90",
+      "tfidf": 0.1018,
+      "coef": 0.7896,
+      "contrib": 0.0804
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.105,
+      "coef": -8.7464,
+      "contrib": -0.9181
+    },
+    {
+      "term": "unigrams__mal",
+      "tfidf": 0.0667,
+      "coef": -4.1579,
+      "contrib": -0.2774
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.0849,
+      "coef": -2.7638,
+      "contrib": -0.2347
+    },
+    {
+      "term": "unigrams__suelo",
+      "tfidf": 0.1459,
+      "coef": -1.2312,
+      "contrib": -0.1796
+    },
+    {
+      "term": "unigrams__abrir",
+      "tfidf": 0.0951,
+      "coef": -1.8086,
+      "contrib": -0.1719
+    },
+    {
+      "term": "unigrams__rotas",
+      "tfidf": 0.09,
+      "coef": -1.8721,
+      "contrib": -0.1684
+    },
+    {
+      "term": "unigrams__encima",
+      "tfidf": 0.0804,
+      "coef": -2.0908,
+      "contrib": -0.168
+    },
+    {
+      "term": "unigrams__mascarilla",
+      "tfidf": 0.0954,
+      "coef": -1.716,
+      "contrib": -0.1637
+    },
+    {
+      "term": "unigrams__hicieron",
+      "tfidf": 0.1013,
+      "coef": -1.6084,
+      "contrib": -0.1629
+    },
+    {
+      "term": "unigrams__nadie",
+      "tfidf": 0.0762,
+      "coef": -1.9779,
+      "contrib": -0.1507
+    }
+  ]
+}

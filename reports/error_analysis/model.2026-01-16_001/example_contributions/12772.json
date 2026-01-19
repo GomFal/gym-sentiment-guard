@@ -1,0 +1,121 @@
+{
+  "id": 12772,
+  "text": "hola solo tengo una pregunta una vez que me inscriba puedo pagar en efectivo porque por targeta no puedo y no no tengo nadie que me haga el favor de pagarme con targeta gracias",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.9744,
+  "raw_score": -0.9951,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__gracias",
+      "tfidf": 0.1796,
+      "coef": 4.4672,
+      "contrib": 0.8022
+    },
+    {
+      "term": "multigrams__no tengo",
+      "tfidf": 0.3582,
+      "coef": 0.8868,
+      "contrib": 0.3176
+    },
+    {
+      "term": "multigrams__solo tengo",
+      "tfidf": 0.4341,
+      "coef": 0.194,
+      "contrib": 0.0842
+    },
+    {
+      "term": "unigrams__hola",
+      "tfidf": 0.283,
+      "coef": 0.2814,
+      "contrib": 0.0796
+    },
+    {
+      "term": "unigrams__tengo",
+      "tfidf": 0.3805,
+      "coef": 0.1609,
+      "contrib": 0.0612
+    },
+    {
+      "term": "unigrams__puedo",
+      "tfidf": 0.3872,
+      "coef": 0.1374,
+      "contrib": 0.0532
+    },
+    {
+      "term": "unigrams__haga",
+      "tfidf": 0.3147,
+      "coef": 0.0411,
+      "contrib": 0.0129
+    },
+    {
+      "term": "unigrams__pregunta",
+      "tfidf": 0.3386,
+      "coef": 0.0321,
+      "contrib": 0.0109
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2276,
+      "coef": -9.0936,
+      "contrib": -2.0699
+    },
+    {
+      "term": "unigrams__pagar",
+      "tfidf": 0.2363,
+      "coef": -2.2572,
+      "contrib": -0.5333
+    },
+    {
+      "term": "unigrams__nadie",
+      "tfidf": 0.2319,
+      "coef": -2.2255,
+      "contrib": -0.5161
+    },
+    {
+      "term": "unigrams__favor",
+      "tfidf": 0.2509,
+      "coef": -1.4584,
+      "contrib": -0.3659
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.1835,
+      "coef": -1.7374,
+      "contrib": -0.3189
+    },
+    {
+      "term": "multigrams__no no",
+      "tfidf": 0.367,
+      "coef": -0.8127,
+      "contrib": -0.2982
+    },
+    {
+      "term": "unigrams__efectivo",
+      "tfidf": 0.3481,
+      "coef": -0.3988,
+      "contrib": -0.1388
+    },
+    {
+      "term": "multigrams__no puedo",
+      "tfidf": 0.2993,
+      "coef": -0.3694,
+      "contrib": -0.1105
+    },
+    {
+      "term": "multigrams__puedo no",
+      "tfidf": 0.4713,
+      "coef": -0.0695,
+      "contrib": -0.0328
+    },
+    {
+      "term": "multigrams__pagar efectivo",
+      "tfidf": 0.4867,
+      "coef": -0.0243,
+      "contrib": -0.0118
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": 8615,
+  "text": "buenas instalaciones sólo que no tienen la máquina predicador",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.1128,
+  "raw_score": -0.4171,
+  "top_positive_contributors": [
+    {
+      "term": "buenas",
+      "tfidf": 0.2965,
+      "coef": 2.8283,
+      "contrib": 0.8385
+    },
+    {
+      "term": "instalaciones",
+      "tfidf": 0.2356,
+      "coef": 1.516,
+      "contrib": 0.3572
+    },
+    {
+      "term": "buenas instalaciones",
+      "tfidf": 0.3592,
+      "coef": 0.2921,
+      "contrib": 0.1049
+    },
+    {
+      "term": "máquina",
+      "tfidf": 0.3927,
+      "coef": 0.173,
+      "contrib": 0.0679
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1934,
+      "coef": -9.965,
+      "contrib": -1.9272
+    },
+    {
+      "term": "no tienen",
+      "tfidf": 0.4481,
+      "coef": -2.1564,
+      "contrib": -0.9662
+    },
+    {
+      "term": "tienen",
+      "tfidf": 0.3315,
+      "coef": -1.2751,
+      "contrib": -0.4227
+    },
+    {
+      "term": "sólo",
+      "tfidf": 0.4746,
+      "coef": -0.3481,
+      "contrib": -0.1652
+    }
+  ]
+}

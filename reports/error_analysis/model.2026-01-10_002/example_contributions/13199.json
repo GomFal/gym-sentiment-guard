@@ -1,0 +1,79 @@
+{
+  "id": 13199,
+  "text": "cristina estela gallego llevo ya unos cuantos años y los que quedan el personal mola mucho y además es súper profesional por favor no cambiéis!!!!",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -1.9106,
+  "raw_score": -0.215,
+  "top_positive_contributors": [
+    {
+      "term": "súper",
+      "tfidf": 0.2571,
+      "coef": 2.7292,
+      "contrib": 0.7018
+    },
+    {
+      "term": "profesional",
+      "tfidf": 0.2935,
+      "coef": 1.3165,
+      "contrib": 0.3863
+    },
+    {
+      "term": "personal",
+      "tfidf": 0.1935,
+      "coef": 1.278,
+      "contrib": 0.2473
+    },
+    {
+      "term": "mucho",
+      "tfidf": 0.2315,
+      "coef": 0.0451,
+      "contrib": 0.0105
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1486,
+      "coef": -9.965,
+      "contrib": -1.4808
+    },
+    {
+      "term": "ya",
+      "tfidf": 0.2252,
+      "coef": -2.3411,
+      "contrib": -0.5271
+    },
+    {
+      "term": "favor",
+      "tfidf": 0.3437,
+      "coef": -1.1733,
+      "contrib": -0.4033
+    },
+    {
+      "term": "favor no",
+      "tfidf": 0.4874,
+      "coef": -0.5984,
+      "contrib": -0.2917
+    },
+    {
+      "term": "unos",
+      "tfidf": 0.2907,
+      "coef": -0.9021,
+      "contrib": -0.2622
+    },
+    {
+      "term": "quedan",
+      "tfidf": 0.4205,
+      "coef": -0.4692,
+      "contrib": -0.1973
+    },
+    {
+      "term": "además",
+      "tfidf": 0.2586,
+      "coef": -0.3639,
+      "contrib": -0.0941
+    }
+  ]
+}

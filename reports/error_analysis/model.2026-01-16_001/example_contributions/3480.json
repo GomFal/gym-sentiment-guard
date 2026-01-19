@@ -1,0 +1,133 @@
+{
+  "id": 3480,
+  "text": "estoy contenta de que por fin esté abierto el gym las instalaciones y en general me parece todo muy bien lo único es que para lo grande que es la recepción es pequeña y solo está una persona siempre con lo cual no hay nadie en las salas por lo mismo la gente deja las pesas por el suelos las máquinas cargadas parece que necesitan a alguien que les diga lo que se puede o no hacer y es un verdadero fastidio",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.6973,
+  "raw_score": -0.7179,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__contenta",
+      "tfidf": 0.183,
+      "coef": 3.1958,
+      "contrib": 0.5849
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1045,
+      "coef": 5.3806,
+      "contrib": 0.5622
+    },
+    {
+      "term": "unigrams__grande",
+      "tfidf": 0.1685,
+      "coef": 2.8351,
+      "contrib": 0.4777
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1044,
+      "coef": 1.8113,
+      "contrib": 0.1891
+    },
+    {
+      "term": "unigrams__salas",
+      "tfidf": 0.1985,
+      "coef": 0.9416,
+      "contrib": 0.1869
+    },
+    {
+      "term": "unigrams__único",
+      "tfidf": 0.1797,
+      "coef": 0.8684,
+      "contrib": 0.156
+    },
+    {
+      "term": "unigrams__general",
+      "tfidf": 0.1809,
+      "coef": 0.571,
+      "contrib": 0.1033
+    },
+    {
+      "term": "unigrams__siempre",
+      "tfidf": 0.1209,
+      "coef": 0.3681,
+      "contrib": 0.0445
+    },
+    {
+      "term": "multigrams__persona siempre",
+      "tfidf": 0.3114,
+      "coef": 0.0534,
+      "contrib": 0.0166
+    },
+    {
+      "term": "multigrams__general parece",
+      "tfidf": 0.33,
+      "coef": 0.0491,
+      "contrib": 0.0162
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1451,
+      "coef": -9.0936,
+      "contrib": -1.3194
+    },
+    {
+      "term": "unigrams__parece",
+      "tfidf": 0.2717,
+      "coef": -1.8977,
+      "contrib": -0.5155
+    },
+    {
+      "term": "unigrams__nadie",
+      "tfidf": 0.1832,
+      "coef": -2.2255,
+      "contrib": -0.4078
+    },
+    {
+      "term": "unigrams__deja",
+      "tfidf": 0.2081,
+      "coef": -1.8178,
+      "contrib": -0.3782
+    },
+    {
+      "term": "unigrams__fin",
+      "tfidf": 0.1953,
+      "coef": -1.4643,
+      "contrib": -0.286
+    },
+    {
+      "term": "unigrams__alguien",
+      "tfidf": 0.2003,
+      "coef": -1.3764,
+      "contrib": -0.2756
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.145,
+      "coef": -1.7374,
+      "contrib": -0.252
+    },
+    {
+      "term": "unigrams__esté",
+      "tfidf": 0.2137,
+      "coef": -0.995,
+      "contrib": -0.2126
+    },
+    {
+      "term": "unigrams__necesitan",
+      "tfidf": 0.2595,
+      "coef": -0.6827,
+      "contrib": -0.1771
+    },
+    {
+      "term": "unigrams__pesas",
+      "tfidf": 0.1913,
+      "coef": -0.9052,
+      "contrib": -0.1732
+    }
+  ]
+}

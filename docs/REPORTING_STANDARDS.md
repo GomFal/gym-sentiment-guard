@@ -80,7 +80,7 @@ This layer is about **confidence**, not exploration.
 
 ### Selection rules
 - Filter runs to: `constraint_met == True`
-- Select **Top K = 5–10** runs after protocol sorting
+- Select **Top K = 5** runs after protocol sorting
 - Never include invalid or constraint-failing runs
 
 ### Recommended visualizations
@@ -142,18 +142,6 @@ Instead of comparing runs, we compare **design decisions**.
 
 ---
 
-#### 2) sublinear_tf (True vs False)
-- Bar plot:
-  - mean F1_neg
-  - mean PR_AUC_neg
-- Count of valid runs per option
-
-**Conclusion to extract:**
-- Whether dampening term frequency improves generalization
-- Whether effect is consistent or marginal
-
----
-
 #### 4) ngram_range
 - Line plot:
   - X-axis: ngram_range
@@ -169,8 +157,8 @@ Instead of comparing runs, we compare **design decisions**.
 - Paired comparison:
   - stopwords ON vs OFF
 - Focus on:
-  - constraint satisfaction rate
   - F1_neg stability
+  - Recall_neg stability
 
 **Conclusion to extract:**
 - Whether curated stopwords help or are neutral
@@ -225,16 +213,6 @@ Interpretation:
 
 ---
 
-#### 4) Calibration curve
-- Before vs after isotonic calibration
-- Focus on Negative-class probabilities
-
-Interpretation:
-- Demonstrates probability reliability
-- Justifies calibration choice
-
----
-
 ### Conclusion expected
 A concise **Model Readiness Summary**:
 - Metric performance (VAL vs TEST)
@@ -260,7 +238,7 @@ This module is the **source of truth** for report generation.
 reports/logreg_ablations/
 ├── figures/
 ├── tables/
-├── TOP10_RESULTS.md
+├── TOP5_RESULTS.md
 ├── ABLATION_ANALYSIS.md
 └── FINAL_MODEL_REPORT.md
 ```
@@ -281,7 +259,7 @@ Figures must use deterministic names (no timestamps):
 
 Tables:
 - `tables/ablation_table_sorted.csv`
-- `tables/top10_table.csv`
+- `tables/top5_table.csv`
 - `tables/factor_summary_*.csv`
 
 ---
@@ -295,7 +273,9 @@ src/gym_sentiment_guard/reports/logreg_ablation_report.py
 CLI:
 
 ```bash
-python -m gym_sentiment_guard.reports.logreg_ablation_report   --ablation-table artifacts/experiments/ABLATION_TABLE.csv   --out reports/logreg_ablations
+python -m gym_sentiment_guard.cli.main main ablation-report \
+  --ablation-table artifacts/experiments/ABLATION_TABLE.csv \
+  --out reports/logreg_ablations
 ```
 
 ---
@@ -328,7 +308,7 @@ Markdown must reference artifacts using **relative paths** only.
 ## Final Expected Outputs (Checklist)
 
 - `ABLATION_TABLE.csv`
-- `TOP10_RESULTS.md`
+- `TOP5_RESULTS.md`
 - `ABLATION_ANALYSIS.md`
 - `FINAL_MODEL_REPORT.md`
 

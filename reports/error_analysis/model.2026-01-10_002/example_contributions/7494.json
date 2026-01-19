@@ -1,0 +1,97 @@
+{
+  "id": 7494,
+  "text": "está bien demasiada gente en meses pico si no fuese por carlos sería una jungla",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.4964,
+  "raw_score": -0.8007,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.149,
+      "coef": 4.9938,
+      "contrib": 0.7442
+    },
+    {
+      "term": "fuese",
+      "tfidf": 0.3964,
+      "coef": 0.564,
+      "contrib": 0.2235
+    },
+    {
+      "term": "carlos",
+      "tfidf": 0.3208,
+      "coef": 0.3651,
+      "contrib": 0.1171
+    },
+    {
+      "term": "está bien",
+      "tfidf": 0.2931,
+      "coef": 0.0174,
+      "contrib": 0.0051
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1222,
+      "coef": -9.965,
+      "contrib": -1.2178
+    },
+    {
+      "term": "meses",
+      "tfidf": 0.22,
+      "coef": -1.7921,
+      "contrib": -0.3942
+    },
+    {
+      "term": "demasiada",
+      "tfidf": 0.3033,
+      "coef": -1.2309,
+      "contrib": -0.3734
+    },
+    {
+      "term": "demasiada gente",
+      "tfidf": 0.3109,
+      "coef": -1.1831,
+      "contrib": -0.3678
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.174,
+      "coef": -2.0184,
+      "contrib": -0.3513
+    },
+    {
+      "term": "si",
+      "tfidf": 0.1685,
+      "coef": -2.0586,
+      "contrib": -0.3469
+    },
+    {
+      "term": "está",
+      "tfidf": 0.1644,
+      "coef": -0.9143,
+      "contrib": -0.1503
+    },
+    {
+      "term": "sería",
+      "tfidf": 0.3019,
+      "coef": -0.4849,
+      "contrib": -0.1464
+    },
+    {
+      "term": "si no",
+      "tfidf": 0.2571,
+      "coef": -0.5356,
+      "contrib": -0.1377
+    },
+    {
+      "term": "pico",
+      "tfidf": 0.37,
+      "coef": -0.2718,
+      "contrib": -0.1006
+    }
+  ]
+}

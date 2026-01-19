@@ -1,0 +1,115 @@
+{
+  "id": 8390,
+  "text": "esta todo super apretado muy oscuro y agobiante y todo demasiado descuidado ni la gente del propio gimnasio se preocupa por mantenerlo ordenado por el contrario los vestuarios están muy bien y limpios",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -0.8967,
+  "raw_score": 1.0826,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1291,
+      "coef": 5.3806,
+      "contrib": 0.6947
+    },
+    {
+      "term": "unigrams__super",
+      "tfidf": 0.1911,
+      "coef": 2.2452,
+      "contrib": 0.429
+    },
+    {
+      "term": "unigrams__limpios",
+      "tfidf": 0.2788,
+      "coef": 1.2911,
+      "contrib": 0.36
+    },
+    {
+      "term": "multigrams__están bien",
+      "tfidf": 0.4198,
+      "coef": 0.7458,
+      "contrib": 0.3131
+    },
+    {
+      "term": "multigrams__vestuarios están",
+      "tfidf": 0.5867,
+      "coef": 0.4059,
+      "contrib": 0.2382
+    },
+    {
+      "term": "unigrams__ordenado",
+      "tfidf": 0.2616,
+      "coef": 0.621,
+      "contrib": 0.1624
+    },
+    {
+      "term": "multigrams__vestuarios están bien",
+      "tfidf": 0.6925,
+      "coef": 0.1704,
+      "contrib": 0.118
+    },
+    {
+      "term": "unigrams__contrario",
+      "tfidf": 0.3206,
+      "coef": 0.1482,
+      "contrib": 0.0475
+    },
+    {
+      "term": "unigrams__preocupa",
+      "tfidf": 0.3279,
+      "coef": 0.0845,
+      "contrib": 0.0277
+    },
+    {
+      "term": "unigrams__vestuarios",
+      "tfidf": 0.2203,
+      "coef": 0.042,
+      "contrib": 0.0093
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.1799,
+      "coef": -5.4019,
+      "contrib": -0.972
+    },
+    {
+      "term": "unigrams__descuidado",
+      "tfidf": 0.3279,
+      "coef": -2.4975,
+      "contrib": -0.8188
+    },
+    {
+      "term": "unigrams__demasiado",
+      "tfidf": 0.2433,
+      "coef": -2.1922,
+      "contrib": -0.5333
+    },
+    {
+      "term": "unigrams__oscuro",
+      "tfidf": 0.3365,
+      "coef": -1.2518,
+      "contrib": -0.4213
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.1654,
+      "coef": -1.5168,
+      "contrib": -0.2508
+    },
+    {
+      "term": "unigrams__agobiante",
+      "tfidf": 0.3365,
+      "coef": -0.5798,
+      "contrib": -0.1951
+    },
+    {
+      "term": "unigrams__propio",
+      "tfidf": 0.2982,
+      "coef": -0.3522,
+      "contrib": -0.105
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": 2885,
+  "text": "en este gym en lo único que están pendientes es en apuntar personas nuevas todos los días y cobra que en la comodidad que ofrecen cuando te apuntas",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -0.1119,
+  "raw_score": 1.8768,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.2847,
+      "coef": 0.9902,
+      "contrib": 0.2819
+    },
+    {
+      "term": "unigrams__único",
+      "tfidf": 0.2819,
+      "coef": 0.8761,
+      "contrib": 0.2469
+    },
+    {
+      "term": "unigrams__pendientes",
+      "tfidf": 0.3497,
+      "coef": 0.5724,
+      "contrib": 0.2002
+    },
+    {
+      "term": "multigrams__están pendientes",
+      "tfidf": 1.0,
+      "coef": 0.1545,
+      "contrib": 0.1545
+    },
+    {
+      "term": "unigrams__comodidad",
+      "tfidf": 0.3944,
+      "coef": 0.1895,
+      "contrib": 0.0747
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__días",
+      "tfidf": 0.2568,
+      "coef": -1.3318,
+      "contrib": -0.3421
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.21,
+      "coef": -1.5357,
+      "contrib": -0.3225
+    },
+    {
+      "term": "unigrams__apuntas",
+      "tfidf": 0.4315,
+      "coef": -0.4907,
+      "contrib": -0.2117
+    },
+    {
+      "term": "unigrams__apuntar",
+      "tfidf": 0.3753,
+      "coef": -0.3306,
+      "contrib": -0.1241
+    },
+    {
+      "term": "unigrams__ofrecen",
+      "tfidf": 0.3529,
+      "coef": -0.1981,
+      "contrib": -0.0699
+    }
+  ]
+}

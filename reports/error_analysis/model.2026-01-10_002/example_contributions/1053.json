@@ -1,0 +1,11 @@
+{
+  "id": 1053,
+  "text": "deshonesto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": 0.0,
+  "raw_score": 1.6956,
+  "top_positive_contributors": [],
+  "top_negative_contributors": []
+}

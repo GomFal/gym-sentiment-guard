@@ -1,0 +1,25 @@
+{
+  "id": 13439,
+  "text": "0 empatía con los usuarios",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -0.3646,
+  "raw_score": 1.624,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__empatía",
+      "tfidf": 0.8,
+      "coef": 0.0553,
+      "contrib": 0.0442
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__usuarios",
+      "tfidf": 0.6001,
+      "coef": -0.6814,
+      "contrib": -0.4089
+    }
+  ]
+}

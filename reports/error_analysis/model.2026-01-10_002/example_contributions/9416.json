@@ -1,0 +1,133 @@
+{
+  "id": 9416,
+  "text": "las instalaciones y el personal son fantásticos y cuentan con todo tipo de maquinas para poder tener un entrenamiento óptimo la localización del gimnasio es buena si tienes coche pero si tienes que ir en transporte público puede ser un poco más complicado a nivel negativo es el orden y organización de gimnasio llevaba tiempo sin ir a este gimnasio y he notado que ahora hay más desorden las personas que entrenan ahí en la zona de pesos no devuelven lo que usan a su sitio haciendo la experiencia b",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.2789,
+  "raw_score": -0.5833,
+  "top_positive_contributors": [
+    {
+      "term": "buen",
+      "tfidf": 0.0651,
+      "coef": 6.2938,
+      "contrib": 0.4097
+    },
+    {
+      "term": "puede ser",
+      "tfidf": 0.141,
+      "coef": 1.7285,
+      "contrib": 0.2438
+    },
+    {
+      "term": "poco más",
+      "tfidf": 0.1399,
+      "coef": 1.3499,
+      "contrib": 0.1889
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.1122,
+      "coef": 1.635,
+      "contrib": 0.1834
+    },
+    {
+      "term": "punta",
+      "tfidf": 0.1222,
+      "coef": 1.4437,
+      "contrib": 0.1764
+    },
+    {
+      "term": "buena",
+      "tfidf": 0.075,
+      "coef": 2.3126,
+      "contrib": 0.1735
+    },
+    {
+      "term": "negativo",
+      "tfidf": 0.1542,
+      "coef": 0.9848,
+      "contrib": 0.1519
+    },
+    {
+      "term": "entrenamiento",
+      "tfidf": 0.1014,
+      "coef": 1.296,
+      "contrib": 0.1314
+    },
+    {
+      "term": "tipo",
+      "tfidf": 0.1052,
+      "coef": 1.1834,
+      "contrib": 0.1245
+    },
+    {
+      "term": "pase",
+      "tfidf": 0.1364,
+      "coef": 0.8671,
+      "contrib": 0.1182
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "mala",
+      "tfidf": 0.1159,
+      "coef": -4.5517,
+      "contrib": -0.5277
+    },
+    {
+      "term": "no",
+      "tfidf": 0.0509,
+      "coef": -9.965,
+      "contrib": -0.5076
+    },
+    {
+      "term": "localización",
+      "tfidf": 0.1635,
+      "coef": -1.5514,
+      "contrib": -0.2536
+    },
+    {
+      "term": "si",
+      "tfidf": 0.1189,
+      "coef": -2.0586,
+      "contrib": -0.2448
+    },
+    {
+      "term": "mancuernas",
+      "tfidf": 0.1264,
+      "coef": -1.9005,
+      "contrib": -0.2403
+    },
+    {
+      "term": "otro",
+      "tfidf": 0.0954,
+      "coef": -2.189,
+      "contrib": -0.2089
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.0717,
+      "coef": -2.8987,
+      "contrib": -0.2078
+    },
+    {
+      "term": "personas",
+      "tfidf": 0.0925,
+      "coef": -2.2256,
+      "contrib": -0.2058
+    },
+    {
+      "term": "público",
+      "tfidf": 0.1314,
+      "coef": -1.5641,
+      "contrib": -0.2055
+    },
+    {
+      "term": "tienes",
+      "tfidf": 0.17,
+      "coef": -1.1251,
+      "contrib": -0.1913
+    }
+  ]
+}

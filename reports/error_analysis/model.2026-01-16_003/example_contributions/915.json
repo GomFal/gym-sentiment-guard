@@ -1,0 +1,30 @@
+{
+  "id": 915,
+  "text": "muy bueno",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": 4.219,
+  "raw_score": 5.9953,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.38,
+      "coef": 4.5607,
+      "contrib": 1.7332
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.925,
+      "coef": 1.4232,
+      "contrib": 1.3165
+    },
+    {
+      "term": "multigrams__muy bueno",
+      "tfidf": 1.0,
+      "coef": 1.1693,
+      "contrib": 1.1693
+    }
+  ],
+  "top_negative_contributors": []
+}

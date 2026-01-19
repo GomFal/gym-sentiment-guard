@@ -1,0 +1,91 @@
+{
+  "id": 7451,
+  "text": "con el cambio de clases de les mills y la salida de silvia el gimnasio perdió muchísimo las nuevas clases son muy regu ojalá vuelvan pronto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": 1.6337,
+  "raw_score": 3.3294,
+  "top_positive_contributors": [
+    {
+      "term": "clases",
+      "tfidf": 0.2522,
+      "coef": 3.8945,
+      "contrib": 0.9823
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0892,
+      "coef": 4.0381,
+      "contrib": 0.3603
+    },
+    {
+      "term": "silvia",
+      "tfidf": 0.3076,
+      "coef": 0.9768,
+      "contrib": 0.3005
+    },
+    {
+      "term": "cambio",
+      "tfidf": 0.275,
+      "coef": 0.8651,
+      "contrib": 0.2379
+    },
+    {
+      "term": "nuevas",
+      "tfidf": 0.2443,
+      "coef": 0.9521,
+      "contrib": 0.2326
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.1064,
+      "coef": 1.635,
+      "contrib": 0.174
+    },
+    {
+      "term": "clases muy",
+      "tfidf": 0.2843,
+      "coef": 0.3665,
+      "contrib": 0.1042
+    },
+    {
+      "term": "ojalá",
+      "tfidf": 0.3364,
+      "coef": 0.2309,
+      "contrib": 0.0777
+    },
+    {
+      "term": "pronto",
+      "tfidf": 0.3155,
+      "coef": 0.2457,
+      "contrib": 0.0775
+    },
+    {
+      "term": "vuelvan",
+      "tfidf": 0.374,
+      "coef": 0.0685,
+      "contrib": 0.0256
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "les",
+      "tfidf": 0.2186,
+      "coef": -2.7457,
+      "contrib": -0.6003
+    },
+    {
+      "term": "salida",
+      "tfidf": 0.3543,
+      "coef": -0.6582,
+      "contrib": -0.2332
+    },
+    {
+      "term": "muchísimo",
+      "tfidf": 0.2836,
+      "coef": -0.3711,
+      "contrib": -0.1053
+    }
+  ]
+}

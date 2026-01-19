@@ -609,5 +609,180 @@ def run_ablation(
     )
 
 
+@pipeline_app.command('ablation-report')
+def ablation_report(
+    experiments_dir: Annotated[
+        Path,
+        typer.Option(
+            '--experiments-dir',
+            '-e',
+            exists=True,
+            readable=True,
+            help='Path to experiments directory containing run.* folders.',
+        ),
+    ] = Path('artifacts/experiments'),
+    output_dir: Annotated[
+        Path,
+        typer.Option(
+            '--output',
+            '-o',
+            help='Output directory for reports.',
+        ),
+    ] = Path('reports/logreg_ablations'),
+    test_predictions: Annotated[
+        Path | None,
+        typer.Option(
+            '--test-predictions',
+            '-t',
+            exists=True,
+            readable=True,
+            help='Path to test_predictions.csv for Layer 4 PR curves.',
+        ),
+    ] = None,
+    winner_run_id: Annotated[
+        str | None,
+        typer.Option(
+            '--winner',
+            '-w',
+            help='Explicit winner run_id (auto-detect if omitted).',
+        ),
+    ] = None,
+) -> None:
+    """Generate ablation suite report with visualizations."""
+    from ..reports import generate_ablation_report as gen_report
+
+    log.info(
+        json_log(
+            'cli.ablation_report.start',
+            component='cli',
+            experiments_dir=str(experiments_dir),
+            output_dir=str(output_dir),
+            test_predictions=str(test_predictions) if test_predictions else None,
+        ),
+    )
+
+    artifacts = gen_report(
+        experiments_dir=experiments_dir,
+        output_dir=output_dir,
+        test_predictions_path=test_predictions,
+        winner_run_id=winner_run_id,
+    )
+
+    typer.echo(f'Ablation report generated!')
+    typer.echo(f'Output directory: {output_dir}')
+    typer.echo(f'Artifacts generated: {len(artifacts)}')
+
+    for name, path in artifacts.items():
+        typer.echo(f'  - {name}: {path}')
+
+    log.info(
+        json_log(
+            'cli.ablation_report.completed',
+            component='cli',
+            n_artifacts=len(artifacts),
+        ),
+    )
+
+
+@pipeline_app.command('error-analysis')
+def error_analysis(
+    config: Annotated[
+        Path,
+        typer.Option(
+            '--config',
+            '-c',
+            exists=True,
+            readable=True,
+            help='Path to error_analysis.yaml config.',
+        ),
+    ] = Path('configs/error_analysis.yaml'),
+    output_dir: Annotated[
+        Path | None,
+        typer.Option(
+            '--output',
+            '-o',
+            help='Output directory. Auto-derived from model path if not specified.',
+        ),
+    ] = None,
+    model_path: Annotated[
+        Path | None,
+        typer.Option(
+            '--model',
+            '-m',
+            exists=True,
+            readable=True,
+            help='Override model path from config.',
+        ),
+    ] = None,
+    predictions_path: Annotated[
+        Path | None,
+        typer.Option(
+            '--predictions',
+            '-p',
+            exists=True,
+            readable=True,
+            help='Override predictions CSV path from config.',
+        ),
+    ] = None,
+    test_csv_path: Annotated[
+        Path | None,
+        typer.Option(
+            '--test-csv',
+            '-t',
+            exists=True,
+            readable=True,
+            help='Override test CSV path from config.',
+        ),
+    ] = None,
+) -> None:
+    """Run post-training error analysis on model predictions."""
+    import yaml
+
+    from ..reports.logreg_errors import run_error_analysis as run_analysis
+
+    # Load config to get model path if not specified
+    config_data = yaml.safe_load(config.read_text(encoding='utf-8'))
+    model_path_resolved = Path(model_path or config_data['model_path'])
+
+    # Auto-derive output directory from model path if not specified
+    if output_dir is None:
+        # Extract model_id from parent directory (e.g., "model.2026-01-10_002")
+        model_id = model_path_resolved.parent.name
+        output_dir = Path('reports/error_analysis') / model_id
+
+    log.info(
+        json_log(
+            'cli.error_analysis.start',
+            component='cli',
+            config=str(config),
+            output_dir=str(output_dir),
+        ),
+    )
+
+    artifacts = run_analysis(
+        config_path=config,
+        output_dir=output_dir,
+        model_path=model_path,
+        predictions_path=predictions_path,
+        test_csv_path=test_csv_path,
+    )
+
+    typer.echo('Error analysis completed!')
+    typer.echo(f'Output directory: {output_dir}')
+    typer.echo(f'Artifacts generated: {len(artifacts)}')
+
+    for name, path in artifacts.items():
+        typer.echo(f'  - {name}: {path}')
+
+    log.info(
+        json_log(
+            'cli.error_analysis.completed',
+            component='cli',
+            n_artifacts=len(artifacts),
+        ),
+    )
+
+
 if __name__ == '__main__':
     app()
+

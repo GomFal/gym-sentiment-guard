@@ -1,0 +1,115 @@
+{
+  "id": 5688,
+  "text": "un ambiente súper malo y tóxico lleno de gym bros maleducados y que lo único que hacen es tirarse fotitos enfrente del espejo no lo recomendaría a nadie hay gimnasios con un ambiente mucho mejor",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -0.9226,
+  "raw_score": 1.066,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.1946,
+      "coef": 4.9506,
+      "contrib": 0.9633
+    },
+    {
+      "term": "unigrams__ambiente",
+      "tfidf": 0.379,
+      "coef": 2.5278,
+      "contrib": 0.958
+    },
+    {
+      "term": "unigrams__súper",
+      "tfidf": 0.2369,
+      "coef": 2.2229,
+      "contrib": 0.5266
+    },
+    {
+      "term": "unigrams__único",
+      "tfidf": 0.287,
+      "coef": 0.8761,
+      "contrib": 0.2515
+    },
+    {
+      "term": "unigrams__mucho",
+      "tfidf": 0.2133,
+      "coef": 0.1096,
+      "contrib": 0.0234
+    },
+    {
+      "term": "multigrams__ambiente súper",
+      "tfidf": 0.4715,
+      "coef": 0.0311,
+      "contrib": 0.0147
+    },
+    {
+      "term": "multigrams__ambiente mucho",
+      "tfidf": 0.4869,
+      "coef": 0.0082,
+      "contrib": 0.004
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1369,
+      "coef": -9.0662,
+      "contrib": -1.2411
+    },
+    {
+      "term": "unigrams__lleno",
+      "tfidf": 0.2701,
+      "coef": -3.0146,
+      "contrib": -0.8143
+    },
+    {
+      "term": "unigrams__nadie",
+      "tfidf": 0.2927,
+      "coef": -2.176,
+      "contrib": -0.6369
+    },
+    {
+      "term": "unigrams__malo",
+      "tfidf": 0.3605,
+      "coef": -0.7412,
+      "contrib": -0.2672
+    },
+    {
+      "term": "multigrams__mucho mejor",
+      "tfidf": 0.369,
+      "coef": -0.6908,
+      "contrib": -0.255
+    },
+    {
+      "term": "unigrams__hacen",
+      "tfidf": 0.268,
+      "coef": -0.6543,
+      "contrib": -0.1754
+    },
+    {
+      "term": "multigrams__único hacen",
+      "tfidf": 0.4497,
+      "coef": -0.2277,
+      "contrib": -0.1024
+    },
+    {
+      "term": "unigrams__gimnasios",
+      "tfidf": 0.2636,
+      "coef": -0.2999,
+      "contrib": -0.0791
+    },
+    {
+      "term": "multigrams__no recomendaría",
+      "tfidf": 0.4497,
+      "coef": -0.1413,
+      "contrib": -0.0636
+    },
+    {
+      "term": "unigrams__recomendaría",
+      "tfidf": 0.4311,
+      "coef": -0.0676,
+      "contrib": -0.0291
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": 11695,
+  "text": "muy bien me gusta",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": 5.4872,
+  "raw_score": 7.4759,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.5192,
+      "coef": 5.381,
+      "contrib": 2.7936
+    },
+    {
+      "term": "unigrams__gusta",
+      "tfidf": 0.8547,
+      "coef": 3.0688,
+      "contrib": 2.6228
+    },
+    {
+      "term": "multigrams__bien gusta",
+      "tfidf": 1.0,
+      "coef": 0.0707,
+      "contrib": 0.0707
+    }
+  ],
+  "top_negative_contributors": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": 10764,
+  "text": "muy caro",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -1.6332,
+  "raw_score": 0.3555,
+  "top_positive_contributors": [],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__caro",
+      "tfidf": 1.0,
+      "coef": -1.6332,
+      "contrib": -1.6332
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-01-16T18:40:33.179549+00:00",
+  "config": {
+    "threshold": 0.37,
+    "near_threshold_band": 0.1,
+    "low_coverage_nnz_threshold": 5,
+    "low_coverage_tfidf_threshold": 0.5,
+    "confidence_threshold": 0.3,
+    "min_slice_size": 50,
+    "top_k_coefficients": 100,
+    "top_k_errors": 50,
+    "contrast_keywords_path": "configs/contrast_keywords.txt",
+    "test_csv_path": "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv",
+    "predictions_csv_path": "artifacts/models/sentiment_logreg/model.2026-01-16_003/test_predictions.csv",
+    "model_path": "artifacts/models/sentiment_logreg/model.2026-01-16_003/logreg.joblib",
+    "text_column": "comment",
+    "id_column": "id"
+  },
+  "data": {
+    "model_path": "artifacts\\models\\sentiment_logreg\\model.2026-01-16_003\\logreg.joblib",
+    "test_csv_path": "data\\frozen\\sentiment_logreg\\2025.12.15_01\\test\\test.csv",
+    "predictions_csv_path": "artifacts\\models\\sentiment_logreg\\model.2026-01-16_003\\test_predictions.csv",
+    "n_samples": 2072,
+    "n_errors": 101,
+    "error_rate": 0.0487
+  }
+}

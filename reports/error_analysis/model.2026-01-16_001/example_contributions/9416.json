@@ -1,0 +1,133 @@
+{
+  "id": 9416,
+  "text": "las instalaciones y el personal son fantásticos y cuentan con todo tipo de maquinas para poder tener un entrenamiento óptimo la localización del gimnasio es buena si tienes coche pero si tienes que ir en transporte público puede ser un poco más complicado a nivel negativo es el orden y organización de gimnasio llevaba tiempo sin ir a este gimnasio y he notado que ahora hay más desorden las personas que entrenan ahí en la zona de pesos no devuelven lo que usan a su sitio haciendo la experiencia b",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.2475,
+  "raw_score": -0.2682,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buen",
+      "tfidf": 0.0756,
+      "coef": 6.7925,
+      "contrib": 0.5133
+    },
+    {
+      "term": "multigrams__poco más",
+      "tfidf": 0.1966,
+      "coef": 1.3219,
+      "contrib": 0.2599
+    },
+    {
+      "term": "multigrams__puede ser",
+      "tfidf": 0.1982,
+      "coef": 1.2959,
+      "contrib": 0.2568
+    },
+    {
+      "term": "unigrams__punta",
+      "tfidf": 0.1418,
+      "coef": 1.5837,
+      "contrib": 0.2246
+    },
+    {
+      "term": "unigrams__buena",
+      "tfidf": 0.0871,
+      "coef": 2.5227,
+      "contrib": 0.2197
+    },
+    {
+      "term": "unigrams__negativo",
+      "tfidf": 0.179,
+      "coef": 0.8259,
+      "contrib": 0.1479
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.072,
+      "coef": 1.8113,
+      "contrib": 0.1305
+    },
+    {
+      "term": "unigrams__fantásticos",
+      "tfidf": 0.1862,
+      "coef": 0.655,
+      "contrib": 0.122
+    },
+    {
+      "term": "unigrams__tipo",
+      "tfidf": 0.1221,
+      "coef": 0.8966,
+      "contrib": 0.1095
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.077,
+      "coef": 1.3298,
+      "contrib": 0.1024
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__mala",
+      "tfidf": 0.1346,
+      "coef": -4.2014,
+      "contrib": -0.5654
+    },
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0591,
+      "coef": -9.0936,
+      "contrib": -0.5377
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.0832,
+      "coef": -3.0321,
+      "contrib": -0.2524
+    },
+    {
+      "term": "unigrams__otro",
+      "tfidf": 0.1108,
+      "coef": -2.2266,
+      "contrib": -0.2467
+    },
+    {
+      "term": "unigrams__público",
+      "tfidf": 0.1525,
+      "coef": -1.452,
+      "contrib": -0.2214
+    },
+    {
+      "term": "unigrams__localización",
+      "tfidf": 0.1898,
+      "coef": -1.1494,
+      "contrib": -0.2181
+    },
+    {
+      "term": "unigrams__tienes",
+      "tfidf": 0.1974,
+      "coef": -0.9823,
+      "contrib": -0.1939
+    },
+    {
+      "term": "unigrams__otra",
+      "tfidf": 0.122,
+      "coef": -1.5501,
+      "contrib": -0.1891
+    },
+    {
+      "term": "unigrams__desorden",
+      "tfidf": 0.1846,
+      "coef": -0.9411,
+      "contrib": -0.1737
+    },
+    {
+      "term": "unigrams__ahora",
+      "tfidf": 0.1109,
+      "coef": -1.4609,
+      "contrib": -0.1621
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 9585,
+  "text": "dentro de la masificación de los gimnasios de madrid este no lo está demasiado por el amplio horario que tienen desde las 6 de la mañana no tiene piscina y los baños no son excesivamente grandes pero está bien en general",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.7497,
+  "raw_score": -0.9734,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__amplio",
+      "tfidf": 0.2303,
+      "coef": 2.9405,
+      "contrib": 0.677
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1467,
+      "coef": 4.533,
+      "contrib": 0.6651
+    },
+    {
+      "term": "unigrams__grandes",
+      "tfidf": 0.266,
+      "coef": 1.6751,
+      "contrib": 0.4455
+    },
+    {
+      "term": "unigrams__general",
+      "tfidf": 0.254,
+      "coef": 0.5029,
+      "contrib": 0.1277
+    },
+    {
+      "term": "multigrams__está demasiado",
+      "tfidf": 0.152,
+      "coef": 0.7801,
+      "contrib": 0.1186
+    },
+    {
+      "term": "multigrams__de madrid",
+      "tfidf": 0.101,
+      "coef": 1.0311,
+      "contrib": 0.1042
+    },
+    {
+      "term": "unigrams__horario",
+      "tfidf": 0.233,
+      "coef": 0.391,
+      "contrib": 0.0911
+    },
+    {
+      "term": "multigrams__pero está",
+      "tfidf": 0.1472,
+      "coef": 0.3396,
+      "contrib": 0.05
+    },
+    {
+      "term": "multigrams__baños no",
+      "tfidf": 0.1848,
+      "coef": 0.223,
+      "contrib": 0.0412
+    },
+    {
+      "term": "multigrams__amplio horario",
+      "tfidf": 0.1393,
+      "coef": 0.2442,
+      "contrib": 0.034
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2525,
+      "coef": -8.7464,
+      "contrib": -2.2085
+    },
+    {
+      "term": "unigrams__masificación",
+      "tfidf": 0.3168,
+      "coef": -1.8199,
+      "contrib": -0.5766
+    },
+    {
+      "term": "unigrams__demasiado",
+      "tfidf": 0.2765,
+      "coef": -1.9593,
+      "contrib": -0.5417
+    },
+    {
+      "term": "unigrams__baños",
+      "tfidf": 0.2886,
+      "coef": -1.1511,
+      "contrib": -0.3322
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.2062,
+      "coef": -1.3859,
+      "contrib": -0.2858
+    },
+    {
+      "term": "unigrams__mañana",
+      "tfidf": 0.2621,
+      "coef": -0.9832,
+      "contrib": -0.2577
+    },
+    {
+      "term": "unigrams__está",
+      "tfidf": 0.2741,
+      "coef": -0.491,
+      "contrib": -0.1346
+    },
+    {
+      "term": "multigrams__de la",
+      "tfidf": 0.1172,
+      "coef": -0.9106,
+      "contrib": -0.1067
+    },
+    {
+      "term": "unigrams__dentro",
+      "tfidf": 0.2915,
+      "coef": -0.3527,
+      "contrib": -0.1028
+    },
+    {
+      "term": "multigrams__los baños",
+      "tfidf": 0.1225,
+      "coef": -0.7826,
+      "contrib": -0.0959
+    }
+  ]
+}

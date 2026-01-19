@@ -1,0 +1,133 @@
+{
+  "id": 11372,
+  "text": "buenas instalaciones y nuevas pero mucha gente para la cantidad de máquinas que hay 3 press de banca sin inclinar o 3 jalón al pecho entre otras cosas para todo el mundo me parece demasiado poco son máquinas muy solicitadas para que haya tan pocas para la cantidad de gente que va",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -3.0745,
+  "raw_score": -1.0858,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buenas",
+      "tfidf": 0.1452,
+      "coef": 2.9217,
+      "contrib": 0.4242
+    },
+    {
+      "term": "multigrams__pero mucha",
+      "tfidf": 0.291,
+      "coef": 0.8797,
+      "contrib": 0.256
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1154,
+      "coef": 1.8156,
+      "contrib": 0.2095
+    },
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.2006,
+      "coef": 0.9902,
+      "contrib": 0.1986
+    },
+    {
+      "term": "multigrams__cantidad máquinas",
+      "tfidf": 0.2584,
+      "coef": 0.607,
+      "contrib": 0.1569
+    },
+    {
+      "term": "multigrams__entre otras",
+      "tfidf": 0.291,
+      "coef": 0.5137,
+      "contrib": 0.1495
+    },
+    {
+      "term": "unigrams__pecho",
+      "tfidf": 0.283,
+      "coef": 0.2948,
+      "contrib": 0.0834
+    },
+    {
+      "term": "unigrams__va",
+      "tfidf": 0.195,
+      "coef": 0.2761,
+      "contrib": 0.0538
+    },
+    {
+      "term": "unigrams__máquinas",
+      "tfidf": 0.2051,
+      "coef": 0.1962,
+      "contrib": 0.0402
+    },
+    {
+      "term": "multigrams__mucha cantidad",
+      "tfidf": 0.3311,
+      "coef": 0.0514,
+      "contrib": 0.017
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__cantidad",
+      "tfidf": 0.3454,
+      "coef": -2.3686,
+      "contrib": -0.818
+    },
+    {
+      "term": "unigrams__pocas",
+      "tfidf": 0.2314,
+      "coef": -2.2527,
+      "contrib": -0.5213
+    },
+    {
+      "term": "unigrams__demasiado",
+      "tfidf": 0.2176,
+      "coef": -2.2476,
+      "contrib": -0.4891
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1333,
+      "coef": -3.0365,
+      "contrib": -0.4048
+    },
+    {
+      "term": "unigrams__tan",
+      "tfidf": 0.185,
+      "coef": -1.8893,
+      "contrib": -0.3494
+    },
+    {
+      "term": "unigrams__parece",
+      "tfidf": 0.1773,
+      "coef": -1.9066,
+      "contrib": -0.3381
+    },
+    {
+      "term": "unigrams__entre",
+      "tfidf": 0.1999,
+      "coef": -1.2494,
+      "contrib": -0.2498
+    },
+    {
+      "term": "unigrams__banca",
+      "tfidf": 0.2795,
+      "coef": -0.8397,
+      "contrib": -0.2347
+    },
+    {
+      "term": "unigrams__otras",
+      "tfidf": 0.225,
+      "coef": -0.7905,
+      "contrib": -0.1778
+    },
+    {
+      "term": "multigrams__press banca",
+      "tfidf": 0.2637,
+      "coef": -0.6254,
+      "contrib": -0.165
+    }
+  ]
+}

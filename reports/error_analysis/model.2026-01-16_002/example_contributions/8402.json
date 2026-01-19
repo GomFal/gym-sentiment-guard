@@ -1,0 +1,127 @@
+{
+  "id": 8402,
+  "text": "la sala esta genial solo faltan un par de cosas cinturones para lastradas y pesas de 6 7 8 9 kg baños es un poco desastre un poco sucios y incluso sin papel higiénico las duchas es lo peor al no poder regular la temperatura yo entreno por las mañas debería haber una planificación para que al llegar todo estuviese perfecto invertir en eso y seréis el mejor gimnasio de madrid!",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -3.5351,
+  "raw_score": -1.5464,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__perfecto",
+      "tfidf": 0.169,
+      "coef": 3.5766,
+      "contrib": 0.6046
+    },
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.113,
+      "coef": 4.9506,
+      "contrib": 0.5596
+    },
+    {
+      "term": "unigrams__genial",
+      "tfidf": 0.1379,
+      "coef": 4.0098,
+      "contrib": 0.553
+    },
+    {
+      "term": "unigrams__regular",
+      "tfidf": 0.2609,
+      "coef": 0.93,
+      "contrib": 0.2426
+    },
+    {
+      "term": "unigrams__entreno",
+      "tfidf": 0.2003,
+      "coef": 0.7448,
+      "contrib": 0.1492
+    },
+    {
+      "term": "unigrams__par",
+      "tfidf": 0.2081,
+      "coef": 0.639,
+      "contrib": 0.133
+    },
+    {
+      "term": "multigrams__genial solo",
+      "tfidf": 0.3307,
+      "coef": 0.1737,
+      "contrib": 0.0574
+    },
+    {
+      "term": "unigrams__faltan",
+      "tfidf": 0.2144,
+      "coef": 0.0859,
+      "contrib": 0.0184
+    },
+    {
+      "term": "multigrams__regular temperatura",
+      "tfidf": 0.3415,
+      "coef": 0.0476,
+      "contrib": 0.0162
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__peor",
+      "tfidf": 0.1553,
+      "coef": -5.7809,
+      "contrib": -0.8979
+    },
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0795,
+      "coef": -9.0662,
+      "contrib": -0.721
+    },
+    {
+      "term": "unigrams__temperatura",
+      "tfidf": 0.2057,
+      "coef": -2.1379,
+      "contrib": -0.4397
+    },
+    {
+      "term": "unigrams__desastre",
+      "tfidf": 0.2167,
+      "coef": -1.5802,
+      "contrib": -0.3425
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1119,
+      "coef": -3.0365,
+      "contrib": -0.3399
+    },
+    {
+      "term": "unigrams__baños",
+      "tfidf": 0.1907,
+      "coef": -1.7402,
+      "contrib": -0.3319
+    },
+    {
+      "term": "unigrams__sucios",
+      "tfidf": 0.2333,
+      "coef": -1.284,
+      "contrib": -0.2996
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.1346,
+      "coef": -1.7922,
+      "contrib": -0.2412
+    },
+    {
+      "term": "unigrams__poco",
+      "tfidf": 0.2366,
+      "coef": -0.8145,
+      "contrib": -0.1928
+    },
+    {
+      "term": "unigrams__incluso",
+      "tfidf": 0.1778,
+      "coef": -0.9817,
+      "contrib": -0.1745
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 8860,
+  "text": "cada día está más lleno y cada día es más difícil entrar en una clase colectiva o hacer máquinas eso sí el gimnasio en sí esta muy bien máquinas bastante nuevas y bastantes clases colectivas pero repito muy lleno el parking a partir de la 19h imposible aparcar los coches mal aparcados por todos los lados",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -2.4379,
+  "raw_score": -0.4492,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1109,
+      "coef": 5.381,
+      "contrib": 0.5969
+    },
+    {
+      "term": "unigrams__colectivas",
+      "tfidf": 0.1929,
+      "coef": 1.3421,
+      "contrib": 0.2589
+    },
+    {
+      "term": "unigrams__parking",
+      "tfidf": 0.2253,
+      "coef": 1.0715,
+      "contrib": 0.2414
+    },
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.1927,
+      "coef": 0.9902,
+      "contrib": 0.1908
+    },
+    {
+      "term": "unigrams__bastantes",
+      "tfidf": 0.2427,
+      "coef": 0.7078,
+      "contrib": 0.1718
+    },
+    {
+      "term": "unigrams__bastante",
+      "tfidf": 0.1568,
+      "coef": 0.4959,
+      "contrib": 0.0778
+    },
+    {
+      "term": "multigrams__bastante nuevas",
+      "tfidf": 0.2472,
+      "coef": 0.2997,
+      "contrib": 0.0741
+    },
+    {
+      "term": "multigrams__bien máquinas",
+      "tfidf": 0.2205,
+      "coef": 0.2474,
+      "contrib": 0.0545
+    },
+    {
+      "term": "multigrams__difícil entrar",
+      "tfidf": 0.2726,
+      "coef": 0.1768,
+      "contrib": 0.0482
+    },
+    {
+      "term": "unigrams__máquinas",
+      "tfidf": 0.197,
+      "coef": 0.1962,
+      "contrib": 0.0387
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__lleno",
+      "tfidf": 0.3039,
+      "coef": -3.0146,
+      "contrib": -0.9163
+    },
+    {
+      "term": "unigrams__imposible",
+      "tfidf": 0.1772,
+      "coef": -4.2898,
+      "contrib": -0.7603
+    },
+    {
+      "term": "unigrams__mal",
+      "tfidf": 0.1703,
+      "coef": -4.0775,
+      "contrib": -0.6945
+    },
+    {
+      "term": "unigrams__aparcar",
+      "tfidf": 0.2626,
+      "coef": -0.9248,
+      "contrib": -0.2428
+    },
+    {
+      "term": "unigrams__entrar",
+      "tfidf": 0.2055,
+      "coef": -1.1378,
+      "contrib": -0.2338
+    },
+    {
+      "term": "unigrams__sí",
+      "tfidf": 0.3464,
+      "coef": -0.5904,
+      "contrib": -0.2045
+    },
+    {
+      "term": "unigrams__más",
+      "tfidf": 0.2005,
+      "coef": -0.9802,
+      "contrib": -0.1965
+    },
+    {
+      "term": "unigrams__hacer",
+      "tfidf": 0.1502,
+      "coef": -0.7889,
+      "contrib": -0.1185
+    },
+    {
+      "term": "multigrams__imposible aparcar",
+      "tfidf": 0.2726,
+      "coef": -0.425,
+      "contrib": -0.1159
+    },
+    {
+      "term": "unigrams__está",
+      "tfidf": 0.1224,
+      "coef": -0.7408,
+      "contrib": -0.0907
+    }
+  ]
+}

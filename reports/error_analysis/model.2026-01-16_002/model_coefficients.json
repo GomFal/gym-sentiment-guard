@@ -1,0 +1,1010 @@
+{
+  "positive": [
+    {
+      "term": "unigrams__buen",
+      "coef": 6.7282,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__excelente",
+      "coef": 6.0552,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__bien",
+      "coef": 5.381,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mejor",
+      "coef": 4.9506,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__gracias",
+      "coef": 4.4088,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encanta",
+      "coef": 4.0771,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__genial",
+      "coef": 4.0098,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__gran",
+      "coef": 3.8634,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__limpio",
+      "coef": 3.8518,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__completo",
+      "coef": 3.6099,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__perfecto",
+      "coef": 3.5766,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__variedad",
+      "coef": 3.2484,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__amable",
+      "coef": 3.2153,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__contenta",
+      "coef": 3.1764,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__amplio",
+      "coef": 3.0952,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__gusta",
+      "coef": 3.0688,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__buenas",
+      "coef": 2.9217,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no está",
+      "coef": 2.913,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__amables",
+      "coef": 2.8949,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__grande",
+      "coef": 2.8166,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encantado",
+      "coef": 2.7741,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__poco masificado",
+      "coef": 2.7419,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__gusto",
+      "coef": 2.73,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__agradable",
+      "coef": 2.7156,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__equipo",
+      "coef": 2.5594,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ambiente",
+      "coef": 2.5278,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__duda",
+      "coef": 2.5109,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__buena",
+      "coef": 2.4965,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mejores",
+      "coef": 2.4942,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__contento",
+      "coef": 2.4174,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__especial",
+      "coef": 2.4013,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__atento",
+      "coef": 2.3684,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__espectacular",
+      "coef": 2.2717,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__atención",
+      "coef": 2.2693,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encantada",
+      "coef": 2.2593,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pega",
+      "coef": 2.2506,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__súper",
+      "coef": 2.2229,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__super",
+      "coef": 2.1808,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__top",
+      "coef": 2.1782,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__estupendo",
+      "coef": 2.1538,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__atentos",
+      "coef": 2.108,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__actividades",
+      "coef": 2.0925,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__majo",
+      "coef": 2.0629,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ayudó",
+      "coef": 2.0116,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__profesionales",
+      "coef": 2.0031,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__buena atención",
+      "coef": 1.9685,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__recomendable",
+      "coef": 1.938,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__bueno",
+      "coef": 1.9246,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__espacioso",
+      "coef": 1.9054,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__maja",
+      "coef": 1.8723,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__recomiendo",
+      "coef": 1.8697,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "coef": 1.8156,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__sonrisa",
+      "coef": 1.8033,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__geniales",
+      "coef": 1.7722,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__maravilla",
+      "coef": 1.7689,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__destacar",
+      "coef": 1.7554,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__calidad",
+      "coef": 1.7452,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__atendido",
+      "coef": 1.7151,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__increíble",
+      "coef": 1.7077,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__majos",
+      "coef": 1.67,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no está mal",
+      "coef": 1.6433,
+      "ngram_len": 3
+    },
+    {
+      "term": "unigrams__atendió",
+      "coef": 1.6402,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__calidad precio",
+      "coef": 1.6331,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__amabilidad",
+      "coef": 1.6205,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__estrellas",
+      "coef": 1.6052,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__excelentes",
+      "coef": 1.6049,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__sin duda",
+      "coef": 1.5919,
+      "ngram_len": 2
+    },
+    {
+      "term": "multigrams__está mal",
+      "coef": 1.5873,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__inmejorable",
+      "coef": 1.5853,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dudas",
+      "coef": 1.5789,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__maravilloso",
+      "coef": 1.5632,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encanto",
+      "coef": 1.5611,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__punta",
+      "coef": 1.5552,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no otro",
+      "coef": 1.5441,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__atenta",
+      "coef": 1.5212,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__grandes",
+      "coef": 1.5079,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__buenos",
+      "coef": 1.4961,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__agradables",
+      "coef": 1.4499,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encantan",
+      "coef": 1.4476,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encantó",
+      "coef": 1.4476,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__barato",
+      "coef": 1.4198,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__primer",
+      "coef": 1.4169,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__está haciendo",
+      "coef": 1.415,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__ayudarte",
+      "coef": 1.3889,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__recomendado",
+      "coef": 1.385,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pasada",
+      "coef": 1.3687,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__personal",
+      "coef": 1.3647,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encontrado",
+      "coef": 1.3626,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__entrenadores",
+      "coef": 1.3623,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__increíbles",
+      "coef": 1.3489,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__poco más",
+      "coef": 1.3452,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__colectivas",
+      "coef": 1.3421,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__puede ser",
+      "coef": 1.3373,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__impecable",
+      "coef": 1.3367,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__voy",
+      "coef": 1.3343,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__profesional",
+      "coef": 1.3334,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__entrenamientos",
+      "coef": 1.3293,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__tanto",
+      "coef": 1.3256,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__limpios",
+      "coef": 1.3196,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__impresionante",
+      "coef": 1.3132,
+      "ngram_len": 1
+    }
+  ],
+  "negative": [
+    {
+      "term": "unigrams__no",
+      "coef": -9.0662,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__peor",
+      "coef": -5.7809,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ni",
+      "coef": -5.3692,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__lamentable",
+      "coef": -4.3299,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__imposible",
+      "coef": -4.2898,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__vergüenza",
+      "coef": -4.2724,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__masificado",
+      "coef": -4.2262,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mala",
+      "coef": -4.1025,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mal",
+      "coef": -4.0775,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__baja",
+      "coef": -3.8658,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__horrible",
+      "coef": -3.4511,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__sucio",
+      "coef": -3.0439,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__sin",
+      "coef": -3.0365,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__estafadores",
+      "coef": -3.0168,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__lleno",
+      "coef": -3.0146,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pésimo",
+      "coef": -2.9596,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__acondicionado",
+      "coef": -2.897,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cola",
+      "coef": -2.8321,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__calor",
+      "coef": -2.7498,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no recomiendo",
+      "coef": -2.7407,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__fatal",
+      "coef": -2.7281,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pésima",
+      "coef": -2.6957,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__desagradable",
+      "coef": -2.662,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__total",
+      "coef": -2.5762,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dicen",
+      "coef": -2.573,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__todas horas",
+      "coef": -2.551,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__basura",
+      "coef": -2.5412,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__descuidado",
+      "coef": -2.5104,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__utilizar",
+      "coef": -2.5024,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cantidad",
+      "coef": -2.3686,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__poco profesional",
+      "coef": -2.3606,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__masificación",
+      "coef": -2.3443,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cara",
+      "coef": -2.3274,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__esperando",
+      "coef": -2.3027,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pagar",
+      "coef": -2.294,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__hasta",
+      "coef": -2.254,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pocas",
+      "coef": -2.2527,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__demasiado",
+      "coef": -2.2476,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__desordenado",
+      "coef": -2.2446,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mes",
+      "coef": -2.2273,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cobran",
+      "coef": -2.2239,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__otro",
+      "coef": -2.1856,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__nadie",
+      "coef": -2.176,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cambiar",
+      "coef": -2.1737,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__encima",
+      "coef": -2.1538,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ladrones",
+      "coef": -2.1454,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__temperatura",
+      "coef": -2.1379,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__empeorado",
+      "coef": -2.1133,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dice",
+      "coef": -2.0875,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__exceso",
+      "coef": -2.0839,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__imposible entrenar",
+      "coef": -2.0804,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__cutre",
+      "coef": -2.0344,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__básico",
+      "coef": -2.0018,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dejan",
+      "coef": -1.9961,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__piscina grande",
+      "coef": -1.9896,
+      "ngram_len": 2
+    },
+    {
+      "term": "multigrams__comida buen",
+      "coef": -1.9846,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__dirección",
+      "coef": -1.9572,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__podía",
+      "coef": -1.9521,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__hicieron",
+      "coef": -1.9099,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__parece",
+      "coef": -1.9066,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dan",
+      "coef": -1.9004,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__terrible",
+      "coef": -1.893,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no tienen",
+      "coef": -1.8923,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__estafa",
+      "coef": -1.8918,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__tan",
+      "coef": -1.8893,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__desear",
+      "coef": -1.8879,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__engaño",
+      "coef": -1.8755,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__hoy",
+      "coef": -1.8717,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no puede",
+      "coef": -1.8583,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__sucias",
+      "coef": -1.8574,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pena",
+      "coef": -1.8535,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__demasiada",
+      "coef": -1.8495,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__promociones",
+      "coef": -1.8401,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__agua",
+      "coef": -1.8399,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__mascarilla",
+      "coef": -1.8382,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__asco",
+      "coef": -1.8206,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ausencia",
+      "coef": -1.8061,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__abrir",
+      "coef": -1.7959,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__estrella",
+      "coef": -1.7922,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__solo",
+      "coef": -1.7922,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__apertura",
+      "coef": -1.7917,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__deja",
+      "coef": -1.789,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__igual",
+      "coef": -1.7793,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__ubicación",
+      "coef": -1.7789,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__nada",
+      "coef": -1.7769,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__definitivamente",
+      "coef": -1.7605,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__domiciliación",
+      "coef": -1.7532,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__cliente",
+      "coef": -1.7406,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__baños",
+      "coef": -1.7402,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__era",
+      "coef": -1.737,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__pagamos",
+      "coef": -1.7341,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__poca",
+      "coef": -1.7323,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__estaba",
+      "coef": -1.7109,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__van",
+      "coef": -1.7108,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__contrato",
+      "coef": -1.7068,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__dijeron",
+      "coef": -1.698,
+      "ngram_len": 1
+    },
+    {
+      "term": "multigrams__no recomendable",
+      "coef": -1.6865,
+      "ngram_len": 2
+    },
+    {
+      "term": "unigrams__tardes",
+      "coef": -1.6727,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__rotas",
+      "coef": -1.6704,
+      "ngram_len": 1
+    },
+    {
+      "term": "unigrams__siguen",
+      "coef": -1.6661,
+      "ngram_len": 1
+    }
+  ],
+  "metadata": {
+    "n_features": 23252,
+    "top_k": 100
+  }
+}

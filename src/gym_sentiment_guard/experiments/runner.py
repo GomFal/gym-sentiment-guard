@@ -224,7 +224,7 @@ def run_single_experiment(
             'min_df': config.min_df,
             'max_df': config.max_df,
             'sublinear_tf': config.sublinear_tf,
-            'stop_words': 'curated_safe' if config.stop_words is None else 'custom',
+            'stop_words': config.stop_words,  # None (no stopwords) or 'curated_safe'
         },
         logreg_params={
             'penalty': config.penalty,

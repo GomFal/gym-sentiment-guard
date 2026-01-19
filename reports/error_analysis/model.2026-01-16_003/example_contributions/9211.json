@@ -1,0 +1,91 @@
+{
+  "id": 9211,
+  "text": "mediocre atención muy masificado lo único bueno el precio",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -0.104,
+  "raw_score": 1.6723,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.1867,
+      "coef": 4.5607,
+      "contrib": 0.8513
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.4543,
+      "coef": 1.4232,
+      "contrib": 0.6466
+    },
+    {
+      "term": "unigrams__atención",
+      "tfidf": 0.3102,
+      "coef": 1.9718,
+      "contrib": 0.6117
+    },
+    {
+      "term": "unigrams__único",
+      "tfidf": 0.5059,
+      "coef": 0.6996,
+      "contrib": 0.3539
+    },
+    {
+      "term": "multigrams__lo único",
+      "tfidf": 0.3088,
+      "coef": 0.5595,
+      "contrib": 0.1728
+    },
+    {
+      "term": "unigrams__precio",
+      "tfidf": 0.4047,
+      "coef": 0.2131,
+      "contrib": 0.0862
+    },
+    {
+      "term": "multigrams__el precio",
+      "tfidf": 0.296,
+      "coef": 0.0997,
+      "contrib": 0.0295
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__masificado",
+      "tfidf": 0.4928,
+      "coef": -3.9761,
+      "contrib": -1.9593
+    },
+    {
+      "term": "multigrams__muy masificado",
+      "tfidf": 0.3802,
+      "coef": -1.4882,
+      "contrib": -0.5657
+    },
+    {
+      "term": "multigrams__lo único bueno",
+      "tfidf": 0.444,
+      "coef": -0.2245,
+      "contrib": -0.0997
+    },
+    {
+      "term": "multigrams__único bueno",
+      "tfidf": 0.444,
+      "coef": -0.2245,
+      "contrib": -0.0997
+    },
+    {
+      "term": "multigrams__atención muy",
+      "tfidf": 0.3658,
+      "coef": -0.2594,
+      "contrib": -0.0949
+    },
+    {
+      "term": "multigrams__bueno el",
+      "tfidf": 0.3802,
+      "coef": -0.097,
+      "contrib": -0.0369
+    }
+  ]
+}

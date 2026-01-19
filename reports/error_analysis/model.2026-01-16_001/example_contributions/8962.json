@@ -1,0 +1,67 @@
+{
+  "id": 8962,
+  "text": "los quitaron la tarifa familiar si eres mayor de 21 o algo así… me han hecho editar la reseña es de hace un par de años",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -0.3659,
+  "raw_score": 1.6135,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__par",
+      "tfidf": 0.3391,
+      "coef": 0.6282,
+      "contrib": 0.213
+    },
+    {
+      "term": "unigrams__mayor",
+      "tfidf": 0.3468,
+      "coef": 0.5003,
+      "contrib": 0.1735
+    },
+    {
+      "term": "unigrams__familiar",
+      "tfidf": 0.3702,
+      "coef": 0.0005,
+      "contrib": 0.0002
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.3055,
+      "coef": -0.7184,
+      "contrib": -0.2195
+    },
+    {
+      "term": "unigrams__tarifa",
+      "tfidf": 0.3633,
+      "coef": -0.5567,
+      "contrib": -0.2023
+    },
+    {
+      "term": "unigrams__hecho",
+      "tfidf": 0.2794,
+      "coef": -0.6986,
+      "contrib": -0.1952
+    },
+    {
+      "term": "unigrams__algo",
+      "tfidf": 0.2489,
+      "coef": -0.3367,
+      "contrib": -0.0838
+    },
+    {
+      "term": "unigrams__eres",
+      "tfidf": 0.3684,
+      "coef": -0.1096,
+      "contrib": -0.0404
+    },
+    {
+      "term": "unigrams__21",
+      "tfidf": 0.3558,
+      "coef": -0.0323,
+      "contrib": -0.0115
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 7524,
+  "text": "el personal es muy simpático y atento y las instalaciones muy modernas y limpias no obstante es una pena lo mucho que llega a llenarse especialmente la zona de musculación hay poquísimas pesas y máquinas disponibles teniendo que esperar bastante para hacer uso de una determinada máquina muchas veces rompiendo tu rutina de ese día creo que debería controlarse el aforo de alguna forma…",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -0.649,
+  "raw_score": 1.0466,
+  "top_positive_contributors": [
+    {
+      "term": "muy",
+      "tfidf": 0.0952,
+      "coef": 4.0381,
+      "contrib": 0.3845
+    },
+    {
+      "term": "atento",
+      "tfidf": 0.1401,
+      "coef": 1.971,
+      "contrib": 0.2761
+    },
+    {
+      "term": "limpias",
+      "tfidf": 0.171,
+      "coef": 1.5411,
+      "contrib": 0.2636
+    },
+    {
+      "term": "simpático",
+      "tfidf": 0.1945,
+      "coef": 0.7355,
+      "contrib": 0.1431
+    },
+    {
+      "term": "modernas",
+      "tfidf": 0.1869,
+      "coef": 0.7525,
+      "contrib": 0.1407
+    },
+    {
+      "term": "instalaciones",
+      "tfidf": 0.0885,
+      "coef": 1.516,
+      "contrib": 0.1342
+    },
+    {
+      "term": "personal",
+      "tfidf": 0.0946,
+      "coef": 1.278,
+      "contrib": 0.1209
+    },
+    {
+      "term": "zona",
+      "tfidf": 0.1276,
+      "coef": 0.7018,
+      "contrib": 0.0896
+    },
+    {
+      "term": "forma",
+      "tfidf": 0.1512,
+      "coef": 0.589,
+      "contrib": 0.0891
+    },
+    {
+      "term": "disponibles",
+      "tfidf": 0.1945,
+      "coef": 0.3885,
+      "contrib": 0.0756
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0727,
+      "coef": -9.965,
+      "contrib": -0.7242
+    },
+    {
+      "term": "aforo",
+      "tfidf": 0.1443,
+      "coef": -3.084,
+      "contrib": -0.445
+    },
+    {
+      "term": "pena",
+      "tfidf": 0.1459,
+      "coef": -2.1519,
+      "contrib": -0.3139
+    },
+    {
+      "term": "teniendo",
+      "tfidf": 0.1869,
+      "coef": -1.1793,
+      "contrib": -0.2204
+    },
+    {
+      "term": "uso",
+      "tfidf": 0.1733,
+      "coef": -1.1866,
+      "contrib": -0.2056
+    },
+    {
+      "term": "ese",
+      "tfidf": 0.1629,
+      "coef": -1.224,
+      "contrib": -0.1994
+    },
+    {
+      "term": "pesas",
+      "tfidf": 0.1622,
+      "coef": -0.9633,
+      "contrib": -0.1563
+    },
+    {
+      "term": "llega",
+      "tfidf": 0.1973,
+      "coef": -0.6688,
+      "contrib": -0.132
+    },
+    {
+      "term": "hacer",
+      "tfidf": 0.12,
+      "coef": -0.7883,
+      "contrib": -0.0946
+    },
+    {
+      "term": "debería",
+      "tfidf": 0.1783,
+      "coef": -0.504,
+      "contrib": -0.0899
+    }
+  ]
+}

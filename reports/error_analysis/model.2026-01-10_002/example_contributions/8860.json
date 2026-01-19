@@ -1,0 +1,133 @@
+{
+  "id": 8860,
+  "text": "cada día está más lleno y cada día es más difícil entrar en una clase colectiva o hacer máquinas eso sí el gimnasio en sí esta muy bien máquinas bastante nuevas y bastantes clases colectivas pero repito muy lleno el parking a partir de la 19h imposible aparcar los coches mal aparcados por todos los lados",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -0.6978,
+  "raw_score": 0.9979,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.0894,
+      "coef": 4.9938,
+      "contrib": 0.4467
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0961,
+      "coef": 4.0381,
+      "contrib": 0.388
+    },
+    {
+      "term": "clases",
+      "tfidf": 0.0948,
+      "coef": 3.8945,
+      "contrib": 0.369
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.1121,
+      "coef": 2.9809,
+      "contrib": 0.3341
+    },
+    {
+      "term": "parking",
+      "tfidf": 0.1816,
+      "coef": 1.1503,
+      "contrib": 0.2089
+    },
+    {
+      "term": "bastantes",
+      "tfidf": 0.1957,
+      "coef": 0.9506,
+      "contrib": 0.186
+    },
+    {
+      "term": "gimnasio sí",
+      "tfidf": 0.2379,
+      "coef": 0.7074,
+      "contrib": 0.1683
+    },
+    {
+      "term": "nuevas",
+      "tfidf": 0.1554,
+      "coef": 0.9521,
+      "contrib": 0.1479
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0677,
+      "coef": 1.635,
+      "contrib": 0.1107
+    },
+    {
+      "term": "clases colectivas",
+      "tfidf": 0.1582,
+      "coef": 0.5348,
+      "contrib": 0.0846
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "lleno",
+      "tfidf": 0.2451,
+      "coef": -2.9327,
+      "contrib": -0.7187
+    },
+    {
+      "term": "mal",
+      "tfidf": 0.1373,
+      "coef": -4.9943,
+      "contrib": -0.6859
+    },
+    {
+      "term": "imposible",
+      "tfidf": 0.1429,
+      "coef": -4.6005,
+      "contrib": -0.6574
+    },
+    {
+      "term": "muy lleno",
+      "tfidf": 0.2057,
+      "coef": -1.2007,
+      "contrib": -0.247
+    },
+    {
+      "term": "aparcar",
+      "tfidf": 0.2117,
+      "coef": -0.9414,
+      "contrib": -0.1993
+    },
+    {
+      "term": "sí",
+      "tfidf": 0.2793,
+      "coef": -0.4361,
+      "contrib": -0.1218
+    },
+    {
+      "term": "entrar",
+      "tfidf": 0.1657,
+      "coef": -0.6574,
+      "contrib": -0.1089
+    },
+    {
+      "term": "hacer",
+      "tfidf": 0.1211,
+      "coef": -0.7883,
+      "contrib": -0.0955
+    },
+    {
+      "term": "está",
+      "tfidf": 0.0987,
+      "coef": -0.9143,
+      "contrib": -0.0902
+    },
+    {
+      "term": "más",
+      "tfidf": 0.1616,
+      "coef": -0.5182,
+      "contrib": -0.0838
+    }
+  ]
+}

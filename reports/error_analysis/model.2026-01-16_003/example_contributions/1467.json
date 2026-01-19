@@ -1,0 +1,109 @@
+{
+  "id": 1467,
+  "text": "decepcionante la atenciòn que recibi al preguntar por información la persona que me atendió fue desagradablel",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -0.7339,
+  "raw_score": 1.0424,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__atendió",
+      "tfidf": 0.3568,
+      "coef": 1.3881,
+      "contrib": 0.4953
+    },
+    {
+      "term": "multigrams__me atendió",
+      "tfidf": 0.1857,
+      "coef": 0.4484,
+      "contrib": 0.0833
+    },
+    {
+      "term": "multigrams__persona que me",
+      "tfidf": 0.2696,
+      "coef": 0.2191,
+      "contrib": 0.0591
+    },
+    {
+      "term": "unigrams__fue",
+      "tfidf": 0.3317,
+      "coef": 0.104,
+      "contrib": 0.0345
+    },
+    {
+      "term": "multigrams__preguntar por",
+      "tfidf": 0.2854,
+      "coef": 0.0784,
+      "contrib": 0.0224
+    },
+    {
+      "term": "multigrams__por información",
+      "tfidf": 0.3247,
+      "coef": 0.0186,
+      "contrib": 0.006
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__decepcionante",
+      "tfidf": 0.5321,
+      "coef": -0.8174,
+      "contrib": -0.4349
+    },
+    {
+      "term": "unigrams__información",
+      "tfidf": 0.4016,
+      "coef": -0.6264,
+      "contrib": -0.2515
+    },
+    {
+      "term": "unigrams__persona",
+      "tfidf": 0.3388,
+      "coef": -0.608,
+      "contrib": -0.206
+    },
+    {
+      "term": "multigrams__decepcionante la",
+      "tfidf": 0.3064,
+      "coef": -0.2561,
+      "contrib": -0.0785
+    },
+    {
+      "term": "multigrams__me atendió fue",
+      "tfidf": 0.3144,
+      "coef": -0.2477,
+      "contrib": -0.0779
+    },
+    {
+      "term": "multigrams__atendió fue",
+      "tfidf": 0.2999,
+      "coef": -0.227,
+      "contrib": -0.0681
+    },
+    {
+      "term": "multigrams__persona que",
+      "tfidf": 0.2164,
+      "coef": -0.3136,
+      "contrib": -0.0679
+    },
+    {
+      "term": "multigrams__información la",
+      "tfidf": 0.2999,
+      "coef": -0.2,
+      "contrib": -0.06
+    },
+    {
+      "term": "unigrams__preguntar",
+      "tfidf": 0.4511,
+      "coef": -0.1281,
+      "contrib": -0.0578
+    },
+    {
+      "term": "multigrams__que me atendió",
+      "tfidf": 0.2423,
+      "coef": -0.2161,
+      "contrib": -0.0524
+    }
+  ]
+}

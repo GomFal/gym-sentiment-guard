@@ -1,0 +1,133 @@
+{
+  "id": 10634,
+  "text": "la piscina está increible el personal en general muy bien pero hay alguna recepcionista que dan ganas de cambiar de gimnasio por lo borde que es no se puede tratar con desprecio a los clientes",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.102,
+  "raw_score": -0.3257,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1491,
+      "coef": 4.533,
+      "contrib": 0.6759
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.0946,
+      "coef": 4.5607,
+      "contrib": 0.4315
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.1592,
+      "coef": 1.0841,
+      "contrib": 0.1726
+    },
+    {
+      "term": "multigrams__muy bien",
+      "tfidf": 0.0796,
+      "coef": 1.9103,
+      "contrib": 0.1521
+    },
+    {
+      "term": "unigrams__general",
+      "tfidf": 0.2581,
+      "coef": 0.5029,
+      "contrib": 0.1298
+    },
+    {
+      "term": "unigrams__increible",
+      "tfidf": 0.3631,
+      "coef": 0.2384,
+      "contrib": 0.0866
+    },
+    {
+      "term": "unigrams__ganas",
+      "tfidf": 0.2814,
+      "coef": 0.2991,
+      "contrib": 0.0842
+    },
+    {
+      "term": "multigrams__bien pero hay",
+      "tfidf": 0.1778,
+      "coef": 0.3074,
+      "contrib": 0.0547
+    },
+    {
+      "term": "multigrams__pero hay",
+      "tfidf": 0.1503,
+      "coef": 0.3509,
+      "contrib": 0.0527
+    },
+    {
+      "term": "multigrams__personal en",
+      "tfidf": 0.1481,
+      "coef": 0.3173,
+      "contrib": 0.047
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1223,
+      "coef": -8.7464,
+      "contrib": -1.0695
+    },
+    {
+      "term": "unigrams__cambiar",
+      "tfidf": 0.3172,
+      "coef": -1.9342,
+      "contrib": -0.6135
+    },
+    {
+      "term": "unigrams__dan",
+      "tfidf": 0.2618,
+      "coef": -2.0706,
+      "contrib": -0.542
+    },
+    {
+      "term": "unigrams__borde",
+      "tfidf": 0.3429,
+      "coef": -1.4816,
+      "contrib": -0.508
+    },
+    {
+      "term": "multigrams__no se",
+      "tfidf": 0.0917,
+      "coef": -2.0415,
+      "contrib": -0.1871
+    },
+    {
+      "term": "multigrams__los clientes",
+      "tfidf": 0.1161,
+      "coef": -1.4891,
+      "contrib": -0.1729
+    },
+    {
+      "term": "multigrams__bien pero",
+      "tfidf": 0.1242,
+      "coef": -1.1874,
+      "contrib": -0.1475
+    },
+    {
+      "term": "multigrams__no se puede",
+      "tfidf": 0.1168,
+      "coef": -1.105,
+      "contrib": -0.129
+    },
+    {
+      "term": "unigrams__tratar",
+      "tfidf": 0.3548,
+      "coef": -0.3633,
+      "contrib": -0.1289
+    },
+    {
+      "term": "unigrams__está",
+      "tfidf": 0.1645,
+      "coef": -0.491,
+      "contrib": -0.0808
+    }
+  ]
+}

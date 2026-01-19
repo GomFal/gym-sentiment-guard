@@ -89,3 +89,40 @@ STOPWORDS_SAFE: list[str] = _load_stopwords('stopwords_spanish_safe.txt')
 # Tokens that must NOT be removed (§6.3 - diagnostic guardrail)
 # These directly affect polarity or polarity modulation.
 STOPWORDS_NEVER_REMOVE: list[str] = _load_stopwords('stopwords_never_remove_spanish.txt')
+
+# =============================================================================
+# Stopword Preset Registry (extensible)
+# =============================================================================
+
+STOPWORD_PRESETS: dict[str | None, list[str] | str | None] = {
+    'curated_safe': STOPWORDS_SAFE,
+    'english': 'english',  # sklearn built-in
+    None: None,  # Disabled (legacy behavior)
+}
+
+
+def resolve_stop_words(config_value: str | list | None) -> list[str] | str | None:
+    """
+    Resolve stop_words config value to TfidfVectorizer-compatible format.
+
+    Args:
+        config_value: Value from config file. Can be:
+            - 'curated_safe': Uses STOPWORDS_SAFE list
+            - 'english': Uses sklearn's built-in English stopwords
+            - None/missing: No stopwords (legacy behavior)
+            - list: Custom stopwords list
+
+    Returns:
+        Value suitable for TfidfVectorizer(stop_words=...)
+
+    Raises:
+        ValueError: If config_value is not a valid preset or list
+    """
+    if config_value in STOPWORD_PRESETS:
+        return STOPWORD_PRESETS[config_value]
+    if isinstance(config_value, list):
+        return config_value
+    raise ValueError(
+        f'Unknown stop_words preset: {config_value!r}. '
+        f'Valid presets: {list(STOPWORD_PRESETS.keys())} or custom list.'
+    )

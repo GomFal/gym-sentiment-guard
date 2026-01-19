@@ -1,0 +1,133 @@
+{
+  "id": 12961,
+  "text": "yo no entreno en sala así que no sufro lo que veo en muchas de las reseñas sobre la masificación a la hora de usar las máquinas y otro tipo de material se ve a mucha gente sí no apetece sin embargo atiendo a las clases dirigidas y por norma general estoy bastante contenta con ellas ciclo y body pump son mis preferidas y nunca me quedo sin plaza de hecho en los 8 años que llevo en el gimnasio solo una vez no había ninguna bici libre y yo soy de las que llega a menos 2 hay monitores que me gustan ",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.8063,
+  "raw_score": -1.0299,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__contenta",
+      "tfidf": 0.1076,
+      "coef": 2.4418,
+      "contrib": 0.2627
+    },
+    {
+      "term": "unigrams__estrellas",
+      "tfidf": 0.1134,
+      "coef": 1.7513,
+      "contrib": 0.1987
+    },
+    {
+      "term": "unigrams__ciclo",
+      "tfidf": 0.275,
+      "coef": 0.5327,
+      "contrib": 0.1465
+    },
+    {
+      "term": "unigrams__dependiendo",
+      "tfidf": 0.1601,
+      "coef": 0.7718,
+      "contrib": 0.1236
+    },
+    {
+      "term": "unigrams__entreno",
+      "tfidf": 0.1269,
+      "coef": 0.8337,
+      "contrib": 0.1058
+    },
+    {
+      "term": "unigrams__jose",
+      "tfidf": 0.1478,
+      "coef": 0.7146,
+      "contrib": 0.1056
+    },
+    {
+      "term": "unigrams__dirigidas",
+      "tfidf": 0.1175,
+      "coef": 0.8635,
+      "contrib": 0.1015
+    },
+    {
+      "term": "unigrams__entrenamiento",
+      "tfidf": 0.1003,
+      "coef": 0.8823,
+      "contrib": 0.0885
+    },
+    {
+      "term": "multigrams__las clases",
+      "tfidf": 0.0463,
+      "coef": 1.5775,
+      "contrib": 0.073
+    },
+    {
+      "term": "unigrams__iván",
+      "tfidf": 0.1515,
+      "coef": 0.4687,
+      "contrib": 0.071
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1315,
+      "coef": -8.7464,
+      "contrib": -1.1498
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1201,
+      "coef": -2.7638,
+      "contrib": -0.3318
+    },
+    {
+      "term": "unigrams__pocas",
+      "tfidf": 0.1231,
+      "coef": -2.4426,
+      "contrib": -0.3007
+    },
+    {
+      "term": "unigrams__masificación",
+      "tfidf": 0.1327,
+      "coef": -1.8199,
+      "contrib": -0.2414
+    },
+    {
+      "term": "unigrams__otro",
+      "tfidf": 0.0944,
+      "coef": -2.0921,
+      "contrib": -0.1975
+    },
+    {
+      "term": "unigrams__nunca",
+      "tfidf": 0.0985,
+      "coef": -1.6545,
+      "contrib": -0.1629
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.0853,
+      "coef": -1.7059,
+      "contrib": -0.1454
+    },
+    {
+      "term": "multigrams__mucha gente",
+      "tfidf": 0.0643,
+      "coef": -2.0905,
+      "contrib": -0.1345
+    },
+    {
+      "term": "multigrams__en los",
+      "tfidf": 0.0613,
+      "coef": -2.0071,
+      "contrib": -0.1231
+    },
+    {
+      "term": "unigrams__yo",
+      "tfidf": 0.1982,
+      "coef": -0.5992,
+      "contrib": -0.1188
+    }
+  ]
+}

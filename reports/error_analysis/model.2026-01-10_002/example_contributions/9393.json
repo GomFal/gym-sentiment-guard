@@ -1,0 +1,115 @@
+{
+  "id": 9393,
+  "text": "voy a modificar mi reseña en el que le puse 5 estrellas a este gym porque era genial pero actualmente llevan ya mas de 3 semanas sin las televisiones de 4 solo tienen 1 y no se si es porque están en reparación lo vendieron o que hicieron",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -3.0747,
+  "raw_score": -1.379,
+  "top_positive_contributors": [
+    {
+      "term": "genial",
+      "tfidf": 0.1642,
+      "coef": 4.4628,
+      "contrib": 0.7327
+    },
+    {
+      "term": "estrellas",
+      "tfidf": 0.2132,
+      "coef": 1.9765,
+      "contrib": 0.4214
+    },
+    {
+      "term": "voy",
+      "tfidf": 0.1885,
+      "coef": 1.4437,
+      "contrib": 0.2721
+    },
+    {
+      "term": "gym",
+      "tfidf": 0.1265,
+      "coef": 1.6562,
+      "contrib": 0.2096
+    },
+    {
+      "term": "actualmente",
+      "tfidf": 0.2909,
+      "coef": 0.7114,
+      "contrib": 0.2069
+    },
+    {
+      "term": "puse",
+      "tfidf": 0.2909,
+      "coef": 0.5332,
+      "contrib": 0.1551
+    },
+    {
+      "term": "pero",
+      "tfidf": 0.1195,
+      "coef": 0.0204,
+      "contrib": 0.0024
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0947,
+      "coef": -9.965,
+      "contrib": -0.9434
+    },
+    {
+      "term": "hicieron",
+      "tfidf": 0.2692,
+      "coef": -2.2209,
+      "contrib": -0.5978
+    },
+    {
+      "term": "porque",
+      "tfidf": 0.2549,
+      "coef": -2.0254,
+      "contrib": -0.5163
+    },
+    {
+      "term": "era",
+      "tfidf": 0.2057,
+      "coef": -1.8977,
+      "contrib": -0.3903
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.1333,
+      "coef": -2.8987,
+      "contrib": -0.3863
+    },
+    {
+      "term": "ya",
+      "tfidf": 0.1434,
+      "coef": -2.3411,
+      "contrib": -0.3358
+    },
+    {
+      "term": "solo",
+      "tfidf": 0.1602,
+      "coef": -1.8496,
+      "contrib": -0.2963
+    },
+    {
+      "term": "están",
+      "tfidf": 0.1479,
+      "coef": -1.9054,
+      "contrib": -0.2818
+    },
+    {
+      "term": "semanas",
+      "tfidf": 0.2205,
+      "coef": -1.2602,
+      "contrib": -0.2778
+    },
+    {
+      "term": "si",
+      "tfidf": 0.1305,
+      "coef": -2.0586,
+      "contrib": -0.2687
+    }
+  ]
+}
