@@ -1,0 +1,67 @@
+{
+  "id": 8977,
+  "text": "deberían controlar el aparcamiento en las plazas destinadas a los cargadores y recordar a los usuarios que son plazas de recarga y no de aparcamiento para vehículos eléctricos y menos para los no eléctricos",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -2.638,
+  "raw_score": -0.6494,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__plazas",
+      "tfidf": 0.6061,
+      "coef": 0.2475,
+      "contrib": 0.15
+    },
+    {
+      "term": "multigrams__menos no",
+      "tfidf": 0.7169,
+      "coef": 0.0004,
+      "contrib": 0.0003
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1925,
+      "coef": -9.0662,
+      "contrib": -1.745
+    },
+    {
+      "term": "unigrams__menos",
+      "tfidf": 0.2175,
+      "coef": -1.3305,
+      "contrib": -0.2894
+    },
+    {
+      "term": "unigrams__deberían",
+      "tfidf": 0.2652,
+      "coef": -0.9643,
+      "contrib": -0.2557
+    },
+    {
+      "term": "unigrams__usuarios",
+      "tfidf": 0.2448,
+      "coef": -0.6814,
+      "contrib": -0.1668
+    },
+    {
+      "term": "unigrams__controlar",
+      "tfidf": 0.3355,
+      "coef": -0.4321,
+      "contrib": -0.145
+    },
+    {
+      "term": "multigrams__deberían controlar",
+      "tfidf": 0.6972,
+      "coef": -0.1728,
+      "contrib": -0.1205
+    },
+    {
+      "term": "unigrams__aparcamiento",
+      "tfidf": 0.5526,
+      "coef": -0.1194,
+      "contrib": -0.066
+    }
+  ]
+}

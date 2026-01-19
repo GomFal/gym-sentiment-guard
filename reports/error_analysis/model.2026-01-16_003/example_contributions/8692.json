@@ -1,0 +1,133 @@
+{
+  "id": 8692,
+  "text": "es uno de los gimnasios más grandes y mejor equipados de madrid pero constantemente hay algo roto si no es la puerta es la zona de aguas sino las escaleras sino el baño etc el personal por lo general es genial aunque hay un par que dejan un poco que desear llevo 5 años viniendo y no termina de asentarse la instalación siempre algo en obras hay horas en las que hay tantísimo aforo que no se puede ni estar",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.148,
+  "raw_score": -0.3716,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__genial",
+      "tfidf": 0.1405,
+      "coef": 4.1454,
+      "contrib": 0.5824
+    },
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.1151,
+      "coef": 4.5562,
+      "contrib": 0.5246
+    },
+    {
+      "term": "unigrams__grandes",
+      "tfidf": 0.1791,
+      "coef": 1.6751,
+      "contrib": 0.2999
+    },
+    {
+      "term": "multigrams__un poco",
+      "tfidf": 0.0831,
+      "coef": 1.8294,
+      "contrib": 0.1521
+    },
+    {
+      "term": "unigrams__par",
+      "tfidf": 0.212,
+      "coef": 0.6069,
+      "contrib": 0.1287
+    },
+    {
+      "term": "unigrams__aunque",
+      "tfidf": 0.1579,
+      "coef": 0.7541,
+      "contrib": 0.1191
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.1055,
+      "coef": 1.0841,
+      "contrib": 0.1144
+    },
+    {
+      "term": "unigrams__zona",
+      "tfidf": 0.1423,
+      "coef": 0.7017,
+      "contrib": 0.0998
+    },
+    {
+      "term": "unigrams__uno",
+      "tfidf": 0.1637,
+      "coef": 0.5845,
+      "contrib": 0.0957
+    },
+    {
+      "term": "unigrams__sino",
+      "tfidf": 0.3211,
+      "coef": 0.2731,
+      "contrib": 0.0877
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.17,
+      "coef": -8.7464,
+      "contrib": -1.4868
+    },
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.1377,
+      "coef": -5.2374,
+      "contrib": -0.721
+    },
+    {
+      "term": "unigrams__desear",
+      "tfidf": 0.2015,
+      "coef": -2.0527,
+      "contrib": -0.4137
+    },
+    {
+      "term": "unigrams__dejan",
+      "tfidf": 0.1913,
+      "coef": -2.0424,
+      "contrib": -0.3908
+    },
+    {
+      "term": "unigrams__roto",
+      "tfidf": 0.235,
+      "coef": -1.4459,
+      "contrib": -0.3398
+    },
+    {
+      "term": "unigrams__constantemente",
+      "tfidf": 0.2243,
+      "coef": -1.4411,
+      "contrib": -0.3232
+    },
+    {
+      "term": "unigrams__poco",
+      "tfidf": 0.1424,
+      "coef": -1.0228,
+      "contrib": -0.1456
+    },
+    {
+      "term": "multigrams__no se",
+      "tfidf": 0.071,
+      "coef": -2.0415,
+      "contrib": -0.1449
+    },
+    {
+      "term": "unigrams__puerta",
+      "tfidf": 0.212,
+      "coef": -0.5154,
+      "contrib": -0.1093
+    },
+    {
+      "term": "multigrams__no se puede",
+      "tfidf": 0.0904,
+      "coef": -1.105,
+      "contrib": -0.0999
+    }
+  ]
+}

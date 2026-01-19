@@ -1,0 +1,36 @@
+{
+  "id": 11695,
+  "text": "muy bien me gusta",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": 7.3571,
+  "raw_score": 9.0527,
+  "top_positive_contributors": [
+    {
+      "term": "gusta",
+      "tfidf": 0.6905,
+      "coef": 3.7948,
+      "contrib": 2.6204
+    },
+    {
+      "term": "bien",
+      "tfidf": 0.4195,
+      "coef": 4.9938,
+      "contrib": 2.0948
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.5257,
+      "coef": 2.9809,
+      "contrib": 1.5671
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.2662,
+      "coef": 4.0381,
+      "contrib": 1.0748
+    }
+  ],
+  "top_negative_contributors": []
+}

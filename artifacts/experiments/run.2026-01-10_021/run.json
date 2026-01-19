@@ -1,0 +1,105 @@
+{
+  "run_id": "run.2026-01-10_021",
+  "timestamp": "2026-01-10T19:48:35.457939+00:00",
+  "git": {
+    "commit": "f54dcd7cfabe497f670cc4b19e856933629bc69b",
+    "branch": "main",
+    "dirty": true
+  },
+  "environment": {
+    "python_version": "3.12.4",
+    "sklearn_version": "1.7.2"
+  },
+  "data": {
+    "train_path": "data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv",
+    "val_path": "data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv",
+    "test_path": "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv"
+  },
+  "tfidf_params": {
+    "ngram_range": [
+      1,
+      1
+    ],
+    "min_df": 2,
+    "max_df": 1.0,
+    "sublinear_tf": true,
+    "stop_words": "curated_safe"
+  },
+  "logreg_params": {
+    "penalty": "l2",
+    "C": 0.3,
+    "class_weight": null,
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "random_state": 42
+  },
+  "calibration_config": {
+    "method": "isotonic",
+    "cv": 5,
+    "random_state": 42
+  },
+  "validity": {
+    "status": "valid",
+    "reason": null
+  },
+  "diagnostics": {
+    "training_time_seconds": 7.659649799999897,
+    "n_features": 8331,
+    "coefficient_sparsity": 1.205137438482775
+  },
+  "val_metrics": {
+    "f1_neg": 0.866,
+    "recall_neg": 0.9039665970772442,
+    "precision_neg": 0.8310940499040307,
+    "macro_f1": 0.911676002546149,
+    "pr_auc_neg": 0.9199339931366707,
+    "threshold": 0.40290052053209957,
+    "constraint_status": "met",
+    "brier_score": 0.049469985873573596,
+    "ece": 0.014806911407867114,
+    "skill_score": 0.7217575381065322,
+    "confusion_matrix": [
+      [
+        433,
+        46
+      ],
+      [
+        88,
+        1504
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.8310940499040307,
+        "recall": 0.9039665970772442,
+        "f1-score": 0.866,
+        "support": 479.0
+      },
+      "1": {
+        "precision": 0.9703225806451613,
+        "recall": 0.9447236180904522,
+        "f1-score": 0.9573520050922979,
+        "support": 1592.0
+      },
+      "accuracy": 0.9352969579913085,
+      "macro avg": {
+        "precision": 0.900708315274596,
+        "recall": 0.9243451075838482,
+        "f1-score": 0.911676002546149,
+        "support": 2071.0
+      },
+      "weighted avg": {
+        "precision": 0.9381205206620606,
+        "recall": 0.9352969579913085,
+        "f1-score": 0.9362232699695502,
+        "support": 2071.0
+      }
+    },
+    "support_neg": 479,
+    "support_pos": 1592
+  },
+  "threshold_selection": {
+    "selected_threshold": 0.40290052053209957,
+    "constraint_status": "met"
+  }
+}

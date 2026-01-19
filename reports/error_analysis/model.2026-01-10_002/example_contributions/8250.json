@@ -1,0 +1,133 @@
+{
+  "id": 8250,
+  "text": "gimnasio decente no estaba demasiado lleno para la hora a la que fui media tarde no tuve que esperar mucho buena zona de vestuarios y en general un gimnasio de tamaño decente quizás algunas máquinas estén un poco juntas pero bueno no es caro ¿qué me puedo esperar? la recepcionista fue excelente fui sobre las 15 00 del 16 de julio pero no pude entrar soy nuevo y pensé que había comprado la suscripción para usar cualquier vivagym pero no fue así así que la recepcionista me ayudó a mejorar mi suscr",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -3.494,
+  "raw_score": -1.7984,
+  "top_positive_contributors": [
+    {
+      "term": "excelente",
+      "tfidf": 0.0497,
+      "coef": 6.9748,
+      "contrib": 0.3469
+    },
+    {
+      "term": "algunas",
+      "tfidf": 0.0781,
+      "coef": 2.8608,
+      "contrib": 0.2233
+    },
+    {
+      "term": "gusto",
+      "tfidf": 0.0691,
+      "coef": 3.0015,
+      "contrib": 0.2074
+    },
+    {
+      "term": "agradable",
+      "tfidf": 0.0621,
+      "coef": 2.3589,
+      "contrib": 0.1465
+    },
+    {
+      "term": "ayudó",
+      "tfidf": 0.0838,
+      "coef": 1.6267,
+      "contrib": 0.1363
+    },
+    {
+      "term": "buena",
+      "tfidf": 0.0496,
+      "coef": 2.3126,
+      "contrib": 0.1148
+    },
+    {
+      "term": "nuevo",
+      "tfidf": 0.1227,
+      "coef": 0.9058,
+      "contrib": 0.1111
+    },
+    {
+      "term": "tamaño",
+      "tfidf": 0.1013,
+      "coef": 1.0879,
+      "contrib": 0.1102
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0653,
+      "coef": 1.635,
+      "contrib": 0.1067
+    },
+    {
+      "term": "también",
+      "tfidf": 0.0622,
+      "coef": 1.6249,
+      "contrib": 0.1011
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0993,
+      "coef": -9.965,
+      "contrib": -0.989
+    },
+    {
+      "term": "lleno",
+      "tfidf": 0.1126,
+      "coef": -2.9327,
+      "contrib": -0.3301
+    },
+    {
+      "term": "estaba",
+      "tfidf": 0.1532,
+      "coef": -1.7971,
+      "contrib": -0.2754
+    },
+    {
+      "term": "fui",
+      "tfidf": 0.1515,
+      "coef": -1.7732,
+      "contrib": -0.2687
+    },
+    {
+      "term": "minutos",
+      "tfidf": 0.1394,
+      "coef": -1.6211,
+      "contrib": -0.226
+    },
+    {
+      "term": "ya",
+      "tfidf": 0.0864,
+      "coef": -2.3411,
+      "contrib": -0.2023
+    },
+    {
+      "term": "recepcionista",
+      "tfidf": 0.1699,
+      "coef": -1.1572,
+      "contrib": -0.1966
+    },
+    {
+      "term": "demasiado",
+      "tfidf": 0.0774,
+      "coef": -2.3726,
+      "contrib": -0.1837
+    },
+    {
+      "term": "esto",
+      "tfidf": 0.0658,
+      "coef": -2.4722,
+      "contrib": -0.1627
+    },
+    {
+      "term": "caro",
+      "tfidf": 0.0827,
+      "coef": -1.9302,
+      "contrib": -0.1596
+    }
+  ]
+}

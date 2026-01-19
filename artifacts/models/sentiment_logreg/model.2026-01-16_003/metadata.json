@@ -1,0 +1,17 @@
+{
+  "model_name": "sentiment_logreg",
+  "version": "2026-01-16_003",
+  "config_path": "D:\\Javier 2.0\\Machine Learning\\Gym Sentiment Guard\\gym-sentiment-guard\\configs\\logreg_v4.yaml",
+  "python_version": "3.12.4",
+  "threshold": 0.377,
+  "threshold_target_class": "negative",
+  "label_mapping": {
+    "negative": 0,
+    "positive": 1
+  },
+  "artifacts": {
+    "format": "joblib",
+    "path": "artifacts\\models\\sentiment_logreg\\model.2026-01-16_003\\logreg.joblib",
+    "run_id": "model.2026-01-16_003"
+  }
+}

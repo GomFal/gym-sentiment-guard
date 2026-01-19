@@ -1,0 +1,55 @@
+{
+  "id": 4504,
+  "text": "las máquinas están muy cerca una de otras el aforo es muy alto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -0.6482,
+  "raw_score": 1.3311,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__cerca",
+      "tfidf": 0.508,
+      "coef": 1.3135,
+      "contrib": 0.6672
+    },
+    {
+      "term": "multigrams__están cerca",
+      "tfidf": 0.8322,
+      "coef": 0.1064,
+      "contrib": 0.0885
+    },
+    {
+      "term": "unigrams__máquinas",
+      "tfidf": 0.2606,
+      "coef": 0.1439,
+      "contrib": 0.0375
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__alto",
+      "tfidf": 0.582,
+      "coef": -0.9864,
+      "contrib": -0.5741
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.3182,
+      "coef": -1.5168,
+      "contrib": -0.4826
+    },
+    {
+      "term": "unigrams__otras",
+      "tfidf": 0.4839,
+      "coef": -0.7522,
+      "contrib": -0.364
+    },
+    {
+      "term": "multigrams__máquinas están",
+      "tfidf": 0.5545,
+      "coef": -0.0376,
+      "contrib": -0.0208
+    }
+  ]
+}

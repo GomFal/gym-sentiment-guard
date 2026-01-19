@@ -1,0 +1,133 @@
+{
+  "id": 11826,
+  "text": "es buen gimnasio pero no me parce correcto que cuando una profesora monitora funciona y llena clases que le quiten clases belén es buena en su clase de zumba y a los llenos de sus clases me remito porque se le quitan clases??? es una de las mejores en zumba esperemos que le den más horas por el bien de todos nosotros que nos gustan sus clases de zumba gracias",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": 1.5161,
+  "raw_score": 3.2118,
+  "top_positive_contributors": [
+    {
+      "term": "clases",
+      "tfidf": 0.23,
+      "coef": 3.8945,
+      "contrib": 0.8957
+    },
+    {
+      "term": "gracias",
+      "tfidf": 0.113,
+      "coef": 5.0488,
+      "contrib": 0.5704
+    },
+    {
+      "term": "buen",
+      "tfidf": 0.0872,
+      "coef": 6.2938,
+      "contrib": 0.5488
+    },
+    {
+      "term": "bien",
+      "tfidf": 0.0832,
+      "coef": 4.9938,
+      "contrib": 0.4155
+    },
+    {
+      "term": "mejores",
+      "tfidf": 0.1339,
+      "coef": 2.5116,
+      "contrib": 0.3364
+    },
+    {
+      "term": "buena",
+      "tfidf": 0.1005,
+      "coef": 2.3126,
+      "contrib": 0.2324
+    },
+    {
+      "term": "llena",
+      "tfidf": 0.176,
+      "coef": 1.274,
+      "contrib": 0.2242
+    },
+    {
+      "term": "buen gimnasio",
+      "tfidf": 0.1232,
+      "coef": 1.525,
+      "contrib": 0.1879
+    },
+    {
+      "term": "zumba",
+      "tfidf": 0.3346,
+      "coef": 0.4938,
+      "contrib": 0.1652
+    },
+    {
+      "term": "gimnasio pero",
+      "tfidf": 0.1802,
+      "coef": 0.8934,
+      "contrib": 0.161
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0682,
+      "coef": -9.965,
+      "contrib": -0.6799
+    },
+    {
+      "term": "quitan",
+      "tfidf": 0.2052,
+      "coef": -1.3587,
+      "contrib": -0.2788
+    },
+    {
+      "term": "monitora",
+      "tfidf": 0.1702,
+      "coef": -1.5941,
+      "contrib": -0.2712
+    },
+    {
+      "term": "porque",
+      "tfidf": 0.1085,
+      "coef": -2.0254,
+      "contrib": -0.2198
+    },
+    {
+      "term": "profesora",
+      "tfidf": 0.2066,
+      "coef": -0.9608,
+      "contrib": -0.1985
+    },
+    {
+      "term": "sus",
+      "tfidf": 0.2091,
+      "coef": -0.7307,
+      "contrib": -0.1528
+    },
+    {
+      "term": "den",
+      "tfidf": 0.2052,
+      "coef": -0.6637,
+      "contrib": -0.1362
+    },
+    {
+      "term": "correcto",
+      "tfidf": 0.194,
+      "coef": -0.6274,
+      "contrib": -0.1217
+    },
+    {
+      "term": "quiten",
+      "tfidf": 0.2238,
+      "coef": -0.528,
+      "contrib": -0.1182
+    },
+    {
+      "term": "nosotros",
+      "tfidf": 0.1839,
+      "coef": -0.6342,
+      "contrib": -0.1166
+    }
+  ]
+}

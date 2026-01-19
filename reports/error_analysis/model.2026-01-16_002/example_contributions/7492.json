@@ -1,0 +1,79 @@
+{
+  "id": 7492,
+  "text": "no todos usan toallas el aire acondicionado funciona a medias como las duchas o están calientes o realmente no funcionan",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -4.52,
+  "raw_score": -2.5314,
+  "top_positive_contributors": [
+    {
+      "term": "multigrams__no usan",
+      "tfidf": 0.5199,
+      "coef": 0.0638,
+      "contrib": 0.0331
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2361,
+      "coef": -9.0662,
+      "contrib": -2.1409
+    },
+    {
+      "term": "unigrams__acondicionado",
+      "tfidf": 0.315,
+      "coef": -2.897,
+      "contrib": -0.9126
+    },
+    {
+      "term": "multigrams__duchas están",
+      "tfidf": 0.5021,
+      "coef": -0.6922,
+      "contrib": -0.3476
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.2178,
+      "coef": -1.5357,
+      "contrib": -0.3346
+    },
+    {
+      "term": "unigrams__toallas",
+      "tfidf": 0.3846,
+      "coef": -0.4723,
+      "contrib": -0.1816
+    },
+    {
+      "term": "multigrams__realmente no",
+      "tfidf": 0.5199,
+      "coef": -0.2987,
+      "contrib": -0.1553
+    },
+    {
+      "term": "unigrams__duchas",
+      "tfidf": 0.3079,
+      "coef": -0.4766,
+      "contrib": -0.1467
+    },
+    {
+      "term": "unigrams__usan",
+      "tfidf": 0.4141,
+      "coef": -0.3428,
+      "contrib": -0.1419
+    },
+    {
+      "term": "unigrams__funciona",
+      "tfidf": 0.3438,
+      "coef": -0.2153,
+      "contrib": -0.074
+    },
+    {
+      "term": "unigrams__realmente",
+      "tfidf": 0.3408,
+      "coef": -0.1955,
+      "contrib": -0.0666
+    }
+  ]
+}

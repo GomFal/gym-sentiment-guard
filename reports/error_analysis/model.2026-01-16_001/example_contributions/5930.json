@@ -1,0 +1,79 @@
+{
+  "id": 5930,
+  "text": "alguien sabe cuando es la apertura ¿? vale edito la reseña para informar que el dia 1 de abril es la apertura un saludo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.3069,
+  "raw_score": -0.3275,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__edito",
+      "tfidf": 0.3317,
+      "coef": 0.1035,
+      "contrib": 0.0343
+    },
+    {
+      "term": "unigrams__sabe",
+      "tfidf": 0.2848,
+      "coef": 0.0684,
+      "contrib": 0.0195
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__apertura",
+      "tfidf": 0.4677,
+      "coef": -1.7299,
+      "contrib": -0.8091
+    },
+    {
+      "term": "unigrams__alguien",
+      "tfidf": 0.2503,
+      "coef": -1.3764,
+      "contrib": -0.3445
+    },
+    {
+      "term": "unigrams__abril",
+      "tfidf": 0.3291,
+      "coef": -0.8933,
+      "contrib": -0.294
+    },
+    {
+      "term": "unigrams__dia",
+      "tfidf": 0.2697,
+      "coef": -0.997,
+      "contrib": -0.2689
+    },
+    {
+      "term": "multigrams__edito reseña",
+      "tfidf": 1.0,
+      "coef": -0.1863,
+      "contrib": -0.1863
+    },
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.2526,
+      "coef": -0.7184,
+      "contrib": -0.1814
+    },
+    {
+      "term": "unigrams__informar",
+      "tfidf": 0.3513,
+      "coef": -0.3659,
+      "contrib": -0.1286
+    },
+    {
+      "term": "unigrams__vale",
+      "tfidf": 0.2795,
+      "coef": -0.2989,
+      "contrib": -0.0835
+    },
+    {
+      "term": "unigrams__saludo",
+      "tfidf": 0.2848,
+      "coef": -0.2256,
+      "contrib": -0.0642
+    }
+  ]
+}

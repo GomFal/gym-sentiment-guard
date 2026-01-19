@@ -1,0 +1,97 @@
+{
+  "id": 13332,
+  "text": "amplias instalaciones pero demasiada gente quizás debería abrir a las 6 en vez de a las 7",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.4984,
+  "raw_score": -0.7221,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__amplias",
+      "tfidf": 0.4195,
+      "coef": 0.9794,
+      "contrib": 0.4109
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1993,
+      "coef": 1.6612,
+      "contrib": 0.331
+    },
+    {
+      "term": "unigrams__quizás",
+      "tfidf": 0.4746,
+      "coef": 0.4599,
+      "contrib": 0.2183
+    },
+    {
+      "term": "multigrams__amplias instalaciones",
+      "tfidf": 0.4153,
+      "coef": 0.2066,
+      "contrib": 0.0858
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__abrir",
+      "tfidf": 0.4364,
+      "coef": -1.8086,
+      "contrib": -0.7892
+    },
+    {
+      "term": "unigrams__demasiada",
+      "tfidf": 0.406,
+      "coef": -1.7798,
+      "contrib": -0.7226
+    },
+    {
+      "term": "multigrams__instalaciones pero",
+      "tfidf": 0.3788,
+      "coef": -1.0207,
+      "contrib": -0.3866
+    },
+    {
+      "term": "multigrams__en vez",
+      "tfidf": 0.3372,
+      "coef": -0.7852,
+      "contrib": -0.2648
+    },
+    {
+      "term": "multigrams__de las",
+      "tfidf": 0.2127,
+      "coef": -1.2379,
+      "contrib": -0.2633
+    },
+    {
+      "term": "unigrams__debería",
+      "tfidf": 0.4014,
+      "coef": -0.6237,
+      "contrib": -0.2504
+    },
+    {
+      "term": "multigrams__demasiada gente",
+      "tfidf": 0.3182,
+      "coef": -0.7414,
+      "contrib": -0.2359
+    },
+    {
+      "term": "multigrams__vez de",
+      "tfidf": 0.3372,
+      "coef": -0.6519,
+      "contrib": -0.2198
+    },
+    {
+      "term": "multigrams__en vez de",
+      "tfidf": 0.3384,
+      "coef": -0.6392,
+      "contrib": -0.2163
+    },
+    {
+      "term": "multigrams__abrir las",
+      "tfidf": 0.4423,
+      "coef": -0.288,
+      "contrib": -0.1274
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": 6600,
+  "text": "fui al gym durante 2 años y todo fue fenomenal cuando me di de baja porque me mudaba a otra localidad no tuve ningún problema me dieron de baja en 5 minutos volvería al gym si abrieran uno en alcorcón",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -2.4213,
+  "raw_score": -0.4326,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__fenomenal",
+      "tfidf": 0.3118,
+      "coef": 1.246,
+      "contrib": 0.3885
+    },
+    {
+      "term": "multigrams__ningún problema",
+      "tfidf": 0.3522,
+      "coef": 0.9297,
+      "contrib": 0.3274
+    },
+    {
+      "term": "multigrams__no tuve",
+      "tfidf": 0.4172,
+      "coef": 0.3863,
+      "contrib": 0.1612
+    },
+    {
+      "term": "multigrams__tuve ningún",
+      "tfidf": 0.4421,
+      "coef": 0.3298,
+      "contrib": 0.1458
+    },
+    {
+      "term": "multigrams__tuve ningún problema",
+      "tfidf": 0.4421,
+      "coef": 0.3298,
+      "contrib": 0.1458
+    },
+    {
+      "term": "unigrams__uno",
+      "tfidf": 0.2303,
+      "coef": 0.5539,
+      "contrib": 0.1276
+    },
+    {
+      "term": "unigrams__tuve",
+      "tfidf": 0.2809,
+      "coef": 0.4146,
+      "contrib": 0.1165
+    },
+    {
+      "term": "unigrams__fue",
+      "tfidf": 0.22,
+      "coef": 0.1445,
+      "contrib": 0.0318
+    },
+    {
+      "term": "unigrams__problema",
+      "tfidf": 0.2249,
+      "coef": 0.121,
+      "contrib": 0.0272
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__baja",
+      "tfidf": 0.35,
+      "coef": -3.8658,
+      "contrib": -1.3531
+    },
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.114,
+      "coef": -9.0662,
+      "contrib": -1.0333
+    },
+    {
+      "term": "unigrams__minutos",
+      "tfidf": 0.2785,
+      "coef": -1.4499,
+      "contrib": -0.4038
+    },
+    {
+      "term": "unigrams__otra",
+      "tfidf": 0.2352,
+      "coef": -1.5375,
+      "contrib": -0.3616
+    },
+    {
+      "term": "unigrams__fui",
+      "tfidf": 0.2443,
+      "coef": -1.229,
+      "contrib": -0.3002
+    },
+    {
+      "term": "unigrams__ningún",
+      "tfidf": 0.2509,
+      "coef": -0.9836,
+      "contrib": -0.2468
+    },
+    {
+      "term": "multigrams__di baja",
+      "tfidf": 0.3576,
+      "coef": -0.2129,
+      "contrib": -0.0761
+    },
+    {
+      "term": "unigrams__dieron",
+      "tfidf": 0.3363,
+      "coef": -0.1326,
+      "contrib": -0.0446
+    },
+    {
+      "term": "unigrams__di",
+      "tfidf": 0.324,
+      "coef": -0.1034,
+      "contrib": -0.0335
+    },
+    {
+      "term": "multigrams__dieron baja",
+      "tfidf": 0.4281,
+      "coef": -0.0661,
+      "contrib": -0.0283
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 7402,
+  "text": "soy usuaria del gimnasio de embajadores en rasgos generales satisfecha con instalaciones y personal quiero hacer una crítica a un perfil de usuario y una queja al responsable del gimnasio se trata del usuario que no quiere compartir màquinas material del usuario que usa una màquina y al acabar una de las series q està haciendo permanece sentado en la màquina sin ceder el uso a otro usuario o se pone a chatear sentado ocupando la màquina sin dar la posibilidad a que otra persona en sus descansos ",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -4.1422,
+  "raw_score": -2.4466,
+  "top_positive_contributors": [
+    {
+      "term": "mejor",
+      "tfidf": 0.067,
+      "coef": 5.2209,
+      "contrib": 0.3499
+    },
+    {
+      "term": "gracias",
+      "tfidf": 0.0461,
+      "coef": 5.0488,
+      "contrib": 0.2328
+    },
+    {
+      "term": "necesitas",
+      "tfidf": 0.1503,
+      "coef": 1.1564,
+      "contrib": 0.1738
+    },
+    {
+      "term": "dreamfit",
+      "tfidf": 0.0623,
+      "coef": 2.6153,
+      "contrib": 0.163
+    },
+    {
+      "term": "queja",
+      "tfidf": 0.1216,
+      "coef": 1.2936,
+      "contrib": 0.1573
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0873,
+      "coef": 1.635,
+      "contrib": 0.1428
+    },
+    {
+      "term": "también",
+      "tfidf": 0.0871,
+      "coef": 1.6249,
+      "contrib": 0.1415
+    },
+    {
+      "term": "casa",
+      "tfidf": 0.1075,
+      "coef": 0.8079,
+      "contrib": 0.0868
+    },
+    {
+      "term": "compartir",
+      "tfidf": 0.1863,
+      "coef": 0.4077,
+      "contrib": 0.076
+    },
+    {
+      "term": "estoy",
+      "tfidf": 0.0483,
+      "coef": 1.5383,
+      "contrib": 0.0742
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.082,
+      "coef": -9.965,
+      "contrib": -0.8174
+    },
+    {
+      "term": "ni",
+      "tfidf": 0.0801,
+      "coef": -5.4206,
+      "contrib": -0.4343
+    },
+    {
+      "term": "otro",
+      "tfidf": 0.1095,
+      "coef": -2.189,
+      "contrib": -0.2397
+    },
+    {
+      "term": "ya",
+      "tfidf": 0.1007,
+      "coef": -2.3411,
+      "contrib": -0.2357
+    },
+    {
+      "term": "minutos",
+      "tfidf": 0.1428,
+      "coef": -1.6211,
+      "contrib": -0.2315
+    },
+    {
+      "term": "luego",
+      "tfidf": 0.1044,
+      "coef": -2.1304,
+      "contrib": -0.2223
+    },
+    {
+      "term": "si",
+      "tfidf": 0.1072,
+      "coef": -2.0586,
+      "contrib": -0.2206
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.0664,
+      "coef": -2.8987,
+      "contrib": -0.1924
+    },
+    {
+      "term": "responsable",
+      "tfidf": 0.1316,
+      "coef": -1.1578,
+      "contrib": -0.1524
+    },
+    {
+      "term": "usar",
+      "tfidf": 0.1322,
+      "coef": -1.1451,
+      "contrib": -0.1514
+    }
+  ]
+}

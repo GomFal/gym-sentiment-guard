@@ -1,0 +1,133 @@
+{
+  "id": 8250,
+  "text": "gimnasio decente no estaba demasiado lleno para la hora a la que fui media tarde no tuve que esperar mucho buena zona de vestuarios y en general un gimnasio de tamaño decente quizás algunas máquinas estén un poco juntas pero bueno no es caro ¿qué me puedo esperar? la recepcionista fue excelente fui sobre las 15 00 del 16 de julio pero no pude entrar soy nuevo y pensé que había comprado la suscripción para usar cualquier vivagym pero no fue así así que la recepcionista me ayudó a mejorar mi suscr",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -3.6303,
+  "raw_score": -1.6509,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__excelente",
+      "tfidf": 0.0567,
+      "coef": 6.3348,
+      "contrib": 0.3594
+    },
+    {
+      "term": "unigrams__gusto",
+      "tfidf": 0.0788,
+      "coef": 2.7534,
+      "contrib": 0.217
+    },
+    {
+      "term": "unigrams__agradable",
+      "tfidf": 0.0708,
+      "coef": 2.7511,
+      "contrib": 0.1949
+    },
+    {
+      "term": "unigrams__ayudó",
+      "tfidf": 0.0956,
+      "coef": 1.7859,
+      "contrib": 0.1708
+    },
+    {
+      "term": "unigrams__tamaño",
+      "tfidf": 0.1156,
+      "coef": 1.2474,
+      "contrib": 0.1442
+    },
+    {
+      "term": "unigrams__buena",
+      "tfidf": 0.0566,
+      "coef": 2.5227,
+      "contrib": 0.1428
+    },
+    {
+      "term": "unigrams__nuevo",
+      "tfidf": 0.14,
+      "coef": 1.0023,
+      "contrib": 0.1403
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.0724,
+      "coef": 1.9133,
+      "contrib": 0.1385
+    },
+    {
+      "term": "multigrams__tarde pero",
+      "tfidf": 0.1646,
+      "coef": 0.7621,
+      "contrib": 0.1254
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.0847,
+      "coef": 1.3298,
+      "contrib": 0.1127
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1132,
+      "coef": -9.0936,
+      "contrib": -1.0296
+    },
+    {
+      "term": "unigrams__lleno",
+      "tfidf": 0.1284,
+      "coef": -3.0158,
+      "contrib": -0.3872
+    },
+    {
+      "term": "unigrams__estaba",
+      "tfidf": 0.1748,
+      "coef": -1.7214,
+      "contrib": -0.3009
+    },
+    {
+      "term": "unigrams__minutos",
+      "tfidf": 0.159,
+      "coef": -1.4121,
+      "contrib": -0.2245
+    },
+    {
+      "term": "unigrams__fui",
+      "tfidf": 0.1729,
+      "coef": -1.2523,
+      "contrib": -0.2165
+    },
+    {
+      "term": "multigrams__pero no",
+      "tfidf": 0.2103,
+      "coef": -1.026,
+      "contrib": -0.2158
+    },
+    {
+      "term": "unigrams__demasiado",
+      "tfidf": 0.0883,
+      "coef": -2.1922,
+      "contrib": -0.1936
+    },
+    {
+      "term": "unigrams__caro",
+      "tfidf": 0.0943,
+      "coef": -1.6663,
+      "contrib": -0.1572
+    },
+    {
+      "term": "unigrams__15",
+      "tfidf": 0.091,
+      "coef": -1.6179,
+      "contrib": -0.1472
+    },
+    {
+      "term": "unigrams__agua",
+      "tfidf": 0.0808,
+      "coef": -1.8144,
+      "contrib": -0.1465
+    }
+  ]
+}

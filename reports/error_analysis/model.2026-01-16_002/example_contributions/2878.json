@@ -1,0 +1,121 @@
+{
+  "id": 2878,
+  "text": "me acerqué para dar solución a una incidencia con respecto a mi tarifa y la señorita raquel muy amablemente me atendió creo que lo solucionamos pero no me acuerdo porque me quedé ensimismado dado que mirarla a los ojos era como mirar al cielo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -1.8474,
+  "raw_score": 0.1413,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__atendió",
+      "tfidf": 0.1948,
+      "coef": 1.6402,
+      "contrib": 0.3195
+    },
+    {
+      "term": "unigrams__amablemente",
+      "tfidf": 0.2861,
+      "coef": 0.4322,
+      "contrib": 0.1237
+    },
+    {
+      "term": "unigrams__raquel",
+      "tfidf": 0.2841,
+      "coef": 0.3522,
+      "contrib": 0.1001
+    },
+    {
+      "term": "unigrams__quedé",
+      "tfidf": 0.2905,
+      "coef": 0.3257,
+      "contrib": 0.0946
+    },
+    {
+      "term": "unigrams__incidencia",
+      "tfidf": 0.2929,
+      "coef": 0.1796,
+      "contrib": 0.0526
+    },
+    {
+      "term": "unigrams__señorita",
+      "tfidf": 0.2982,
+      "coef": 0.1423,
+      "contrib": 0.0424
+    },
+    {
+      "term": "unigrams__acuerdo",
+      "tfidf": 0.2905,
+      "coef": 0.0979,
+      "contrib": 0.0284
+    },
+    {
+      "term": "multigrams__no acuerdo",
+      "tfidf": 0.6288,
+      "coef": 0.0366,
+      "contrib": 0.023
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0938,
+      "coef": -9.0662,
+      "contrib": -0.8506
+    },
+    {
+      "term": "multigrams__pero no",
+      "tfidf": 0.3758,
+      "coef": -1.0606,
+      "contrib": -0.3986
+    },
+    {
+      "term": "unigrams__era",
+      "tfidf": 0.2038,
+      "coef": -1.737,
+      "contrib": -0.3541
+    },
+    {
+      "term": "unigrams__respecto",
+      "tfidf": 0.2413,
+      "coef": -1.3402,
+      "contrib": -0.3234
+    },
+    {
+      "term": "unigrams__solución",
+      "tfidf": 0.234,
+      "coef": -1.2355,
+      "contrib": -0.289
+    },
+    {
+      "term": "unigrams__tarifa",
+      "tfidf": 0.2631,
+      "coef": -0.5461,
+      "contrib": -0.1437
+    },
+    {
+      "term": "unigrams__dar",
+      "tfidf": 0.1963,
+      "coef": -0.6355,
+      "contrib": -0.1247
+    },
+    {
+      "term": "unigrams__dado",
+      "tfidf": 0.2208,
+      "coef": -0.2087,
+      "contrib": -0.0461
+    },
+    {
+      "term": "unigrams__creo",
+      "tfidf": 0.1978,
+      "coef": -0.2186,
+      "contrib": -0.0432
+    },
+    {
+      "term": "unigrams__pero",
+      "tfidf": 0.1184,
+      "coef": -0.2738,
+      "contrib": -0.0324
+    }
+  ]
+}

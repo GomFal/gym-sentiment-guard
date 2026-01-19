@@ -1,0 +1,133 @@
+{
+  "id": 2885,
+  "text": "en este gym en lo único que están pendientes es en apuntar personas nuevas todos los días y cobra que en la comodidad que ofrecen cuando te apuntas",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -0.1238,
+  "raw_score": 1.6525,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.2847,
+      "coef": 0.9842,
+      "contrib": 0.2802
+    },
+    {
+      "term": "unigrams__único",
+      "tfidf": 0.2819,
+      "coef": 0.6996,
+      "contrib": 0.1972
+    },
+    {
+      "term": "multigrams__todos los",
+      "tfidf": 0.129,
+      "coef": 1.1421,
+      "contrib": 0.1473
+    },
+    {
+      "term": "unigrams__pendientes",
+      "tfidf": 0.3497,
+      "coef": 0.3457,
+      "contrib": 0.1209
+    },
+    {
+      "term": "multigrams__en este",
+      "tfidf": 0.1391,
+      "coef": 0.8319,
+      "contrib": 0.1157
+    },
+    {
+      "term": "unigrams__comodidad",
+      "tfidf": 0.3944,
+      "coef": 0.2499,
+      "contrib": 0.0986
+    },
+    {
+      "term": "multigrams__lo único",
+      "tfidf": 0.1629,
+      "coef": 0.5595,
+      "contrib": 0.0911
+    },
+    {
+      "term": "multigrams__lo único que",
+      "tfidf": 0.1819,
+      "coef": 0.4301,
+      "contrib": 0.0783
+    },
+    {
+      "term": "multigrams__en este gym",
+      "tfidf": 0.1902,
+      "coef": 0.4083,
+      "contrib": 0.0776
+    },
+    {
+      "term": "multigrams__este gym",
+      "tfidf": 0.1519,
+      "coef": 0.4202,
+      "contrib": 0.0638
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__días",
+      "tfidf": 0.2568,
+      "coef": -1.3058,
+      "contrib": -0.3354
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.21,
+      "coef": -1.4326,
+      "contrib": -0.3008
+    },
+    {
+      "term": "unigrams__apuntas",
+      "tfidf": 0.4315,
+      "coef": -0.4818,
+      "contrib": -0.2079
+    },
+    {
+      "term": "multigrams__en la",
+      "tfidf": 0.1166,
+      "coef": -1.573,
+      "contrib": -0.1834
+    },
+    {
+      "term": "multigrams__que en",
+      "tfidf": 0.1586,
+      "coef": -0.5286,
+      "contrib": -0.0838
+    },
+    {
+      "term": "unigrams__apuntar",
+      "tfidf": 0.3753,
+      "coef": -0.2006,
+      "contrib": -0.0753
+    },
+    {
+      "term": "multigrams__es en",
+      "tfidf": 0.2342,
+      "coef": -0.3174,
+      "contrib": -0.0744
+    },
+    {
+      "term": "multigrams__te apuntas",
+      "tfidf": 0.2264,
+      "coef": -0.2597,
+      "contrib": -0.0588
+    },
+    {
+      "term": "unigrams__ofrecen",
+      "tfidf": 0.3529,
+      "coef": -0.1656,
+      "contrib": -0.0584
+    },
+    {
+      "term": "multigrams__cuando te",
+      "tfidf": 0.2026,
+      "coef": -0.2583,
+      "contrib": -0.0523
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": 1467,
+  "text": "decepcionante la atenciòn que recibi al preguntar por información la persona que me atendió fue desagradablel",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -0.6446,
+  "raw_score": 1.0511,
+  "top_positive_contributors": [
+    {
+      "term": "atendió",
+      "tfidf": 0.3568,
+      "coef": 1.369,
+      "contrib": 0.4885
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "decepcionante",
+      "tfidf": 0.5321,
+      "coef": -0.8715,
+      "contrib": -0.4637
+    },
+    {
+      "term": "persona",
+      "tfidf": 0.3388,
+      "coef": -0.9629,
+      "contrib": -0.3262
+    },
+    {
+      "term": "información",
+      "tfidf": 0.4016,
+      "coef": -0.6379,
+      "contrib": -0.2562
+    },
+    {
+      "term": "preguntar",
+      "tfidf": 0.4511,
+      "coef": -0.1448,
+      "contrib": -0.0653
+    },
+    {
+      "term": "fue",
+      "tfidf": 0.3317,
+      "coef": -0.0652,
+      "contrib": -0.0216
+    }
+  ]
+}

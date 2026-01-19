@@ -1,0 +1,115 @@
+{
+  "id": 9393,
+  "text": "voy a modificar mi reseña en el que le puse 5 estrellas a este gym porque era genial pero actualmente llevan ya mas de 3 semanas sin las televisiones de 4 solo tienen 1 y no se si es porque están en reparación lo vendieron o que hicieron",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.4094,
+  "raw_score": -0.43,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__genial",
+      "tfidf": 0.1968,
+      "coef": 4.0929,
+      "contrib": 0.8054
+    },
+    {
+      "term": "unigrams__estrellas",
+      "tfidf": 0.2555,
+      "coef": 1.6516,
+      "contrib": 0.422
+    },
+    {
+      "term": "unigrams__voy",
+      "tfidf": 0.2259,
+      "coef": 1.3896,
+      "contrib": 0.3139
+    },
+    {
+      "term": "multigrams__solo tienen",
+      "tfidf": 0.4887,
+      "coef": 0.4751,
+      "contrib": 0.2322
+    },
+    {
+      "term": "unigrams__actualmente",
+      "tfidf": 0.3486,
+      "coef": 0.5295,
+      "contrib": 0.1846
+    },
+    {
+      "term": "unigrams__puse",
+      "tfidf": 0.3486,
+      "coef": 0.3794,
+      "contrib": 0.1323
+    },
+    {
+      "term": "unigrams__llevan",
+      "tfidf": 0.2823,
+      "coef": 0.363,
+      "contrib": 0.1025
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1135,
+      "coef": -9.0936,
+      "contrib": -1.0318
+    },
+    {
+      "term": "unigrams__hicieron",
+      "tfidf": 0.3226,
+      "coef": -1.8812,
+      "contrib": -0.6069
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1597,
+      "coef": -3.0321,
+      "contrib": -0.4843
+    },
+    {
+      "term": "unigrams__era",
+      "tfidf": 0.2465,
+      "coef": -1.7304,
+      "contrib": -0.4266
+    },
+    {
+      "term": "unigrams__semanas",
+      "tfidf": 0.2642,
+      "coef": -1.4117,
+      "contrib": -0.373
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.192,
+      "coef": -1.7374,
+      "contrib": -0.3336
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.1772,
+      "coef": -1.5168,
+      "contrib": -0.2688
+    },
+    {
+      "term": "multigrams__no están",
+      "tfidf": 0.3665,
+      "coef": -0.6269,
+      "contrib": -0.2298
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.1945,
+      "coef": -1.0429,
+      "contrib": -0.2028
+    },
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.2675,
+      "coef": -0.7184,
+      "contrib": -0.1922
+    }
+  ]
+}

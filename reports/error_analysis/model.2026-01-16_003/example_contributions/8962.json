@@ -1,0 +1,133 @@
+{
+  "id": 8962,
+  "text": "los quitaron la tarifa familiar si eres mayor de 21 o algo así… me han hecho editar la reseña es de hace un par de años",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": 0.1001,
+  "raw_score": 1.8765,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__mayor",
+      "tfidf": 0.3468,
+      "coef": 0.6093,
+      "contrib": 0.2113
+    },
+    {
+      "term": "unigrams__par",
+      "tfidf": 0.3391,
+      "coef": 0.6069,
+      "contrib": 0.2058
+    },
+    {
+      "term": "multigrams__un par de",
+      "tfidf": 0.2026,
+      "coef": 0.4444,
+      "contrib": 0.0901
+    },
+    {
+      "term": "multigrams__par de",
+      "tfidf": 0.2005,
+      "coef": 0.395,
+      "contrib": 0.0792
+    },
+    {
+      "term": "multigrams__un par",
+      "tfidf": 0.2005,
+      "coef": 0.3574,
+      "contrib": 0.0716
+    },
+    {
+      "term": "multigrams__de hace",
+      "tfidf": 0.2511,
+      "coef": 0.271,
+      "contrib": 0.068
+    },
+    {
+      "term": "multigrams__han hecho",
+      "tfidf": 0.2066,
+      "coef": 0.2805,
+      "contrib": 0.058
+    },
+    {
+      "term": "multigrams__hace un par",
+      "tfidf": 0.2548,
+      "coef": 0.181,
+      "contrib": 0.0461
+    },
+    {
+      "term": "multigrams__par de años",
+      "tfidf": 0.2548,
+      "coef": 0.1768,
+      "contrib": 0.045
+    },
+    {
+      "term": "multigrams__de años",
+      "tfidf": 0.2042,
+      "coef": 0.1621,
+      "contrib": 0.0331
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__tarifa",
+      "tfidf": 0.3633,
+      "coef": -0.5672,
+      "contrib": -0.2061
+    },
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.3055,
+      "coef": -0.5287,
+      "contrib": -0.1615
+    },
+    {
+      "term": "unigrams__hecho",
+      "tfidf": 0.2794,
+      "coef": -0.5185,
+      "contrib": -0.1449
+    },
+    {
+      "term": "multigrams__me han",
+      "tfidf": 0.1628,
+      "coef": -0.6179,
+      "contrib": -0.1006
+    },
+    {
+      "term": "multigrams__la tarifa",
+      "tfidf": 0.233,
+      "coef": -0.2142,
+      "contrib": -0.0499
+    },
+    {
+      "term": "unigrams__21",
+      "tfidf": 0.3558,
+      "coef": -0.1269,
+      "contrib": -0.0451
+    },
+    {
+      "term": "unigrams__algo",
+      "tfidf": 0.2489,
+      "coef": -0.1772,
+      "contrib": -0.0441
+    },
+    {
+      "term": "unigrams__eres",
+      "tfidf": 0.3684,
+      "coef": -0.1029,
+      "contrib": -0.0379
+    },
+    {
+      "term": "unigrams__familiar",
+      "tfidf": 0.3702,
+      "coef": -0.042,
+      "contrib": -0.0156
+    },
+    {
+      "term": "multigrams__me han hecho",
+      "tfidf": 0.2511,
+      "coef": -0.043,
+      "contrib": -0.0108
+    }
+  ]
+}

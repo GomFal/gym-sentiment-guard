@@ -1,0 +1,127 @@
+{
+  "id": 2878,
+  "text": "me acerqué para dar solución a una incidencia con respecto a mi tarifa y la señorita raquel muy amablemente me atendió creo que lo solucionamos pero no me acuerdo porque me quedé ensimismado dado que mirarla a los ojos era como mirar al cielo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -1.6917,
+  "raw_score": 0.004,
+  "top_positive_contributors": [
+    {
+      "term": "muy",
+      "tfidf": 0.0702,
+      "coef": 4.0381,
+      "contrib": 0.2837
+    },
+    {
+      "term": "atendió",
+      "tfidf": 0.1885,
+      "coef": 1.369,
+      "contrib": 0.2581
+    },
+    {
+      "term": "raquel",
+      "tfidf": 0.2749,
+      "coef": 0.3972,
+      "contrib": 0.1092
+    },
+    {
+      "term": "quedé",
+      "tfidf": 0.2811,
+      "coef": 0.3171,
+      "contrib": 0.0891
+    },
+    {
+      "term": "amablemente",
+      "tfidf": 0.2769,
+      "coef": 0.3195,
+      "contrib": 0.0884
+    },
+    {
+      "term": "incidencia",
+      "tfidf": 0.2834,
+      "coef": 0.1487,
+      "contrib": 0.0421
+    },
+    {
+      "term": "acuerdo",
+      "tfidf": 0.2811,
+      "coef": 0.1116,
+      "contrib": 0.0314
+    },
+    {
+      "term": "creo",
+      "tfidf": 0.1914,
+      "coef": 0.1264,
+      "contrib": 0.0242
+    },
+    {
+      "term": "pero",
+      "tfidf": 0.1146,
+      "coef": 0.0204,
+      "contrib": 0.0023
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0908,
+      "coef": -9.965,
+      "contrib": -0.9047
+    },
+    {
+      "term": "era",
+      "tfidf": 0.1973,
+      "coef": -1.8977,
+      "contrib": -0.3743
+    },
+    {
+      "term": "respecto",
+      "tfidf": 0.2335,
+      "coef": -1.2916,
+      "contrib": -0.3016
+    },
+    {
+      "term": "porque",
+      "tfidf": 0.1444,
+      "coef": -2.0254,
+      "contrib": -0.2924
+    },
+    {
+      "term": "solución",
+      "tfidf": 0.2264,
+      "coef": -1.1402,
+      "contrib": -0.2581
+    },
+    {
+      "term": "tarifa",
+      "tfidf": 0.2546,
+      "coef": -0.8327,
+      "contrib": -0.212
+    },
+    {
+      "term": "pero no",
+      "tfidf": 0.1943,
+      "coef": -0.6367,
+      "contrib": -0.1237
+    },
+    {
+      "term": "dar",
+      "tfidf": 0.1899,
+      "coef": -0.49,
+      "contrib": -0.0931
+    },
+    {
+      "term": "dado",
+      "tfidf": 0.2137,
+      "coef": -0.1491,
+      "contrib": -0.0319
+    },
+    {
+      "term": "mirar",
+      "tfidf": 0.2789,
+      "coef": -0.0588,
+      "contrib": -0.0164
+    }
+  ]
+}

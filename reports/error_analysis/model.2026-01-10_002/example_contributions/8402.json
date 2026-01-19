@@ -1,0 +1,133 @@
+{
+  "id": 8402,
+  "text": "la sala esta genial solo faltan un par de cosas cinturones para lastradas y pesas de 6 7 8 9 kg baños es un poco desastre un poco sucios y incluso sin papel higiénico las duchas es lo peor al no poder regular la temperatura yo entreno por las mañas debería haber una planificación para que al llegar todo estuviese perfecto invertir en eso y seréis el mejor gimnasio de madrid!",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -1.9684,
+  "raw_score": -0.2728,
+  "top_positive_contributors": [
+    {
+      "term": "perfecto",
+      "tfidf": 0.1454,
+      "coef": 3.8826,
+      "contrib": 0.5645
+    },
+    {
+      "term": "genial",
+      "tfidf": 0.1186,
+      "coef": 4.4628,
+      "contrib": 0.5294
+    },
+    {
+      "term": "mejor",
+      "tfidf": 0.0972,
+      "coef": 5.2209,
+      "contrib": 0.5076
+    },
+    {
+      "term": "madrid",
+      "tfidf": 0.1276,
+      "coef": 1.8454,
+      "contrib": 0.2355
+    },
+    {
+      "term": "mejor gimnasio",
+      "tfidf": 0.1492,
+      "coef": 1.3025,
+      "contrib": 0.1943
+    },
+    {
+      "term": "regular",
+      "tfidf": 0.2244,
+      "coef": 0.8561,
+      "contrib": 0.1921
+    },
+    {
+      "term": "entreno",
+      "tfidf": 0.1722,
+      "coef": 1.0007,
+      "contrib": 0.1724
+    },
+    {
+      "term": "par",
+      "tfidf": 0.179,
+      "coef": 0.8465,
+      "contrib": 0.1515
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0631,
+      "coef": 1.635,
+      "contrib": 0.1032
+    },
+    {
+      "term": "gimnasio madrid",
+      "tfidf": 0.1964,
+      "coef": 0.355,
+      "contrib": 0.0697
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "peor",
+      "tfidf": 0.1336,
+      "coef": -6.6475,
+      "contrib": -0.888
+    },
+    {
+      "term": "no",
+      "tfidf": 0.0684,
+      "coef": -9.965,
+      "contrib": -0.6816
+    },
+    {
+      "term": "sucios",
+      "tfidf": 0.2007,
+      "coef": -1.5013,
+      "contrib": -0.3013
+    },
+    {
+      "term": "baños",
+      "tfidf": 0.1641,
+      "coef": -1.7175,
+      "contrib": -0.2818
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.0963,
+      "coef": -2.8987,
+      "contrib": -0.2791
+    },
+    {
+      "term": "temperatura",
+      "tfidf": 0.1769,
+      "coef": -1.5564,
+      "contrib": -0.2753
+    },
+    {
+      "term": "desastre",
+      "tfidf": 0.1864,
+      "coef": -1.3918,
+      "contrib": -0.2594
+    },
+    {
+      "term": "solo",
+      "tfidf": 0.1158,
+      "coef": -1.8496,
+      "contrib": -0.2141
+    },
+    {
+      "term": "papel",
+      "tfidf": 0.2007,
+      "coef": -0.8778,
+      "contrib": -0.1761
+    },
+    {
+      "term": "poco",
+      "tfidf": 0.2035,
+      "coef": -0.8169,
+      "contrib": -0.1663
+    }
+  ]
+}

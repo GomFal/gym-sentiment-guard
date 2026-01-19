@@ -1,0 +1,67 @@
+{
+  "id": 8615,
+  "text": "buenas instalaciones sólo que no tienen la máquina predicador",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.2335,
+  "raw_score": -0.2541,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buenas",
+      "tfidf": 0.3622,
+      "coef": 2.9827,
+      "contrib": 1.0802
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.2878,
+      "coef": 1.8113,
+      "contrib": 0.5213
+    },
+    {
+      "term": "unigrams__máquina",
+      "tfidf": 0.4797,
+      "coef": 0.2039,
+      "contrib": 0.0978
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2362,
+      "coef": -9.0936,
+      "contrib": -2.1483
+    },
+    {
+      "term": "multigrams__no tienen",
+      "tfidf": 0.4782,
+      "coef": -1.8856,
+      "contrib": -0.9017
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.405,
+      "coef": -1.0429,
+      "contrib": -0.4223
+    },
+    {
+      "term": "unigrams__sólo",
+      "tfidf": 0.5798,
+      "coef": -0.4914,
+      "contrib": -0.2849
+    },
+    {
+      "term": "multigrams__sólo no",
+      "tfidf": 0.7901,
+      "coef": -0.1524,
+      "contrib": -0.1204
+    },
+    {
+      "term": "multigrams__buenas instalaciones",
+      "tfidf": 0.3834,
+      "coef": -0.1437,
+      "contrib": -0.0551
+    }
+  ]
+}

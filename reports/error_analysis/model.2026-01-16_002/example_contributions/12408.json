@@ -1,0 +1,133 @@
+{
+  "id": 12408,
+  "text": "acabo de darme de baja por qué el cuerpo y mi horario cada vez me responde peor pero estando apuntando desde que abrieron puedo decir que es de los mejores y más completos gimnasios que encontraréis de los df que he visitado todos están muy bien pero la cercanía y el tamaño de las instalaciones de éste son ideales las maquinas de calidad y con buen mantenimiento no he visto averías de semanas ni asientos y apoyos rajados por todos lados sauna y baño turco disfrutables amabilidad de los monitores",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -2.0425,
+  "raw_score": -0.0538,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buen",
+      "tfidf": 0.0555,
+      "coef": 6.7282,
+      "contrib": 0.3734
+    },
+    {
+      "term": "unigrams__gracias",
+      "tfidf": 0.0719,
+      "coef": 4.4088,
+      "contrib": 0.317
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.053,
+      "coef": 5.381,
+      "contrib": 0.2849
+    },
+    {
+      "term": "unigrams__mejores",
+      "tfidf": 0.0852,
+      "coef": 2.4942,
+      "contrib": 0.2126
+    },
+    {
+      "term": "multigrams__puede ser",
+      "tfidf": 0.131,
+      "coef": 1.3373,
+      "contrib": 0.1751
+    },
+    {
+      "term": "unigrams__amabilidad",
+      "tfidf": 0.1061,
+      "coef": 1.6205,
+      "contrib": 0.172
+    },
+    {
+      "term": "unigrams__tamaño",
+      "tfidf": 0.1306,
+      "coef": 1.2794,
+      "contrib": 0.1671
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.0818,
+      "coef": 1.9246,
+      "contrib": 0.1574
+    },
+    {
+      "term": "unigrams__calidad",
+      "tfidf": 0.0783,
+      "coef": 1.7452,
+      "contrib": 0.1367
+    },
+    {
+      "term": "unigrams__turco",
+      "tfidf": 0.1223,
+      "coef": 1.0274,
+      "contrib": 0.1257
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1279,
+      "coef": -9.0662,
+      "contrib": -1.1599
+    },
+    {
+      "term": "unigrams__peor",
+      "tfidf": 0.1436,
+      "coef": -5.7809,
+      "contrib": -0.8301
+    },
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.0738,
+      "coef": -5.3692,
+      "contrib": -0.3963
+    },
+    {
+      "term": "unigrams__baja",
+      "tfidf": 0.0788,
+      "coef": -3.8658,
+      "contrib": -0.3045
+    },
+    {
+      "term": "unigrams__ser",
+      "tfidf": 0.1942,
+      "coef": -1.1543,
+      "contrib": -0.2241
+    },
+    {
+      "term": "unigrams__entre",
+      "tfidf": 0.1552,
+      "coef": -1.2494,
+      "contrib": -0.1939
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.0611,
+      "coef": -3.0365,
+      "contrib": -0.1856
+    },
+    {
+      "term": "multigrams__bien pero",
+      "tfidf": 0.1121,
+      "coef": -1.4783,
+      "contrib": -0.1658
+    },
+    {
+      "term": "multigrams__entrenadores personales",
+      "tfidf": 0.1321,
+      "coef": -1.2466,
+      "contrib": -0.1646
+    },
+    {
+      "term": "unigrams__van",
+      "tfidf": 0.0957,
+      "coef": -1.7108,
+      "contrib": -0.1638
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": 3480,
+  "text": "estoy contenta de que por fin esté abierto el gym las instalaciones y en general me parece todo muy bien lo único es que para lo grande que es la recepción es pequeña y solo está una persona siempre con lo cual no hay nadie en las salas por lo mismo la gente deja las pesas por el suelos las máquinas cargadas parece que necesitan a alguien que les diga lo que se puede o no hacer y es un verdadero fastidio",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.8182,
+  "raw_score": -1.1225,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.0843,
+      "coef": 4.9938,
+      "contrib": 0.4211
+    },
+    {
+      "term": "contenta",
+      "tfidf": 0.1477,
+      "coef": 2.1679,
+      "contrib": 0.3202
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.1057,
+      "coef": 2.9809,
+      "contrib": 0.315
+    },
+    {
+      "term": "grande",
+      "tfidf": 0.136,
+      "coef": 2.2734,
+      "contrib": 0.3091
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0535,
+      "coef": 4.0381,
+      "contrib": 0.2161
+    },
+    {
+      "term": "salas",
+      "tfidf": 0.1602,
+      "coef": 1.184,
+      "contrib": 0.1897
+    },
+    {
+      "term": "estoy",
+      "tfidf": 0.1199,
+      "coef": 1.5383,
+      "contrib": 0.1844
+    },
+    {
+      "term": "gym",
+      "tfidf": 0.0924,
+      "coef": 1.6562,
+      "contrib": 0.1531
+    },
+    {
+      "term": "único",
+      "tfidf": 0.145,
+      "coef": 0.9891,
+      "contrib": 0.1434
+    },
+    {
+      "term": "instalaciones",
+      "tfidf": 0.0842,
+      "coef": 1.516,
+      "contrib": 0.1277
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1171,
+      "coef": -9.965,
+      "contrib": -1.1668
+    },
+    {
+      "term": "mismo",
+      "tfidf": 0.1436,
+      "coef": -2.8348,
+      "contrib": -0.4071
+    },
+    {
+      "term": "parece",
+      "tfidf": 0.2192,
+      "coef": -1.7442,
+      "contrib": -0.3823
+    },
+    {
+      "term": "les",
+      "tfidf": 0.1311,
+      "coef": -2.7457,
+      "contrib": -0.36
+    },
+    {
+      "term": "nadie",
+      "tfidf": 0.1479,
+      "coef": -2.185,
+      "contrib": -0.3231
+    },
+    {
+      "term": "cual",
+      "tfidf": 0.1504,
+      "coef": -2.1319,
+      "contrib": -0.3207
+    },
+    {
+      "term": "deja",
+      "tfidf": 0.1679,
+      "coef": -1.6894,
+      "contrib": -0.2836
+    },
+    {
+      "term": "fin",
+      "tfidf": 0.1576,
+      "coef": -1.5344,
+      "contrib": -0.2419
+    },
+    {
+      "term": "solo",
+      "tfidf": 0.117,
+      "coef": -1.8496,
+      "contrib": -0.2165
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.0985,
+      "coef": -2.0184,
+      "contrib": -0.1988
+    }
+  ]
+}

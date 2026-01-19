@@ -1,0 +1,91 @@
+{
+  "id": 12651,
+  "text": "creo que el fallo lo tienen en la musica que no motiva a entrenar soy un chico muy sociable y destesto desconectarme con audifono pero la musica no te inspira a correr a no entrenar debe haber musicon de gym",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -3.4463,
+  "raw_score": -1.4576,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__chico",
+      "tfidf": 0.2344,
+      "coef": 0.5621,
+      "contrib": 0.1318
+    },
+    {
+      "term": "unigrams__soy",
+      "tfidf": 0.2344,
+      "coef": 0.4976,
+      "contrib": 0.1166
+    },
+    {
+      "term": "unigrams__motiva",
+      "tfidf": 0.3177,
+      "coef": 0.3221,
+      "contrib": 0.1024
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2232,
+      "coef": -9.0662,
+      "contrib": -2.0234
+    },
+    {
+      "term": "unigrams__musica",
+      "tfidf": 0.5906,
+      "coef": -1.482,
+      "contrib": -0.8753
+    },
+    {
+      "term": "unigrams__entrenar",
+      "tfidf": 0.257,
+      "coef": -0.9109,
+      "contrib": -0.2341
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.1823,
+      "coef": -1.0564,
+      "contrib": -0.1926
+    },
+    {
+      "term": "multigrams__no entrenar",
+      "tfidf": 0.565,
+      "coef": -0.2664,
+      "contrib": -0.1505
+    },
+    {
+      "term": "unigrams__correr",
+      "tfidf": 0.2932,
+      "coef": -0.3207,
+      "contrib": -0.0941
+    },
+    {
+      "term": "multigrams__correr no",
+      "tfidf": 0.5834,
+      "coef": -0.1006,
+      "contrib": -0.0587
+    },
+    {
+      "term": "unigrams__creo",
+      "tfidf": 0.2242,
+      "coef": -0.2186,
+      "contrib": -0.049
+    },
+    {
+      "term": "unigrams__debe",
+      "tfidf": 0.2867,
+      "coef": -0.1662,
+      "contrib": -0.0476
+    },
+    {
+      "term": "unigrams__pero",
+      "tfidf": 0.1342,
+      "coef": -0.2738,
+      "contrib": -0.0368
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": 12401,
+  "text": "el gimnasio no está mal pero últimamente la música que ponen es solamente reguetón y realmente no es una música agradable para el entrenamiento al menos no para todo el mundo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": -2.9531,
+  "raw_score": -0.9737,
+  "top_positive_contributors": [
+    {
+      "term": "multigrams__no está",
+      "tfidf": 0.2451,
+      "coef": 2.9477,
+      "contrib": 0.7226
+    },
+    {
+      "term": "unigrams__agradable",
+      "tfidf": 0.2433,
+      "coef": 2.7511,
+      "contrib": 0.6694
+    },
+    {
+      "term": "multigrams__no está mal",
+      "tfidf": 0.3133,
+      "coef": 1.6303,
+      "contrib": 0.5108
+    },
+    {
+      "term": "multigrams__está mal",
+      "tfidf": 0.3085,
+      "coef": 1.573,
+      "contrib": 0.4853
+    },
+    {
+      "term": "unigrams__entrenamiento",
+      "tfidf": 0.2628,
+      "coef": 0.8256,
+      "contrib": 0.217
+    },
+    {
+      "term": "multigrams__mal pero",
+      "tfidf": 0.3159,
+      "coef": 0.0161,
+      "contrib": 0.0051
+    },
+    {
+      "term": "multigrams__menos no",
+      "tfidf": 0.3454,
+      "coef": 0.0035,
+      "contrib": 0.0012
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.277,
+      "coef": -9.0936,
+      "contrib": -2.5192
+    },
+    {
+      "term": "unigrams__mal",
+      "tfidf": 0.2471,
+      "coef": -4.0311,
+      "contrib": -0.9962
+    },
+    {
+      "term": "unigrams__ponen",
+      "tfidf": 0.3172,
+      "coef": -1.5868,
+      "contrib": -0.5034
+    },
+    {
+      "term": "unigrams__solamente",
+      "tfidf": 0.397,
+      "coef": -1.237,
+      "contrib": -0.4911
+    },
+    {
+      "term": "unigrams__menos",
+      "tfidf": 0.2526,
+      "coef": -1.3063,
+      "contrib": -0.33
+    },
+    {
+      "term": "unigrams__últimamente",
+      "tfidf": 0.3851,
+      "coef": -0.5629,
+      "contrib": -0.2168
+    },
+    {
+      "term": "unigrams__está",
+      "tfidf": 0.1776,
+      "coef": -0.7135,
+      "contrib": -0.1267
+    },
+    {
+      "term": "multigrams__realmente no",
+      "tfidf": 0.3577,
+      "coef": -0.2933,
+      "contrib": -0.1049
+    },
+    {
+      "term": "unigrams__mundo",
+      "tfidf": 0.3166,
+      "coef": -0.2932,
+      "contrib": -0.0928
+    },
+    {
+      "term": "unigrams__realmente",
+      "tfidf": 0.3225,
+      "coef": -0.1957,
+      "contrib": -0.0631
+    }
+  ]
+}

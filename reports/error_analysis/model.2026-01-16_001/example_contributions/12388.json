@@ -1,0 +1,18 @@
+{
+  "id": 12388,
+  "text": "personal maleducado",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9793,
+  "total_contribution_sum": 1.3298,
+  "raw_score": 3.3091,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__personal",
+      "tfidf": 1.0,
+      "coef": 1.3298,
+      "contrib": 1.3298
+    }
+  ],
+  "top_negative_contributors": []
+}

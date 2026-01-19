@@ -1,0 +1,43 @@
+{
+  "id": 4161,
+  "text": "siempre esta petado pero los monitores son majos",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": 0.2531,
+  "raw_score": 1.9487,
+  "top_positive_contributors": [
+    {
+      "term": "majos",
+      "tfidf": 0.5237,
+      "coef": 0.9665,
+      "contrib": 0.5062
+    },
+    {
+      "term": "monitores",
+      "tfidf": 0.337,
+      "coef": 0.5375,
+      "contrib": 0.1811
+    },
+    {
+      "term": "siempre",
+      "tfidf": 0.3162,
+      "coef": 0.3438,
+      "contrib": 0.1087
+    },
+    {
+      "term": "pero",
+      "tfidf": 0.2828,
+      "coef": 0.0204,
+      "contrib": 0.0058
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "petado",
+      "tfidf": 0.6575,
+      "coef": -0.8346,
+      "contrib": -0.5487
+    }
+  ]
+}

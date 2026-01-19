@@ -1,0 +1,121 @@
+{
+  "id": 73,
+  "text": "me gusta entrenar acá pero aunque no sea culpa de los monitores muchas personas se quedan en las máquinas viendo el móvil y no nos dejan aprovechar el tiempo para poder entrenar la gente debería de ser más consciente de estos casos para no incomodar a los demás",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -3.5977,
+  "raw_score": -1.9021,
+  "top_positive_contributors": [
+    {
+      "term": "gusta",
+      "tfidf": 0.1528,
+      "coef": 3.7948,
+      "contrib": 0.5799
+    },
+    {
+      "term": "aunque",
+      "tfidf": 0.1484,
+      "coef": 0.5566,
+      "contrib": 0.0826
+    },
+    {
+      "term": "aprovechar",
+      "tfidf": 0.2497,
+      "coef": 0.3146,
+      "contrib": 0.0785
+    },
+    {
+      "term": "monitores",
+      "tfidf": 0.1145,
+      "coef": 0.5375,
+      "contrib": 0.0615
+    },
+    {
+      "term": "aunque no",
+      "tfidf": 0.2305,
+      "coef": 0.2385,
+      "contrib": 0.055
+    },
+    {
+      "term": "debería ser",
+      "tfidf": 0.2397,
+      "coef": 0.0926,
+      "contrib": 0.0222
+    },
+    {
+      "term": "pero",
+      "tfidf": 0.0961,
+      "coef": 0.0204,
+      "contrib": 0.002
+    },
+    {
+      "term": "ser más",
+      "tfidf": 0.2377,
+      "coef": 0.0012,
+      "contrib": 0.0003
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1598,
+      "coef": -9.965,
+      "contrib": -1.592
+    },
+    {
+      "term": "dejan",
+      "tfidf": 0.1798,
+      "coef": -2.3565,
+      "contrib": -0.4237
+    },
+    {
+      "term": "personas",
+      "tfidf": 0.1382,
+      "coef": -2.2256,
+      "contrib": -0.3075
+    },
+    {
+      "term": "viendo",
+      "tfidf": 0.2247,
+      "coef": -1.1239,
+      "contrib": -0.2525
+    },
+    {
+      "term": "sea",
+      "tfidf": 0.1572,
+      "coef": -1.5944,
+      "contrib": -0.2507
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.1084,
+      "coef": -2.0184,
+      "contrib": -0.2188
+    },
+    {
+      "term": "no dejan",
+      "tfidf": 0.2059,
+      "coef": -1.057,
+      "contrib": -0.2177
+    },
+    {
+      "term": "ser",
+      "tfidf": 0.1426,
+      "coef": -1.1253,
+      "contrib": -0.1605
+    },
+    {
+      "term": "estos",
+      "tfidf": 0.1802,
+      "coef": -0.7495,
+      "contrib": -0.135
+    },
+    {
+      "term": "casos",
+      "tfidf": 0.2377,
+      "coef": -0.5533,
+      "contrib": -0.1315
+    }
+  ]
+}

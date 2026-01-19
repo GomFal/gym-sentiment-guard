@@ -107,6 +107,82 @@ python -m gym_sentiment_guard.cli.main main train-model \
 This reads the specified splits, fits TF-IDF + calibrated logistic regression, and writes artifacts under `artifacts/models/...`.
 The configured `decision.threshold` is applied to the probability of the class named in `decision.target_class`. If you set `target_class: negative`, scores ≥ threshold mark the review as negative; if you set `target_class: positive`, the same rule applies to the positive probability. This keeps the training CLI aligned with whatever label you want the threshold to guard.
 
+### Hybrid Vectorization (FeatureUnion)
+
+For advanced use cases, configure separate TF-IDF settings per n-gram length using `FeatureUnion`. This enables **strategy-specific** `min_df` and `stop_words` filtering:
+
+```yaml
+vectorizer:
+  type: feature_union
+  lowercase: true
+  max_df: 0.95
+  sublinear_tf: true
+  stop_words: curated_safe  # Global fallback
+  strategies:
+    unigrams:
+      ngram_range: [1, 1]
+      min_df: 10
+      stop_words: curated_safe  # Heavy filtering for single words
+    multigrams:
+      ngram_range: [2, 3]
+      min_df: 2
+      stop_words: null  # No filtering to preserve context anchors
+```
+
+**Why per-strategy filtering?**
+
+- **Unigrams** benefit from aggressive stopword removal (e.g., `"de"`, `"el"`, `"que"`) and higher `min_df` to reduce domain bias and noise.
+- **Multigrams** should preserve all words to maintain meaningful 3-gram anchors like `"respuesta del director"` or `"devuelvan mi dinero"` — removing stopwords would break these context-dependent phrases.
+
+**Result:** This differentiation enables the model to learn semantically meaningful n-gram coefficients such as:
+- `"muy bien"` (+1.91)
+- `"me encanta"` (+1.79)
+- `"no está mal"` (+1.72) 
+- `"tiene de todo"` (+1.51)
+
+Critically, words like `"no"` that are typically negative in isolation (−8.75) become **positive indicators** when combined in phrases like `"no está mal"` (not bad = good).
+
+> See full coefficients: [`reports/error_analysis/model.2026-01-16_003/model_coefficients.json`](reports/error_analysis/model.2026-01-16_003/model_coefficients.json)
+
+Use `stop_words: null` explicitly to disable filtering for a strategy. Legacy configs (without `strategies` key) continue to work unchanged.
+
+## Error Analysis
+
+**Why it matters:** Understanding *where* and *why* a model fails is critical for production ML. Error analysis surfaces failure patterns, defines trust boundaries, and generates actionable insights for monitoring and escalation policies.
+
+Run post-training error analysis to identify failure patterns and model limitations:
+
+```bash
+gym error-analysis --config configs/error_analysis.yaml
+```
+
+Output is auto-saved to `reports/error_analysis/{model_id}/` based on the model path.
+
+### Generated Artifacts
+
+| Artifact | Description |
+|----------|-------------|
+| `error_table.parquet` | Full error table with risk tags |
+| `ranked_errors/high_confidence_wrong.csv` | Confident but incorrect predictions |
+| `ranked_errors/top_loss_wrong.csv` | Highest cross-entropy loss errors |
+| `ranked_errors/near_threshold_wrong.csv` | Uncertain predictions |
+| `slice_metrics.json` | Metrics per data slice (overall, near_threshold, low_coverage) |
+| `model_coefficients.json` | Top positive/negative model coefficients |
+| `example_contributions/` | Per-example feature contributions (JSON) |
+| `KNOWN_LIMITATIONS.md` | Auto-generated deployment knowledge |
+| `run_manifest.json` | Reproducibility audit trail |
+
+### CLI Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--config, -c` | `configs/error_analysis.yaml` | Configuration file |
+| `--output, -o` | Auto-derived from model path | Output directory |
+| `--model, -m` | From config | Override model path |
+| `--predictions, -p` | From config | Override predictions CSV |
+| `--test-csv, -t` | From config | Override test CSV |
+
+
 ## Experiments & Hyperparameter Search
 
 Run systematic hyperparameter ablation studies to find optimal model configurations. The experiments module implements the protocol defined in `docs/EXPERIMENT_PROTOCOL.md`.
@@ -153,6 +229,61 @@ Ablation suites produce:
 - `suite_summary.json`: Ranked results with winner selection
 
 For detailed documentation, see [`docs/EXPERIMENTS_GUIDE.md`](docs/EXPERIMENTS_GUIDE.md).
+
+## Ablation Reports & Visualization
+
+**Why it matters:** Hyperparameter selection without documentation is untraceable. The reporting module auto-generates 4-layer reports that capture *what* was tried, *which* configuration won, *why* it was selected, and *how* it performs on held-out data. This ensures reproducibility, facilitates peer review, and provides evidence for production deployment decisions.
+
+Generate comprehensive 4-layer reports from ablation suite results following the reporting standards defined in [`docs/REPORTING_STANDARDS.md`](docs/REPORTING_STANDARDS.md).
+
+### Generate Reports
+
+```bash
+python -m gym_sentiment_guard.cli.main main ablation-report \
+  --experiments-dir artifacts/experiments \
+  --output reports/logreg_ablations \
+  --test-predictions artifacts/models/sentiment_logreg/model.2026-01-10_002/test_predictions.csv
+```
+
+### CLI Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--experiments-dir, -e` | `artifacts/experiments` | Directory containing `run.*` folders |
+| `--output, -o` | `reports/logreg_ablations` | Output directory for reports |
+| `--test-predictions, -t` | None | Path to `test_predictions.csv` for PR curves |
+| `--winner, -w` | Auto-detect | Explicit winner run_id |
+
+### Output Structure
+
+```
+reports/logreg_ablations/
+├── TOP5_RESULTS.md           # Layer 2: Winner summary + Top-5 comparison
+├── ABLATION_ANALYSIS.md      # Layer 3: Factor-level analysis
+├── FINAL_MODEL_REPORT.md     # Layer 4: Production readiness report
+├── figures/
+│   ├── layer2_top5_f1neg.png
+│   ├── layer3_C_vs_f1neg.png
+│   ├── layer3_ngram_effect.png
+│   ├── layer3_stopwords_effect.png
+│   ├── layer4_val_confusion_matrix.png
+│   ├── layer4_pr_curve_neg.png
+│   ├── layer4_threshold_curve.png
+│   ├── layer4_calibration_curve.png
+│   └── layer4_val_vs_test.png
+└── tables/
+    ├── ablation_table_sorted.csv   # Full sorted ablation results
+    └── top5_table.csv              # Top-5 runs only
+```
+
+### Report Layers
+
+| Layer | Purpose | Artifacts |
+|-------|---------|-----------|
+| **1** | Ablation Summary Table | `ablation_table_sorted.csv` |
+| **2** | Top-K Results | `TOP5_RESULTS.md`, bar chart |
+| **3** | Factor-Level Analysis | `ABLATION_ANALYSIS.md`, C/ngram/stopwords plots |
+| **4** | Final Model Deep Dive | `FINAL_MODEL_REPORT.md`, confusion matrix, PR curve, calibration |
 
 ## Language Evaluation Utilities
 

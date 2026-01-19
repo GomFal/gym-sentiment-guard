@@ -1,0 +1,133 @@
+{
+  "id": 10634,
+  "text": "la piscina está increible el personal en general muy bien pero hay alguna recepcionista que dan ganas de cambiar de gimnasio por lo borde que es no se puede tratar con desprecio a los clientes",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.4913,
+  "raw_score": -0.7956,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.1082,
+      "coef": 4.9938,
+      "contrib": 0.5404
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.1356,
+      "coef": 2.9809,
+      "contrib": 0.4043
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0687,
+      "coef": 4.0381,
+      "contrib": 0.2773
+    },
+    {
+      "term": "personal",
+      "tfidf": 0.1156,
+      "coef": 1.278,
+      "contrib": 0.1477
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0819,
+      "coef": 1.635,
+      "contrib": 0.1339
+    },
+    {
+      "term": "increible",
+      "tfidf": 0.2635,
+      "coef": 0.4886,
+      "contrib": 0.1287
+    },
+    {
+      "term": "dan ganas",
+      "tfidf": 0.2727,
+      "coef": 0.3609,
+      "contrib": 0.0984
+    },
+    {
+      "term": "general",
+      "tfidf": 0.1873,
+      "coef": 0.464,
+      "contrib": 0.0869
+    },
+    {
+      "term": "puede",
+      "tfidf": 0.1605,
+      "coef": 0.4422,
+      "contrib": 0.071
+    },
+    {
+      "term": "ganas",
+      "tfidf": 0.2043,
+      "coef": 0.2404,
+      "contrib": 0.0491
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0888,
+      "coef": -9.965,
+      "contrib": -0.8844
+    },
+    {
+      "term": "clientes",
+      "tfidf": 0.1768,
+      "coef": -3.1833,
+      "contrib": -0.563
+    },
+    {
+      "term": "cambiar",
+      "tfidf": 0.2302,
+      "coef": -2.3699,
+      "contrib": -0.5456
+    },
+    {
+      "term": "dan",
+      "tfidf": 0.19,
+      "coef": -2.4855,
+      "contrib": -0.4722
+    },
+    {
+      "term": "borde",
+      "tfidf": 0.2489,
+      "coef": -1.7637,
+      "contrib": -0.4389
+    },
+    {
+      "term": "no puede",
+      "tfidf": 0.1884,
+      "coef": -2.053,
+      "contrib": -0.3868
+    },
+    {
+      "term": "bien pero",
+      "tfidf": 0.2116,
+      "coef": -1.5727,
+      "contrib": -0.3328
+    },
+    {
+      "term": "muy bien pero",
+      "tfidf": 0.2548,
+      "coef": -1.0777,
+      "contrib": -0.2746
+    },
+    {
+      "term": "recepcionista",
+      "tfidf": 0.2133,
+      "coef": -1.1572,
+      "contrib": -0.2468
+    },
+    {
+      "term": "piscina",
+      "tfidf": 0.1865,
+      "coef": -0.6094,
+      "contrib": -0.1137
+    }
+  ]
+}

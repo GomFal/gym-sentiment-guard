@@ -1,0 +1,14 @@
+# Spanish contrast markers for sentiment analysis
+# Used to detect mixed-sentiment reviews (risk tag: has_contrast)
+# These markers often indicate polarity shifts within a review.
+pero
+sin embargo
+no obstante
+aunque
+sino
+en cambio
+por el contrario
+a pesar de
+mientras que
+por un lado
+por otro lado

@@ -1,0 +1,133 @@
+{
+  "id": 11772,
+  "text": "la verdad que estaba buscando un gimnasio que tuviera toda la equipación pero sin estar llena de gente cuando fui a preguntar vi que había muchísima gente y eran las 20 30 a 21 00 un jueves sin embargo le di una oportunidad para probarlo y sinceramente parece mucha gente pero cuando estas en las maquinas al final no parece que haya tanta gente a veces tienes que esperar pero se libra bastante rápido ya que hay varias maquinas tienen taquillas que se abren y se cierran con una pulsera clases que ",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -3.542,
+  "raw_score": -1.8464,
+  "top_positive_contributors": [
+    {
+      "term": "clases",
+      "tfidf": 0.0602,
+      "coef": 3.8945,
+      "contrib": 0.2343
+    },
+    {
+      "term": "gente pero",
+      "tfidf": 0.1234,
+      "coef": 1.797,
+      "contrib": 0.2218
+    },
+    {
+      "term": "llena",
+      "tfidf": 0.1201,
+      "coef": 1.274,
+      "contrib": 0.153
+    },
+    {
+      "term": "aquí",
+      "tfidf": 0.0942,
+      "coef": 1.3539,
+      "contrib": 0.1275
+    },
+    {
+      "term": "mucha",
+      "tfidf": 0.086,
+      "coef": 1.0426,
+      "contrib": 0.0897
+    },
+    {
+      "term": "mucha gente pero",
+      "tfidf": 0.1359,
+      "coef": 0.5906,
+      "contrib": 0.0802
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.043,
+      "coef": 1.635,
+      "contrib": 0.0703
+    },
+    {
+      "term": "oportunidad",
+      "tfidf": 0.142,
+      "coef": 0.4335,
+      "contrib": 0.0616
+    },
+    {
+      "term": "quieras",
+      "tfidf": 0.13,
+      "coef": 0.4587,
+      "contrib": 0.0596
+    },
+    {
+      "term": "pero sin",
+      "tfidf": 0.1454,
+      "coef": 0.3528,
+      "contrib": 0.0513
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.0466,
+      "coef": -9.965,
+      "contrib": -0.4641
+    },
+    {
+      "term": "sin",
+      "tfidf": 0.111,
+      "coef": -2.8987,
+      "contrib": -0.3217
+    },
+    {
+      "term": "gente",
+      "tfidf": 0.1583,
+      "coef": -2.0184,
+      "contrib": -0.3195
+    },
+    {
+      "term": "parece",
+      "tfidf": 0.1476,
+      "coef": -1.7442,
+      "contrib": -0.2575
+    },
+    {
+      "term": "pulsera",
+      "tfidf": 0.1324,
+      "coef": -1.9186,
+      "contrib": -0.254
+    },
+    {
+      "term": "dijeron",
+      "tfidf": 0.1212,
+      "coef": -1.9303,
+      "contrib": -0.2339
+    },
+    {
+      "term": "estas",
+      "tfidf": 0.109,
+      "coef": -2.1399,
+      "contrib": -0.2333
+    },
+    {
+      "term": "20",
+      "tfidf": 0.1128,
+      "coef": -2.0226,
+      "contrib": -0.2282
+    },
+    {
+      "term": "30",
+      "tfidf": 0.1083,
+      "coef": -1.8476,
+      "contrib": -0.2
+    },
+    {
+      "term": "estaba",
+      "tfidf": 0.1009,
+      "coef": -1.7971,
+      "contrib": -0.1814
+    }
+  ]
+}

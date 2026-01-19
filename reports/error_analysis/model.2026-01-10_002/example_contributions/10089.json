@@ -1,0 +1,133 @@
+{
+  "id": 10089,
+  "text": "en gimasnio en si es una auténtica pasada muy espacioso máquinas brutales que te cuentan las repeticiones está muy bien equipado y el personal es bastante amable la única queja que tengo es relacionada con en el spa fui con mi pareja y pensábamos que el precio de la entrada al gimasnio venía incluido con la entrada al spa cosa que no era así fallo nuestro por no mirarlo bien pero la encargada del spa una vez que estábamos ya dentro nos pregunta que si teníamos cita y nosotros le dijimos que no q",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -3.1078,
+  "raw_score": -1.4121,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.0863,
+      "coef": 4.9938,
+      "contrib": 0.4312
+    },
+    {
+      "term": "muy",
+      "tfidf": 0.0679,
+      "coef": 4.0381,
+      "contrib": 0.2742
+    },
+    {
+      "term": "espacioso",
+      "tfidf": 0.1058,
+      "coef": 1.9467,
+      "contrib": 0.206
+    },
+    {
+      "term": "muy bien",
+      "tfidf": 0.0639,
+      "coef": 2.9809,
+      "contrib": 0.1905
+    },
+    {
+      "term": "amable",
+      "tfidf": 0.0653,
+      "coef": 2.8543,
+      "contrib": 0.1864
+    },
+    {
+      "term": "pasada",
+      "tfidf": 0.1123,
+      "coef": 1.4485,
+      "contrib": 0.1627
+    },
+    {
+      "term": "bueno",
+      "tfidf": 0.1333,
+      "coef": 1.1005,
+      "contrib": 0.1467
+    },
+    {
+      "term": "queja",
+      "tfidf": 0.1078,
+      "coef": 1.2936,
+      "contrib": 0.1395
+    },
+    {
+      "term": "única",
+      "tfidf": 0.1003,
+      "coef": 1.2423,
+      "contrib": 0.1246
+    },
+    {
+      "term": "está muy bien",
+      "tfidf": 0.094,
+      "coef": 1.2177,
+      "contrib": 0.1145
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1091,
+      "coef": -9.965,
+      "contrib": -1.0874
+    },
+    {
+      "term": "pagar",
+      "tfidf": 0.1542,
+      "coef": -2.1806,
+      "contrib": -0.3363
+    },
+    {
+      "term": "ya",
+      "tfidf": 0.133,
+      "coef": -2.3411,
+      "contrib": -0.3113
+    },
+    {
+      "term": "si",
+      "tfidf": 0.121,
+      "coef": -2.0586,
+      "contrib": -0.2491
+    },
+    {
+      "term": "desear",
+      "tfidf": 0.104,
+      "coef": -2.0935,
+      "contrib": -0.2178
+    },
+    {
+      "term": "mucho desear",
+      "tfidf": 0.1098,
+      "coef": -1.8464,
+      "contrib": -0.2027
+    },
+    {
+      "term": "encargada",
+      "tfidf": 0.2175,
+      "coef": -0.8571,
+      "contrib": -0.1864
+    },
+    {
+      "term": "entrada",
+      "tfidf": 0.2204,
+      "coef": -0.8328,
+      "contrib": -0.1836
+    },
+    {
+      "term": "dice",
+      "tfidf": 0.1022,
+      "coef": -1.7938,
+      "contrib": -0.1833
+    },
+    {
+      "term": "era",
+      "tfidf": 0.0909,
+      "coef": -1.8977,
+      "contrib": -0.1724
+    }
+  ]
+}

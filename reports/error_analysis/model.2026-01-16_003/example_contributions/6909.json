@@ -1,0 +1,133 @@
+{
+  "id": 6909,
+  "text": "el gimnasio no está mal pero llevan dos meses dando largas con la falta de aire acondicionado hace un calor que parece bikram gym no sé por qué no lo publicitan así escribes quejas a la página web ya que te dicen que lo hagas a través de ese medio y se pasan la pelota de unos a otros lamentable lo del aire acondicionado por lo demás bien actualizo la reseña a 17 10 2022 han puesto casi todas las luces de la sala de musculación azul si azul alegan que es por ahorro energético lo cual me parecería",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -6.7255,
+  "raw_score": -4.9492,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1264,
+      "coef": 4.533,
+      "contrib": 0.5732
+    },
+    {
+      "term": "unigrams__10",
+      "tfidf": 0.102,
+      "coef": 2.8885,
+      "contrib": 0.2947
+    },
+    {
+      "term": "multigrams__no está",
+      "tfidf": 0.077,
+      "coef": 2.6674,
+      "contrib": 0.2054
+    },
+    {
+      "term": "multigrams__no está mal",
+      "tfidf": 0.098,
+      "coef": 1.7229,
+      "contrib": 0.1688
+    },
+    {
+      "term": "multigrams__está mal",
+      "tfidf": 0.0972,
+      "coef": 1.7035,
+      "contrib": 0.1656
+    },
+    {
+      "term": "unigrams__otros",
+      "tfidf": 0.1232,
+      "coef": 0.7532,
+      "contrib": 0.0928
+    },
+    {
+      "term": "multigrams__unos meses",
+      "tfidf": 0.0856,
+      "coef": 0.6603,
+      "contrib": 0.0565
+    },
+    {
+      "term": "unigrams__musculación",
+      "tfidf": 0.1506,
+      "coef": 0.3692,
+      "contrib": 0.0556
+    },
+    {
+      "term": "unigrams__actualizo",
+      "tfidf": 0.2009,
+      "coef": 0.2339,
+      "contrib": 0.047
+    },
+    {
+      "term": "multigrams__han puesto",
+      "tfidf": 0.0895,
+      "coef": 0.384,
+      "contrib": 0.0344
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1598,
+      "coef": -8.7464,
+      "contrib": -1.3978
+    },
+    {
+      "term": "unigrams__lamentable",
+      "tfidf": 0.1484,
+      "coef": -4.4291,
+      "contrib": -0.6572
+    },
+    {
+      "term": "unigrams__acondicionado",
+      "tfidf": 0.2342,
+      "coef": -2.3134,
+      "contrib": -0.5418
+    },
+    {
+      "term": "unigrams__mal",
+      "tfidf": 0.1147,
+      "coef": -4.1579,
+      "contrib": -0.4768
+    },
+    {
+      "term": "unigrams__calor",
+      "tfidf": 0.1419,
+      "coef": -2.8346,
+      "contrib": -0.4022
+    },
+    {
+      "term": "unigrams__dicen",
+      "tfidf": 0.1331,
+      "coef": -2.3226,
+      "contrib": -0.3091
+    },
+    {
+      "term": "unigrams__meses",
+      "tfidf": 0.1866,
+      "coef": -1.4679,
+      "contrib": -0.274
+    },
+    {
+      "term": "unigrams__medio",
+      "tfidf": 0.1503,
+      "coef": -1.4706,
+      "contrib": -0.221
+    },
+    {
+      "term": "unigrams__luces",
+      "tfidf": 0.1759,
+      "coef": -1.1937,
+      "contrib": -0.2099
+    },
+    {
+      "term": "unigrams__pasan",
+      "tfidf": 0.1603,
+      "coef": -1.3084,
+      "contrib": -0.2097
+    }
+  ]
+}

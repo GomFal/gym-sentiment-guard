@@ -1,0 +1,73 @@
+{
+  "id": 5930,
+  "text": "alguien sabe cuando es la apertura ¿? vale edito la reseña para informar que el dia 1 de abril es la apertura un saludo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.0872,
+  "raw_score": -0.3916,
+  "top_positive_contributors": [
+    {
+      "term": "edito",
+      "tfidf": 0.3317,
+      "coef": 0.1934,
+      "contrib": 0.0641
+    },
+    {
+      "term": "sabe",
+      "tfidf": 0.2848,
+      "coef": 0.0541,
+      "contrib": 0.0154
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "apertura",
+      "tfidf": 0.4677,
+      "coef": -1.7941,
+      "contrib": -0.8391
+    },
+    {
+      "term": "abril",
+      "tfidf": 0.3291,
+      "coef": -1.0973,
+      "contrib": -0.3611
+    },
+    {
+      "term": "dia",
+      "tfidf": 0.2697,
+      "coef": -1.0958,
+      "contrib": -0.2956
+    },
+    {
+      "term": "alguien",
+      "tfidf": 0.2503,
+      "coef": -0.9217,
+      "contrib": -0.2307
+    },
+    {
+      "term": "informar",
+      "tfidf": 0.3513,
+      "coef": -0.4074,
+      "contrib": -0.1431
+    },
+    {
+      "term": "reseña",
+      "tfidf": 0.2526,
+      "coef": -0.4805,
+      "contrib": -0.1213
+    },
+    {
+      "term": "vale",
+      "tfidf": 0.2795,
+      "coef": -0.4177,
+      "contrib": -0.1167
+    },
+    {
+      "term": "saludo",
+      "tfidf": 0.2848,
+      "coef": -0.2074,
+      "contrib": -0.0591
+    }
+  ]
+}

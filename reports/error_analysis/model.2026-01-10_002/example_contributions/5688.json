@@ -1,0 +1,97 @@
+{
+  "id": 5688,
+  "text": "un ambiente súper malo y tóxico lleno de gym bros maleducados y que lo único que hacen es tirarse fotitos enfrente del espejo no lo recomendaría a nadie hay gimnasios con un ambiente mucho mejor",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -0.4192,
+  "raw_score": 1.2765,
+  "top_positive_contributors": [
+    {
+      "term": "mejor",
+      "tfidf": 0.1783,
+      "coef": 5.2209,
+      "contrib": 0.9308
+    },
+    {
+      "term": "ambiente",
+      "tfidf": 0.3472,
+      "coef": 2.656,
+      "contrib": 0.9223
+    },
+    {
+      "term": "súper",
+      "tfidf": 0.217,
+      "coef": 2.7292,
+      "contrib": 0.5923
+    },
+    {
+      "term": "gym",
+      "tfidf": 0.1676,
+      "coef": 1.6562,
+      "contrib": 0.2777
+    },
+    {
+      "term": "único",
+      "tfidf": 0.263,
+      "coef": 0.9891,
+      "contrib": 0.2601
+    },
+    {
+      "term": "mucho",
+      "tfidf": 0.1954,
+      "coef": 0.0451,
+      "contrib": 0.0088
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1254,
+      "coef": -9.965,
+      "contrib": -1.2499
+    },
+    {
+      "term": "lleno",
+      "tfidf": 0.2475,
+      "coef": -2.9327,
+      "contrib": -0.7258
+    },
+    {
+      "term": "nadie",
+      "tfidf": 0.2682,
+      "coef": -2.185,
+      "contrib": -0.586
+    },
+    {
+      "term": "malo",
+      "tfidf": 0.3303,
+      "coef": -1.1095,
+      "contrib": -0.3665
+    },
+    {
+      "term": "mucho mejor",
+      "tfidf": 0.3639,
+      "coef": -0.767,
+      "contrib": -0.2791
+    },
+    {
+      "term": "gimnasios",
+      "tfidf": 0.2415,
+      "coef": -0.4574,
+      "contrib": -0.1105
+    },
+    {
+      "term": "hacen",
+      "tfidf": 0.2456,
+      "coef": -0.3346,
+      "contrib": -0.0822
+    },
+    {
+      "term": "recomendaría",
+      "tfidf": 0.395,
+      "coef": -0.0285,
+      "contrib": -0.0112
+    }
+  ]
+}

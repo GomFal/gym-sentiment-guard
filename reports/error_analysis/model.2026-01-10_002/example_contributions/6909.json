@@ -1,0 +1,133 @@
+{
+  "id": 6909,
+  "text": "el gimnasio no está mal pero llevan dos meses dando largas con la falta de aire acondicionado hace un calor que parece bikram gym no sé por qué no lo publicitan así escribes quejas a la página web ya que te dicen que lo hagas a través de ese medio y se pasan la pelota de unos a otros lamentable lo del aire acondicionado por lo demás bien actualizo la reseña a 17 10 2022 han puesto casi todas las luces de la sala de musculación azul si azul alegan que es por ahorro energético lo cual me parecería",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -6.3172,
+  "raw_score": -4.6216,
+  "top_positive_contributors": [
+    {
+      "term": "bien",
+      "tfidf": 0.0973,
+      "coef": 4.9938,
+      "contrib": 0.4857
+    },
+    {
+      "term": "no está",
+      "tfidf": 0.1141,
+      "coef": 3.0424,
+      "contrib": 0.3473
+    },
+    {
+      "term": "10",
+      "tfidf": 0.0785,
+      "coef": 3.1296,
+      "contrib": 0.2456
+    },
+    {
+      "term": "unos meses",
+      "tfidf": 0.1274,
+      "coef": 1.5387,
+      "contrib": 0.1961
+    },
+    {
+      "term": "no está mal",
+      "tfidf": 0.1459,
+      "coef": 0.7406,
+      "contrib": 0.108
+    },
+    {
+      "term": "está mal",
+      "tfidf": 0.1447,
+      "coef": 0.7208,
+      "contrib": 0.1043
+    },
+    {
+      "term": "gym",
+      "tfidf": 0.063,
+      "coef": 1.6562,
+      "contrib": 0.1043
+    },
+    {
+      "term": "otros",
+      "tfidf": 0.0947,
+      "coef": 1.0827,
+      "contrib": 0.1026
+    },
+    {
+      "term": "bien si",
+      "tfidf": 0.1528,
+      "coef": 0.4657,
+      "contrib": 0.0712
+    },
+    {
+      "term": "gimnasio",
+      "tfidf": 0.0435,
+      "coef": 1.635,
+      "contrib": 0.0711
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1229,
+      "coef": -9.965,
+      "contrib": -1.2251
+    },
+    {
+      "term": "aire",
+      "tfidf": 0.1655,
+      "coef": -3.4264,
+      "contrib": -0.5669
+    },
+    {
+      "term": "lamentable",
+      "tfidf": 0.1141,
+      "coef": -4.8559,
+      "contrib": -0.5543
+    },
+    {
+      "term": "mal",
+      "tfidf": 0.0882,
+      "coef": -4.9943,
+      "contrib": -0.4405
+    },
+    {
+      "term": "cual",
+      "tfidf": 0.1735,
+      "coef": -2.1319,
+      "contrib": -0.37
+    },
+    {
+      "term": "acondicionado",
+      "tfidf": 0.1802,
+      "coef": -1.8425,
+      "contrib": -0.332
+    },
+    {
+      "term": "calor",
+      "tfidf": 0.1092,
+      "coef": -2.8656,
+      "contrib": -0.3128
+    },
+    {
+      "term": "dicen",
+      "tfidf": 0.1024,
+      "coef": -2.6437,
+      "contrib": -0.2706
+    },
+    {
+      "term": "meses",
+      "tfidf": 0.1436,
+      "coef": -1.7921,
+      "contrib": -0.2573
+    },
+    {
+      "term": "si",
+      "tfidf": 0.11,
+      "coef": -2.0586,
+      "contrib": -0.2264
+    }
+  ]
+}

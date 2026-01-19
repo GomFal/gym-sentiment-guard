@@ -1,0 +1,24 @@
+{
+  "id": 9903,
+  "text": "muy masificadas las clases",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": 6.1383,
+  "raw_score": 7.9146,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 1.0,
+      "coef": 4.5607,
+      "contrib": 4.5607
+    },
+    {
+      "term": "multigrams__las clases",
+      "tfidf": 1.0,
+      "coef": 1.5775,
+      "contrib": 1.5775
+    }
+  ],
+  "top_negative_contributors": []
+}

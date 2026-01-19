@@ -1,0 +1,37 @@
+{
+  "id": 13712,
+  "text": "a reventar en cualquier horario",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.9887,
+  "total_contribution_sum": -0.7494,
+  "raw_score": 1.2393,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__reventar",
+      "tfidf": 0.7632,
+      "coef": 0.1036,
+      "contrib": 0.0791
+    },
+    {
+      "term": "unigrams__horario",
+      "tfidf": 0.4558,
+      "coef": 0.0965,
+      "contrib": 0.044
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__cualquier",
+      "tfidf": 0.458,
+      "coef": -1.3669,
+      "contrib": -0.626
+    },
+    {
+      "term": "multigrams__cualquier horario",
+      "tfidf": 1.0,
+      "coef": -0.2464,
+      "contrib": -0.2464
+    }
+  ]
+}

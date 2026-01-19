@@ -1,0 +1,127 @@
+{
+  "id": 4504,
+  "text": "las máquinas están muy cerca una de otras el aforo es muy alto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": 0.058,
+  "raw_score": 1.8343,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.2578,
+      "coef": 4.5607,
+      "contrib": 1.1759
+    },
+    {
+      "term": "unigrams__cerca",
+      "tfidf": 0.4908,
+      "coef": 1.4077,
+      "contrib": 0.6909
+    },
+    {
+      "term": "multigrams__están muy",
+      "tfidf": 0.2271,
+      "coef": 0.3995,
+      "contrib": 0.0907
+    },
+    {
+      "term": "multigrams__máquinas están",
+      "tfidf": 0.2537,
+      "coef": 0.183,
+      "contrib": 0.0464
+    },
+    {
+      "term": "multigrams__una de",
+      "tfidf": 0.245,
+      "coef": 0.182,
+      "contrib": 0.0446
+    },
+    {
+      "term": "multigrams__máquinas están muy",
+      "tfidf": 0.333,
+      "coef": 0.1321,
+      "contrib": 0.044
+    },
+    {
+      "term": "multigrams__las máquinas están",
+      "tfidf": 0.2584,
+      "coef": 0.1179,
+      "contrib": 0.0305
+    },
+    {
+      "term": "unigrams__máquinas",
+      "tfidf": 0.2518,
+      "coef": 0.0811,
+      "contrib": 0.0204
+    },
+    {
+      "term": "multigrams__muy alto",
+      "tfidf": 0.3523,
+      "coef": 0.0357,
+      "contrib": 0.0126
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__alto",
+      "tfidf": 0.5623,
+      "coef": -0.9685,
+      "contrib": -0.5446
+    },
+    {
+      "term": "multigrams__el aforo",
+      "tfidf": 0.2153,
+      "coef": -2.1292,
+      "contrib": -0.4583
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.3074,
+      "coef": -1.4326,
+      "contrib": -0.4404
+    },
+    {
+      "term": "unigrams__otras",
+      "tfidf": 0.4675,
+      "coef": -0.6146,
+      "contrib": -0.2873
+    },
+    {
+      "term": "multigrams__las máquinas",
+      "tfidf": 0.166,
+      "coef": -0.7281,
+      "contrib": -0.1208
+    },
+    {
+      "term": "multigrams__aforo es",
+      "tfidf": 0.302,
+      "coef": -0.2814,
+      "contrib": -0.085
+    },
+    {
+      "term": "multigrams__el aforo es",
+      "tfidf": 0.313,
+      "coef": -0.2431,
+      "contrib": -0.0761
+    },
+    {
+      "term": "multigrams__muy cerca",
+      "tfidf": 0.3448,
+      "coef": -0.1357,
+      "contrib": -0.0468
+    },
+    {
+      "term": "multigrams__de otras",
+      "tfidf": 0.333,
+      "coef": -0.1062,
+      "contrib": -0.0353
+    },
+    {
+      "term": "multigrams__es muy",
+      "tfidf": 0.172,
+      "coef": -0.0196,
+      "contrib": -0.0034
+    }
+  ]
+}

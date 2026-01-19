@@ -1,0 +1,133 @@
+{
+  "id": 7727,
+  "text": "encantada con las instalaciones y el personal especialmente jorge con quien llevo entrenando más de un año en las horas punta está bastante lleno como cualquier gimnasio del centro de madrid no me planteo cambiarme de centro ni de pt",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -2.0775,
+  "raw_score": -0.3012,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__encantada",
+      "tfidf": 0.2641,
+      "coef": 2.1539,
+      "contrib": 0.5689
+    },
+    {
+      "term": "unigrams__punta",
+      "tfidf": 0.2762,
+      "coef": 1.48,
+      "contrib": 0.4087
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1403,
+      "coef": 1.6612,
+      "contrib": 0.233
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.1499,
+      "coef": 1.0841,
+      "contrib": 0.1625
+    },
+    {
+      "term": "unigrams__cambiarme",
+      "tfidf": 0.3595,
+      "coef": 0.4315,
+      "contrib": 0.1551
+    },
+    {
+      "term": "unigrams__bastante",
+      "tfidf": 0.1985,
+      "coef": 0.598,
+      "contrib": 0.1187
+    },
+    {
+      "term": "multigrams__de madrid",
+      "tfidf": 0.0996,
+      "coef": 1.0311,
+      "contrib": 0.1027
+    },
+    {
+      "term": "unigrams__especialmente",
+      "tfidf": 0.2695,
+      "coef": 0.3743,
+      "contrib": 0.1009
+    },
+    {
+      "term": "unigrams__horas",
+      "tfidf": 0.2164,
+      "coef": 0.291,
+      "contrib": 0.063
+    },
+    {
+      "term": "multigrams__encantada con",
+      "tfidf": 0.1238,
+      "coef": 0.493,
+      "contrib": 0.0611
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.1957,
+      "coef": -5.2374,
+      "contrib": -1.0248
+    },
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1151,
+      "coef": -8.7464,
+      "contrib": -1.0071
+    },
+    {
+      "term": "unigrams__lleno",
+      "tfidf": 0.2272,
+      "coef": -2.7415,
+      "contrib": -0.6229
+    },
+    {
+      "term": "unigrams__quien",
+      "tfidf": 0.2826,
+      "coef": -1.2445,
+      "contrib": -0.3517
+    },
+    {
+      "term": "unigrams__cualquier",
+      "tfidf": 0.2241,
+      "coef": -1.4759,
+      "contrib": -0.3308
+    },
+    {
+      "term": "unigrams__año",
+      "tfidf": 0.2254,
+      "coef": -1.0081,
+      "contrib": -0.2273
+    },
+    {
+      "term": "unigrams__entrenando",
+      "tfidf": 0.2538,
+      "coef": -0.8629,
+      "contrib": -0.219
+    },
+    {
+      "term": "multigrams__no me",
+      "tfidf": 0.0931,
+      "coef": -1.2329,
+      "contrib": -0.1148
+    },
+    {
+      "term": "multigrams__con las",
+      "tfidf": 0.1045,
+      "coef": -0.9205,
+      "contrib": -0.0962
+    },
+    {
+      "term": "unigrams__centro",
+      "tfidf": 0.3589,
+      "coef": -0.2163,
+      "contrib": -0.0776
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": 6600,
+  "text": "fui al gym durante 2 años y todo fue fenomenal cuando me di de baja porque me mudaba a otra localidad no tuve ningún problema me dieron de baja en 5 minutos volvería al gym si abrieran uno en alcorcón",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.9408,
+  "raw_score": -1.2451,
+  "top_positive_contributors": [
+    {
+      "term": "fenomenal",
+      "tfidf": 0.2433,
+      "coef": 1.5375,
+      "contrib": 0.374
+    },
+    {
+      "term": "gym",
+      "tfidf": 0.2012,
+      "coef": 1.6562,
+      "contrib": 0.3333
+    },
+    {
+      "term": "ningún problema",
+      "tfidf": 0.2712,
+      "coef": 1.0385,
+      "contrib": 0.2816
+    },
+    {
+      "term": "uno",
+      "tfidf": 0.1797,
+      "coef": 0.7422,
+      "contrib": 0.1334
+    },
+    {
+      "term": "baja porque",
+      "tfidf": 0.2884,
+      "coef": 0.2357,
+      "contrib": 0.068
+    },
+    {
+      "term": "tuve",
+      "tfidf": 0.2192,
+      "coef": 0.2516,
+      "contrib": 0.0551
+    },
+    {
+      "term": "durante",
+      "tfidf": 0.1955,
+      "coef": 0.0782,
+      "contrib": 0.0153
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "baja",
+      "tfidf": 0.2731,
+      "coef": -4.2095,
+      "contrib": -1.1496
+    },
+    {
+      "term": "no",
+      "tfidf": 0.0889,
+      "coef": -9.965,
+      "contrib": -0.8861
+    },
+    {
+      "term": "minutos",
+      "tfidf": 0.2173,
+      "coef": -1.6211,
+      "contrib": -0.3522
+    },
+    {
+      "term": "fui",
+      "tfidf": 0.1906,
+      "coef": -1.7732,
+      "contrib": -0.3379
+    },
+    {
+      "term": "porque",
+      "tfidf": 0.1414,
+      "coef": -2.0254,
+      "contrib": -0.2864
+    },
+    {
+      "term": "otra",
+      "tfidf": 0.1835,
+      "coef": -1.5591,
+      "contrib": -0.2861
+    },
+    {
+      "term": "si",
+      "tfidf": 0.1226,
+      "coef": -2.0586,
+      "contrib": -0.2524
+    },
+    {
+      "term": "gym si",
+      "tfidf": 0.2884,
+      "coef": -0.8673,
+      "contrib": -0.2501
+    },
+    {
+      "term": "ningún",
+      "tfidf": 0.1958,
+      "coef": -1.234,
+      "contrib": -0.2416
+    },
+    {
+      "term": "di baja",
+      "tfidf": 0.2753,
+      "coef": -0.2059,
+      "contrib": -0.0567
+    }
+  ]
+}

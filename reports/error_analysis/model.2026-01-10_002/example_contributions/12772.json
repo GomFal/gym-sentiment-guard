@@ -1,0 +1,109 @@
+{
+  "id": 12772,
+  "text": "hola solo tengo una pregunta una vez que me inscriba puedo pagar en efectivo porque por targeta no puedo y no no tengo nadie que me haga el favor de pagarme con targeta gracias",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.6956,
+  "total_contribution_sum": -2.5276,
+  "raw_score": -0.8319,
+  "top_positive_contributors": [
+    {
+      "term": "gracias",
+      "tfidf": 0.1576,
+      "coef": 5.0488,
+      "contrib": 0.7959
+    },
+    {
+      "term": "no tengo",
+      "tfidf": 0.2682,
+      "coef": 1.3496,
+      "contrib": 0.362
+    },
+    {
+      "term": "tengo",
+      "tfidf": 0.334,
+      "coef": 0.6431,
+      "contrib": 0.2148
+    },
+    {
+      "term": "puedo",
+      "tfidf": 0.3399,
+      "coef": 0.1912,
+      "contrib": 0.065
+    },
+    {
+      "term": "hola",
+      "tfidf": 0.2484,
+      "coef": 0.2406,
+      "contrib": 0.0598
+    },
+    {
+      "term": "haga",
+      "tfidf": 0.2763,
+      "coef": 0.1686,
+      "contrib": 0.0466
+    },
+    {
+      "term": "pregunta",
+      "tfidf": 0.2973,
+      "coef": 0.1494,
+      "contrib": 0.0444
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "no",
+      "tfidf": 0.1998,
+      "coef": -9.965,
+      "contrib": -1.9912
+    },
+    {
+      "term": "pagar",
+      "tfidf": 0.2074,
+      "coef": -2.1806,
+      "contrib": -0.4523
+    },
+    {
+      "term": "nadie",
+      "tfidf": 0.2036,
+      "coef": -2.185,
+      "contrib": -0.4448
+    },
+    {
+      "term": "porque",
+      "tfidf": 0.1514,
+      "coef": -2.0254,
+      "contrib": -0.3067
+    },
+    {
+      "term": "solo",
+      "tfidf": 0.1611,
+      "coef": -1.8496,
+      "contrib": -0.298
+    },
+    {
+      "term": "favor",
+      "tfidf": 0.2202,
+      "coef": -1.1733,
+      "contrib": -0.2584
+    },
+    {
+      "term": "no no",
+      "tfidf": 0.2904,
+      "coef": -0.617,
+      "contrib": -0.1792
+    },
+    {
+      "term": "efectivo",
+      "tfidf": 0.3056,
+      "coef": -0.4178,
+      "contrib": -0.1277
+    },
+    {
+      "term": "no puedo",
+      "tfidf": 0.2241,
+      "coef": -0.2581,
+      "contrib": -0.0578
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": 13439,
+  "text": "0 empatía con los usuarios",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -0.5546,
+  "raw_score": 1.2217,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__empatía",
+      "tfidf": 0.8,
+      "coef": 0.0831,
+      "contrib": 0.0665
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "multigrams__los usuarios",
+      "tfidf": 0.3793,
+      "coef": -0.4609,
+      "contrib": -0.1748
+    },
+    {
+      "term": "unigrams__usuarios",
+      "tfidf": 0.6001,
+      "coef": -0.2513,
+      "contrib": -0.1508
+    },
+    {
+      "term": "multigrams__con los usuarios",
+      "tfidf": 0.593,
+      "coef": -0.1786,
+      "contrib": -0.1059
+    },
+    {
+      "term": "multigrams__con los",
+      "tfidf": 0.3597,
+      "coef": -0.2804,
+      "contrib": -0.1009
+    },
+    {
+      "term": "multigrams__empatía con",
+      "tfidf": 0.6124,
+      "coef": -0.1449,
+      "contrib": -0.0887
+    }
+  ]
+}

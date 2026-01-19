@@ -1,0 +1,133 @@
+{
+  "id": 73,
+  "text": "me gusta entrenar acá pero aunque no sea culpa de los monitores muchas personas se quedan en las máquinas viendo el móvil y no nos dejan aprovechar el tiempo para poder entrenar la gente debería de ser más consciente de estos casos para no incomodar a los demás",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -3.3024,
+  "raw_score": -1.5261,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__gusta",
+      "tfidf": 0.1872,
+      "coef": 3.0463,
+      "contrib": 0.5704
+    },
+    {
+      "term": "multigrams__me gusta",
+      "tfidf": 0.1146,
+      "coef": 1.5376,
+      "contrib": 0.1762
+    },
+    {
+      "term": "unigrams__aunque",
+      "tfidf": 0.1819,
+      "coef": 0.7541,
+      "contrib": 0.1371
+    },
+    {
+      "term": "unigrams__monitores",
+      "tfidf": 0.1403,
+      "coef": 0.7695,
+      "contrib": 0.1079
+    },
+    {
+      "term": "multigrams__para no",
+      "tfidf": 0.1424,
+      "coef": 0.7075,
+      "contrib": 0.1008
+    },
+    {
+      "term": "unigrams__aprovechar",
+      "tfidf": 0.306,
+      "coef": 0.2166,
+      "contrib": 0.0663
+    },
+    {
+      "term": "multigrams__tiempo para poder",
+      "tfidf": 0.2023,
+      "coef": 0.2271,
+      "contrib": 0.046
+    },
+    {
+      "term": "multigrams__tiempo para",
+      "tfidf": 0.1719,
+      "coef": 0.2547,
+      "contrib": 0.0438
+    },
+    {
+      "term": "multigrams__los monitores",
+      "tfidf": 0.0941,
+      "coef": 0.3744,
+      "contrib": 0.0352
+    },
+    {
+      "term": "multigrams__los demás",
+      "tfidf": 0.1499,
+      "coef": 0.1419,
+      "contrib": 0.0213
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1958,
+      "coef": -8.7464,
+      "contrib": -1.7122
+    },
+    {
+      "term": "unigrams__dejan",
+      "tfidf": 0.2203,
+      "coef": -2.0424,
+      "contrib": -0.45
+    },
+    {
+      "term": "unigrams__viendo",
+      "tfidf": 0.2753,
+      "coef": -0.9637,
+      "contrib": -0.2653
+    },
+    {
+      "term": "unigrams__sea",
+      "tfidf": 0.1927,
+      "coef": -1.3666,
+      "contrib": -0.2633
+    },
+    {
+      "term": "unigrams__entrenar",
+      "tfidf": 0.2254,
+      "coef": -1.0218,
+      "contrib": -0.2303
+    },
+    {
+      "term": "unigrams__estos",
+      "tfidf": 0.2207,
+      "coef": -0.8894,
+      "contrib": -0.1963
+    },
+    {
+      "term": "unigrams__ser",
+      "tfidf": 0.1748,
+      "coef": -1.0633,
+      "contrib": -0.1858
+    },
+    {
+      "term": "unigrams__debería",
+      "tfidf": 0.2289,
+      "coef": -0.6237,
+      "contrib": -0.1428
+    },
+    {
+      "term": "unigrams__casos",
+      "tfidf": 0.2912,
+      "coef": -0.4712,
+      "contrib": -0.1372
+    },
+    {
+      "term": "unigrams__quedan",
+      "tfidf": 0.264,
+      "coef": -0.4379,
+      "contrib": -0.1156
+    }
+  ]
+}

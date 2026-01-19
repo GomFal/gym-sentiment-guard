@@ -1,0 +1,97 @@
+{
+  "id": 8615,
+  "text": "buenas instalaciones sólo que no tienen la máquina predicador",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_intercept": 1.7763,
+  "total_contribution_sum": -1.938,
+  "raw_score": -0.1617,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buenas",
+      "tfidf": 0.3622,
+      "coef": 2.8382,
+      "contrib": 1.0279
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.2878,
+      "coef": 1.6612,
+      "contrib": 0.4781
+    },
+    {
+      "term": "multigrams__la máquina",
+      "tfidf": 0.3324,
+      "coef": 0.6273,
+      "contrib": 0.2085
+    },
+    {
+      "term": "unigrams__máquina",
+      "tfidf": 0.4797,
+      "coef": 0.1986,
+      "contrib": 0.0953
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2362,
+      "coef": -8.7464,
+      "contrib": -2.0663
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.405,
+      "coef": -1.3859,
+      "contrib": -0.5612
+    },
+    {
+      "term": "multigrams__no tienen",
+      "tfidf": 0.2902,
+      "coef": -1.3959,
+      "contrib": -0.4052
+    },
+    {
+      "term": "multigrams__que no",
+      "tfidf": 0.1919,
+      "coef": -1.1965,
+      "contrib": -0.2296
+    },
+    {
+      "term": "unigrams__sólo",
+      "tfidf": 0.5798,
+      "coef": -0.3574,
+      "contrib": -0.2072
+    },
+    {
+      "term": "multigrams__tienen la",
+      "tfidf": 0.385,
+      "coef": -0.2778,
+      "contrib": -0.1069
+    },
+    {
+      "term": "multigrams__buenas instalaciones",
+      "tfidf": 0.2296,
+      "coef": -0.4346,
+      "contrib": -0.0998
+    },
+    {
+      "term": "multigrams__que no tienen",
+      "tfidf": 0.3684,
+      "coef": -0.1432,
+      "contrib": -0.0528
+    },
+    {
+      "term": "multigrams__no tienen la",
+      "tfidf": 0.4571,
+      "coef": -0.031,
+      "contrib": -0.0142
+    },
+    {
+      "term": "multigrams__sólo que",
+      "tfidf": 0.4721,
+      "coef": -0.0098,
+      "contrib": -0.0046
+    }
+  ]
+}
