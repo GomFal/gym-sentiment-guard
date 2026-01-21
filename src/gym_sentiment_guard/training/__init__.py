@@ -1,5 +1,18 @@
-"""Training utilities."""
+"""DEPRECATED: Use gym_sentiment_guard.models.logreg instead.
 
-from .model import train_from_config
+This module is maintained for backward compatibility.
+New code should import from gym_sentiment_guard.models.logreg.
+"""
 
-__all__ = ["train_from_config"]
+import warnings
+
+from ..models.logreg.pipeline import train_from_config
+
+warnings.warn(
+    'Importing from gym_sentiment_guard.training is deprecated. '
+    'Use gym_sentiment_guard.models.logreg instead.',
+    DeprecationWarning,
+    stacklevel=2,
+)
+
+__all__ = ['train_from_config']
