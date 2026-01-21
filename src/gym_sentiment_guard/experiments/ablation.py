@@ -19,10 +19,10 @@ from typing import Any
 
 import pandas as pd
 
+from ..common.metrics import compute_test_metrics
 from ..utils.logging import get_logger, json_log
 from .artifacts import RunResult
 from .grid import LOGREG_GRID, TFIDF_GRID
-from .metrics import compute_test_metrics
 from .runner import ExperimentConfig, run_single_experiment
 
 log = get_logger(__name__)

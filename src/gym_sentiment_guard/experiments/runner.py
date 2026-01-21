@@ -30,6 +30,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold
 from sklearn.pipeline import Pipeline
 
+from ..common.metrics import compute_val_metrics
+from ..common.threshold import apply_threshold, select_threshold
 from ..utils.logging import get_logger, json_log
 from .artifacts import (
     RunConfig,
@@ -41,8 +43,6 @@ from .artifacts import (
     save_run_artifact,
 )
 from .grid import CALIBRATION_CONFIG, FIXED_PARAMS, SOLVER_BY_PENALTY, STOPWORDS_SAFE
-from .metrics import compute_val_metrics
-from .threshold import apply_threshold, select_threshold
 
 log = get_logger(__name__)
 
