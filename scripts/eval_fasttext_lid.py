@@ -88,7 +88,15 @@ def evaluate_fasttext_lid(
     report_text = classification_report(labels, preds, zero_division=0)
     unique_labels = sorted(set(labels) | set(preds))
     cm = confusion_matrix(labels, preds, labels=unique_labels)
-    threshold_map = {'0.95': 0.95, '0.90': 0.90, '0.85': 0.85, '0.80': 0.80, '0.75': 0.75, '0.50': 0.50, '0.25':0.25}
+    threshold_map = {
+        '0.95': 0.95,
+        '0.90': 0.90,
+        '0.85': 0.85,
+        '0.80': 0.80,
+        '0.75': 0.75,
+        '0.50': 0.50,
+        '0.25': 0.25,
+    }
 
     results = {
         'dataset': str(data_path),
@@ -230,21 +238,21 @@ def main() -> None:
         confusion_png=args.confusion_png,
     )
 
-    print(f"Accuracy: {results['accuracy']:.4f}")
+    print(f'Accuracy: {results["accuracy"]:.4f}')
     print('Classification report:')
     print(results['report_text'])
     print('Confidence coverage:')
     for threshold, stats in results['confidence_summary']['thresholds'].items():
         print(
-            f"≥{threshold}: {stats['count']} reviews ({stats['percentage']:.1f}%)",
+            f'≥{threshold}: {stats["count"]} reviews ({stats["percentage"]:.1f}%)',
         )
         metrics = stats.get('metrics', {})
         if metrics and metrics['accuracy'] is not None:
             print(
-                f"    accuracy={metrics['accuracy']:.3f}, "
-                f"precision={metrics['precision']:.3f}, "
-                f"recall={metrics['recall']:.3f}, "
-                f"f1={metrics['f1']:.3f}",
+                f'    accuracy={metrics["accuracy"]:.3f}, '
+                f'precision={metrics["precision"]:.3f}, '
+                f'recall={metrics["recall"]:.3f}, '
+                f'f1={metrics["f1"]:.3f}',
             )
 
 

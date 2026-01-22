@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from gym_sentiment_guard.experiments.threshold import (
+from gym_sentiment_guard.common.threshold import (
     ThresholdResult,
     apply_threshold,
     select_threshold,

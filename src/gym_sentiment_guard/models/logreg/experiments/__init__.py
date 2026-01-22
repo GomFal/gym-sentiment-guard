@@ -1,12 +1,30 @@
-"""LogReg experiments module.
+"""Experiments module for Logistic Regression.
 
-This package will contain LogReg-specific hyperparameter search:
-- grid.py: Parameter grids (TF-IDF, LogReg, calibration)
-- runner.py: Single experiment execution
-- ablation.py: Ablation suite orchestration
-
-These files will be migrated from experiments/ in Phase 4.
+Calculates the ablation surface for LogReg parameters.
 """
 
-# Exports will be added as modules are migrated in Phase 4
-__all__: list[str] = []
+from .ablation import evaluate_winner_on_test, generate_grid_configs, run_ablation_suite
+from .grid import (
+    CALIBRATION_CONFIG,
+    FIXED_PARAMS,
+    LOGREG_GRID,
+    SOLVER_BY_PENALTY,
+    TFIDF_GRID,
+)
+from .runner import ExperimentConfig, run_single_experiment
+
+__all__ = [
+    # Grid
+    'TFIDF_GRID',
+    'LOGREG_GRID',
+    'CALIBRATION_CONFIG',
+    'FIXED_PARAMS',
+    'SOLVER_BY_PENALTY',
+    # Runner
+    'ExperimentConfig',
+    'run_single_experiment',
+    # Ablation
+    'generate_grid_configs',
+    'run_ablation_suite',
+    'evaluate_winner_on_test',
+]

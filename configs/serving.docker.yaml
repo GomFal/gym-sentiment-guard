@@ -3,7 +3,7 @@
 
 model:
   # Path to the model directory (container path)
-  path: /app/artifacts/models/sentiment_logreg/model.2025.12.16_002
+  path: /app/artifacts/models/logreg/model.2025.12.16_002
 
 server:
   host: 0.0.0.0

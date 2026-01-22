@@ -1,0 +1,62 @@
+
+model:
+  name: sentiment_logreg
+  type: logistic_regression
+
+data:
+  splits:
+    train: data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv
+    val:   data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv
+    test:  data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+
+  text_column: comment
+  label_column: sentiment
+
+  label_mapping:
+    negative: 0
+    positive: 1
+
+
+vectorizer:
+  type: tfidf
+  lowercase: true
+  ngram_range: [1, 1]
+  min_df: 2
+  max_df: 1.0
+  sublinear_tf: true
+
+
+classifier:
+  type: logistic_regression
+  max_iter: 1000
+  C: 1.0
+  solver: lbfgs
+  n_jobs: -1
+  class_weight: null
+
+
+calibration:
+  enabled: true
+  method: isotonic
+  cv: 5
+
+
+decision:
+  threshold: 0.44
+  target_class: negative
+
+
+runtime:
+  python_version: "3.12.4"
+  sklearn_version: "1.7.2"
+  numpy_version: "2.3.4"
+
+git:
+  commit: b4267f5de225d863c5eeacb1bb8afa99ee77710b
+  branch: main
+  dirty: true
+
+
+artifacts:
+  output_dir: artifacts/models/logreg
+  format: joblib

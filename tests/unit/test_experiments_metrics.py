@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 from sklearn.metrics import average_precision_score, f1_score, recall_score
 
-from gym_sentiment_guard.experiments.metrics import (
+from gym_sentiment_guard.common.metrics import (
     ValMetrics,
     compute_test_metrics,
     compute_val_metrics,

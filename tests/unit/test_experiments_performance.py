@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import time
-from typing import Callable
+from collections.abc import Callable
 
 import numpy as np
 import pytest
 from sklearn.metrics import f1_score, precision_score, recall_score
 
-from gym_sentiment_guard.experiments.threshold import (
+from gym_sentiment_guard.common.threshold import (
     ThresholdResult,
     select_threshold,
 )
@@ -50,9 +50,7 @@ def _select_threshold_naive(
         }
 
         if recall_neg >= recall_constraint:
-            if best_meeting_constraint is None:
-                best_meeting_constraint = result
-            elif (result['f1_neg'], result['macro_f1']) > (
+            if best_meeting_constraint is None or (result['f1_neg'], result['macro_f1']) > (
                 best_meeting_constraint['f1_neg'],
                 best_meeting_constraint['macro_f1'],
             ):
@@ -159,7 +157,7 @@ class TestThresholdSelectionPerformance:
         naive_time, _ = _time_function(_select_threshold_naive, y_true, p_neg, 0.5)
         vectorized_time, _ = _time_function(select_threshold, y_true, p_neg, 0.5)
 
-        print(f'\nMedium dataset (n=1000):')
+        print('\nMedium dataset (n=1000):')
         print(f'  Naive:      {naive_time:.2f} ms')
         print(f'  Vectorized: {vectorized_time:.2f} ms')
         print(f'  Speedup:    {naive_time / vectorized_time:.1f}x')
@@ -176,7 +174,7 @@ class TestThresholdSelectionPerformance:
 
         speedup = naive_time / vectorized_time
 
-        print(f'\nLarge dataset (n=5000):')
+        print('\nLarge dataset (n=5000):')
         print(f'  Naive:      {naive_time:.2f} ms')
         print(f'  Vectorized: {vectorized_time:.2f} ms')
         print(f'  Speedup:    {speedup:.1f}x')

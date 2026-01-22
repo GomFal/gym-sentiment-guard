@@ -1,0 +1,83 @@
+# LogReg V2 Model Configuration
+# Best model from ablation suite (run.2026-01-08_200)
+# Winner: F1_neg=0.898, Recall_neg=0.923, Macro F1=0.933
+
+model:
+  name: sentiment_logreg
+  type: logistic_regression
+  version: v2
+
+data:
+  splits:
+    train: data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv
+    val:   data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv
+    test:  data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+
+  text_column: comment
+  label_column: sentiment
+
+  label_mapping:
+    negative: 0
+    positive: 1
+
+
+vectorizer:
+  type: feature_union
+  lowercase: true
+  max_df: 0.90
+  sublinear_tf: true
+  stop_words: curated_safe  # Uses updated stopwords_spanish_safe.txt
+  strategies:
+    unigrams:
+      ngram_range: [1, 1]
+      min_df: 10      # Stricter filtering for single words
+    multigrams:
+      ngram_range: [2, 3]
+      min_df: 2       # Lenient for bigrams/trigrams (captures phrases)
+
+
+classifier:
+  type: logistic_regression
+  max_iter: 1000
+  C: 5.0
+  solver: lbfgs
+  n_jobs: -1
+  class_weight: null  # Updated: no class balancing
+
+
+calibration:
+  enabled: true
+  method: isotonic
+  cv: 5
+  random_state: 42
+
+
+decision:
+  threshold: 0.377  # Updated: optimized on VAL
+  target_class: negative
+
+
+runtime:
+  python_version: "3.12.4"
+  sklearn_version: "1.7.2"
+  numpy_version: "2.3.4"
+
+
+artifacts:
+  output_dir: artifacts/models/logreg
+  format: joblib
+
+
+# Provenance
+experiment:
+  source_run: run.2026-01-08_200
+  suite: suite.2026-01-08_231422
+  val_metrics:
+    f1_neg: 0.898
+    recall_neg: 0.923
+    precision_neg: 0.875
+    macro_f1: 0.933
+    pr_auc_neg: 0.945
+    brier_score: 0.0377
+    ece: 0.0096
+    skill_score: 0.79

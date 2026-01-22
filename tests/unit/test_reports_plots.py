@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import pytest
 
-from gym_sentiment_guard.reports.plots import (
+from gym_sentiment_guard.models.logreg.reports.plots import (
     plot_c_vs_f1neg,
     plot_calibration_curve,
     plot_confusion_matrix_heatmap,
@@ -21,7 +20,6 @@ from gym_sentiment_guard.reports.plots import (
     plot_val_vs_test_comparison,
 )
 
-
 # =============================================================================
 # Fixtures
 # =============================================================================
@@ -30,31 +28,37 @@ from gym_sentiment_guard.reports.plots import (
 @pytest.fixture
 def sample_top5_df() -> pd.DataFrame:
     """Sample Top-5 DataFrame for plot testing."""
-    return pd.DataFrame([
-        {'run_id': 'run_001', 'F1_neg': 0.90, 'Recall_neg': 0.93, 'threshold': 0.40},
-        {'run_id': 'run_002', 'F1_neg': 0.88, 'Recall_neg': 0.91, 'threshold': 0.45},
-        {'run_id': 'run_003', 'F1_neg': 0.85, 'Recall_neg': 0.90, 'threshold': 0.50},
-    ])
+    return pd.DataFrame(
+        [
+            {'run_id': 'run_001', 'F1_neg': 0.90, 'Recall_neg': 0.93, 'threshold': 0.40},
+            {'run_id': 'run_002', 'F1_neg': 0.88, 'Recall_neg': 0.91, 'threshold': 0.45},
+            {'run_id': 'run_003', 'F1_neg': 0.85, 'Recall_neg': 0.90, 'threshold': 0.50},
+        ]
+    )
 
 
 @pytest.fixture
 def sample_ablation_df() -> pd.DataFrame:
     """Sample ablation DataFrame for factor plots."""
-    return pd.DataFrame([
-        {'C': 0.1, 'F1_neg': 0.80, 'ngram_range': '(1, 1)', 'stopwords_enabled': True},
-        {'C': 0.1, 'F1_neg': 0.82, 'ngram_range': '(1, 1)', 'stopwords_enabled': False},
-        {'C': 1.0, 'F1_neg': 0.85, 'ngram_range': '(1, 2)', 'stopwords_enabled': True},
-        {'C': 1.0, 'F1_neg': 0.87, 'ngram_range': '(1, 2)', 'stopwords_enabled': False},
-        {'C': 10.0, 'F1_neg': 0.83, 'ngram_range': '(1, 3)', 'stopwords_enabled': True},
-        {'C': 10.0, 'F1_neg': 0.84, 'ngram_range': '(1, 3)', 'stopwords_enabled': False},
-    ])
+    return pd.DataFrame(
+        [
+            {'C': 0.1, 'F1_neg': 0.80, 'ngram_range': '(1, 1)', 'stopwords_enabled': True},
+            {'C': 0.1, 'F1_neg': 0.82, 'ngram_range': '(1, 1)', 'stopwords_enabled': False},
+            {'C': 1.0, 'F1_neg': 0.85, 'ngram_range': '(1, 2)', 'stopwords_enabled': True},
+            {'C': 1.0, 'F1_neg': 0.87, 'ngram_range': '(1, 2)', 'stopwords_enabled': False},
+            {'C': 10.0, 'F1_neg': 0.83, 'ngram_range': '(1, 3)', 'stopwords_enabled': True},
+            {'C': 10.0, 'F1_neg': 0.84, 'ngram_range': '(1, 3)', 'stopwords_enabled': False},
+        ]
+    )
 
 
 @pytest.fixture
 def sample_predictions() -> tuple[np.ndarray, np.ndarray]:
     """Sample predictions for PR curve and calibration tests."""
     y_true = np.array([0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1])
-    p_neg = np.array([0.9, 0.2, 0.8, 0.1, 0.15, 0.7, 0.25, 0.05, 0.85, 0.6, 0.3, 0.75, 0.2, 0.65, 0.1])
+    p_neg = np.array(
+        [0.9, 0.2, 0.8, 0.1, 0.15, 0.7, 0.25, 0.05, 0.85, 0.6, 0.3, 0.75, 0.2, 0.65, 0.1]
+    )
     return y_true, p_neg
 
 

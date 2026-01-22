@@ -11,7 +11,7 @@ import pandas as pd
 def sample_language_file(
     csv_path: Path,
     n_samples: int,
-    output_suffix: str = ".sampled.csv",
+    output_suffix: str = '.sampled.csv',
     random_state: int = 42,
 ) -> Path:
     """Sample up to ``n_samples`` rows from ``csv_path`` and save to a new file."""
@@ -25,14 +25,14 @@ def sample_language_file(
 
 def sample_language_reviews(
     root_dir: str | Path,
-    pattern: str = "*.clean.csv",
+    pattern: str = '*.clean.csv',
     n_samples: int = 250,
-    output_suffix: str = ".sampled.csv",
+    output_suffix: str = '.sampled.csv',
 ) -> list[Path]:
     """Sample language review files under ``root_dir`` and return output paths."""
     root = Path(root_dir)
     if not root.exists():
-        raise FileNotFoundError(f"Root directory not found: {root}")
+        raise FileNotFoundError(f'Root directory not found: {root}')
 
     outputs: list[Path] = []
     for csv_path in root.rglob(pattern):
@@ -51,22 +51,22 @@ def main() -> None:
         description="Randomly sample reviews from each language's clean CSV.",
     )
     parser.add_argument(
-        "--root",
+        '--root',
         type=Path,
         required=True,
-        help="Root directory containing language .clean.csv files.",
+        help='Root directory containing language .clean.csv files.',
     )
     parser.add_argument(
-        "--samples",
+        '--samples',
         type=int,
         default=250,
-        help="Number of reviews to sample per file (default: 250).",
+        help='Number of reviews to sample per file (default: 250).',
     )
     parser.add_argument(
-        "--pattern",
+        '--pattern',
         type=str,
-        default="*.clean.csv",
-        help="Glob pattern to match files (default: *.clean.csv).",
+        default='*.clean.csv',
+        help='Glob pattern to match files (default: *.clean.csv).',
     )
     args = parser.parse_args()
 
@@ -75,8 +75,8 @@ def main() -> None:
         pattern=args.pattern,
         n_samples=args.samples,
     )
-    print(f"Sampled {len(outputs)} file(s).")
+    print(f'Sampled {len(outputs)} file(s).')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

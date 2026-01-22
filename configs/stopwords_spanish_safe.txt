@@ -1,10 +1,3 @@
-# Spanish Stopwords - Safe to Remove
-# These are non-sentiment-bearing function words for TF-IDF vectorization.
-# Per EXPERIMENT_PROTOCOL.md §6.2 - Curated, sentiment-safe list.
-#
-# DO NOT add sentiment-critical words like: no, ni, muy, más, pero, poco
-# See stopwords_never_remove_spanish.txt for protected tokens.
-
 de
 el
 que
@@ -52,12 +45,7 @@ vez
 todo
 muchas
 
-# =============================================================================
-# Curated list of "Neutral" words based on Coefficient Analysis
-# Added: 2026-01-15
-# =============================================================================
 
-# --- STAFF NAMES (High Bias) ---
 quimi
 jenny
 felipe
@@ -69,7 +57,7 @@ alejandro
 alex
 kike
 
-# --- GYM OBJECTS (Latent Complaints) ---
+
 clases
 aire
 música
@@ -81,7 +69,7 @@ cuota
 obras
 recepcionista
 
-# --- NEUTRAL NOUNS (Domain Stopwords) ---
+
 gym
 gimnasio
 dreamfit
@@ -95,7 +83,7 @@ respuesta
 empresa
 dinero
 
-# --- FUNCTION WORDS & INTENSIFIERS (No Sentiment) ---
+
 también
 mis
 les
@@ -111,6 +99,6 @@ si
 algunas
 estoy
 
-# --- NUMBERS (Context Dependent) ---
+
 20
 30
