@@ -69,12 +69,26 @@ def test_load_model_missing_directory() -> None:
 
 
 def test_load_model_missing_joblib(tmp_path: Path) -> None:
-    """Test error when logreg.joblib is missing."""
+    """Test error when no .joblib file is found."""
     model_path = tmp_path / 'model'
     model_path.mkdir()
     (model_path / 'metadata.json').write_text('{}', encoding='utf-8')
 
-    with pytest.raises(ModelLoadError, match='Model file not found'):
+    with pytest.raises(ModelLoadError, match='No .joblib file found in'):
+        load_model(model_path)
+
+
+def test_load_model_multiple_joblib(tmp_path: Path) -> None:
+    """Test error when multiple .joblib files are found."""
+    model_path = tmp_path / 'model'
+    model_path.mkdir()
+    (model_path / 'metadata.json').write_text('{}', encoding='utf-8')
+
+    # Create two .joblib files
+    (model_path / 'model1.joblib').write_text('dummy content')
+    (model_path / 'model2.joblib').write_text('dummy content')
+
+    with pytest.raises(ModelLoadError, match='Ambiguous model state: multiple .joblib files found'):
         load_model(model_path)
 
 
@@ -84,10 +98,12 @@ def test_load_model_missing_metadata(tmp_path: Path) -> None:
     model_path.mkdir()
 
     # Create minimal model with two classes
-    pipeline = Pipeline([
-        ('tfidf', TfidfVectorizer()),
-        ('logreg', LogisticRegression()),
-    ])
+    pipeline = Pipeline(
+        [
+            ('tfidf', TfidfVectorizer()),
+            ('logreg', LogisticRegression()),
+        ]
+    )
     pipeline.fit(['good', 'bad'], [1, 0])
     joblib.dump(pipeline, model_path / 'logreg.joblib')
 
@@ -100,10 +116,12 @@ def test_load_model_invalid_json(tmp_path: Path) -> None:
     model_path = tmp_path / 'model'
     model_path.mkdir()
 
-    pipeline = Pipeline([
-        ('tfidf', TfidfVectorizer()),
-        ('logreg', LogisticRegression()),
-    ])
+    pipeline = Pipeline(
+        [
+            ('tfidf', TfidfVectorizer()),
+            ('logreg', LogisticRegression()),
+        ]
+    )
     pipeline.fit(['good', 'bad'], [1, 0])
     joblib.dump(pipeline, model_path / 'logreg.joblib')
     (model_path / 'metadata.json').write_text('invalid json', encoding='utf-8')

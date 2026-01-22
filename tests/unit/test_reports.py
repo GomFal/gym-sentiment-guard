@@ -3,28 +3,25 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import pytest
 
-from gym_sentiment_guard.reports.schema import (
+from gym_sentiment_guard.models.logreg.reports.schema import (
     REQUIRED_COLUMNS,
     _extract_run_data,
     load_all_runs,
     load_test_predictions,
     validate_schema,
 )
-from gym_sentiment_guard.reports.tables import (
+from gym_sentiment_guard.models.logreg.reports.tables import (
     export_csv,
     generate_comparison_table,
     get_top_k,
     get_winner,
     sort_ablation_table,
 )
-
 
 # =============================================================================
 # Fixtures
@@ -116,29 +113,88 @@ def sample_run_json_invalid() -> dict:
 @pytest.fixture
 def sample_ablation_df() -> pd.DataFrame:
     """Create a sample ablation DataFrame for testing sorting logic."""
-    return pd.DataFrame([
-        # Best: constraint met, highest F1_neg
-        {'run_id': 'run_001', 'constraint_met': True, 'F1_neg': 0.90, 'Macro_F1': 0.92, 'PR_AUC_neg': 0.89, 'Brier_Score': 0.04, 'ECE': 0.01, 'Recall_neg': 0.93, 'threshold': 0.4, 'Precision_neg': 0.88},
-        # Second: constraint met, lower F1_neg
-        {'run_id': 'run_002', 'constraint_met': True, 'F1_neg': 0.88, 'Macro_F1': 0.90, 'PR_AUC_neg': 0.87, 'Brier_Score': 0.05, 'ECE': 0.02, 'Recall_neg': 0.91, 'threshold': 0.45, 'Precision_neg': 0.85},
-        # Third: constraint met, tied F1_neg with run_004, better Macro_F1
-        {'run_id': 'run_003', 'constraint_met': True, 'F1_neg': 0.85, 'Macro_F1': 0.88, 'PR_AUC_neg': 0.85, 'Brier_Score': 0.06, 'ECE': 0.03, 'Recall_neg': 0.90, 'threshold': 0.5, 'Precision_neg': 0.81},
-        # Fourth: constraint met, tied F1_neg with run_003, worse Macro_F1
-        {'run_id': 'run_004', 'constraint_met': True, 'F1_neg': 0.85, 'Macro_F1': 0.86, 'PR_AUC_neg': 0.84, 'Brier_Score': 0.07, 'ECE': 0.04, 'Recall_neg': 0.90, 'threshold': 0.5, 'Precision_neg': 0.80},
-        # Fifth: constraint NOT met (should sort last despite high F1)
-        {'run_id': 'run_005', 'constraint_met': False, 'F1_neg': 0.95, 'Macro_F1': 0.96, 'PR_AUC_neg': 0.94, 'Brier_Score': 0.02, 'ECE': 0.005, 'Recall_neg': 0.85, 'threshold': 0.6, 'Precision_neg': 0.99},
-    ])
+    return pd.DataFrame(
+        [
+            # Best: constraint met, highest F1_neg
+            {
+                'run_id': 'run_001',
+                'constraint_met': True,
+                'F1_neg': 0.90,
+                'Macro_F1': 0.92,
+                'PR_AUC_neg': 0.89,
+                'Brier_Score': 0.04,
+                'ECE': 0.01,
+                'Recall_neg': 0.93,
+                'threshold': 0.4,
+                'Precision_neg': 0.88,
+            },
+            # Second: constraint met, lower F1_neg
+            {
+                'run_id': 'run_002',
+                'constraint_met': True,
+                'F1_neg': 0.88,
+                'Macro_F1': 0.90,
+                'PR_AUC_neg': 0.87,
+                'Brier_Score': 0.05,
+                'ECE': 0.02,
+                'Recall_neg': 0.91,
+                'threshold': 0.45,
+                'Precision_neg': 0.85,
+            },
+            # Third: constraint met, tied F1_neg with run_004, better Macro_F1
+            {
+                'run_id': 'run_003',
+                'constraint_met': True,
+                'F1_neg': 0.85,
+                'Macro_F1': 0.88,
+                'PR_AUC_neg': 0.85,
+                'Brier_Score': 0.06,
+                'ECE': 0.03,
+                'Recall_neg': 0.90,
+                'threshold': 0.5,
+                'Precision_neg': 0.81,
+            },
+            # Fourth: constraint met, tied F1_neg with run_003, worse Macro_F1
+            {
+                'run_id': 'run_004',
+                'constraint_met': True,
+                'F1_neg': 0.85,
+                'Macro_F1': 0.86,
+                'PR_AUC_neg': 0.84,
+                'Brier_Score': 0.07,
+                'ECE': 0.04,
+                'Recall_neg': 0.90,
+                'threshold': 0.5,
+                'Precision_neg': 0.80,
+            },
+            # Fifth: constraint NOT met (should sort last despite high F1)
+            {
+                'run_id': 'run_005',
+                'constraint_met': False,
+                'F1_neg': 0.95,
+                'Macro_F1': 0.96,
+                'PR_AUC_neg': 0.94,
+                'Brier_Score': 0.02,
+                'ECE': 0.005,
+                'Recall_neg': 0.85,
+                'threshold': 0.6,
+                'Precision_neg': 0.99,
+            },
+        ]
+    )
 
 
 @pytest.fixture
 def sample_test_predictions_df() -> pd.DataFrame:
     """Create sample test predictions for testing."""
-    return pd.DataFrame({
-        'y_true': [0, 1, 0, 1, 1, 0, 1, 1, 0, 0],
-        'y_pred': [0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
-        'p_neg': [0.8, 0.1, 0.3, 0.2, 0.05, 0.9, 0.15, 0.1, 0.7, 0.4],
-        'p_pos': [0.2, 0.9, 0.7, 0.8, 0.95, 0.1, 0.85, 0.9, 0.3, 0.6],
-    })
+    return pd.DataFrame(
+        {
+            'y_true': [0, 1, 0, 1, 1, 0, 1, 1, 0, 0],
+            'y_pred': [0, 1, 1, 1, 1, 0, 1, 1, 0, 1],
+            'p_neg': [0.8, 0.1, 0.3, 0.2, 0.05, 0.9, 0.15, 0.1, 0.7, 0.4],
+            'p_pos': [0.2, 0.9, 0.7, 0.8, 0.95, 0.1, 0.85, 0.9, 0.3, 0.6],
+        }
+    )
 
 
 # =============================================================================
@@ -198,7 +254,9 @@ class TestExtractRunData:
 class TestLoadAllRuns:
     """Tests for load_all_runs function."""
 
-    def test_load_multiple_runs(self, sample_run_json: dict, sample_run_json_invalid: dict, tmp_path: Path):
+    def test_load_multiple_runs(
+        self, sample_run_json: dict, sample_run_json_invalid: dict, tmp_path: Path
+    ):
         """Test loading multiple run directories."""
         # Create run directories
         run1_dir = tmp_path / 'run.2026-01-01_001'
@@ -343,9 +401,11 @@ class TestGetWinner:
 
     def test_get_winner_no_valid_runs(self):
         """Test winner selection when no valid runs exist."""
-        df = pd.DataFrame([
-            {'run_id': 'run_001', 'constraint_met': False, 'F1_neg': 0.90},
-        ])
+        df = pd.DataFrame(
+            [
+                {'run_id': 'run_001', 'constraint_met': False, 'F1_neg': 0.90},
+            ]
+        )
         winner = get_winner(df)
 
         assert winner is None

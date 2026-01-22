@@ -263,8 +263,7 @@ def explain_endpoint(request: PredictRequest) -> list[ExplainResponse]:
             probability_negative=result.probability_negative,
             model_version=_artifact.version,
             explanation=[
-                FeatureImportance(feature=feat, importance=imp)
-                for feat, imp in result.explanation
+                FeatureImportance(feature=feat, importance=imp) for feat, imp in result.explanation
             ],
         )
         for result in results

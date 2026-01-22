@@ -9,103 +9,270 @@ python -m venv .venv
 pip install -e .
 ```
 
-## Preprocess CLI
+## CLI Reference
 
-Place the fastText `lid.176.bin` model under `artifacts/models/lid.176.bin` (or update the config), then run:
+The CLI is organized into two command groups:
+- **`gym pipeline`**: Data curation and preprocessing commands
+- **`gym logreg`**: Logistic Regression model training, experiments, and analysis
 
-### Single CSV
+---
+
+### `gym pipeline preprocess`
+
+Run the preprocessing pipeline on a single CSV file.
 
 ```bash
-python -m gym_sentiment_guard.cli.main main preprocess \
+gym pipeline preprocess \
   --input data/raw/Fitness_Park_Madrid_La_Vaguada.csv \
-  --config configs/preprocess.yaml
-```
-
-This command (with `language.enabled: true` in `configs/preprocess.yaml`):
-- Filters reviews to Spanish only via fastText.
-- Normalizes text, deduplicates rows, and enforces lightweight expectations.
-- Drops the `name` column and neutral (3-star) reviews while writing a `<name>.neutral.csv` audit file under `data/interim/` for later analysis.
-- Adds a `sentiment` column (positive/negative) derived from ratings (`language.sentiment_column` in the config) so training scripts share a consistent label.
-- Drops neutral (3-star) reviews while writing a `<name>.neutral.csv` audit file under `data/interim/` for later analysis.
-- Writes interim artifacts to `data/interim/` (including `<name>.non_spanish.csv` with an `es_confidence` column for rejected rows) and the final cleaned file to `data/processed/<name>.clean.csv`.
-
-Override the final output path with `--output path/to/custom.csv` if needed.
-
-### Batch preprocessing (all pending CSVs)
-
-```bash
-python -m gym_sentiment_guard.cli.main main preprocess-batch \
   --config configs/preprocess.yaml \
-  --pattern "*.csv"
+  --output data/processed/custom_output.csv
 ```
 
-The CLI scans `paths.raw_dir` for CSVs that do not yet have a `.clean.csv` in `paths.processed_dir`, runs the single-file pipeline for each one, and logs successes/failures. Use `--raw-dir` / `--processed-dir` if you need to override the paths from the config. (The legacy `scripts/process_pending_csvs.py` now simply wraps this command.)
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--input` | `-i` | **Yes** | — | Path to raw CSV file |
+| `--config` | `-c` | No | `configs/preprocess.yaml` | Path to preprocess configuration YAML |
+| `--output` | `-o` | No | Auto-derived | Output CSV path (defaults to `<processed_dir>/<name>.clean.csv`) |
 
-### Merge processed datasets
+**Behavior**: Filters reviews to Spanish (if enabled), normalizes text, deduplicates rows, adds `sentiment` column, writes interim artifacts to `data/interim/`, and final output to `data/processed/`.
+
+---
+
+### `gym pipeline batch`
+
+Process all pending raw CSV files in a directory.
 
 ```bash
-python -m gym_sentiment_guard.cli.main main merge-processed \
+gym pipeline batch \
+  --config configs/preprocess.yaml \
+  --pattern "*.csv" \
+  --raw-dir data/raw \
+  --processed-dir data/processed
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/preprocess.yaml` | Path to preprocess configuration YAML |
+| `--pattern` | `-p` | No | `*.csv` | Glob pattern for raw CSVs |
+| `--raw-dir` | — | No | From config | Override raw directory path |
+| `--processed-dir` | — | No | From config | Override processed directory path |
+
+---
+
+### `gym pipeline merge`
+
+Merge multiple processed CSVs into a single training dataset.
+
+```bash
+gym pipeline merge \
   --config configs/preprocess.yaml \
   --pattern "*.clean.csv" \
-  --output data/processed/train_dataset.csv
+  --output data/processed/train_dataset.csv \
+  --processed-dir data/processed
 ```
 
-The command gathers every matching file inside `paths.processed_dir`, enforces a canonical schema (dropping legacy columns such as `name`, adding missing ones like `sentiment`, and reordering), and writes a merged dataset. (The helper `scripts/merge_processed_datasets.py` delegates to this command for compatibility.)
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/preprocess.yaml` | Path to preprocess configuration YAML |
+| `--pattern` | — | No | `*.clean.csv` | Glob pattern for processed CSVs |
+| `--output` | `-o` | No | `<processed_dir>/merged/merged_dataset.csv` | Destination merged CSV path |
+| `--processed-dir` | — | No | From config | Override processed directory path |
 
-### Full pipeline (batch preprocess + merge)
+---
 
-```bash
-python -m gym_sentiment_guard.cli.main main run-full-pipeline \
-  --config configs/preprocess.yaml
-```
+### `gym pipeline split`
 
-This orchestrates `preprocess-batch` followed by `merge-processed`, producing the merged dataset in one shot. Override `--raw-pattern`, `--merge-pattern`, or `--merge-output` as needed.
-
-
-### Skipping language filtering
-
-Set `language.enabled: false` in `configs/preprocess.yaml` when you want to reuse the cleaning steps (expectations → normalize → dedup) without dropping non-Spanish rows—for example when preparing the multi-language evaluation datasets. In that mode, the pipeline copies the deduplicated file directly to `data/processed/<name>.clean.csv` and skips generating `.non_spanish.csv`.
-
-> Schema guard: if any processed CSV has columns that differ from the others, the merge helper logs `merge.schema_mismatch` and raises a `ValueError` so we do not silently mix incompatible datasets.
-
-### Train/Val/Test splits
-
-Splitting the merged dataset uses the `split-data` command (also run automatically by `run-full-pipeline`):
+Split a dataset into train/val/test CSVs with stratification.
 
 ```bash
-python -m gym_sentiment_guard.cli.main main split-data \
+gym pipeline split \
   --input data/processed/merged/merged_dataset.csv \
   --output-dir data/processed/splits \
-  --column sentiment
+  --column sentiment \
+  --train-ratio 0.7 \
+  --val-ratio 0.15 \
+  --test-ratio 0.15 \
+  --random-state 42
 ```
 
-The helper stratifies by the chosen column (default `language.sentiment_column`) and writes `train.csv`, `val.csv`, and `test.csv` (70/15/15).
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--input` | `-i` | No | `data/processed/merged/merged_dataset.csv` | Path to merged dataset CSV |
+| `--output-dir` | — | No | `data/processed/splits` | Directory to store splits |
+| `--column` | — | No | `sentiment` | Column to stratify on |
+| `--train-ratio` | — | No | `0.7` | Train split ratio |
+| `--val-ratio` | — | No | `0.15` | Validation split ratio |
+| `--test-ratio` | — | No | `0.15` | Test split ratio |
+| `--random-state` | — | No | `42` | Random seed for reproducibility |
 
-### Normalize an arbitrary dataset
+---
 
-To apply the latest text normalization rules (emoji stripping, punctuation cleanup) to an existing CSV such as `merged_dataset.csv` without re-running the full pipeline:
+### `gym pipeline run`
+
+Run the full pipeline: batch preprocess + merge + split.
 
 ```bash
-python -m gym_sentiment_guard.cli.main main normalize-dataset \
+gym pipeline run \
+  --config configs/preprocess.yaml \
+  --raw-pattern "*.csv" \
+  --merge-pattern "*.clean.csv" \
+  --merge-output data/processed/merged/merged_dataset.csv \
+  --split-output data/processed/splits \
+  --raw-dir data/raw \
+  --processed-dir data/processed
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/preprocess.yaml` | Path to preprocess configuration YAML |
+| `--raw-pattern` | — | No | `*.csv` | Glob for raw CSVs |
+| `--merge-pattern` | — | No | `*.clean.csv` | Glob for processed CSVs |
+| `--merge-output` | — | No | Auto-derived | Merged dataset path override |
+| `--split-output` | — | No | Auto-derived | Directory to store dataset splits |
+| `--raw-dir` | — | No | From config | Override raw directory |
+| `--processed-dir` | — | No | From config | Override processed directory |
+
+---
+
+### `gym pipeline normalize`
+
+Apply text normalization rules to an existing CSV without full preprocessing.
+
+```bash
+gym pipeline normalize \
   --input data/processed/merged/merged_dataset.csv \
   --output data/processed/merged/merged_dataset.normalized.csv \
   --column comment \
   --punctuation-file configs/structural_punctuation.txt
 ```
 
-This reuses the core `normalize_comments` helper so normalization stays consistent with the preprocessing pipeline.
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--input` | `-i` | **Yes** | — | CSV file to normalize |
+| `--output` | `-o` | No | `<input>.normalized.csv` | Output path |
+| `--column` | — | No | `comment` | Text column to normalize |
+| `--punctuation-file` | — | No | None | Structural punctuation file |
 
-### Train the sentiment model
+---
 
-Use the config-driven trainer to reproduce the notebook’s logistic-regression model:
+### `gym logreg train`
+
+Train a sentiment model from a configuration file.
 
 ```bash
-python -m gym_sentiment_guard.cli.main main train-model \
-  --config configs/logreg_v1.yaml
+gym logreg train \
+  --config configs/logreg/training_v4.yaml
 ```
 
-This reads the specified splits, fits TF-IDF + calibrated logistic regression, and writes artifacts under `artifacts/models/...`.
-The configured `decision.threshold` is applied to the probability of the class named in `decision.target_class`. If you set `target_class: negative`, scores ≥ threshold mark the review as negative; if you set `target_class: positive`, the same rule applies to the positive probability. This keeps the training CLI aligned with whatever label you want the threshold to guard.
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/logreg_v1.yaml` | Path to model config YAML |
+
+**Output**: Model artifacts saved to `artifacts/models/sentiment_logreg/model.<date>_<seq>/`.
+
+---
+
+### `gym logreg experiment`
+
+Run a single experiment with specified hyperparameters.
+
+```bash
+gym logreg experiment \
+  --config configs/logreg/experiment.yaml \
+  --ngram-min 1 \
+  --ngram-max 2 \
+  --min-df 2 \
+  --max-df 1.0 \
+  --sublinear-tf \
+  --C 1.0 \
+  --penalty l2 \
+  --class-weight balanced \
+  --output-dir artifacts/experiments
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/logreg/experiment.yaml` | Path to experiment config YAML |
+| `--ngram-min` | — | No | `1` | Minimum n-gram size |
+| `--ngram-max` | — | No | `2` | Maximum n-gram size |
+| `--min-df` | — | No | `2` | Minimum document frequency |
+| `--max-df` | — | No | `1.0` | Maximum document frequency |
+| `--sublinear-tf` | — | No | `true` | Use sublinear TF scaling (use `--no-sublinear-tf` to disable) |
+| `--C` | — | No | `1.0` | Regularization strength |
+| `--penalty` | — | No | `l2` | Regularization type: `l1` or `l2` |
+| `--class-weight` | — | No | None | Class weight: `balanced` or None |
+| `--output-dir` | — | No | `artifacts/experiments` | Output directory for artifacts |
+
+---
+
+### `gym logreg ablation`
+
+Run a full ablation suite from config grids.
+
+```bash
+gym logreg ablation \
+  --config configs/logreg/experiment.yaml \
+  --max-runs 10 \
+  --output-dir artifacts/experiments
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/logreg/experiment.yaml` | Path to experiment config YAML |
+| `--max-runs` | — | No | None (all) | Maximum number of runs (for testing) |
+| `--output-dir` | — | No | `artifacts/experiments` | Output directory for artifacts |
+
+Grid parameters are defined in `configs/logreg/experiment.yaml` under `ablation.tfidf` and `ablation.logreg`.
+
+---
+
+### `gym logreg ablation-report`
+
+Generate ablation suite reports with visualizations.
+
+```bash
+gym logreg ablation-report \
+  --experiments-dir artifacts/experiments \
+  --output reports/logreg_ablations \
+  --test-predictions artifacts/models/sentiment_logreg/model.2026-01-10_002/test_predictions.csv \
+  --winner run.2026-01-10_001
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--experiments-dir` | `-e` | No | `artifacts/experiments` | Path to experiments directory containing `run.*` folders |
+| `--output` | `-o` | No | `reports/logreg_ablations` | Output directory for reports |
+| `--test-predictions` | `-t` | No | None | Path to `test_predictions.csv` for Layer 4 PR curves |
+| `--winner` | `-w` | No | Auto-detect | Explicit winner run_id |
+
+---
+
+### `gym logreg error-analysis`
+
+Run post-training error analysis on model predictions.
+
+```bash
+gym logreg error-analysis \
+  --config configs/logreg/error_analysis.yaml \
+  --output reports/error_analysis/model.2026-01-21_001 \
+  --model artifacts/models/sentiment_logreg/model.2026-01-21_001/model.joblib \
+  --predictions artifacts/models/sentiment_logreg/model.2026-01-21_001/test_predictions.csv \
+  --test-csv data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/logreg/error_analysis.yaml` | Path to error_analysis.yaml config |
+| `--output` | `-o` | No | Auto-derived from model path | Output directory |
+| `--model` | `-m` | No | From config | Override model path |
+| `--predictions` | `-p` | No | From config | Override predictions CSV path |
+| `--test-csv` | `-t` | No | From config | Override test CSV path |
+
+**Output**: Artifacts saved to `reports/error_analysis/<model_id>/`.
+
+---
+
+## Training Configuration
 
 ### Hybrid Vectorization (FeatureUnion)
 
@@ -146,137 +313,7 @@ Critically, words like `"no"` that are typically negative in isolation (−8.75)
 
 Use `stop_words: null` explicitly to disable filtering for a strategy. Legacy configs (without `strategies` key) continue to work unchanged.
 
-## Error Analysis
-
-**Why it matters:** Understanding *where* and *why* a model fails is critical for production ML. Error analysis surfaces failure patterns, defines trust boundaries, and generates actionable insights for monitoring and escalation policies.
-
-Run post-training error analysis to identify failure patterns and model limitations:
-
-```bash
-gym error-analysis --config configs/error_analysis.yaml
-```
-
-Output is auto-saved to `reports/error_analysis/{model_id}/` based on the model path.
-
-### Generated Artifacts
-
-| Artifact | Description |
-|----------|-------------|
-| `error_table.parquet` | Full error table with risk tags |
-| `ranked_errors/high_confidence_wrong.csv` | Confident but incorrect predictions |
-| `ranked_errors/top_loss_wrong.csv` | Highest cross-entropy loss errors |
-| `ranked_errors/near_threshold_wrong.csv` | Uncertain predictions |
-| `slice_metrics.json` | Metrics per data slice (overall, near_threshold, low_coverage) |
-| `model_coefficients.json` | Top positive/negative model coefficients |
-| `example_contributions/` | Per-example feature contributions (JSON) |
-| `KNOWN_LIMITATIONS.md` | Auto-generated deployment knowledge |
-| `run_manifest.json` | Reproducibility audit trail |
-
-### CLI Options
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `--config, -c` | `configs/error_analysis.yaml` | Configuration file |
-| `--output, -o` | Auto-derived from model path | Output directory |
-| `--model, -m` | From config | Override model path |
-| `--predictions, -p` | From config | Override predictions CSV |
-| `--test-csv, -t` | From config | Override test CSV |
-
-
-## Experiments & Hyperparameter Search
-
-Run systematic hyperparameter ablation studies to find optimal model configurations. The experiments module implements the protocol defined in `docs/EXPERIMENT_PROTOCOL.md`.
-
-### Single Experiment
-
-Run a single experiment with specified hyperparameters:
-
-```bash
-python -m gym_sentiment_guard.cli.main main run-experiment \
-  --config configs/experiment.yaml \
-  --ngram-min 1 --ngram-max 2 \
-  --min-df 2 --max-df 1.0 \
-  --C 1.0 --penalty l2
-```
-
-Output includes: Run ID, F1_neg, Recall_neg, threshold, and constraint status.
-
-### Full Ablation Suite
-
-Run grid search over all parameter combinations from config:
-
-```bash
-python -m gym_sentiment_guard.cli.main main run-ablation \
-  --config configs/experiment.yaml
-```
-
-Grid parameters are defined in `configs/experiment.yaml` under `ablation.tfidf` and `ablation.logreg`. Results are saved to `artifacts/experiments/`.
-
-### Configuration
-
-Edit `configs/experiment.yaml` to define:
-- **Data splits**: frozen train/val/test paths
-- **Selection criteria**: primary metric (F1_neg), recall constraint (≥0.90)
-- **Ablation grids**: TF-IDF parameters (ngram_range, min_df, max_df) and LogReg parameters (C, penalty, class_weight)
-
-### Artifacts
-
-Each experiment produces:
-- `run.json`: Full configuration, git commit, metrics, validity status
-- `val_predictions.csv`: Predictions on validation set
-
-Ablation suites produce:
-- `suite_summary.json`: Ranked results with winner selection
-
-For detailed documentation, see [`docs/EXPERIMENTS_GUIDE.md`](docs/EXPERIMENTS_GUIDE.md).
-
-## Ablation Reports & Visualization
-
-**Why it matters:** Hyperparameter selection without documentation is untraceable. The reporting module auto-generates 4-layer reports that capture *what* was tried, *which* configuration won, *why* it was selected, and *how* it performs on held-out data. This ensures reproducibility, facilitates peer review, and provides evidence for production deployment decisions.
-
-Generate comprehensive 4-layer reports from ablation suite results following the reporting standards defined in [`docs/REPORTING_STANDARDS.md`](docs/REPORTING_STANDARDS.md).
-
-### Generate Reports
-
-```bash
-python -m gym_sentiment_guard.cli.main main ablation-report \
-  --experiments-dir artifacts/experiments \
-  --output reports/logreg_ablations \
-  --test-predictions artifacts/models/sentiment_logreg/model.2026-01-10_002/test_predictions.csv
-```
-
-### CLI Options
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `--experiments-dir, -e` | `artifacts/experiments` | Directory containing `run.*` folders |
-| `--output, -o` | `reports/logreg_ablations` | Output directory for reports |
-| `--test-predictions, -t` | None | Path to `test_predictions.csv` for PR curves |
-| `--winner, -w` | Auto-detect | Explicit winner run_id |
-
-### Output Structure
-
-```
-reports/logreg_ablations/
-├── TOP5_RESULTS.md           # Layer 2: Winner summary + Top-5 comparison
-├── ABLATION_ANALYSIS.md      # Layer 3: Factor-level analysis
-├── FINAL_MODEL_REPORT.md     # Layer 4: Production readiness report
-├── figures/
-│   ├── layer2_top5_f1neg.png
-│   ├── layer3_C_vs_f1neg.png
-│   ├── layer3_ngram_effect.png
-│   ├── layer3_stopwords_effect.png
-│   ├── layer4_val_confusion_matrix.png
-│   ├── layer4_pr_curve_neg.png
-│   ├── layer4_threshold_curve.png
-│   ├── layer4_calibration_curve.png
-│   └── layer4_val_vs_test.png
-└── tables/
-    ├── ablation_table_sorted.csv   # Full sorted ablation results
-    └── top5_table.csv              # Top-5 runs only
-```
-
-### Report Layers
+### Ablation Report Layers
 
 | Layer | Purpose | Artifacts |
 |-------|---------|-----------|
@@ -284,6 +321,19 @@ reports/logreg_ablations/
 | **2** | Top-K Results | `TOP5_RESULTS.md`, bar chart |
 | **3** | Factor-Level Analysis | `ABLATION_ANALYSIS.md`, C/ngram/stopwords plots |
 | **4** | Final Model Deep Dive | `FINAL_MODEL_REPORT.md`, confusion matrix, PR curve, calibration |
+
+### Error Analysis Artifacts
+
+| Artifact | Description |
+|----------|-------------|
+| `error_table.parquet` | Full error table with risk tags |
+| `ranked_errors/high_confidence_wrong.csv` | Confident but incorrect predictions |
+| `ranked_errors/top_loss_wrong.csv` | Highest cross-entropy loss errors |
+| `ranked_errors/near_threshold_wrong.csv` | Uncertain predictions |
+| `slice_metrics.json` | Metrics per data slice |
+| `model_coefficients.json` | Top positive/negative model coefficients |
+| `KNOWN_LIMITATIONS.md` | Auto-generated deployment knowledge |
+| `run_manifest.json` | Reproducibility audit trail |
 
 ## Language Evaluation Utilities
 

@@ -10,36 +10,36 @@ from gym_sentiment_guard.data.cleaning import drop_neutral_ratings
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Remove rating=3 rows from a merged dataset.",
+        description='Remove rating=3 rows from a merged dataset.',
     )
     parser.add_argument(
-        "--input",
+        '--input',
         type=Path,
-        default=Path("data/processed/merged/merged_dataset.csv"),
-        help="Path to the merged dataset.",
+        default=Path('data/processed/merged/merged_dataset.csv'),
+        help='Path to the merged dataset.',
     )
     parser.add_argument(
-        "--output",
+        '--output',
         type=Path,
-        default=Path("data/processed/train_dataset.non_neutral.csv"),
-        help="Destination for the filtered dataset.",
+        default=Path('data/processed/train_dataset.non_neutral.csv'),
+        help='Destination for the filtered dataset.',
     )
     parser.add_argument(
-        "--neutral-output",
+        '--neutral-output',
         type=Path,
-        default=Path("data/processed/train_dataset.neutral.csv"),
-        help="Where to store the dropped neutral rows.",
+        default=Path('data/processed/train_dataset.neutral.csv'),
+        help='Where to store the dropped neutral rows.',
     )
     parser.add_argument(
-        "--rating-column",
-        default="rating",
-        help="Column containing rating values (default: rating).",
+        '--rating-column',
+        default='rating',
+        help='Column containing rating values (default: rating).',
     )
     parser.add_argument(
-        "--neutral-value",
+        '--neutral-value',
         type=float,
         default=3,
-        help="Neutral rating value to drop (default: 3).",
+        help='Neutral rating value to drop (default: 3).',
     )
     args = parser.parse_args()
 
@@ -50,9 +50,9 @@ def main() -> None:
         neutral_value=args.neutral_value,
         neutral_output_path=args.neutral_output,
     )
-    print(f"Filtered dataset written to {args.output}")
-    print(f"Neutral rows written to {args.neutral_output}")
+    print(f'Filtered dataset written to {args.output}')
+    print(f'Neutral rows written to {args.neutral_output}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

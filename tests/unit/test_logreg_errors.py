@@ -6,18 +6,12 @@ TASK 11: Minimal test coverage per ERROR_ANALYSIS_MODULE.md spec.
 
 from __future__ import annotations
 
-import json
-import tempfile
-from pathlib import Path
-
 import numpy as np
 import pandas as pd
 import pytest
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-
 
 # =============================================================================
 # Fixtures
@@ -48,10 +42,12 @@ def fitted_model(sample_texts: list[str], sample_labels: np.ndarray) -> Pipeline
     vectorizer = TfidfVectorizer(ngram_range=(1, 2), min_df=1)
     base_clf = LogisticRegression(max_iter=100, random_state=42)
     # Use simple classifier (not calibrated) for faster testing
-    model = Pipeline([
-        ('tfidf', vectorizer),
-        ('logreg', base_clf),
-    ])
+    model = Pipeline(
+        [
+            ('tfidf', vectorizer),
+            ('logreg', base_clf),
+        ]
+    )
     model.fit(sample_texts, sample_labels)
     return model
 
@@ -59,20 +55,22 @@ def fitted_model(sample_texts: list[str], sample_labels: np.ndarray) -> Pipeline
 @pytest.fixture
 def sample_merged_df() -> pd.DataFrame:
     """Sample merged DataFrame as produced by loader."""
-    return pd.DataFrame({
-        'id': [1, 2, 3, 4, 5],
-        'text': [
-            'excelente gimnasio muy limpio',
-            'horrible servicio pero buenas máquinas',
-            'buen precio aunque algo sucio',
-            'malo muy malo no recomiendo',
-            'perfecto todo bien muy contento',
-        ],
-        'y_true': [1, 0, 0, 0, 1],
-        'y_pred': [1, 1, 0, 0, 0],  # 2 errors: ids 2 and 5
-        'p_neg': [0.2, 0.35, 0.6, 0.8, 0.55],
-        'p_pos': [0.8, 0.65, 0.4, 0.2, 0.45],
-    })
+    return pd.DataFrame(
+        {
+            'id': [1, 2, 3, 4, 5],
+            'text': [
+                'excelente gimnasio muy limpio',
+                'horrible servicio pero buenas máquinas',
+                'buen precio aunque algo sucio',
+                'malo muy malo no recomiendo',
+                'perfecto todo bien muy contento',
+            ],
+            'y_true': [1, 0, 0, 0, 1],
+            'y_pred': [1, 1, 0, 0, 0],  # 2 errors: ids 2 and 5
+            'p_neg': [0.2, 0.35, 0.6, 0.8, 0.55],
+            'p_pos': [0.8, 0.65, 0.4, 0.2, 0.45],
+        }
+    )
 
 
 # =============================================================================
@@ -92,15 +90,23 @@ class TestErrorTable:
         result = build_error_table(sample_merged_df, fitted_model, threshold=0.37)
 
         required_cols = [
-            'id', 'text', 'y_true', 'y_pred', 'p_neg', 'p_pos',
-            'abs_margin', 'loss', 'is_error', 'nnz', 'tfidf_sum', 'low_coverage',
+            'id',
+            'text',
+            'y_true',
+            'y_pred',
+            'p_neg',
+            'p_pos',
+            'abs_margin',
+            'loss',
+            'is_error',
+            'nnz',
+            'tfidf_sum',
+            'low_coverage',
         ]
         for col in required_cols:
             assert col in result.columns, f'Missing column: {col}'
 
-    def test_loss_computation(
-        self, sample_merged_df: pd.DataFrame, fitted_model: Pipeline
-    ) -> None:
+    def test_loss_computation(self, sample_merged_df: pd.DataFrame, fitted_model: Pipeline) -> None:
         """Test that loss is computed correctly."""
         from gym_sentiment_guard.reports.logreg_errors.error_table import build_error_table
 
@@ -126,7 +132,9 @@ class TestRiskTags:
         from gym_sentiment_guard.reports.logreg_errors.risk_tags import compute_risk_tags
 
         error_df = build_error_table(sample_merged_df, fitted_model, threshold=0.37)
-        result = compute_risk_tags(error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set())
+        result = compute_risk_tags(
+            error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set()
+        )
 
         assert 'near_threshold' in result.columns
         # p_neg=0.35 is within [0.27, 0.47], so should be True
@@ -180,7 +188,9 @@ class TestSliceMetrics:
         from gym_sentiment_guard.reports.logreg_errors.slices import compute_slice_metrics
 
         error_df = build_error_table(sample_merged_df, fitted_model, threshold=0.37)
-        error_df = compute_risk_tags(error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set())
+        error_df = compute_risk_tags(
+            error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set()
+        )
 
         # Use min_slice_size=1 to avoid skipping with small test data
         result = compute_slice_metrics(error_df, min_slice_size=1)
@@ -195,7 +205,9 @@ class TestSliceMetrics:
         from gym_sentiment_guard.reports.logreg_errors.slices import compute_slice_metrics
 
         error_df = build_error_table(sample_merged_df, fitted_model, threshold=0.37)
-        error_df = compute_risk_tags(error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set())
+        error_df = compute_risk_tags(
+            error_df, threshold=0.37, near_threshold_band=0.10, contrast_keywords=set()
+        )
 
         # With 5 samples and min_slice_size=10, only 'overall' might have enough
         result = compute_slice_metrics(error_df, min_slice_size=10)
@@ -214,11 +226,11 @@ class TestSliceMetrics:
 class TestContributions:
     """Tests for contributions.py."""
 
-    def test_non_empty_output(
-        self, sample_merged_df: pd.DataFrame, fitted_model: Pipeline
-    ) -> None:
+    def test_non_empty_output(self, sample_merged_df: pd.DataFrame, fitted_model: Pipeline) -> None:
         """Test that contributions are produced for errors."""
-        from gym_sentiment_guard.reports.logreg_errors.contributions import compute_example_contributions
+        from gym_sentiment_guard.reports.logreg_errors.contributions import (
+            compute_example_contributions,
+        )
 
         # Get error examples
         errors = sample_merged_df[sample_merged_df['y_true'] != sample_merged_df['y_pred']]

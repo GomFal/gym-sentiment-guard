@@ -14,8 +14,8 @@ log = get_logger(__name__)
 def add_rating_sentiment(
     input_csv: str | Path,
     output_csv: str | Path,
-    rating_column: str = "rating",
-    sentiment_column: str = "sentiment",
+    rating_column: str = 'rating',
+    sentiment_column: str = 'sentiment',
 ) -> Path:
     """
     Map ratings to sentiment labels and write a new CSV.
@@ -35,28 +35,28 @@ def add_rating_sentiment(
         raise ValueError(f"Column '{rating_column}' not found for sentiment creation")
 
     rating_series = df[rating_column]
-    sentiment = pd.Series(index=rating_series.index, dtype="object")
-    sentiment[rating_series.isin([4, 5])] = "positive"
-    sentiment[rating_series.isin([1, 2])] = "negative"
+    sentiment = pd.Series(index=rating_series.index, dtype='object')
+    sentiment[rating_series.isin([4, 5])] = 'positive'
+    sentiment[rating_series.isin([1, 2])] = 'negative'
 
     unknown_mask = sentiment.isna()
     if unknown_mask.any():
         log.warning(
             json_log(
-                "features.sentiment.unknown_rating",
-                component="features.sentiment",
+                'features.sentiment.unknown_rating',
+                component='features.sentiment',
                 count=int(unknown_mask.sum()),
             )
         )
-        sentiment[unknown_mask] = "unknown"
+        sentiment[unknown_mask] = 'unknown'
 
     df[sentiment_column] = sentiment
     df.to_csv(output_path, index=False)
 
     log.info(
         json_log(
-            "features.sentiment.completed",
-            component="features.sentiment",
+            'features.sentiment.completed',
+            component='features.sentiment',
             input=str(input_path),
             output=str(output_path),
             rows=len(df),

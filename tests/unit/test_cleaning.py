@@ -91,7 +91,7 @@ def test_normalize_comments_uses_external_pattern(tmp_path):
     df.to_csv(input_csv, index=False)
 
     pattern_file = tmp_path / 'punct.txt'
-    pattern_file.write_text(r"[.-]", encoding="utf-8")
+    pattern_file.write_text(r'[.-]', encoding='utf-8')
 
     output_csv = tmp_path / 'normalized.csv'
     normalize_comments(

@@ -70,9 +70,7 @@ def preprocess_reviews(
         drop_null_comments=config.expectations.drop_null_comments,
     )
 
-    punctuation_pattern = load_structural_punctuation(
-        config.cleaning.structural_punctuation_path
-    )
+    punctuation_pattern = load_structural_punctuation(config.cleaning.structural_punctuation_path)
     normalize_comments(
         input_csv=validated_path,
         output_path=normalized_path,
@@ -243,7 +241,7 @@ def run_full_pipeline(
     output_path = (
         merge_output
         if merge_output is not None
-        else config.paths.processed_dir /'merged'/'merged_dataset.csv'
+        else config.paths.processed_dir / 'merged' / 'merged_dataset.csv'
     )
     merged = merge_processed_csvs(
         processed_dir=config.paths.processed_dir,
@@ -251,9 +249,7 @@ def run_full_pipeline(
         pattern=merge_pattern,
     )
     splits_dir = (
-        split_output_dir
-        if split_output_dir is not None
-        else config.paths.processed_dir / 'splits'
+        split_output_dir if split_output_dir is not None else config.paths.processed_dir / 'splits'
     )
     split_dataset(
         input_csv=merged,

@@ -31,7 +31,7 @@ dev = [
 ]
 
 [project.scripts]
-gym = "gym_sentiment_guard.cli.main:pipeline_app"
+gym = "gym_sentiment_guard.cli.main:app"
 
 [tool.setuptools.packages.find]
 where = ["src"]

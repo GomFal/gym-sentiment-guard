@@ -28,9 +28,11 @@ gym-sentiment-guard/
 │  └─ CLEANING_NOTES.md       # canonical record of cleaning/preprocess decisions
 ├─ Makefile
 ├─ configs/
-│  ├─ training.yaml            # model, vectorizer, split, metrics
-│  ├─ inference.yaml           # paths, thresholds
-│  └─ paths.yaml               # data dirs, models, artifacts
+│  ├─ logreg/                  # Model-specific configs
+│  │  ├─ training_v1.yaml
+│  │  ├─ experiment.yaml
+│  │  └─ error_analysis.yaml
+│  └─ preprocess.yaml          # Shared data config
 ├─ data/
 │  ├─ raw/                     # append-only CSVs
 │  ├─ interim/                 # dedup/normalized intermediates
@@ -42,14 +44,19 @@ gym-sentiment-guard/
 ├─ src/
 │  └─ gym_sentiment_guard/
 │     ├─ __init__.py
-│     ├─ cli/                  # CLI entrypoints (preprocess/train/predict)
-│     │  └─ main.py
+│     ├─ cli/                  # CLI entrypoints
+│     │  ├─ main.py            # Dispatcher
+│     │  ├─ pipeline.py        # Data curation commands
+│     │  └─ logreg.py          # LogReg specific commands
+│     ├─ models/               # Model implementations
+│     │  └─ logreg/
+│     │     ├─ training/       # Training logic
+│     │     ├─ experiments/    # Experiment runners
+│     │     └─ reports/        # Report generation
 │     ├─ io/                   # readers/writers, path utils
 │     ├─ data/                 # cleaning, normalization, LID filters
 │     ├─ features/             # tokenization, tf-idf, featurizers
-│     ├─ models/               # train/evaluate, save/load, predict
-│     ├─ pipeline/             # end-to-end orchestration functions
-│     ├─ metrics/              # metrics, reports
+│     ├─ pipeline/             # shared data steps
 │     ├─ config/               # config loading, schemas
 │     └─ utils/                # logging, timing, misc
 ├─ tests/
@@ -84,13 +91,13 @@ pip install pytest ruff typer pydantic pyyaml joblib
 ### Run (Typical)
 ```bash
 # Preprocess a new raw CSV into processed/
-python -m gym_sentiment_guard.cli main preprocess   --input data/raw/reviews_2025-11-13.csv   --output data/processed/reviews_2025-11-13.clean.csv
+gym pipeline preprocess --input data/raw/reviews_2025-11-13.csv
 
-# Train (reads configs/training.yaml)
-python -m gym_sentiment_guard.cli main train   --config configs/training.yaml
+# Train (reads configs/logreg/training_v1.yaml)
+gym logreg train --config configs/logreg/training_v1.yaml
 
-# Predict on latest processed CSV
-python -m gym_sentiment_guard.cli main predict   --config configs/inference.yaml   --input data/processed/reviews_2025-11-13.clean.csv   --output data/processed/reviews_2025-11-13.pred.csv
+# Predict (via serving API or future predict command)
+# Example: python -m gym_sentiment_guard.serving.app
 ```
 
 ### Lint / Format / Tests
@@ -122,13 +129,13 @@ test:
 	pytest -q
 
 preprocess:
-	python -m gym_sentiment_guard.cli main preprocess --input $(INPUT) --output $(OUTPUT)
+	gym pipeline preprocess --input $(INPUT) --output $(OUTPUT)
 
 train:
-	python -m gym_sentiment_guard.cli main train --config configs/training.yaml
+	gym logreg train --config configs/logreg/training_v1.yaml
 
 predict:
-	python -m gym_sentiment_guard.cli main predict --config configs/inference.yaml --input $(INPUT) --output $(OUTPUT)
+	# Use serving API or custom script
 ```
 
 ---
@@ -359,20 +366,14 @@ Add a check step in preprocessing; warn/fail if violated.
 
 **Preprocess**
 ```
-preprocess --input <raw_csv> --output <processed_csv> [--config configs/paths.yaml]
-# Steps: read → normalize (lowercase, strip, single-space) → remove weird chars → handle newlines → dedup → expectations → write
+gym pipeline preprocess --input <raw_csv> --output <processed_csv> [--config configs/preprocess.yaml]
+# Steps: read → normalize → remove weird chars → handle newlines → dedup → expectations → write
 ```
 
 **Train**
 ```
-train --config configs/training.yaml
-# Steps: load config → load dataset → split (stratified) → fit vectorizer on train → train model → eval → save artifacts → metrics report
-```
-
-**Predict**
-```
-predict --config configs/inference.yaml --input <processed_csv> --output <pred_csv>
-# Steps: load artifacts → transform → predict (labels & proba) → write CSV with predictions
+gym logreg train --config configs/logreg/training_v1.yaml
+# Steps: load config → load dataset → split → fit vectorizer → train model → eval → save artifacts → metrics report
 ```
 
 ---

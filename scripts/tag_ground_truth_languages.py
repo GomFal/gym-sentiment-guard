@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-LANGUAGE_DIRS = {"es", "pt", "it", "en"}
+LANGUAGE_DIRS = {'es', 'pt', 'it', 'en'}
 
 
 def annotate_language_columns(root_dir: str | Path) -> list[Path]:
@@ -23,7 +23,7 @@ def annotate_language_columns(root_dir: str | Path) -> list[Path]:
     """
     root = Path(root_dir)
     if not root.exists():
-        raise FileNotFoundError(f"Root directory not found: {root}")
+        raise FileNotFoundError(f'Root directory not found: {root}')
 
     updated_files: list[Path] = []
 
@@ -33,10 +33,10 @@ def annotate_language_columns(root_dir: str | Path) -> list[Path]:
         language_code = language_dir.name.lower()
         if language_code not in LANGUAGE_DIRS:
             continue
-        for csv_path in language_dir.glob("*_non_processed.csv"):
+        for csv_path in language_dir.glob('*_non_processed.csv'):
             df = pd.read_csv(csv_path)
-            df["language"] = language_code
-            csv_path = csv_path.with_name(csv_path.name.replace("_non_processed", ""))
+            df['language'] = language_code
+            csv_path = csv_path.with_name(csv_path.name.replace('_non_processed', ''))
             df.to_csv(csv_path, index=False)
             updated_files.append(csv_path)
     return updated_files
@@ -44,18 +44,18 @@ def annotate_language_columns(root_dir: str | Path) -> list[Path]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Annotate CSVs with ground-truth language codes.",
+        description='Annotate CSVs with ground-truth language codes.',
     )
     parser.add_argument(
-        "--root",
+        '--root',
         type=Path,
         required=True,
-        help="Root directory containing language-specific folders (es, pt, etc.).",
+        help='Root directory containing language-specific folders (es, pt, etc.).',
     )
     args = parser.parse_args()
     updated = annotate_language_columns(args.root)
-    print(f"Annotated {len(updated)} file(s).")
+    print(f'Annotated {len(updated)} file(s).')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

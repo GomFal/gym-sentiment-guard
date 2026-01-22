@@ -50,15 +50,21 @@ def load_model(model_dir: str | Path) -> ModelArtifact:
         ModelLoadError: If model files are missing or corrupted.
     """
     model_path = Path(model_dir)
-
     if not model_path.exists():
         raise ModelLoadError(f'Model directory not found: {model_path}')
 
-    joblib_path = model_path / 'logreg.joblib'
-    metadata_path = model_path / 'metadata.json'
+    # Dynamically discovery .joblib file
+    joblib_files = list(model_path.glob('*.joblib'))
+    if not joblib_files:
+        raise ModelLoadError(f'No .joblib file found in: {model_path}')
+    if len(joblib_files) > 1:
+        raise ModelLoadError(
+            f'Ambiguous model state: multiple .joblib files found in {model_path}: '
+            f'{[f.name for f in joblib_files]}'
+        )
 
-    if not joblib_path.exists():
-        raise ModelLoadError(f'Model file not found: {joblib_path}')
+    joblib_path = joblib_files[0]
+    metadata_path = model_path / 'metadata.json'
 
     if not metadata_path.exists():
         raise ModelLoadError(f'Metadata file not found: {metadata_path}')
@@ -66,7 +72,7 @@ def load_model(model_dir: str | Path) -> ModelArtifact:
     try:
         model = joblib.load(joblib_path)
     except Exception as exc:
-        raise ModelLoadError(f'Failed to load model: {exc}') from exc
+        raise ModelLoadError(f'Failed to load model from {joblib_path.name}: {exc}') from exc
 
     try:
         metadata = json.loads(metadata_path.read_text(encoding='utf-8'))

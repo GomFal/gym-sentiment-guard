@@ -7,11 +7,14 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from gym_sentiment_guard.experiments import (
+from gym_sentiment_guard.models.logreg.experiments import (
     ExperimentConfig,
     run_single_experiment,
 )
-from gym_sentiment_guard.experiments.ablation import generate_grid_configs, rank_results
+from gym_sentiment_guard.models.logreg.experiments.ablation import (
+    generate_grid_configs,
+    rank_results,
+)
 
 
 @pytest.fixture
@@ -183,8 +186,8 @@ class TestRankResults:
 
     def test_valid_runs_ranked_above_invalid(self) -> None:
         """Valid runs are ranked higher than invalid runs."""
-        from gym_sentiment_guard.experiments.artifacts import RunConfig, RunResult
-        from gym_sentiment_guard.experiments.metrics import ValMetrics
+        from gym_sentiment_guard.common.artifacts import RunConfig, RunResult
+        from gym_sentiment_guard.common.metrics import ValMetrics
 
         valid_result = RunResult(
             config=RunConfig(run_id='run_valid', timestamp='2025-01-01'),
@@ -213,8 +216,8 @@ class TestRankResults:
 
     def test_constraint_met_ranked_above_not_met(self) -> None:
         """Constraint-meeting runs are ranked higher."""
-        from gym_sentiment_guard.experiments.artifacts import RunConfig, RunResult
-        from gym_sentiment_guard.experiments.metrics import ValMetrics
+        from gym_sentiment_guard.common.artifacts import RunConfig, RunResult
+        from gym_sentiment_guard.common.metrics import ValMetrics
 
         met_result = RunResult(
             config=RunConfig(run_id='run_met', timestamp='2025-01-01'),
@@ -250,8 +253,8 @@ class TestRankResults:
 
     def test_higher_f1_neg_ranked_first(self) -> None:
         """Among valid, constraint-meeting runs, higher F1_neg wins."""
-        from gym_sentiment_guard.experiments.artifacts import RunConfig, RunResult
-        from gym_sentiment_guard.experiments.metrics import ValMetrics
+        from gym_sentiment_guard.common.artifacts import RunConfig, RunResult
+        from gym_sentiment_guard.common.metrics import ValMetrics
 
         high_f1 = RunResult(
             config=RunConfig(run_id='high_f1', timestamp='2025-01-01'),

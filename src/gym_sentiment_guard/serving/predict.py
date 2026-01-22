@@ -206,9 +206,7 @@ def explain_predictions(
     # Validate model compatibility
     pipeline = artifact.model
     if len(pipeline.steps) < 2:
-        raise ModelExplainError(
-            'Pipeline must have at least 2 steps (vectorizer + classifier)'
-        )
+        raise ModelExplainError('Pipeline must have at least 2 steps (vectorizer + classifier)')
 
     vectorizer = pipeline.steps[0][1]
     classifier = pipeline.steps[-1][1]
@@ -248,8 +246,7 @@ def explain_predictions(
 
         # Calculate contributions: tfidf_value * coefficient
         contributions = [
-            (feature_names[j], float(values[k] * coefficients[j]))
-            for k, j in enumerate(indices)
+            (feature_names[j], float(values[k] * coefficients[j])) for k, j in enumerate(indices)
         ]
 
         # Get top-k by absolute importance (O(n log k) instead of O(n log n))

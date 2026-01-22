@@ -83,9 +83,9 @@ def client(serving_config: Path, monkeypatch: pytest.MonkeyPatch):
         del sys.modules[module]
 
     # Now import the app (will use new env var)
-    from gym_sentiment_guard.serving.app import app
-
     from fastapi.testclient import TestClient
+
+    from gym_sentiment_guard.serving.app import app
 
     with TestClient(app) as test_client:
         yield test_client

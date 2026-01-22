@@ -37,4 +37,3 @@ __all__ = [
     'ValidationConfig',
     'load_serving_config',
 ]
-
