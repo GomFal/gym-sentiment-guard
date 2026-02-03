@@ -1,0 +1,84 @@
+# SVM Linear Model Configuration
+# Best model from ablation suite (to be updated with winner params)
+# Default configuration for reproducible training
+
+model:
+  name: sentiment_svm
+  type: svm_linear
+  version: v1
+
+data:
+  splits:
+    train: data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv
+    val: data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv
+    test: data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+
+  text_column: comment
+  label_column: sentiment
+
+  label_mapping:
+    negative: 0
+    positive: 1
+
+
+vectorizer:
+  type: feature_union
+  lowercase: true
+  max_df: 0.90
+  sublinear_tf: true
+  strategies:
+    unigrams:
+      ngram_range: [1, 1]
+      min_df: 10
+      stop_words: curated_safe  # Heavy filtering for 1-grams
+    multigrams:
+      ngram_range: [2, 3]
+      min_df: 2
+      stop_words: null  # No filtering for 2-3 grams
+
+
+classifier:
+  type: svm_linear
+  penalty: l2
+  loss: squared_hinge
+  C: 0.5
+  dual: true
+  fit_intercept: true
+  intercept_scaling: 1.0
+  tol: 0.01
+  max_iter: 2000
+  random_state: 42
+
+
+calibration:
+  enabled: true
+  method: isotonic
+  cv: 5
+  random_state: 42
+
+
+decision:
+  threshold: 0.5037458511142722  # Updated from ablation winner run.2026-01-23_005
+  target_class: negative
+
+
+runtime:
+  python_version: "3.12.4"
+  sklearn_version: "1.7.2"
+
+
+artifacts:
+  output_dir: artifacts/models/svm_linear
+  format: joblib
+
+
+# Provenance (updated after ablation)
+experiment:
+  source_run: run.2026-01-23_005
+  suite: suite.2026-01-23_231225
+  val_metrics:
+    f1_neg: 0.899063475546306
+    recall_neg: 0.9018789144050104
+    precision_neg: 0.8962655601659751
+    macro_f1: 0.9342849600303048
+    pr_auc_neg: 0.9460340611443938

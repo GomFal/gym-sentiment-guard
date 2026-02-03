@@ -49,7 +49,6 @@ ablation:
       - null          # No stopwords removal
       - curated_safe  # Curated Spanish stopwords list
 
-  # LogReg parameters (§5.2)
   logreg:
     penalty:
       - l2
@@ -60,6 +59,18 @@ ablation:
       - 5.0
     class_weight:
       - null
+
+  # Calibration parameters (§5.3 - Frozen)
+  calibration:
+    method: isotonic
+    cv: 5
+
+# Fixed parameters (not ablated)
+fixed:
+  random_state: 42
+  max_iter: 1000
+  max_iter_retry: 5000
+  n_jobs: -1
 
 # Output settings
 output:

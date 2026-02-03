@@ -97,6 +97,9 @@ def run_experiment(
 
     data = cfg.get('data', {})
     splits = data.get('splits', {})
+    ablation = cfg.get('ablation', {})
+    calibration_cfg = ablation.get('calibration', {})
+    fixed_cfg = cfg.get('fixed', {})
 
     exp_config = ExperimentConfig(
         train_path=splits.get('train', ''),
@@ -114,6 +117,14 @@ def run_experiment(
         class_weight=class_weight if class_weight != 'None' else None,
         recall_constraint=cfg.get('selection', {}).get('recall_constraint', 0.90),
         output_dir=str(output_dir),
+        # Calibration params (from config)
+        calibration_method=calibration_cfg.get('method', 'isotonic'),
+        calibration_cv=calibration_cfg.get('cv', 5),
+        # Fixed params (from config)
+        random_state=fixed_cfg.get('random_state', 42),
+        max_iter=fixed_cfg.get('max_iter', 1000),
+        max_iter_retry=fixed_cfg.get('max_iter_retry', 5000),
+        n_jobs=fixed_cfg.get('n_jobs', -1),
     )
 
     log.info(
@@ -185,6 +196,8 @@ def run_ablation(
     ablation = cfg.get('ablation', {})
     tfidf_cfg = ablation.get('tfidf', {})
     logreg_cfg = ablation.get('logreg', {})
+    calibration_cfg = ablation.get('calibration', {})
+    fixed_cfg = cfg.get('fixed', {})
 
     # Build grids from config
     tfidf_grid = {
@@ -209,6 +222,14 @@ def run_ablation(
         label_mapping=data.get('label_mapping', {'negative': 0, 'positive': 1}),
         recall_constraint=cfg.get('selection', {}).get('recall_constraint', 0.90),
         output_dir=str(output_dir),
+        # Calibration params (from config)
+        calibration_method=calibration_cfg.get('method', 'isotonic'),
+        calibration_cv=calibration_cfg.get('cv', 5),
+        # Fixed params (from config)
+        random_state=fixed_cfg.get('random_state', 42),
+        max_iter=fixed_cfg.get('max_iter', 1000),
+        max_iter_retry=fixed_cfg.get('max_iter_retry', 5000),
+        n_jobs=fixed_cfg.get('n_jobs', -1),
     )
 
     log.info(

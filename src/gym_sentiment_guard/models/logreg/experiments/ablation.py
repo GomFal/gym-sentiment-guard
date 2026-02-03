@@ -23,7 +23,6 @@ from gym_sentiment_guard.common.artifacts import RunResult
 from gym_sentiment_guard.common.metrics import compute_test_metrics
 from gym_sentiment_guard.utils.logging import get_logger, json_log
 
-from .grid import LOGREG_GRID, TFIDF_GRID
 from .runner import ExperimentConfig, run_single_experiment
 
 log = get_logger(__name__)
@@ -31,22 +30,22 @@ log = get_logger(__name__)
 
 def generate_grid_configs(
     base_config: ExperimentConfig,
-    tfidf_grid: dict[str, list] | None = None,
-    logreg_grid: dict[str, list] | None = None,
+    tfidf_grid: dict[str, list],
+    logreg_grid: dict[str, list],
 ) -> list[ExperimentConfig]:
     """
     Generate all configurations from parameter grids.
 
     Args:
         base_config: Base experiment configuration
-        tfidf_grid: TF-IDF parameter grid (defaults to TFIDF_GRID)
-        logreg_grid: LogReg parameter grid (defaults to LOGREG_GRID)
+        tfidf_grid: TF-IDF parameter grid (loaded from config file)
+        logreg_grid: LogReg parameter grid (loaded from config file)
 
     Returns:
         List of ExperimentConfig for each combination
     """
-    tfidf = tfidf_grid or TFIDF_GRID
-    logreg = logreg_grid or LOGREG_GRID
+    tfidf = tfidf_grid
+    logreg = logreg_grid
 
     configs = []
 
@@ -141,8 +140,8 @@ def rank_results(results: list[RunResult]) -> list[RunResult]:
 
 def run_ablation_suite(
     base_config: ExperimentConfig,
-    tfidf_grid: dict[str, list] | None = None,
-    logreg_grid: dict[str, list] | None = None,
+    tfidf_grid: dict[str, list],
+    logreg_grid: dict[str, list],
     max_runs: int | None = None,
 ) -> dict[str, Any]:
     """
@@ -150,8 +149,8 @@ def run_ablation_suite(
 
     Args:
         base_config: Base experiment configuration
-        tfidf_grid: TF-IDF parameter grid (optional)
-        logreg_grid: LogReg parameter grid (optional)
+        tfidf_grid: TF-IDF parameter grid (loaded from config file)
+        logreg_grid: LogReg parameter grid (loaded from config file)
         max_runs: Maximum number of runs (for testing, None = all)
 
     Returns:

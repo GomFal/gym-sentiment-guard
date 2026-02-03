@@ -11,9 +11,10 @@ pip install -e .
 
 ## CLI Reference
 
-The CLI is organized into two command groups:
+The CLI is organized into three command groups:
 - **`gym pipeline`**: Data curation and preprocessing commands
 - **`gym logreg`**: Logistic Regression model training, experiments, and analysis
+- **`gym svm`**: SVM Linear model experiments and ablation studies
 
 ---
 
@@ -269,6 +270,52 @@ gym logreg error-analysis \
 | `--test-csv` | `-t` | No | From config | Override test CSV path |
 
 **Output**: Artifacts saved to `reports/error_analysis/<model_id>/`.
+
+---
+
+### `gym svm experiment`
+
+Run a single SVM Linear experiment with specified hyperparameters.
+
+```bash
+gym svm experiment \
+  --config configs/svm/experiment.yaml \
+  --C 1.0 \
+  --intercept-scaling 1.0 \
+  --tol 1e-4 \
+  --max-iter 2000 \
+  --output-dir artifacts/experiments/svm_linear
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/svm/experiment.yaml` | Path to experiment config YAML |
+| `--C` | — | No | `1.0` | Regularization strength |
+| `--intercept-scaling` | — | No | `1.0` | Intercept scaling factor |
+| `--tol` | — | No | `1e-4` | Convergence tolerance |
+| `--max-iter` | — | No | `2000` | Maximum iterations |
+| `--output-dir` | `-o` | No | `artifacts/experiments/svm_linear` | Output directory |
+
+---
+
+### `gym svm ablation`
+
+Run a full SVM ablation suite from config grids.
+
+```bash
+gym svm ablation \
+  --config configs/svm/experiment.yaml \
+  --max-runs 10 \
+  --output-dir artifacts/experiments/svm_linear
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/svm/experiment.yaml` | Path to ablation config YAML |
+| `--max-runs` | — | No | None (all) | Maximum number of runs (for testing) |
+| `--output-dir` | `-o` | No | `artifacts/experiments/svm_linear` | Output directory |
+
+Grid parameters are defined in `configs/svm/experiment.yaml` under `ablation.feature_union`, `ablation.svm_linear`, and `ablation.calibration`.
 
 ---
 

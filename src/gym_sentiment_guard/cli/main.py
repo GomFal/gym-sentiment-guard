@@ -6,12 +6,14 @@ import typer
 
 from .logreg import app as logreg_app
 from .pipeline import app as pipeline_app
+from .svm import app as svm_app
 
 app = typer.Typer(help='Gym Sentiment Guard CLI', no_args_is_help=True)
 
 # Register sub-apps for clean hierarchy
 app.add_typer(pipeline_app, name='pipeline')
 app.add_typer(logreg_app, name='logreg')
+app.add_typer(svm_app, name='svm')
 
 if __name__ == '__main__':
     app()

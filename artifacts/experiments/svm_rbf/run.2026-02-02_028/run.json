@@ -1,0 +1,116 @@
+{
+  "run_id": "run.2026-02-02_028",
+  "timestamp": "2026-02-02T18:57:00.247267+00:00",
+  "classifier_type": "svm_rbf",
+  "git": {
+    "commit": "d33f9768eaa9979fa693bf24fb6f90cef0d33630",
+    "branch": "main",
+    "dirty": true
+  },
+  "environment": {
+    "python_version": "3.12.4",
+    "sklearn_version": "1.7.2"
+  },
+  "data": {
+    "train_path": "data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv",
+    "val_path": "data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv",
+    "test_path": "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv"
+  },
+  "tfidf_params": {
+    "unigram_ngram_range": [
+      1,
+      1
+    ],
+    "unigram_min_df": 10,
+    "unigram_max_df": 0.9,
+    "unigram_sublinear_tf": true,
+    "unigram_stop_words": "curated_safe",
+    "multigram_ngram_range": [
+      2,
+      3
+    ],
+    "multigram_min_df": 2,
+    "multigram_max_df": 0.9,
+    "multigram_sublinear_tf": true,
+    "multigram_stop_words": null
+  },
+  "classifier_params": {
+    "kernel": "rbf",
+    "C": 10.0,
+    "gamma": 0.1,
+    "tol": 0.001,
+    "cache_size": 1000.0,
+    "max_iter": -1,
+    "random_state": 42,
+    "use_scaler": false
+  },
+  "calibration_config": {
+    "method": "isotonic",
+    "cv": 5,
+    "random_state": 42
+  },
+  "validity": {
+    "status": "valid",
+    "reason": null
+  },
+  "diagnostics": {
+    "training_time_seconds": 90.4554191999996,
+    "n_features": 57587,
+    "coefficient_sparsity": 2664.2
+  },
+  "val_metrics": {
+    "f1_neg": 0.8979591836734694,
+    "recall_neg": 0.918580375782881,
+    "precision_neg": 0.8782435129740519,
+    "macro_f1": 0.933166815113142,
+    "pr_auc_neg": 0.9485675478609331,
+    "threshold": 0.3851987110633727,
+    "constraint_status": "met",
+    "brier_score": 0.03679130636875052,
+    "ece": 0.008157401439979301,
+    "skill_score": 0.7930683932985227,
+    "confusion_matrix": [
+      [
+        440,
+        39
+      ],
+      [
+        61,
+        1531
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.8782435129740519,
+        "recall": 0.918580375782881,
+        "f1-score": 0.8979591836734694,
+        "support": 479.0
+      },
+      "1": {
+        "precision": 0.9751592356687898,
+        "recall": 0.9616834170854272,
+        "f1-score": 0.9683744465528147,
+        "support": 1592.0
+      },
+      "accuracy": 0.9517141477547079,
+      "macro avg": {
+        "precision": 0.9267013743214209,
+        "recall": 0.9401318964341541,
+        "f1-score": 0.933166815113142,
+        "support": 2071.0
+      },
+      "weighted avg": {
+        "precision": 0.9527436725732903,
+        "recall": 0.9517141477547079,
+        "f1-score": 0.9520881544624205,
+        "support": 2071.0
+      }
+    },
+    "support_neg": 479,
+    "support_pos": 1592
+  },
+  "threshold_selection": {
+    "selected_threshold": 0.3851987110633727,
+    "constraint_status": "met"
+  }
+}

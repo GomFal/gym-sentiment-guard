@@ -1,0 +1,89 @@
+# Experiment Configuration
+# Following EXPERIMENT_PROTOCOL.md specifications
+
+experiment:
+  name: svm_linear_ablation_v1
+  description: "SVM ablation suite with FeatureUnion and Isotonic calibration"
+  seed: 42
+
+# Frozen data splits (§0)
+data:
+  splits:
+    train: data/frozen/sentiment_logreg/2025.12.15_01/train/train.csv
+    val: data/frozen/sentiment_logreg/2025.12.15_01/val/val.csv
+    test: data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+  text_column: comment
+  label_column: sentiment
+  label_mapping:
+    negative: 0
+    positive: 1
+
+# Selection criteria (§1)
+# Enforcing the hard 90% Recall and 85% Precision constraints
+selection:
+  primary_metric: f1_neg
+  recall_constraint: 0.90
+  tie_breakers:
+    - macro_f1
+    - pr_auc_neg
+
+# Ablation grids (§5)
+ablation:
+  # FeatureUnion: Hybrid n-gram approach (§5.1)
+  feature_union:
+    unigrams:
+      ngram_range: [[1, 1]]
+      min_df: [10]
+      max_df: [0.90]
+      sublinear_tf: [true]
+      stop_words: ["curated_safe"]
+    multigrams:
+      ngram_range: [[2, 3]]
+      min_df: [2] # Pruning rare multigrams for memory stability
+      max_df: [0.90]
+      sublinear_tf: [true]
+      stop_words: [null]
+
+  svm_linear:
+    penalty: ['l2']
+    loss: ['squared_hinge']
+    C:
+      - 0.5
+      - 1.0
+      - 3.0
+      - 5.0
+    dual: [true] # Efficient for high-dimensional n-gram space
+    fit_intercept: [true]
+    intercept_scaling:
+      - 1.0
+      - 3.0
+      - 5.0
+    tol: [0.0001, 0.001, 0.01]
+    max_iter: [2000]
+
+# Non-Linear SVM (RBF) parameters (§5.3)
+  # WARNING: SVC is slower than LinearSVC. Using cache_size to optimize 16GB RAM.
+  svm_rbf:
+    kernel: ['rbf']
+    C: [1.0, 3.0, 5.0, 10.0]
+    gamma: ['scale', 0.1, 0.01, 0.001]
+    tol: [0.001]        # Standard value, if model does not converge, increase this value
+    cache_size: [1000] # Allocates 1GB for kernel matrix calculations
+    max_iter: [-1]
+    use_scaler: [true, false]  # Compare with/without MaxAbsScaler
+
+  # Calibration parameters (§5.3)
+  calibration:
+    method: ['isotonic']
+    cv: [5]
+
+# Output settings
+output:
+  results_dir: artifacts/experiments/svm_linear
+  save_predictions: true
+  generate_calibration_plots: true
+
+# Protocol reference
+protocol:
+  baseline_model_version: "2025.12.16_002"
+  test_usage_locked: true

@@ -40,12 +40,20 @@ from gym_sentiment_guard.common.artifacts import (
     save_run_artifact,
 )
 from gym_sentiment_guard.common.metrics import compute_val_metrics
+from gym_sentiment_guard.common.stopwords import STOPWORDS_SAFE
 from gym_sentiment_guard.common.threshold import apply_threshold, select_threshold
 from gym_sentiment_guard.utils.logging import get_logger, json_log
 
-from .grid import CALIBRATION_CONFIG, FIXED_PARAMS, SOLVER_BY_PENALTY, STOPWORDS_SAFE
-
 log = get_logger(__name__)
+
+# =============================================================================
+# Solver mapping based on penalty (implementation constraint per §5.2)
+# L2 → lbfgs (recommended, fast)
+# L1 → saga (required for L1 regularization)
+SOLVER_BY_PENALTY: dict[str, str] = {
+    'l2': 'lbfgs',
+    'l1': 'saga',
+}
 
 
 @dataclass
@@ -73,6 +81,16 @@ class ExperimentConfig:
     penalty: str = 'l2'
     C: float = 1.0
     class_weight: str | None = None
+
+    # Calibration parameters (§5.3 - from config file)
+    calibration_method: str = 'isotonic'
+    calibration_cv: int = 5
+
+    # Fixed parameters (from config file)
+    random_state: int = 42
+    max_iter: int = 1000
+    max_iter_retry: int = 5000
+    n_jobs: int = -1
 
     # Selection constraint (§1.1)
     recall_constraint: float = 0.90
@@ -120,20 +138,20 @@ def _build_pipeline(config: ExperimentConfig) -> Pipeline:
         C=config.C,
         class_weight=config.class_weight,
         solver=solver,
-        max_iter=FIXED_PARAMS['max_iter'],
-        random_state=FIXED_PARAMS['random_state'],
-        n_jobs=FIXED_PARAMS['n_jobs'],
+        max_iter=config.max_iter,
+        random_state=config.random_state,
+        n_jobs=config.n_jobs,
     )
 
     # Calibration with deterministic CV splitter (§4.3)
     cv_splitter = StratifiedKFold(
-        n_splits=CALIBRATION_CONFIG['cv'],
+        n_splits=config.calibration_cv,
         shuffle=True,
-        random_state=CALIBRATION_CONFIG['random_state'],
+        random_state=config.random_state,
     )
     calibrated = CalibratedClassifierCV(
         estimator=base_clf,
-        method=CALIBRATION_CONFIG['method'],
+        method=config.calibration_method,
         cv=cv_splitter,
     )
 
@@ -232,11 +250,15 @@ def run_single_experiment(
             'C': config.C,
             'class_weight': config.class_weight,
             'solver': _get_solver(config.penalty),
-            'max_iter': FIXED_PARAMS['max_iter'],
-            'random_state': FIXED_PARAMS['random_state'],
+            'max_iter': config.max_iter,
+            'random_state': config.random_state,
         },
         classifier_type='logreg',
-        calibration_config=CALIBRATION_CONFIG,
+        calibration_config={
+            'method': config.calibration_method,
+            'cv': config.calibration_cv,
+            'random_state': config.random_state,
+        },
     )
 
     # Load data
@@ -278,7 +300,7 @@ def run_single_experiment(
                     json_log(
                         'experiment.convergence_retry',
                         run_id=run_id,
-                        new_max_iter=FIXED_PARAMS['max_iter_retry'],
+                        new_max_iter=config.max_iter_retry,
                     )
                 )
                 retry_attempted = True
@@ -288,7 +310,7 @@ def run_single_experiment(
                 calibrated = pipeline.named_steps['classifier']
                 for estimator in calibrated.calibrated_classifiers_:
                     if hasattr(estimator.estimator, 'max_iter'):
-                        estimator.estimator.max_iter = FIXED_PARAMS['max_iter_retry']
+                        estimator.estimator.max_iter = config.max_iter_retry
 
                 # Re-fit
                 pipeline.fit(X_train, y_train)
