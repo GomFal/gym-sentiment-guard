@@ -1,0 +1,98 @@
+{
+  "id": 5930,
+  "text": "alguien sabe cuando es la apertura ¿? vale edito la reseña para informar que el dia 1 de abril es la apertura un saludo",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.7595,
+  "raw_score": -0.2832,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__edito",
+      "tfidf": 0.3317,
+      "coef": 0.0852,
+      "contrib": 0.0283
+    },
+    {
+      "term": "unigrams__sabe",
+      "tfidf": 0.2848,
+      "coef": 0.0377,
+      "contrib": 0.0107
+    },
+    {
+      "term": "multigrams__un saludo",
+      "tfidf": 0.2044,
+      "coef": 0.0356,
+      "contrib": 0.0073
+    },
+    {
+      "term": "multigrams__el dia de",
+      "tfidf": 0.2504,
+      "coef": 0.0035,
+      "contrib": 0.0009
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__apertura",
+      "tfidf": 0.4677,
+      "coef": -0.5335,
+      "contrib": -0.2495
+    },
+    {
+      "term": "unigrams__abril",
+      "tfidf": 0.3291,
+      "coef": -0.3107,
+      "contrib": -0.1023
+    },
+    {
+      "term": "unigrams__dia",
+      "tfidf": 0.2697,
+      "coef": -0.3261,
+      "contrib": -0.088
+    },
+    {
+      "term": "unigrams__alguien",
+      "tfidf": 0.2503,
+      "coef": -0.3087,
+      "contrib": -0.0773
+    },
+    {
+      "term": "unigrams__informar",
+      "tfidf": 0.3513,
+      "coef": -0.163,
+      "contrib": -0.0573
+    },
+    {
+      "term": "unigrams__vale",
+      "tfidf": 0.2795,
+      "coef": -0.202,
+      "contrib": -0.0564
+    },
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.2526,
+      "coef": -0.205,
+      "contrib": -0.0518
+    },
+    {
+      "term": "multigrams__dia de",
+      "tfidf": 0.2305,
+      "coef": -0.1436,
+      "contrib": -0.0331
+    },
+    {
+      "term": "multigrams__de abril",
+      "tfidf": 0.2583,
+      "coef": -0.1027,
+      "contrib": -0.0265
+    },
+    {
+      "term": "multigrams__que el",
+      "tfidf": 0.1461,
+      "coef": -0.1321,
+      "contrib": -0.0193
+    }
+  ]
+}

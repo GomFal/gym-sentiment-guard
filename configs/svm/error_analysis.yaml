@@ -1,0 +1,33 @@
+# SVM Error Analysis Configuration
+# Used by: gym svm error-analysis
+
+# Model and data paths (can be overridden via CLI)
+model_path: artifacts/models/svm_rbf/model.2026-02-02_001/svm_rbf.joblib
+predictions_csv_path: artifacts/models/svm_rbf/model.2026-02-02_001/test_predictions.csv
+test_csv_path: data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+
+# Column names in test CSV
+text_column: comment
+id_column: id
+
+# Decision threshold (should match training)
+threshold: 0.5
+
+# Risk tag parameters
+near_threshold_band: 0.10
+contrast_keywords_path: configs/contrast_keywords.txt
+
+# Coverage thresholds
+low_coverage_nnz_threshold: 5
+low_coverage_tfidf_threshold: 0.5
+
+# Ranking parameters
+confidence_threshold: 0.30
+top_k_errors: 50
+
+# Model interpretability parameters
+top_k_coefficients: 20  # For Linear SVM
+n_example_svs: 5        # For RBF SVM
+
+# Slice metrics
+min_slice_size: 50

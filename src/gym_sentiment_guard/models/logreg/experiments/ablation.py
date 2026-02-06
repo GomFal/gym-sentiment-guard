@@ -217,7 +217,7 @@ def run_ablation_suite(
 
     # Save suite summary
     output_dir = Path(base_config.output_dir)
-    suite_dir = output_dir / f'suite.{datetime.now(UTC).strftime("%Y-%m-%d_%H%M%S")}'
+    suite_dir = output_dir / f'suite.{datetime.now(UTC).strftime("%Y.%m.%d_%H%M%S")}'
     suite_dir.mkdir(parents=True, exist_ok=True)
 
     # Save summary JSON

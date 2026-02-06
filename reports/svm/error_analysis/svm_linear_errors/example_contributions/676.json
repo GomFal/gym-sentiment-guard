@@ -1,0 +1,62 @@
+{
+  "id": 676,
+  "text": "el chico recepcionista es muy borde",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.1996,
+  "raw_score": 0.2768,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.212,
+      "coef": 0.9425,
+      "contrib": 0.1998
+    },
+    {
+      "term": "unigrams__chico",
+      "tfidf": 0.604,
+      "coef": 0.0465,
+      "contrib": 0.0281
+    },
+    {
+      "term": "multigrams__recepcionista es muy",
+      "tfidf": 0.5347,
+      "coef": 0.0029,
+      "contrib": 0.0015
+    },
+    {
+      "term": "multigrams__recepcionista es",
+      "tfidf": 0.498,
+      "coef": 0.0027,
+      "contrib": 0.0013
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__borde",
+      "tfidf": 0.7683,
+      "coef": -0.4588,
+      "contrib": -0.3525
+    },
+    {
+      "term": "multigrams__el chico",
+      "tfidf": 0.3776,
+      "coef": -0.1199,
+      "contrib": -0.0453
+    },
+    {
+      "term": "multigrams__muy borde",
+      "tfidf": 0.5054,
+      "coef": -0.0517,
+      "contrib": -0.0261
+    },
+    {
+      "term": "multigrams__es muy",
+      "tfidf": 0.261,
+      "coef": -0.0247,
+      "contrib": -0.0065
+    }
+  ]
+}

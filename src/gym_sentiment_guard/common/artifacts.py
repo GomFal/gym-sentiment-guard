@@ -108,7 +108,7 @@ def get_environment_info() -> dict[str, str]:
 
 def generate_run_id(base_dir: Path, prefix: str = 'run') -> str:
     """Generate unique run ID based on date and sequence number."""
-    today = datetime.now(UTC).strftime('%Y-%m-%d')
+    today = datetime.now(UTC).strftime('%Y.%m.%d')
     existing = (
         sorted(
             p.name

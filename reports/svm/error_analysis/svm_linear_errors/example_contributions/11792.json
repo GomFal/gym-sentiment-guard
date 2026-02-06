@@ -1,0 +1,134 @@
+{
+  "id": 11792,
+  "text": "hasta que no tengan muchas más bajas que altas no pensarán en cuidar el gimnasio sus instalaciones y sus clientes algo de competencia vendría bien para eso no merece la pena mejor ir un poco más lejos a un mejor gimnasio",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.0703,
+  "raw_score": 0.4061,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.2489,
+      "coef": 1.1684,
+      "contrib": 0.2908
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1261,
+      "coef": 1.2502,
+      "contrib": 0.1577
+    },
+    {
+      "term": "unigrams__cuidar",
+      "tfidf": 0.3203,
+      "coef": 0.3442,
+      "contrib": 0.1102
+    },
+    {
+      "term": "multigrams__un poco",
+      "tfidf": 0.1203,
+      "coef": 0.6902,
+      "contrib": 0.0831
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.126,
+      "coef": 0.4393,
+      "contrib": 0.0553
+    },
+    {
+      "term": "multigrams__un poco más",
+      "tfidf": 0.166,
+      "coef": 0.27,
+      "contrib": 0.0448
+    },
+    {
+      "term": "unigrams__lejos",
+      "tfidf": 0.2913,
+      "coef": 0.1313,
+      "contrib": 0.0383
+    },
+    {
+      "term": "multigrams__poco más",
+      "tfidf": 0.1603,
+      "coef": 0.227,
+      "contrib": 0.0364
+    },
+    {
+      "term": "multigrams__la pena",
+      "tfidf": 0.1376,
+      "coef": 0.2307,
+      "contrib": 0.0318
+    },
+    {
+      "term": "multigrams__mejor gimnasio",
+      "tfidf": 0.1315,
+      "coef": 0.2401,
+      "contrib": 0.0316
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2171,
+      "coef": -2.3531,
+      "contrib": -0.5108
+    },
+    {
+      "term": "unigrams__hasta",
+      "tfidf": 0.1889,
+      "coef": -0.6341,
+      "contrib": -0.1197
+    },
+    {
+      "term": "unigrams__pena",
+      "tfidf": 0.2076,
+      "coef": -0.4686,
+      "contrib": -0.0973
+    },
+    {
+      "term": "unigrams__bajas",
+      "tfidf": 0.2985,
+      "coef": -0.2153,
+      "contrib": -0.0643
+    },
+    {
+      "term": "unigrams__sus",
+      "tfidf": 0.317,
+      "coef": -0.1776,
+      "contrib": -0.0563
+    },
+    {
+      "term": "unigrams__competencia",
+      "tfidf": 0.3178,
+      "coef": -0.1561,
+      "contrib": -0.0496
+    },
+    {
+      "term": "unigrams__poco",
+      "tfidf": 0.1818,
+      "coef": -0.2539,
+      "contrib": -0.0462
+    },
+    {
+      "term": "multigrams__sus clientes",
+      "tfidf": 0.1552,
+      "coef": -0.2189,
+      "contrib": -0.034
+    },
+    {
+      "term": "multigrams__que no",
+      "tfidf": 0.0908,
+      "coef": -0.2484,
+      "contrib": -0.0226
+    },
+    {
+      "term": "multigrams__no merece",
+      "tfidf": 0.178,
+      "coef": -0.1229,
+      "contrib": -0.0219
+    }
+  ]
+}

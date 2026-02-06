@@ -1,0 +1,134 @@
+{
+  "id": 11826,
+  "text": "es buen gimnasio pero no me parce correcto que cuando una profesora monitora funciona y llena clases que le quiten clases belén es buena en su clase de zumba y a los llenos de sus clases me remito porque se le quitan clases??? es una de las mejores en zumba esperemos que le den más horas por el bien de todos nosotros que nos gustan sus clases de zumba gracias",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.16,
+  "raw_score": 0.6363,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buen",
+      "tfidf": 0.1089,
+      "coef": 1.7469,
+      "contrib": 0.1902
+    },
+    {
+      "term": "unigrams__gracias",
+      "tfidf": 0.1411,
+      "coef": 1.2049,
+      "contrib": 0.17
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1039,
+      "coef": 1.2502,
+      "contrib": 0.1299
+    },
+    {
+      "term": "unigrams__mejores",
+      "tfidf": 0.1672,
+      "coef": 0.6167,
+      "contrib": 0.1031
+    },
+    {
+      "term": "unigrams__buena",
+      "tfidf": 0.1255,
+      "coef": 0.5445,
+      "contrib": 0.0683
+    },
+    {
+      "term": "unigrams__llena",
+      "tfidf": 0.2197,
+      "coef": 0.297,
+      "contrib": 0.0653
+    },
+    {
+      "term": "unigrams__zumba",
+      "tfidf": 0.4178,
+      "coef": 0.1502,
+      "contrib": 0.0628
+    },
+    {
+      "term": "unigrams__gustan",
+      "tfidf": 0.2459,
+      "coef": 0.1543,
+      "contrib": 0.0379
+    },
+    {
+      "term": "multigrams__gimnasio pero",
+      "tfidf": 0.1095,
+      "coef": 0.2778,
+      "contrib": 0.0304
+    },
+    {
+      "term": "multigrams__cuando una",
+      "tfidf": 0.1456,
+      "coef": 0.2024,
+      "contrib": 0.0295
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0852,
+      "coef": -2.3531,
+      "contrib": -0.2005
+    },
+    {
+      "term": "unigrams__quitan",
+      "tfidf": 0.2562,
+      "coef": -0.4312,
+      "contrib": -0.1105
+    },
+    {
+      "term": "unigrams__profesora",
+      "tfidf": 0.258,
+      "coef": -0.2642,
+      "contrib": -0.0682
+    },
+    {
+      "term": "unigrams__monitora",
+      "tfidf": 0.2125,
+      "coef": -0.2843,
+      "contrib": -0.0604
+    },
+    {
+      "term": "unigrams__nosotros",
+      "tfidf": 0.2297,
+      "coef": -0.2518,
+      "contrib": -0.0578
+    },
+    {
+      "term": "unigrams__correcto",
+      "tfidf": 0.2422,
+      "coef": -0.1921,
+      "contrib": -0.0465
+    },
+    {
+      "term": "unigrams__sus",
+      "tfidf": 0.2612,
+      "coef": -0.1776,
+      "contrib": -0.0464
+    },
+    {
+      "term": "unigrams__den",
+      "tfidf": 0.2562,
+      "coef": -0.1801,
+      "contrib": -0.0462
+    },
+    {
+      "term": "unigrams__quiten",
+      "tfidf": 0.2795,
+      "coef": -0.123,
+      "contrib": -0.0344
+    },
+    {
+      "term": "multigrams__es una",
+      "tfidf": 0.076,
+      "coef": -0.447,
+      "contrib": -0.034
+    }
+  ]
+}

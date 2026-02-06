@@ -169,7 +169,7 @@ gym logreg train \
 |--------|-------|----------|---------|-------------|
 | `--config` | `-c` | No | `configs/logreg_v1.yaml` | Path to model config YAML |
 
-**Output**: Model artifacts saved to `artifacts/models/sentiment_logreg/model.<date>_<seq>/`.
+**Output**: Model artifacts saved to `artifacts/models/logreg/model.<date>_<seq>/`.
 
 ---
 
@@ -235,7 +235,7 @@ Generate ablation suite reports with visualizations.
 gym logreg ablation-report \
   --experiments-dir artifacts/experiments \
   --output reports/logreg_ablations \
-  --test-predictions artifacts/models/sentiment_logreg/model.2026-01-10_002/test_predictions.csv \
+  --test-predictions artifacts/models/logreg/model.2026.01.10_002/test_predictions.csv \
   --winner run.2026-01-10_001
 ```
 
@@ -255,9 +255,9 @@ Run post-training error analysis on model predictions.
 ```bash
 gym logreg error-analysis \
   --config configs/logreg/error_analysis.yaml \
-  --output reports/error_analysis/model.2026-01-21_001 \
-  --model artifacts/models/sentiment_logreg/model.2026-01-21_001/model.joblib \
-  --predictions artifacts/models/sentiment_logreg/model.2026-01-21_001/test_predictions.csv \
+  --output reports/error_analysis/model.2026.01.21_001 \
+  --model artifacts/models/logreg/model.2026.01.21_001/logreg.joblib \
+  --predictions artifacts/models/logreg/model.2026.01.21_001/test_predictions.csv \
   --test-csv data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
 ```
 
@@ -316,6 +316,165 @@ gym svm ablation \
 | `--output-dir` | `-o` | No | `artifacts/experiments/svm_linear` | Output directory |
 
 Grid parameters are defined in `configs/svm/experiment.yaml` under `ablation.feature_union`, `ablation.svm_linear`, and `ablation.calibration`.
+
+---
+
+### `gym svm train-rbf`
+
+Train an SVM RBF (Radial Basis Function) model from a configuration file. This command produces a trained, calibrated model ready for production deployment.
+
+```bash
+gym svm train-rbf \
+  --config configs/svm/training_rbf.yaml
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/svm/training_rbf.yaml` | Path to RBF training config YAML |
+
+**Output**: Model artifacts saved to `artifacts/models/svm_rbf/model.<date>_<seq>/` including:
+- `svm_rbf.joblib` — Trained, calibrated model pipeline
+- `metadata.json` — Configuration provenance and threshold
+- `metrics_test.json` — TEST set classification report
+- `test_predictions.csv` — Predictions for Layer 4 report generation
+
+**Configuration** (`training_rbf.yaml`):
+```yaml
+classifier:
+  type: svm_rbf
+  kernel: rbf
+  C: 3.0
+  gamma: 0.1
+  use_scaler: false  # Enable/disable MaxAbsScaler preprocessing
+  random_state: 42
+```
+
+The `use_scaler` option controls whether `MaxAbsScaler` is applied before the SVC. Set to `false` for TF-IDF inputs (already L2-normalized).
+
+---
+
+### `gym svm ablation-rbf`
+
+Run a full SVC RBF ablation suite across hyperparameter grids. Sweeps combinations of C, gamma, and scaler settings to find the optimal configuration.
+
+```bash
+gym svm ablation-rbf \
+  --config configs/svm/experiment.yaml \
+  --max-runs 10 \
+  --output-dir artifacts/experiments/svm_rbf
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/svm/experiment.yaml` | Path to ablation config YAML |
+| `--max-runs` | — | No | None (all) | Maximum number of runs (useful for testing) |
+| `--output-dir` | `-o` | No | `artifacts/experiments/svm_rbf` | Output directory for run artifacts |
+
+**Grid parameters** are defined in `configs/svm/experiment.yaml` under:
+- `ablation.feature_union.unigrams` — Unigram TF-IDF settings
+- `ablation.feature_union.multigrams` — Multigram TF-IDF settings
+- `ablation.svm_rbf` — RBF hyperparameters: `C`, `gamma`, `use_scaler`
+- `ablation.calibration` — Calibration method and CV folds
+
+**Example grid config** (`experiment.yaml`):
+```yaml
+ablation:
+  svm_rbf:
+    kernel: [rbf]
+    C: [1.0, 3.0, 10.0]
+    gamma: [0.01, 0.1, "scale"]
+    use_scaler: [true, false]
+    tol: [0.001]
+    max_iter: [-1]
+```
+
+Each combination produces a `run.<date>_<seq>/run.json` with metrics, hyperparameters, and validation results.
+
+---
+
+### `gym svm ablation-report`
+
+Generate a comprehensive 4-layer ablation analysis report with visualizations. Supports both Linear and RBF SVM experiments.
+
+```bash
+gym svm ablation-report \
+  --model-type rbf \
+  --experiments-dir artifacts/experiments/svm_rbf \
+  --output-dir reports/svm_rbf_ablation \
+  --test-predictions artifacts/models/svm_rbf/model.2026-02-02_001/test_predictions.csv \
+  --winner run.2026-02-02_012
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--model-type` | `-m` | **Yes** | — | Model type: `linear` or `rbf` |
+| `--experiments-dir` | `-e` | No | `artifacts/experiments/svm_linear` | Path to experiments directory containing `run.*` folders |
+| `--output-dir` | `-o` | No | `reports/svm_ablations` | Output directory for reports and figures |
+| `--test-predictions` | `-t` | No | None | Path to `test_predictions.csv` for Layer 4 generation |
+| `--winner` | `-w` | No | Auto-detect | Explicit winner run_id (highest F1_neg selected if omitted) |
+
+**Report Layers**:
+
+| Layer | Purpose | Artifacts |
+|-------|---------|-----------|
+| **1** | Ablation Summary Table | `tables/ablation_table_sorted.csv` |
+| **2** | Top-K Results | `TOP5_RESULTS.md`, `layer2_top5_f1neg.png` |
+| **3** | Factor-Level Analysis | `ABLATION_ANALYSIS.md`, C/gamma heatmaps, scaler comparison plots |
+| **4** | Final Model Deep Dive | `FINAL_MODEL_REPORT.md`, PR curve, calibration, confusion matrices |
+
+**Layer 4 requires `--test-predictions`**: Without test predictions, Layer 4 is skipped. To generate Layer 4:
+
+1. Train the winning configuration:
+   ```bash
+   gym svm train-rbf --config configs/svm/training_rbf.yaml
+   ```
+
+2. Generate the full report with test predictions:
+   ```bash
+   gym svm ablation-report \
+     --model-type rbf \
+     --experiments-dir artifacts/experiments/svm_rbf \
+     --test-predictions artifacts/models/svm_rbf/model.<date>_<seq>/test_predictions.csv \
+     -o reports/svm_rbf_ablation
+   ```
+
+**RBF-specific plots** (Layer 3):
+- **Gamma vs F1_neg** — Effect of kernel coefficient
+- **Gamma-C Heatmap** — Interaction between regularization and kernel width
+- **Support Vectors vs F1_neg** — Model complexity correlation
+- **MaxAbsScaler Comparison** — Metrics by scaler setting (if `use_scaler` was varied)
+
+---
+
+### `gym svm error-analysis`
+
+Run post-training error analysis on SVM model predictions. Automatically detects model type (Linear vs RBF) and uses appropriate analysis methods.
+
+```bash
+gym svm error-analysis \
+  --config configs/svm/error_analysis.yaml \
+  --output reports/error_analysis/svm_linear.2026-02-05_001 \
+  --model artifacts/models/svm_linear/model.2026.02.05_001/svm.joblib \
+  --predictions artifacts/models/svm_linear/model.2026.02.05_001/test_predictions.csv \
+  --test-csv data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv
+```
+
+| Option | Short | Required | Default | Description |
+|--------|-------|----------|---------|-------------|
+| `--config` | `-c` | No | `configs/svm/error_analysis.yaml` | Path to error_analysis.yaml config |
+| `--output` | `-o` | No | Auto-derived from model path | Output directory |
+| `--model` | `-m` | No | From config | Override model path |
+| `--predictions` | `-p` | No | From config | Override predictions CSV path |
+| `--test-csv` | `-t` | No | From config | Override test CSV path |
+
+**Output**: Artifacts saved to `reports/error_analysis/<model_id>/`.
+
+**Analysis by Model Type**:
+
+| Model Type | Analysis Artifacts |
+|------------|-------------------|
+| **Linear SVM** | Coefficients, per-example contributions, rankings, slice metrics |
+| **RBF SVM** | Support vector statistics, rankings, slice metrics |
 
 ---
 
@@ -473,16 +632,46 @@ FastText LID (`lid.176.bin`) was evaluated on 1000 labeled gym reviews (250 per 
 This threshold balances high accuracy with minimal fallback usage.
 
 
+### MaxAbsScaler for RBF SVM
+
+**Context**  
+`MaxAbsScaler` is commonly recommended for SVM to normalize features so that Euclidean distances (used by RBF kernel) are not dominated by high-magnitude features. However, this assumes raw feature values have varying scales.
+
+**Empirical Finding**  
+Ablation experiments (`reports/svm_rbf_ablation/ABLATION_ANALYSIS.md`) compared `use_scaler=True` vs `use_scaler=False` across 32 hyperparameter combinations:
+
+| Metric | Scaled (mean) | Unscaled (mean) | Winner |
+|--------|---------------|-----------------|--------|
+| F1_neg | 0.8906 | **0.8925** | Unscaled |
+| Recall_neg | 0.9107 | **0.9144** | Unscaled |
+| Brier Score | 0.0382 | **0.0375** | Unscaled |
+| ECE | 0.0082 | **0.0065** | Unscaled |
+| Avg Support Vectors | 2699 | **2585** | Unscaled (simpler) |
+
+The unscaled model consistently outperformed across all metrics.
+
+**Explanation**  
+TF-IDF with `norm='l2'` (sklearn default) already L2-normalizes each document vector to unit length. This means:
+- All document vectors lie on a unit hypersphere
+- Euclidean distances are already bounded and comparable
+- Additional scaling is redundant and may distort the natural TF-IDF weighting
+
+**Decision**  
+- Set `use_scaler: false` in `configs/svm/training_rbf.yaml`
+- MaxAbsScaler is beneficial when feature magnitudes vary widely (e.g., raw counts, mixed feature types)
+- For L2-normalized TF-IDF, it is unnecessary and empirically harmful
+
+
 ### Data Splitting
 
 **Decision**
 The dataset is divided into 70/15/15 for train, val and test:
-  - I consider that a dataset of ~10k reviews is enough to reduce variation in the eval and test set. Using stratified sampling will reduce possible variation because both of the classes are proportionally represented, and the minority class has 1500+ revies, making it sufficient for a first linear model. 
+  - I consider that a dataset of ~10k reviews is enough to reduce variation in the eval and test set. Using stratified sampling will reduce possible variation because both of the classes are proportionally represented, and the minority class has 1500+ reviews, making it sufficient for a first linear model. 
   If low performance is observed some changes which would be considered would be: 
   - augmenting the training set 
   - changing the data split 
   - adding K fold cross validation to the training process.
-  - Use temporal splitting: train model with older data and test it with recent data (E.g: train on 2020-2022, test on 2024-2025). The provblem with this is that, even though gym situations can change (New monitors, new machines, management changes), the way of expressing satisfaction or discomfort with services should not in a such small period of time (Slang change, vocabulary change, new generations entering the gym). 
+  - Use temporal splitting: train model with older data and test it with recent data (E.g: train on 2020-2022, test on 2024-2025). The problem with this is that, even though gym situations can change (New monitors, new machines, management changes), the way of expressing satisfaction or discomfort with services should not in a such small period of time (Slang change, vocabulary change, new generations entering the gym). 
 
 ---
 
@@ -577,7 +766,7 @@ Configure via `configs/serving.yaml`:
 
 ```yaml
 model:
-  path: artifacts/models/sentiment_logreg/model.2025.12.16_002
+  path: artifacts/models/logreg/model.2025.12.16_002
 
 preprocessing:
   enabled: true

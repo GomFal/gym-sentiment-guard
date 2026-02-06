@@ -1,0 +1,128 @@
+{
+  "id": 823,
+  "text": "ofrecen un servicio y luego para q enciendan el sauna q es un servicio es como si la recepcionista lo pagará ella del su bolsillo que pesadez por lo demas todo bien …",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.1361,
+  "raw_score": 0.6124,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.2348,
+      "coef": 1.2502,
+      "contrib": 0.2935
+    },
+    {
+      "term": "multigrams__es un",
+      "tfidf": 0.1295,
+      "coef": 0.3899,
+      "contrib": 0.0505
+    },
+    {
+      "term": "multigrams__por lo demas",
+      "tfidf": 0.2837,
+      "coef": 0.1381,
+      "contrib": 0.0392
+    },
+    {
+      "term": "multigrams__es como",
+      "tfidf": 0.2233,
+      "coef": 0.1722,
+      "contrib": 0.0385
+    },
+    {
+      "term": "multigrams__lo demas",
+      "tfidf": 0.2726,
+      "coef": 0.1161,
+      "contrib": 0.0317
+    },
+    {
+      "term": "multigrams__todo bien",
+      "tfidf": 0.2125,
+      "coef": 0.1259,
+      "contrib": 0.0267
+    },
+    {
+      "term": "multigrams__el sauna",
+      "tfidf": 0.2608,
+      "coef": 0.0668,
+      "contrib": 0.0174
+    },
+    {
+      "term": "unigrams__ella",
+      "tfidf": 0.4548,
+      "coef": 0.0371,
+      "contrib": 0.0169
+    },
+    {
+      "term": "multigrams__si la",
+      "tfidf": 0.2291,
+      "coef": 0.0421,
+      "contrib": 0.0096
+    },
+    {
+      "term": "unigrams__sauna",
+      "tfidf": 0.4141,
+      "coef": 0.0164,
+      "contrib": 0.0068
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__servicio",
+      "tfidf": 0.5578,
+      "coef": -0.3349,
+      "contrib": -0.1868
+    },
+    {
+      "term": "multigrams__un servicio",
+      "tfidf": 0.3439,
+      "coef": -0.2026,
+      "contrib": -0.0697
+    },
+    {
+      "term": "multigrams__como si",
+      "tfidf": 0.2081,
+      "coef": -0.2012,
+      "contrib": -0.0419
+    },
+    {
+      "term": "multigrams__la recepcionista",
+      "tfidf": 0.2062,
+      "coef": -0.1532,
+      "contrib": -0.0316
+    },
+    {
+      "term": "unigrams__ofrecen",
+      "tfidf": 0.5054,
+      "coef": -0.0573,
+      "contrib": -0.029
+    },
+    {
+      "term": "multigrams__sauna es",
+      "tfidf": 0.2837,
+      "coef": -0.0701,
+      "contrib": -0.0199
+    },
+    {
+      "term": "multigrams__por lo",
+      "tfidf": 0.1607,
+      "coef": -0.0472,
+      "contrib": -0.0076
+    },
+    {
+      "term": "multigrams__servicio es",
+      "tfidf": 0.2452,
+      "coef": -0.0281,
+      "contrib": -0.0069
+    },
+    {
+      "term": "multigrams__es un servicio",
+      "tfidf": 0.2837,
+      "coef": -0.0208,
+      "contrib": -0.0059
+    }
+  ]
+}

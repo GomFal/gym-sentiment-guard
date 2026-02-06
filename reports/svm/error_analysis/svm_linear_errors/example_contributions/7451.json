@@ -1,0 +1,134 @@
+{
+  "id": 7451,
+  "text": "con el cambio de clases de les mills y la salida de silvia el gimnasio perdió muchísimo las nuevas clases son muy regu ojalá vuelvan pronto",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.0908,
+  "raw_score": 0.5672,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__silvia",
+      "tfidf": 0.3447,
+      "coef": 0.3207,
+      "contrib": 0.1105
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.1,
+      "coef": 0.9425,
+      "contrib": 0.0942
+    },
+    {
+      "term": "unigrams__cambio",
+      "tfidf": 0.3081,
+      "coef": 0.24,
+      "contrib": 0.0739
+    },
+    {
+      "term": "unigrams__nuevas",
+      "tfidf": 0.2737,
+      "coef": 0.2347,
+      "contrib": 0.0642
+    },
+    {
+      "term": "multigrams__de clases",
+      "tfidf": 0.147,
+      "coef": 0.3755,
+      "contrib": 0.0552
+    },
+    {
+      "term": "multigrams__clases de",
+      "tfidf": 0.1421,
+      "coef": 0.3399,
+      "contrib": 0.0483
+    },
+    {
+      "term": "unigrams__ojalá",
+      "tfidf": 0.377,
+      "coef": 0.0771,
+      "contrib": 0.0291
+    },
+    {
+      "term": "unigrams__pronto",
+      "tfidf": 0.3535,
+      "coef": 0.0764,
+      "contrib": 0.027
+    },
+    {
+      "term": "multigrams__son muy",
+      "tfidf": 0.1413,
+      "coef": 0.1702,
+      "contrib": 0.024
+    },
+    {
+      "term": "multigrams__de clases de",
+      "tfidf": 0.2392,
+      "coef": 0.0582,
+      "contrib": 0.0139
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "multigrams__les mills",
+      "tfidf": 0.2579,
+      "coef": -0.222,
+      "contrib": -0.0573
+    },
+    {
+      "term": "multigrams__el cambio de",
+      "tfidf": 0.2366,
+      "coef": -0.1904,
+      "contrib": -0.045
+    },
+    {
+      "term": "multigrams__de les mills",
+      "tfidf": 0.2635,
+      "coef": -0.159,
+      "contrib": -0.0419
+    },
+    {
+      "term": "multigrams__cambio de",
+      "tfidf": 0.2128,
+      "coef": -0.196,
+      "contrib": -0.0417
+    },
+    {
+      "term": "unigrams__salida",
+      "tfidf": 0.397,
+      "coef": -0.0965,
+      "contrib": -0.0383
+    },
+    {
+      "term": "multigrams__con el",
+      "tfidf": 0.1267,
+      "coef": -0.275,
+      "contrib": -0.0348
+    },
+    {
+      "term": "multigrams__de les",
+      "tfidf": 0.2579,
+      "coef": -0.1314,
+      "contrib": -0.0339
+    },
+    {
+      "term": "multigrams__la salida de",
+      "tfidf": 0.2579,
+      "coef": -0.1232,
+      "contrib": -0.0318
+    },
+    {
+      "term": "multigrams__salida de",
+      "tfidf": 0.2531,
+      "coef": -0.1209,
+      "contrib": -0.0306
+    },
+    {
+      "term": "unigrams__muchísimo",
+      "tfidf": 0.3178,
+      "coef": -0.0953,
+      "contrib": -0.0303
+    }
+  ]
+}

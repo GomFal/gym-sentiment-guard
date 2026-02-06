@@ -1,0 +1,134 @@
+{
+  "id": 11772,
+  "text": "la verdad que estaba buscando un gimnasio que tuviera toda la equipación pero sin estar llena de gente cuando fui a preguntar vi que había muchísima gente y eran las 20 30 a 21 00 un jueves sin embargo le di una oportunidad para probarlo y sinceramente parece mucha gente pero cuando estas en las maquinas al final no parece que haya tanta gente a veces tienes que esperar pero se libra bastante rápido ya que hay varias maquinas tienen taquillas que se abren y se cierran con una pulsera clases que ",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.9455,
+  "raw_score": -0.4692,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__llena",
+      "tfidf": 0.1429,
+      "coef": 0.297,
+      "contrib": 0.0424
+    },
+    {
+      "term": "unigrams__aquí",
+      "tfidf": 0.1121,
+      "coef": 0.3484,
+      "contrib": 0.0391
+    },
+    {
+      "term": "multigrams__un gimnasio",
+      "tfidf": 0.0611,
+      "coef": 0.5421,
+      "contrib": 0.0331
+    },
+    {
+      "term": "unigrams__oportunidad",
+      "tfidf": 0.169,
+      "coef": 0.1683,
+      "contrib": 0.0285
+    },
+    {
+      "term": "multigrams__gente pero",
+      "tfidf": 0.0958,
+      "coef": 0.2663,
+      "contrib": 0.0255
+    },
+    {
+      "term": "multigrams__pero se",
+      "tfidf": 0.1001,
+      "coef": 0.2346,
+      "contrib": 0.0235
+    },
+    {
+      "term": "unigrams__tuviera",
+      "tfidf": 0.1762,
+      "coef": 0.1088,
+      "contrib": 0.0192
+    },
+    {
+      "term": "multigrams__que haya",
+      "tfidf": 0.1005,
+      "coef": 0.174,
+      "contrib": 0.0175
+    },
+    {
+      "term": "multigrams__clases que",
+      "tfidf": 0.0993,
+      "coef": 0.1712,
+      "contrib": 0.017
+    },
+    {
+      "term": "multigrams__lo malo",
+      "tfidf": 0.1088,
+      "coef": 0.1488,
+      "contrib": 0.0162
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0554,
+      "coef": -2.3531,
+      "contrib": -0.1304
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1321,
+      "coef": -0.7453,
+      "contrib": -0.0985
+    },
+    {
+      "term": "unigrams__parece",
+      "tfidf": 0.1757,
+      "coef": -0.5499,
+      "contrib": -0.0966
+    },
+    {
+      "term": "unigrams__dijeron",
+      "tfidf": 0.1442,
+      "coef": -0.429,
+      "contrib": -0.0619
+    },
+    {
+      "term": "unigrams__cierran",
+      "tfidf": 0.16,
+      "coef": -0.3839,
+      "contrib": -0.0614
+    },
+    {
+      "term": "multigrams__mucha gente",
+      "tfidf": 0.08,
+      "coef": -0.7352,
+      "contrib": -0.0588
+    },
+    {
+      "term": "multigrams__de gente",
+      "tfidf": 0.0739,
+      "coef": -0.7839,
+      "contrib": -0.058
+    },
+    {
+      "term": "unigrams__estaba",
+      "tfidf": 0.1201,
+      "coef": -0.4736,
+      "contrib": -0.0569
+    },
+    {
+      "term": "unigrams__fui",
+      "tfidf": 0.1188,
+      "coef": -0.3826,
+      "contrib": -0.0454
+    },
+    {
+      "term": "unigrams__eran",
+      "tfidf": 0.1636,
+      "coef": -0.2728,
+      "contrib": -0.0446
+    }
+  ]
+}

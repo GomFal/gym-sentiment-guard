@@ -178,7 +178,7 @@ def train_from_config(config_path: str | Path) -> dict:
     artifacts = cfg['artifacts']
     base_dir = Path(artifacts['output_dir'])
     base_dir.mkdir(parents=True, exist_ok=True)
-    today = datetime.now(UTC).strftime('%Y-%m-%d')
+    today = datetime.now(UTC).strftime('%Y.%m.%d')
     existing = sorted(
         p.name for p in base_dir.iterdir() if p.is_dir() and p.name.startswith(f'model.{today}_')
     )

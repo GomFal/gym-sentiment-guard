@@ -1,0 +1,104 @@
+{
+  "id": 13332,
+  "text": "amplias instalaciones pero demasiada gente quizás debería abrir a las 6 en vez de a las 7",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.8006,
+  "raw_score": -0.3243,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__amplias",
+      "tfidf": 0.4195,
+      "coef": 0.3117,
+      "contrib": 0.1307
+    },
+    {
+      "term": "unigrams__quizás",
+      "tfidf": 0.4746,
+      "coef": 0.2152,
+      "contrib": 0.1021
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.1993,
+      "coef": 0.4393,
+      "contrib": 0.0875
+    },
+    {
+      "term": "multigrams__amplias instalaciones",
+      "tfidf": 0.4153,
+      "coef": 0.083,
+      "contrib": 0.0345
+    },
+    {
+      "term": "unigrams__pero",
+      "tfidf": 0.2064,
+      "coef": 0.0681,
+      "contrib": 0.0141
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__abrir",
+      "tfidf": 0.4364,
+      "coef": -0.6119,
+      "contrib": -0.267
+    },
+    {
+      "term": "unigrams__demasiada",
+      "tfidf": 0.406,
+      "coef": -0.5618,
+      "contrib": -0.2281
+    },
+    {
+      "term": "multigrams__instalaciones pero",
+      "tfidf": 0.3788,
+      "coef": -0.2813,
+      "contrib": -0.1065
+    },
+    {
+      "term": "multigrams__en vez",
+      "tfidf": 0.3372,
+      "coef": -0.3088,
+      "contrib": -0.1041
+    },
+    {
+      "term": "unigrams__debería",
+      "tfidf": 0.4014,
+      "coef": -0.2244,
+      "contrib": -0.0901
+    },
+    {
+      "term": "multigrams__de las",
+      "tfidf": 0.2127,
+      "coef": -0.4064,
+      "contrib": -0.0864
+    },
+    {
+      "term": "multigrams__vez de",
+      "tfidf": 0.3372,
+      "coef": -0.2493,
+      "contrib": -0.084
+    },
+    {
+      "term": "multigrams__en vez de",
+      "tfidf": 0.3384,
+      "coef": -0.2429,
+      "contrib": -0.0822
+    },
+    {
+      "term": "multigrams__demasiada gente",
+      "tfidf": 0.3182,
+      "coef": -0.2165,
+      "contrib": -0.0689
+    },
+    {
+      "term": "multigrams__abrir las",
+      "tfidf": 0.4423,
+      "coef": -0.1178,
+      "contrib": -0.0521
+    }
+  ]
+}

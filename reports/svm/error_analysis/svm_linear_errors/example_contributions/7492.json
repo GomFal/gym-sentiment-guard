@@ -1,0 +1,92 @@
+{
+  "id": 7492,
+  "text": "no todos usan toallas el aire acondicionado funciona a medias como las duchas o están calientes o realmente no funcionan",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -1.2799,
+  "raw_score": -0.8035,
+  "top_positive_contributors": [
+    {
+      "term": "multigrams__las duchas",
+      "tfidf": 0.254,
+      "coef": 0.2485,
+      "contrib": 0.0631
+    },
+    {
+      "term": "unigrams__realmente",
+      "tfidf": 0.3408,
+      "coef": 0.0321,
+      "contrib": 0.011
+    },
+    {
+      "term": "multigrams__no funcionan",
+      "tfidf": 0.3225,
+      "coef": 0.0172,
+      "contrib": 0.0056
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.2361,
+      "coef": -2.3531,
+      "contrib": -0.5557
+    },
+    {
+      "term": "unigrams__acondicionado",
+      "tfidf": 0.315,
+      "coef": -0.6274,
+      "contrib": -0.1976
+    },
+    {
+      "term": "multigrams__el aire",
+      "tfidf": 0.2409,
+      "coef": -0.4225,
+      "contrib": -0.1018
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.2178,
+      "coef": -0.4452,
+      "contrib": -0.097
+    },
+    {
+      "term": "unigrams__toallas",
+      "tfidf": 0.3846,
+      "coef": -0.1932,
+      "contrib": -0.0743
+    },
+    {
+      "term": "multigrams__las duchas están",
+      "tfidf": 0.3763,
+      "coef": -0.1915,
+      "contrib": -0.0721
+    },
+    {
+      "term": "multigrams__aire acondicionado",
+      "tfidf": 0.2382,
+      "coef": -0.2589,
+      "contrib": -0.0617
+    },
+    {
+      "term": "multigrams__duchas están",
+      "tfidf": 0.3556,
+      "coef": -0.1652,
+      "contrib": -0.0588
+    },
+    {
+      "term": "unigrams__usan",
+      "tfidf": 0.4141,
+      "coef": -0.101,
+      "contrib": -0.0418
+    },
+    {
+      "term": "unigrams__duchas",
+      "tfidf": 0.3079,
+      "coef": -0.0916,
+      "contrib": -0.0282
+    }
+  ]
+}

@@ -23,10 +23,10 @@ data:
 selection:
   primary_metric: f1_neg
   recall_constraint: 0.90
+  precision_constraint: 0.85
   tie_breakers:
     - macro_f1
     - pr_auc_neg
-
 # Ablation grids (§5)
 ablation:
   # FeatureUnion: Hybrid n-gram approach (§5.1)

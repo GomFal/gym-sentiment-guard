@@ -37,7 +37,7 @@ COPY --chown=appuser:appuser configs/serving.docker.yaml ./configs/serving.yaml
 COPY --chown=appuser:appuser configs/structural_punctuation.txt ./configs/structural_punctuation.txt
 
 # Copy model artifacts
-COPY --chown=appuser:appuser artifacts/models/sentiment_logreg/ ./artifacts/models/sentiment_logreg/
+COPY --chown=appuser:appuser artifacts/models/logreg/ ./artifacts/models/logreg/
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \

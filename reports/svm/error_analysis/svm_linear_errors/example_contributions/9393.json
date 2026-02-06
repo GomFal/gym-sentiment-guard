@@ -1,0 +1,134 @@
+{
+  "id": 9393,
+  "text": "voy a modificar mi reseña en el que le puse 5 estrellas a este gym porque era genial pero actualmente llevan ya mas de 3 semanas sin las televisiones de 4 solo tienen 1 y no se si es porque están en reparación lo vendieron o que hicieron",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.7491,
+  "raw_score": -0.2728,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__genial",
+      "tfidf": 0.1968,
+      "coef": 1.0754,
+      "contrib": 0.2116
+    },
+    {
+      "term": "unigrams__estrellas",
+      "tfidf": 0.2555,
+      "coef": 0.5488,
+      "contrib": 0.1402
+    },
+    {
+      "term": "unigrams__voy",
+      "tfidf": 0.2259,
+      "coef": 0.5519,
+      "contrib": 0.1247
+    },
+    {
+      "term": "unigrams__actualmente",
+      "tfidf": 0.3486,
+      "coef": 0.1936,
+      "contrib": 0.0675
+    },
+    {
+      "term": "unigrams__puse",
+      "tfidf": 0.3486,
+      "coef": 0.1465,
+      "contrib": 0.0511
+    },
+    {
+      "term": "multigrams__este gym",
+      "tfidf": 0.1273,
+      "coef": 0.1565,
+      "contrib": 0.0199
+    },
+    {
+      "term": "multigrams__de solo",
+      "tfidf": 0.2051,
+      "coef": 0.0572,
+      "contrib": 0.0117
+    },
+    {
+      "term": "multigrams__solo tienen",
+      "tfidf": 0.2191,
+      "coef": 0.0516,
+      "contrib": 0.0113
+    },
+    {
+      "term": "unigrams__pero",
+      "tfidf": 0.1432,
+      "coef": 0.0681,
+      "contrib": 0.0098
+    },
+    {
+      "term": "multigrams__que le",
+      "tfidf": 0.136,
+      "coef": 0.064,
+      "contrib": 0.0087
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1135,
+      "coef": -2.3531,
+      "contrib": -0.267
+    },
+    {
+      "term": "unigrams__hicieron",
+      "tfidf": 0.3226,
+      "coef": -0.5561,
+      "contrib": -0.1794
+    },
+    {
+      "term": "unigrams__era",
+      "tfidf": 0.2465,
+      "coef": -0.5782,
+      "contrib": -0.1426
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.1597,
+      "coef": -0.7453,
+      "contrib": -0.119
+    },
+    {
+      "term": "unigrams__semanas",
+      "tfidf": 0.2642,
+      "coef": -0.4308,
+      "contrib": -0.1138
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.192,
+      "coef": -0.4614,
+      "contrib": -0.0886
+    },
+    {
+      "term": "unigrams__están",
+      "tfidf": 0.1772,
+      "coef": -0.4452,
+      "contrib": -0.0789
+    },
+    {
+      "term": "unigrams__tienen",
+      "tfidf": 0.1945,
+      "coef": -0.3898,
+      "contrib": -0.0758
+    },
+    {
+      "term": "multigrams__no se",
+      "tfidf": 0.104,
+      "coef": -0.6845,
+      "contrib": -0.0712
+    },
+    {
+      "term": "unigrams__reseña",
+      "tfidf": 0.2675,
+      "coef": -0.205,
+      "contrib": -0.0548
+    }
+  ]
+}

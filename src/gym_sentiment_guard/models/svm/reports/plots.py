@@ -268,12 +268,13 @@ def plot_scaler_comparison(df: pd.DataFrame, output_path: Path) -> Path:
     bars2 = ax.bar(x + width/2, unscaled_means, width, yerr=unscaled_stds,
                    label='MaxAbsScaler=False', color=COLOR_SECONDARY, alpha=0.8, capsize=4)
     
-    # Add value labels on bars
-    for bars in [bars1, bars2]:
-        for bar in bars:
+    # Add value labels above error bars
+    for bars, stds in [(bars1, scaled_stds), (bars2, unscaled_stds)]:
+        for bar, std in zip(bars, stds):
             height = bar.get_height()
+            label_y = height + std  # Position above error bar
             ax.annotate(f'{height:.4f}',
-                        xy=(bar.get_x() + bar.get_width() / 2, height),
+                        xy=(bar.get_x() + bar.get_width() / 2, label_y),
                         xytext=(0, 3), textcoords="offset points",
                         ha='center', va='bottom', fontsize=8)
     

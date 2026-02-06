@@ -1,0 +1,134 @@
+{
+  "id": 12990,
+  "text": "llego a hacer esta opinión hace un par de meses y les ponía 2 estrellas como máximo en primer lugar ha sido un puntazo por parte del dreamfit el hecho de abrir a las 6 de la mañana para las personas que trabajamos muy temprano nos viene muy bien ir a entrenar a esa hora ya que no está masificado y se nota que la gente viene a entrenar no a ponerse a hablar u ocupar máquinas durante un tiempo indeterminado como ocurre durante otras franjas horarias no obstante deberían controlar la cantidad de ge",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -1.2618,
+  "raw_score": -0.7855,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.0759,
+      "coef": 0.9425,
+      "contrib": 0.0716
+    },
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.057,
+      "coef": 1.2502,
+      "contrib": 0.0713
+    },
+    {
+      "term": "unigrams__especial",
+      "tfidf": 0.0962,
+      "coef": 0.6905,
+      "contrib": 0.0664
+    },
+    {
+      "term": "multigrams__no está",
+      "tfidf": 0.064,
+      "coef": 0.9037,
+      "contrib": 0.0578
+    },
+    {
+      "term": "unigrams__estrellas",
+      "tfidf": 0.1053,
+      "coef": 0.5488,
+      "contrib": 0.0578
+    },
+    {
+      "term": "unigrams__distrito",
+      "tfidf": 0.1239,
+      "coef": 0.3627,
+      "contrib": 0.0449
+    },
+    {
+      "term": "unigrams__primer",
+      "tfidf": 0.1051,
+      "coef": 0.3378,
+      "contrib": 0.0355
+    },
+    {
+      "term": "unigrams__va",
+      "tfidf": 0.163,
+      "coef": 0.2161,
+      "contrib": 0.0352
+    },
+    {
+      "term": "unigrams__mención",
+      "tfidf": 0.1252,
+      "coef": 0.2568,
+      "contrib": 0.0321
+    },
+    {
+      "term": "unigrams__ponerse",
+      "tfidf": 0.138,
+      "coef": 0.2077,
+      "contrib": 0.0287
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.0981,
+      "coef": -2.3531,
+      "contrib": -0.2309
+    },
+    {
+      "term": "unigrams__masificado",
+      "tfidf": 0.1617,
+      "coef": -1.2012,
+      "contrib": -0.1943
+    },
+    {
+      "term": "unigrams__abrir",
+      "tfidf": 0.1247,
+      "coef": -0.6119,
+      "contrib": -0.0763
+    },
+    {
+      "term": "unigrams__coger",
+      "tfidf": 0.1265,
+      "coef": -0.4717,
+      "contrib": -0.0597
+    },
+    {
+      "term": "unigrams__era",
+      "tfidf": 0.1016,
+      "coef": -0.5782,
+      "contrib": -0.0587
+    },
+    {
+      "term": "unigrams__tan",
+      "tfidf": 0.1546,
+      "coef": -0.3436,
+      "contrib": -0.0531
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.0658,
+      "coef": -0.7453,
+      "contrib": -0.0491
+    },
+    {
+      "term": "unigrams__nada",
+      "tfidf": 0.0804,
+      "coef": -0.5449,
+      "contrib": -0.0438
+    },
+    {
+      "term": "unigrams__mes",
+      "tfidf": 0.0866,
+      "coef": -0.5049,
+      "contrib": -0.0437
+    },
+    {
+      "term": "unigrams__banco",
+      "tfidf": 0.1284,
+      "coef": -0.3398,
+      "contrib": -0.0436
+    }
+  ]
+}

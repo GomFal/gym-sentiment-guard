@@ -1,0 +1,19 @@
+{
+  "id": 9966,
+  "text": "está dé reformas",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.1017,
+  "raw_score": 0.3747,
+  "top_positive_contributors": [],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__está",
+      "tfidf": 1.0,
+      "coef": -0.1017,
+      "contrib": -0.1017
+    }
+  ]
+}

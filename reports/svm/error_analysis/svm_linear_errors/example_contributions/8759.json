@@ -1,0 +1,134 @@
+{
+  "id": 8759,
+  "text": "para quien le guste mucho el gimnasio estupendo fuimos con invitación pero lo más atractivo que era el spa hacia un calor asfixiante y el agua del jacuzzi no estaba muy caliente aunque parecía las piscinas sobre todo la grande tampoco estaba caliente y eso que en la calle hacía calor muchas máquinas y muy modernas pero en la sala con no muy buen olor no me pareció muy cómodo ni agradable",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.6826,
+  "raw_score": -0.2062,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buen",
+      "tfidf": 0.0883,
+      "coef": 1.7469,
+      "contrib": 0.1543
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.1276,
+      "coef": 0.9425,
+      "contrib": 0.1203
+    },
+    {
+      "term": "unigrams__grande",
+      "tfidf": 0.1359,
+      "coef": 0.7232,
+      "contrib": 0.0983
+    },
+    {
+      "term": "unigrams__estupendo",
+      "tfidf": 0.1604,
+      "coef": 0.5395,
+      "contrib": 0.0866
+    },
+    {
+      "term": "unigrams__agradable",
+      "tfidf": 0.1274,
+      "coef": 0.5995,
+      "contrib": 0.0764
+    },
+    {
+      "term": "unigrams__aunque",
+      "tfidf": 0.1348,
+      "coef": 0.3536,
+      "contrib": 0.0477
+    },
+    {
+      "term": "unigrams__cómodo",
+      "tfidf": 0.1696,
+      "coef": 0.2273,
+      "contrib": 0.0386
+    },
+    {
+      "term": "unigrams__modernas",
+      "tfidf": 0.1778,
+      "coef": 0.1755,
+      "contrib": 0.0312
+    },
+    {
+      "term": "unigrams__pareció",
+      "tfidf": 0.2108,
+      "coef": 0.1365,
+      "contrib": 0.0288
+    },
+    {
+      "term": "unigrams__fuimos",
+      "tfidf": 0.2197,
+      "coef": 0.0972,
+      "contrib": 0.0214
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1451,
+      "coef": -2.3531,
+      "contrib": -0.3413
+    },
+    {
+      "term": "unigrams__calor",
+      "tfidf": 0.2712,
+      "coef": -0.8265,
+      "contrib": -0.2241
+    },
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.1175,
+      "coef": -1.454,
+      "contrib": -0.1708
+    },
+    {
+      "term": "unigrams__estaba",
+      "tfidf": 0.2536,
+      "coef": -0.4736,
+      "contrib": -0.1201
+    },
+    {
+      "term": "unigrams__era",
+      "tfidf": 0.1502,
+      "coef": -0.5782,
+      "contrib": -0.0868
+    },
+    {
+      "term": "unigrams__agua",
+      "tfidf": 0.1453,
+      "coef": -0.561,
+      "contrib": -0.0815
+    },
+    {
+      "term": "unigrams__quien",
+      "tfidf": 0.1696,
+      "coef": -0.4458,
+      "contrib": -0.0756
+    },
+    {
+      "term": "multigrams__en la",
+      "tfidf": 0.1331,
+      "coef": -0.4925,
+      "contrib": -0.0656
+    },
+    {
+      "term": "unigrams__tampoco",
+      "tfidf": 0.1685,
+      "coef": -0.3636,
+      "contrib": -0.0613
+    },
+    {
+      "term": "unigrams__olor",
+      "tfidf": 0.1844,
+      "coef": -0.2601,
+      "contrib": -0.048
+    }
+  ]
+}

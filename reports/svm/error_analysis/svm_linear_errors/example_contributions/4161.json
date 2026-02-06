@@ -1,0 +1,92 @@
+{
+  "id": 4161,
+  "text": "siempre esta petado pero los monitores son majos",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.0109,
+  "raw_score": 0.4655,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__majos",
+      "tfidf": 0.5237,
+      "coef": 0.3509,
+      "contrib": 0.1838
+    },
+    {
+      "term": "multigrams__siempre esta",
+      "tfidf": 0.3479,
+      "coef": 0.2238,
+      "contrib": 0.0779
+    },
+    {
+      "term": "unigrams__monitores",
+      "tfidf": 0.337,
+      "coef": 0.1107,
+      "contrib": 0.0373
+    },
+    {
+      "term": "unigrams__pero",
+      "tfidf": 0.2828,
+      "coef": 0.0681,
+      "contrib": 0.0193
+    },
+    {
+      "term": "multigrams__los monitores",
+      "tfidf": 0.1981,
+      "coef": 0.0951,
+      "contrib": 0.0188
+    },
+    {
+      "term": "unigrams__siempre",
+      "tfidf": 0.3162,
+      "coef": 0.0379,
+      "contrib": 0.012
+    },
+    {
+      "term": "multigrams__los monitores son",
+      "tfidf": 0.2676,
+      "coef": 0.044,
+      "contrib": 0.0118
+    },
+    {
+      "term": "multigrams__monitores son",
+      "tfidf": 0.2644,
+      "coef": 0.0161,
+      "contrib": 0.0043
+    },
+    {
+      "term": "multigrams__son majos",
+      "tfidf": 0.4398,
+      "coef": 0.0006,
+      "contrib": 0.0003
+    },
+    {
+      "term": "multigrams__monitores son majos",
+      "tfidf": 0.4398,
+      "coef": 0.0006,
+      "contrib": 0.0003
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__petado",
+      "tfidf": 0.6575,
+      "coef": -0.3352,
+      "contrib": -0.2204
+    },
+    {
+      "term": "multigrams__pero los",
+      "tfidf": 0.3433,
+      "coef": -0.2839,
+      "contrib": -0.0975
+    },
+    {
+      "term": "multigrams__pero los monitores",
+      "tfidf": 0.4398,
+      "coef": -0.1333,
+      "contrib": -0.0586
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": 7402,
+  "text": "soy usuaria del gimnasio de embajadores en rasgos generales satisfecha con instalaciones y personal quiero hacer una crítica a un perfil de usuario y una queja al responsable del gimnasio se trata del usuario que no quiere compartir màquinas material del usuario que usa una màquina y al acabar una de las series q està haciendo permanece sentado en la màquina sin ceder el uso a otro usuario o se pone a chatear sentado ocupando la màquina sin dar la posibilidad a que otra persona en sus descansos ",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -1.2153,
+  "raw_score": -0.7389,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__mejor",
+      "tfidf": 0.0735,
+      "coef": 1.1684,
+      "contrib": 0.0859
+    },
+    {
+      "term": "unigrams__gracias",
+      "tfidf": 0.0506,
+      "coef": 1.2049,
+      "contrib": 0.061
+    },
+    {
+      "term": "unigrams__queja",
+      "tfidf": 0.1334,
+      "coef": 0.3598,
+      "contrib": 0.048
+    },
+    {
+      "term": "unigrams__necesitas",
+      "tfidf": 0.1649,
+      "coef": 0.2678,
+      "contrib": 0.0442
+    },
+    {
+      "term": "multigrams__es que",
+      "tfidf": 0.1125,
+      "coef": 0.3872,
+      "contrib": 0.0435
+    },
+    {
+      "term": "unigrams__bueno",
+      "tfidf": 0.0575,
+      "coef": 0.4174,
+      "contrib": 0.024
+    },
+    {
+      "term": "unigrams__sabes",
+      "tfidf": 0.0962,
+      "coef": 0.2488,
+      "contrib": 0.0239
+    },
+    {
+      "term": "unigrams__variadas",
+      "tfidf": 0.0795,
+      "coef": 0.2988,
+      "contrib": 0.0238
+    },
+    {
+      "term": "unigrams__casa",
+      "tfidf": 0.1179,
+      "coef": 0.1948,
+      "contrib": 0.023
+    },
+    {
+      "term": "unigrams__otros",
+      "tfidf": 0.0614,
+      "coef": 0.3053,
+      "contrib": 0.0188
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.09,
+      "coef": -2.3531,
+      "contrib": -0.2118
+    },
+    {
+      "term": "unigrams__ni",
+      "tfidf": 0.0879,
+      "coef": -1.454,
+      "contrib": -0.1278
+    },
+    {
+      "term": "unigrams__minutos",
+      "tfidf": 0.1567,
+      "coef": -0.5108,
+      "contrib": -0.08
+    },
+    {
+      "term": "unigrams__otro",
+      "tfidf": 0.1201,
+      "coef": -0.5891,
+      "contrib": -0.0708
+    },
+    {
+      "term": "unigrams__tres",
+      "tfidf": 0.1251,
+      "coef": -0.4581,
+      "contrib": -0.0573
+    },
+    {
+      "term": "unigrams__sin",
+      "tfidf": 0.0728,
+      "coef": -0.7453,
+      "contrib": -0.0543
+    },
+    {
+      "term": "unigrams__solo",
+      "tfidf": 0.0875,
+      "coef": -0.4614,
+      "contrib": -0.0404
+    },
+    {
+      "term": "unigrams__responsable",
+      "tfidf": 0.1444,
+      "coef": -0.2705,
+      "contrib": -0.0391
+    },
+    {
+      "term": "unigrams__usar",
+      "tfidf": 0.145,
+      "coef": -0.2679,
+      "contrib": -0.0389
+    },
+    {
+      "term": "unigrams__vayas",
+      "tfidf": 0.0731,
+      "coef": -0.4905,
+      "contrib": -0.0359
+    }
+  ]
+}

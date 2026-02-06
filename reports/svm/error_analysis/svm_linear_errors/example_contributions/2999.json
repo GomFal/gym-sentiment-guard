@@ -1,0 +1,104 @@
+{
+  "id": 2999,
+  "text": "si sigo apuntada es por las clases benditos profesores que sacan adelante un gimnasio abarrotado y a 30 grados",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.1687,
+  "raw_score": 0.6451,
+  "top_positive_contributors": [
+    {
+      "term": "multigrams__un gimnasio",
+      "tfidf": 0.1709,
+      "coef": 0.5421,
+      "contrib": 0.0926
+    },
+    {
+      "term": "multigrams__las clases",
+      "tfidf": 0.1611,
+      "coef": 0.449,
+      "contrib": 0.0723
+    },
+    {
+      "term": "unigrams__apuntada",
+      "tfidf": 0.3562,
+      "coef": 0.1106,
+      "contrib": 0.0394
+    },
+    {
+      "term": "unigrams__adelante",
+      "tfidf": 0.4287,
+      "coef": 0.0793,
+      "contrib": 0.034
+    },
+    {
+      "term": "unigrams__profesores",
+      "tfidf": 0.3065,
+      "coef": 0.0902,
+      "contrib": 0.0277
+    },
+    {
+      "term": "multigrams__por las clases",
+      "tfidf": 0.3319,
+      "coef": 0.0477,
+      "contrib": 0.0158
+    },
+    {
+      "term": "unigrams__abarrotado",
+      "tfidf": 0.3649,
+      "coef": 0.0354,
+      "contrib": 0.0129
+    },
+    {
+      "term": "multigrams__un gimnasio abarrotado",
+      "tfidf": 0.3873,
+      "coef": 0.0251,
+      "contrib": 0.0097
+    },
+    {
+      "term": "multigrams__es por",
+      "tfidf": 0.2838,
+      "coef": 0.0255,
+      "contrib": 0.0072
+    },
+    {
+      "term": "multigrams__por las",
+      "tfidf": 0.2148,
+      "coef": 0.0182,
+      "contrib": 0.0039
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__sigo",
+      "tfidf": 0.3682,
+      "coef": -0.1418,
+      "contrib": -0.0522
+    },
+    {
+      "term": "unigrams__grados",
+      "tfidf": 0.3881,
+      "coef": -0.1269,
+      "contrib": -0.0492
+    },
+    {
+      "term": "multigrams__profesores que",
+      "tfidf": 0.3656,
+      "coef": -0.095,
+      "contrib": -0.0347
+    },
+    {
+      "term": "unigrams__sacan",
+      "tfidf": 0.4195,
+      "coef": -0.0288,
+      "contrib": -0.0121
+    },
+    {
+      "term": "multigrams__que sacan",
+      "tfidf": 0.3873,
+      "coef": -0.0056,
+      "contrib": -0.0022
+    }
+  ]
+}

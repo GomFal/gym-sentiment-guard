@@ -10,17 +10,25 @@ from pathlib import Path
 
 import yaml
 
+from gym_sentiment_guard.common.error_analysis import (
+    build_error_table,
+    compute_risk_tags,
+    compute_slice_metrics,
+    create_manifest,
+    generate_limitations_report,
+    generate_rankings,
+    load_contrast_keywords,
+    load_merged_data,
+    load_model_bundle,
+    save_error_table,
+    save_limitations_report,
+    save_manifest,
+    save_slice_metrics,
+)
 from gym_sentiment_guard.utils.logging import get_logger, json_log
 
 from .coefficients import extract_coefficients, save_coefficients
 from .contributions import compute_example_contributions, save_contributions
-from .error_table import build_error_table, save_error_table
-from .limitations import generate_limitations_report, save_limitations_report
-from .loader import load_merged_data, load_model_bundle
-from .manifest import create_manifest, save_manifest
-from .rankings import generate_rankings
-from .risk_tags import compute_risk_tags, load_contrast_keywords
-from .slices import compute_slice_metrics, save_slice_metrics
 
 log = get_logger(__name__)
 
@@ -82,6 +90,12 @@ def run_error_analysis(
     # TASK 2: Load model and data
     # ==========================================================================
     model = load_model_bundle(model_path_resolved)
+
+    # Extract vectorizer (LogReg uses 'tfidf' step name)
+    vectorizer = model.named_steps.get('tfidf') or model.named_steps.get('vectorizer')
+    if vectorizer is None:
+        raise ValueError(f"No vectorizer found. Steps: {list(model.named_steps.keys())}")
+
     df = load_merged_data(
         test_csv_path_resolved,
         predictions_path_resolved,
@@ -94,7 +108,7 @@ def run_error_analysis(
     # ==========================================================================
     error_df = build_error_table(
         df,
-        model,
+        vectorizer,
         threshold=config['threshold'],
         low_coverage_nnz_threshold=config.get('low_coverage_nnz_threshold', 5),
         low_coverage_tfidf_threshold=config.get('low_coverage_tfidf_threshold', 0.5),

@@ -150,7 +150,7 @@ def train_rbf_from_config(config_path: str | Path) -> dict:
     base_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate run ID
-    today = datetime.now(UTC).strftime('%Y-%m-%d')
+    today = datetime.now(UTC).strftime('%Y.%m.%d')
     existing = sorted(
         p.name for p in base_dir.iterdir() if p.is_dir() and p.name.startswith(f'model.{today}_')
     )

@@ -1,0 +1,134 @@
+{
+  "id": 9396,
+  "text": "maquinas muy bien aforo fatal terrible!!!! para hacer una superserie hay que ir por las mañanas después de comer o a última hora de la noche",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.1381,
+  "raw_score": 0.3382,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.1573,
+      "coef": 1.2502,
+      "contrib": 0.1966
+    },
+    {
+      "term": "unigrams__última",
+      "tfidf": 0.3327,
+      "coef": 0.3011,
+      "contrib": 0.1002
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.0998,
+      "coef": 0.9425,
+      "contrib": 0.0941
+    },
+    {
+      "term": "multigrams__hay que",
+      "tfidf": 0.1629,
+      "coef": 0.4168,
+      "contrib": 0.0679
+    },
+    {
+      "term": "multigrams__muy bien",
+      "tfidf": 0.1147,
+      "coef": 0.5109,
+      "contrib": 0.0586
+    },
+    {
+      "term": "unigrams__mañanas",
+      "tfidf": 0.3299,
+      "coef": 0.1645,
+      "contrib": 0.0543
+    },
+    {
+      "term": "unigrams__comer",
+      "tfidf": 0.3785,
+      "coef": 0.1185,
+      "contrib": 0.0448
+    },
+    {
+      "term": "multigrams__para hacer",
+      "tfidf": 0.1676,
+      "coef": 0.2461,
+      "contrib": 0.0412
+    },
+    {
+      "term": "multigrams__hacer una",
+      "tfidf": 0.2178,
+      "coef": 0.1029,
+      "contrib": 0.0224
+    },
+    {
+      "term": "multigrams__para hacer una",
+      "tfidf": 0.2783,
+      "coef": 0.0737,
+      "contrib": 0.0205
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__fatal",
+      "tfidf": 0.3282,
+      "coef": -0.8635,
+      "contrib": -0.2834
+    },
+    {
+      "term": "unigrams__terrible",
+      "tfidf": 0.3963,
+      "coef": -0.6077,
+      "contrib": -0.2408
+    },
+    {
+      "term": "unigrams__hora",
+      "tfidf": 0.2331,
+      "coef": -0.359,
+      "contrib": -0.0837
+    },
+    {
+      "term": "unigrams__después",
+      "tfidf": 0.2559,
+      "coef": -0.2403,
+      "contrib": -0.0615
+    },
+    {
+      "term": "unigrams__noche",
+      "tfidf": 0.3465,
+      "coef": -0.1345,
+      "contrib": -0.0466
+    },
+    {
+      "term": "multigrams__maquinas muy",
+      "tfidf": 0.2344,
+      "coef": -0.188,
+      "contrib": -0.0441
+    },
+    {
+      "term": "unigrams__hacer",
+      "tfidf": 0.213,
+      "coef": -0.1972,
+      "contrib": -0.042
+    },
+    {
+      "term": "multigrams__la noche",
+      "tfidf": 0.2087,
+      "coef": -0.139,
+      "contrib": -0.029
+    },
+    {
+      "term": "multigrams__que ir",
+      "tfidf": 0.1959,
+      "coef": -0.1329,
+      "contrib": -0.026
+    },
+    {
+      "term": "multigrams__después de",
+      "tfidf": 0.1578,
+      "coef": -0.1278,
+      "contrib": -0.0202
+    }
+  ]
+}

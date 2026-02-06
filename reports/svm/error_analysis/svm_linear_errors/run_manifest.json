@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-02-05T19:33:45.188514+00:00",
+  "config": {
+    "model_path": "artifacts/models/svm_rbf/model.2026-02-02_001/svm_rbf.joblib",
+    "predictions_csv_path": "artifacts/models/svm_rbf/model.2026-02-02_001/test_predictions.csv",
+    "test_csv_path": "data/frozen/sentiment_logreg/2025.12.15_01/test/test.csv",
+    "text_column": "comment",
+    "id_column": "id",
+    "threshold": 0.5,
+    "near_threshold_band": 0.1,
+    "contrast_keywords_path": "configs/contrast_keywords.txt",
+    "low_coverage_nnz_threshold": 5,
+    "low_coverage_tfidf_threshold": 0.5,
+    "confidence_threshold": 0.3,
+    "top_k_errors": 50,
+    "top_k_coefficients": 20,
+    "n_example_svs": 5,
+    "min_slice_size": 50
+  },
+  "data": {
+    "model_path": "artifacts\\models\\svm_linear\\model.2026-01-23_001\\svm.joblib",
+    "test_csv_path": "data\\frozen\\sentiment_logreg\\2025.12.15_01\\test\\test.csv",
+    "predictions_csv_path": "artifacts\\models\\svm_linear\\model.2026-01-23_001\\test_predictions.csv",
+    "n_samples": 2072,
+    "n_errors": 87,
+    "error_rate": 0.042
+  },
+  "svm_type": "linear"
+}

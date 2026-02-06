@@ -1,0 +1,110 @@
+{
+  "id": 8977,
+  "text": "deberían controlar el aparcamiento en las plazas destinadas a los cargadores y recordar a los usuarios que son plazas de recarga y no de aparcamiento para vehículos eléctricos y menos para los no eléctricos",
+  "y_true": 1,
+  "y_pred": 0,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.6731,
+  "raw_score": -0.1967,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__plazas",
+      "tfidf": 0.6061,
+      "coef": 0.1099,
+      "contrib": 0.0666
+    },
+    {
+      "term": "multigrams__para los",
+      "tfidf": 0.1945,
+      "coef": 0.2077,
+      "contrib": 0.0404
+    },
+    {
+      "term": "multigrams__plazas de",
+      "tfidf": 0.2971,
+      "coef": 0.0544,
+      "contrib": 0.0162
+    },
+    {
+      "term": "multigrams__usuarios que",
+      "tfidf": 0.2304,
+      "coef": 0.0488,
+      "contrib": 0.0112
+    },
+    {
+      "term": "multigrams__aparcamiento para",
+      "tfidf": 0.2877,
+      "coef": 0.0337,
+      "contrib": 0.0097
+    },
+    {
+      "term": "multigrams__las plazas",
+      "tfidf": 0.2694,
+      "coef": 0.0334,
+      "contrib": 0.009
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1925,
+      "coef": -2.3531,
+      "contrib": -0.4529
+    },
+    {
+      "term": "unigrams__menos",
+      "tfidf": 0.2175,
+      "coef": -0.3618,
+      "contrib": -0.0787
+    },
+    {
+      "term": "unigrams__deberían",
+      "tfidf": 0.2652,
+      "coef": -0.1634,
+      "contrib": -0.0433
+    },
+    {
+      "term": "multigrams__de aparcamiento",
+      "tfidf": 0.2744,
+      "coef": -0.152,
+      "contrib": -0.0417
+    },
+    {
+      "term": "multigrams__en las",
+      "tfidf": 0.1508,
+      "coef": -0.2614,
+      "contrib": -0.0394
+    },
+    {
+      "term": "multigrams__controlar el",
+      "tfidf": 0.2577,
+      "coef": -0.1107,
+      "contrib": -0.0285
+    },
+    {
+      "term": "multigrams__los usuarios",
+      "tfidf": 0.184,
+      "coef": -0.1462,
+      "contrib": -0.0269
+    },
+    {
+      "term": "multigrams__que son",
+      "tfidf": 0.1847,
+      "coef": -0.1222,
+      "contrib": -0.0226
+    },
+    {
+      "term": "unigrams__controlar",
+      "tfidf": 0.3355,
+      "coef": -0.0602,
+      "contrib": -0.0202
+    },
+    {
+      "term": "multigrams__deberían controlar el",
+      "tfidf": 0.2804,
+      "coef": -0.0648,
+      "contrib": -0.0182
+    }
+  ]
+}

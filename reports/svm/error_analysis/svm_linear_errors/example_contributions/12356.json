@@ -1,0 +1,32 @@
+{
+  "id": 12356,
+  "text": "falta atención personal",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.1705,
+  "raw_score": 0.6468,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__atención",
+      "tfidf": 0.4794,
+      "coef": 0.4248,
+      "contrib": 0.2037
+    },
+    {
+      "term": "unigrams__personal",
+      "tfidf": 0.4854,
+      "coef": 0.1859,
+      "contrib": 0.0902
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__falta",
+      "tfidf": 0.7311,
+      "coef": -0.1688,
+      "contrib": -0.1234
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "id": 11591,
+  "text": "buenas instalaciones muy saturado no hay gente para preguntar como hacer los ejercicios",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": -0.232,
+  "raw_score": 0.2443,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__buenas",
+      "tfidf": 0.2935,
+      "coef": 0.8005,
+      "contrib": 0.235
+    },
+    {
+      "term": "unigrams__muy",
+      "tfidf": 0.1481,
+      "coef": 0.9425,
+      "contrib": 0.1396
+    },
+    {
+      "term": "unigrams__instalaciones",
+      "tfidf": 0.2332,
+      "coef": 0.4393,
+      "contrib": 0.1024
+    },
+    {
+      "term": "unigrams__ejercicios",
+      "tfidf": 0.4198,
+      "coef": 0.1298,
+      "contrib": 0.0545
+    },
+    {
+      "term": "multigrams__hay gente",
+      "tfidf": 0.2304,
+      "coef": 0.0919,
+      "contrib": 0.0212
+    },
+    {
+      "term": "multigrams__los ejercicios",
+      "tfidf": 0.2089,
+      "coef": 0.0917,
+      "contrib": 0.0192
+    },
+    {
+      "term": "multigrams__buenas instalaciones muy",
+      "tfidf": 0.2482,
+      "coef": 0.0096,
+      "contrib": 0.0024
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__no",
+      "tfidf": 0.1914,
+      "coef": -2.3531,
+      "contrib": -0.4505
+    },
+    {
+      "term": "unigrams__hacer",
+      "tfidf": 0.3161,
+      "coef": -0.1972,
+      "contrib": -0.0623
+    },
+    {
+      "term": "multigrams__muy saturado",
+      "tfidf": 0.2865,
+      "coef": -0.2143,
+      "contrib": -0.0614
+    },
+    {
+      "term": "multigrams__buenas instalaciones",
+      "tfidf": 0.1536,
+      "coef": -0.3047,
+      "contrib": -0.0468
+    },
+    {
+      "term": "multigrams__no hay",
+      "tfidf": 0.1543,
+      "coef": -0.2662,
+      "contrib": -0.0411
+    },
+    {
+      "term": "multigrams__para preguntar",
+      "tfidf": 0.2777,
+      "coef": -0.111,
+      "contrib": -0.0308
+    },
+    {
+      "term": "unigrams__saturado",
+      "tfidf": 0.5217,
+      "coef": -0.0578,
+      "contrib": -0.0301
+    },
+    {
+      "term": "multigrams__instalaciones muy",
+      "tfidf": 0.1953,
+      "coef": -0.1095,
+      "contrib": -0.0214
+    },
+    {
+      "term": "unigrams__preguntar",
+      "tfidf": 0.5026,
+      "coef": -0.0245,
+      "contrib": -0.0123
+    },
+    {
+      "term": "multigrams__hacer los ejercicios",
+      "tfidf": 0.2918,
+      "coef": -0.0396,
+      "contrib": -0.0116
+    }
+  ]
+}

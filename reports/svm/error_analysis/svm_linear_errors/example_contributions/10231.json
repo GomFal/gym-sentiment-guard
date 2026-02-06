@@ -1,0 +1,134 @@
+{
+  "id": 10231,
+  "text": "los vestuarios son penosos creo que le vendría bien una reformita y mas con el precio que se paga",
+  "y_true": 0,
+  "y_pred": 1,
+  "model_type": "svm_linear",
+  "model_intercept": 0.4764,
+  "total_contribution_sum": 0.0835,
+  "raw_score": 0.5599,
+  "top_positive_contributors": [
+    {
+      "term": "unigrams__bien",
+      "tfidf": 0.2444,
+      "coef": 1.2502,
+      "contrib": 0.3055
+    },
+    {
+      "term": "multigrams__vendría bien",
+      "tfidf": 0.2922,
+      "coef": 0.1026,
+      "contrib": 0.03
+    },
+    {
+      "term": "multigrams__el precio",
+      "tfidf": 0.179,
+      "coef": 0.1288,
+      "contrib": 0.0231
+    },
+    {
+      "term": "multigrams__los vestuarios",
+      "tfidf": 0.1852,
+      "coef": 0.0929,
+      "contrib": 0.0172
+    },
+    {
+      "term": "multigrams__los vestuarios son",
+      "tfidf": 0.2485,
+      "coef": 0.0666,
+      "contrib": 0.0166
+    },
+    {
+      "term": "multigrams__vestuarios son",
+      "tfidf": 0.2485,
+      "coef": 0.0666,
+      "contrib": 0.0166
+    },
+    {
+      "term": "unigrams__vestuarios",
+      "tfidf": 0.417,
+      "coef": 0.0395,
+      "contrib": 0.0165
+    },
+    {
+      "term": "multigrams__que le",
+      "tfidf": 0.1861,
+      "coef": 0.064,
+      "contrib": 0.0119
+    },
+    {
+      "term": "multigrams__bien una",
+      "tfidf": 0.2998,
+      "coef": 0.0396,
+      "contrib": 0.0119
+    },
+    {
+      "term": "multigrams__precio que se",
+      "tfidf": 0.3096,
+      "coef": 0.022,
+      "contrib": 0.0068
+    }
+  ],
+  "top_negative_contributors": [
+    {
+      "term": "unigrams__paga",
+      "tfidf": 0.562,
+      "coef": -0.2888,
+      "contrib": -0.1623
+    },
+    {
+      "term": "multigrams__precio que",
+      "tfidf": 0.2387,
+      "coef": -0.2352,
+      "contrib": -0.0561
+    },
+    {
+      "term": "multigrams__con el",
+      "tfidf": 0.1405,
+      "coef": -0.275,
+      "contrib": -0.0386
+    },
+    {
+      "term": "multigrams__que se",
+      "tfidf": 0.1361,
+      "coef": -0.2744,
+      "contrib": -0.0373
+    },
+    {
+      "term": "multigrams__el precio que",
+      "tfidf": 0.2467,
+      "coef": -0.1289,
+      "contrib": -0.0318
+    },
+    {
+      "term": "unigrams__mas",
+      "tfidf": 0.3986,
+      "coef": -0.0692,
+      "contrib": -0.0276
+    },
+    {
+      "term": "multigrams__que se paga",
+      "tfidf": 0.2807,
+      "coef": -0.048,
+      "contrib": -0.0135
+    },
+    {
+      "term": "multigrams__mas con",
+      "tfidf": 0.3096,
+      "coef": -0.0174,
+      "contrib": -0.0054
+    },
+    {
+      "term": "multigrams__creo que",
+      "tfidf": 0.1731,
+      "coef": -0.0266,
+      "contrib": -0.0046
+    },
+    {
+      "term": "unigrams__precio",
+      "tfidf": 0.3362,
+      "coef": -0.0105,
+      "contrib": -0.0035
+    }
+  ]
+}

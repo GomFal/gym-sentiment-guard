@@ -478,3 +478,101 @@ def ablation_report(
             n_artifacts=len(artifacts),
         ),
     )
+
+
+@app.command('error-analysis')
+def error_analysis(
+    config: Annotated[
+        Path,
+        typer.Option(
+            '--config',
+            '-c',
+            help='Path to error analysis config YAML.',
+        ),
+    ] = Path('configs/svm/error_analysis.yaml'),
+    model: Annotated[
+        Path | None,
+        typer.Option(
+            '--model',
+            '-m',
+            exists=True,
+            readable=True,
+            help='Path to SVM model .joblib file (overrides config).',
+        ),
+    ] = None,
+    predictions: Annotated[
+        Path | None,
+        typer.Option(
+            '--predictions',
+            '-p',
+            exists=True,
+            readable=True,
+            help='Path to test_predictions.csv (overrides config).',
+        ),
+    ] = None,
+    test_csv: Annotated[
+        Path | None,
+        typer.Option(
+            '--test-csv',
+            '-t',
+            exists=True,
+            readable=True,
+            help='Path to test.csv with text column (overrides config).',
+        ),
+    ] = None,
+    output_dir: Annotated[
+        Path,
+        typer.Option(
+            '--output',
+            '-o',
+            help='Output directory for error analysis artifacts.',
+        ),
+    ] = Path('reports/svm_error_analysis'),
+) -> None:
+    """
+    Run error analysis on SVM model predictions.
+
+    Analyzes misclassified reviews, generates ranked error lists,
+    computes slice metrics, and creates interpretability reports.
+
+    Automatically detects Linear vs RBF SVM:
+    - Linear SVM: Extracts coefficients and per-example contributions
+    - RBF SVM: Extracts support vector statistics
+    """
+    from ..models.svm.reports.errors import run_error_analysis
+    from ..utils import get_logger, json_log
+
+    log = get_logger(__name__)
+
+    log.info(
+        json_log(
+            'cli.error_analysis.start',
+            component='cli',
+            config=str(config),
+            output_dir=str(output_dir),
+        )
+    )
+
+    artifacts = run_error_analysis(
+        config_path=config,
+        output_dir=output_dir,
+        model_path=model,
+        predictions_path=predictions,
+        test_csv_path=test_csv,
+    )
+
+    typer.echo('SVM Error analysis completed!')
+    typer.echo(f'Output directory: {output_dir}')
+    typer.echo(f'Artifacts generated: {len(artifacts)}')
+
+    for name, path in artifacts.items():
+        typer.echo(f'  - {name}: {path}')
+
+    log.info(
+        json_log(
+            'cli.error_analysis.completed',
+            component='cli',
+            n_artifacts=len(artifacts),
+        )
+    )
+
